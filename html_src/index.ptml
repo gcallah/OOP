@@ -3,7 +3,7 @@
     <head>
 <!--include head.txt -->
         <title>
-            Object-Oriented Programming
+            Object-Oriented Programming in C++
         </title>
     </head>
 
@@ -12,10 +12,11 @@
 <!--include navbar.txt -->
             <div id="content">
                 <h1>
-                    Object-Oriented Programming
+                    Object-Oriented Programming in C++
                 </h1>
         
                 <p class="leadquote">
+                    "Programming is understanding." -- Kristen Nygaard
                 </p>
         
                 <div style="text-align:center">
