@@ -2,8 +2,7 @@
 <nav id="sidebar">
     <div id="sidebarCollapse">
         <div class="sidebar-header">
-            <h1>DevOps</h1>
-            <strong>DO</strong>
+            <h1>Object-Oriented Programming</h1>
         </div>
     </div>
 
