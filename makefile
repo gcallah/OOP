@@ -27,3 +27,6 @@ all:
 clean:
 	touch $(PTML_DIR)/*.ptml; make local
 	cd build; touch $(PTML_DIR)/*.ptml; make local; cd ..
+
+course_struct:
+	$(UTILS_DIR)/gen_course_struct.awk <$(TEMPLATE_DIR)/course_struct.txt
