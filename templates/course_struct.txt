@@ -8,6 +8,11 @@ Course Topics
     Basic Facilities
 		Types and Declarations^types.html
 		Pointers, Arrays, and References^ptr_arr_ref.html
+        Structures, Unions, and Enumerations^struct.html
+        Statements^statements.html
+        Expressions^expressions.html
+    Abstraction Mechanisms
+    The Standard Library
 Other Materials
 About^about.html
     
