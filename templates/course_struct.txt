@@ -11,7 +11,27 @@ Course Topics
         Structures, Unions, and Enumerations^struct.html
         Statements^statements.html
         Expressions^expressions.html
+        Select Operations^operations.html
+        Functions^functions.html
+        Exception Handling^exception.html
+        Namespaces^namespaces.html
+        Source Files and Programs^source.html
     Abstraction Mechanisms
+        Classes^classes.html
+        Construction, Cleanup, Copy, and Move^construction.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
+        Classes^classes.html
     The Standard Library
 Other Materials
 About^about.html
