@@ -123,7 +123,7 @@ h1 {
     padding-left: 2em;
     text-align: center;
     font-size: 2em;
-    color: #97f;
+    color: #a8f;
 }
 
 h1.no-menu {
@@ -224,7 +224,7 @@ p.leadquote {
     text-align: center;
     margin: 1em 1em 1em 2em;
     font-size: 1.1em;
-    color: #a8f;
+    color: #baf;
 }
 
 p.def {
@@ -350,7 +350,7 @@ i, span {
 #sidebar {
     min-width: 300px;
     max-width: 300px;
-    background: #97f;
+    background: #a8f;
     color: #000;
     transition: all 0.3s;
 }
@@ -405,7 +405,7 @@ i, span {
     padding-bottom: 2.8em;
     padding-top: .8em;
     padding-left: 1.6em;
-    background: #a8f;
+    background: #baf;
 }
 
 #sidebar .sidebar-header strong {
