@@ -123,7 +123,7 @@ h1 {
     padding-left: 2em;
     text-align: center;
     font-size: 2em;
-    color: #7869fd;
+    color: #97f;
 }
 
 h1.no-menu {
@@ -224,7 +224,7 @@ p.leadquote {
     text-align: center;
     margin: 1em 1em 1em 2em;
     font-size: 1.1em;
-    color: #96f;
+    color: #a8f;
 }
 
 p.def {
@@ -350,7 +350,7 @@ i, span {
 #sidebar {
     min-width: 300px;
     max-width: 300px;
-    background: #7869fd;
+    background: #97f;
     color: #000;
     transition: all 0.3s;
 }
@@ -405,7 +405,7 @@ i, span {
     padding-bottom: 2.8em;
     padding-top: .8em;
     padding-left: 1.6em;
-    background: #96f;
+    background: #a8f;
 }
 
 #sidebar .sidebar-header strong {
@@ -431,7 +431,7 @@ i, span {
 
 #sidebar ul li a:hover {
     color: #7386D5;
-    background: #fff;
+    background: #000;
 }
 
 #sidebar ul li a i {
@@ -446,7 +446,7 @@ i, span {
 #sidebar ul ul a {
     padding-left: 3.0em;
     text-align: left;
-    color: #fff;
+    color: #000;
     font-size: 1.1em;
     display: block;
 }
