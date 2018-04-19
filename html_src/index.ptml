@@ -3,8 +3,9 @@
     <head>
 <!--include head.txt -->
         <title>
-            Object-Oriented Programming in C++
+            Home
         </title>
+<!--include googleAnalyticsScript.txt -->
     </head>
 
     <body>
@@ -12,18 +13,9 @@
 <!--include navbar.txt -->
             <div id="content">
                 <h1>
-                    Object-Oriented Programming in C++
+                    Home
                 </h1>
-        
-                <p class="leadquote">
-                    "Programming is understanding." -- Kristen Nygaard
-                </p>
-        
-                <div style="text-align:center">
-                    <h2 class="centered">
-                    </h2>
-        
-                </div>
+
             </div>
         </div>
 

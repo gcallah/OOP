@@ -3,8 +3,9 @@
     <head>
 <!--include head.txt -->
         <title>
-            About This Site
+            About
         </title>
+<!--include googleAnalyticsScript.txt -->
     </head>
 
     <body>
@@ -12,17 +13,9 @@
 <!--include navbar.txt -->
             <div id="content">
                 <h1>
-                    About This Site
+                    About
                 </h1>
-        
-                <p>
-                    This website is designed to complement Bjare Stroustrup's
-                    <i>The C++ Programming Language</i> for use in a course
-                    in object-oriented programming at the NYU Tandon School
-                    of Engineering, taught by Eugene Callahan.
-                </p>
 
-                
             </div>
         </div>
 
