@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            Concurrency and Utilities
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    Concurrency and Utilities
+                </h1>
+
+            </div>
+        </div>
+
+    </body>
+</html>

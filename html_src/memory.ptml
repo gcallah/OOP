@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            Memory and Resources
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    Memory and Resources
+                </h1>
+
+            </div>
+        </div>
+
+    </body>
+</html>

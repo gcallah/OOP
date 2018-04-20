@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            Construction, Cleanup, Copy, and Move
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    Construction, Cleanup, Copy, and Move
+                </h1>
+
+            </div>
+        </div>
+
+    </body>
+</html>
