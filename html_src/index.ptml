@@ -3,7 +3,7 @@
     <head>
 <!--include head.txt -->
         <title>
-            Home
+            Object-Oriented Programming
         </title>
 <!--include googleAnalyticsScript.txt -->
     </head>
@@ -13,8 +13,12 @@
 <!--include navbar.txt -->
             <div id="content">
                 <h1>
-                    Home
+                    Object-Oriented Programming
                 </h1>
+
+                <p class="leadquote">
+                    "Programming is understanding." -- Kristen Nygaard
+                </p>
 
             </div>
         </div>

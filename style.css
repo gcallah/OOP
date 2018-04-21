@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     font-size: 100%;
-    background: #318;
-    color: #b8a9fd;
+    background: #315;
+    color: #ede;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -123,7 +123,7 @@ h1 {
     padding-left: 2em;
     text-align: center;
     font-size: 2em;
-    color: #a8f;
+    color: #baf;
 }
 
 h1.no-menu {
@@ -224,7 +224,7 @@ p.leadquote {
     text-align: center;
     margin: 1em 1em 1em 2em;
     font-size: 1.1em;
-    color: #baf;
+    color: #ccf;
 }
 
 p.def {
@@ -350,7 +350,7 @@ i, span {
 #sidebar {
     min-width: 300px;
     max-width: 300px;
-    background: #a8f;
+    background: #baf;
     color: #000;
     transition: all 0.3s;
 }
@@ -405,7 +405,7 @@ i, span {
     padding-bottom: 2.8em;
     padding-top: .8em;
     padding-left: 1.6em;
-    background: #baf;
+    background: #ccf;
 }
 
 #sidebar .sidebar-header strong {
@@ -424,7 +424,7 @@ i, span {
 #sidebar ul li a {
     padding: 0.8em;
     text-align: left;
-    color: #103;
+    color: #503;
     font-size: 1.4em;
     display: block;
 }
@@ -446,7 +446,7 @@ i, span {
 #sidebar ul ul a {
     padding-left: 3.0em;
     text-align: left;
-    color: #000;
+    color: #207;
     font-size: 1.1em;
     display: block;
 }
@@ -454,13 +454,13 @@ i, span {
 #sidebar ul ul ul a {
     padding-left: 4.0em;
     text-align: left;
-    color: #fff;
+    color: #000;
     font-size: 0.8em;
     display: block;
 }
 
 #sidebar h1 {
-    color: #318;
+    color: #316;
     background-color: transparent;
     text-align: left;
     margin: 0.7em 0em 0.2em 0em;
