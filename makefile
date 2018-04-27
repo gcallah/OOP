@@ -28,8 +28,12 @@ clean:
 	touch $(PTML_DIR)/*.ptml; make local
 	cd build; touch $(PTML_DIR)/*.ptml; make local; cd ..
 
-course_struct:
+menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt
+
+html_files:
 	$(UTILS_DIR)/create_pages.py $(TEMPLATE_DIR)/course_struct.txt $(PTML_DIR) $(UTILS_DIR)/templates/template.ptml $(PTML_DIR)
+
+course_struct: menu html_files
 	git add $(PTML_DIR)/*.ptml
 	make local
