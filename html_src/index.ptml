@@ -21,12 +21,16 @@
                 </p>
 
                 <figure>
-                    <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Phylogenetic_tree.svg/900px-Phylogenetic_tree.svg.png"
-                    width="33%">
+                    <img src="graphics/Phylogenetic.png" width="50%">
                     <figcaption>
                     </figcaption>
                 </figure>
+
+                <hr>
+                <p class="credit">
+                    Graphic source:
+                    https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Phylogenetic_tree.svg/900px-Phylogenetic_tree.svg.png
+                </p>
             </div>
         </div>
 

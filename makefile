@@ -22,11 +22,9 @@ local: $(HTMLFILES)
 
 all:
 	make local
-	cd build; make local; cd ..
 
 clean:
 	touch $(PTML_DIR)/*.ptml; make local
-	cd build; touch $(PTML_DIR)/*.ptml; make local; cd ..
 
 menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt
