@@ -1,54 +1,570 @@
-0^Object-Oriented Programming^^OOP^
-1^Home^index.html^
-1^Course Topics^
-2^Introductory Material^
-3^The Basics^basics.html^
-3^Abstraction Mechanisms^abstraction_mech.html^
-3^Containers and Algorithms^containers_algo.html^
-3^Concurrency and Utilities^concurrency_utils.html^
-2^Basic Facilities^
-3^Types and Declarations^types.html^
-3^Pointers, Arrays, and References^ptr_arr_ref.html^
-3^Structures, Unions, and Enumerations^struct.html^
-3^Statements^statements.html^
-3^Expressions^expressions.html^
-3^Select Operations^operations.html^
-3^Functions^functions.html^
-3^Exception Handling^exception.html^
-3^Namespaces^namespaces.html^
-3^Source Files and Programs^source.html^
-2^Abstraction Mechanisms^
-3^Classes^classes.html^
-3^Construction, Cleanup, Copy, and Move^construction.html^
-3^Overloading^overloading.html^
-3^Special Operators^special_ops.html^
-3^Derived Classes^derived_classes.html^
-3^Class Hierarchies^class_hier.html^
-3^Run-Time Type Information^rtype_info.html^
-3^Templates^templates.html^
-3^Generic Programming^generic.html^
-3^Specialization^specialization.html^
-3^Instantiation^instantiation.html^
-3^Templates and Hierarchies^temp_and_hier.html^
-3^Metaprogramming^metaprogramming.html^
-3^A Matrix Design^matrix.html^
-2^The Standard Library^
-3^Standard Library Summary^stl_summary.html^
-3^STL Containers^stl_containers.html^
-3^STL Algorithms^stl_algorithms.html^
-3^STL Iterators^stl_iterators.html^
-3^Memory and Resources^memory.html^
-3^Utilities^utilities.html^
-3^Strings^strings.html^
-3^Regular Expressions^regexp.html^
-3^I/O Streams^io.html^
-3^Locales^locales.html^
-3^Numerics^numerics.html^
-3^Concurrency^concurrency.html^
-3^Threads and Tasks^threads.html^
-3^The C Standard Library^stdlib.html^
-3^Compatibility^compatibility.html^
-1^Other Material^^
-2^Source Code^https://github.com/gcallah/OOP/tree/master/code^
-2^Course Syllabus^syllabus.html^
-1^About^about.html^
+0	Object-Oriented Programming		OOP
+			
+1	Home	index.html	
+			
+1	Topics		
+			
+2	Part I: The Basics		
+			
+3	"2. Hello, World!"	hello.html	
+4	2.1 Programs		
+4	2.2 The classic first program		
+4	2.3 Compilation		
+4	2.4 Linking		
+4	2.5 Programming environments		
+			
+3	"3. Objects, Types, and Values"	otv.html	
+4	3.1 Input		
+4	3.2 Variables		
+4	3.3 Input and type		
+4	3.4 Operations and operators		
+4	3.5 Assignment and initialization		
+5	3.5.1 An example: detect repeated words		
+4	3.6 Composite assignment operators		
+5	3.6.1 An example: find repeated words		
+4	3.7 Names		
+4	3.8 Types and objects		
+4	3.9 Type safety		
+5	3.9.1 Safe conversions		
+5	3.9.2 Unsafe conversions		
+			
+3	4. Computation	computation.html	
+4	4.1 Computation		
+4	4.2 Objectives and tools		
+4	4.3 Expressions		
+5	4.3.1 Constant expressions		
+5	4.3.2 Operators		
+5	4.3.3 Conversions		
+4	4.4 Statements		
+5	4.4.1 Selection		
+5	4.4.2 Iteration		
+4	4.5 Functions		
+5	4.5.1 Why bother with functions?		
+5	4.5.2 Function declarations		
+4	4.6 vector		
+5	4.6.1 Traversing a vector		
+5	4.6.2 Growing a vector		
+5	4.6.3 A numeric example		
+5	4.6.4 A text example		
+4	4.7 Language features		
+			
+3	5. Errors	errors.html	
+4	5.1 Introduction		
+4	5.2 Sources of errors		
+4	5.3 Compile-timeerrors		
+5	5.3.1 Syntaxerrors		
+5	5.3.2 Typeerrors		
+5	5.3.3 Non-errors		
+4	5.4 Link-time errors		
+4	5.5 Run-time errors		
+5	5.5.1 The caller deals with errors		
+5	5.5.2 The callee deals with errors		
+5	5.5.3 Error reporting		
+4	5.6 Exceptions		
+5	5.6.1 Bad arguments		
+5	5.6.2 Range errors		
+5	5.6.3 Bad input		
+5	5.6.4 Narrowing errors		
+4	5.7 Logic errors		
+4	5.8 Estimation		
+4	5.9 Debugging		
+5	5.9.1 Practical debug advice		
+4	5.10 Pre- and post-conditions		
+5	5.10.1 Post-conditions		
+4	5.11 Testing		
+			
+3	6. Writing a Program	writing.html	
+4	6.1 A problem		
+4	6.2 Thinking about the problem		
+5	6.2.1 Stages of development		
+5	6.2.2 Strategy		
+4	6.3 Back to the calculator!		
+5	6.3.1 First attempt		
+5	6.3.2 Tokens		
+5	6.3.3 Implementingtokens		
+5	6.3.4 Usingtokens		
+5	6.3.5 Back to the drawing board		
+4	6.4 Grammars		
+5	6.4.1 A detour: English grammar		
+5	6.4.2 Writing a grammar		
+4	6.5 Turning a grammar into code		
+5	6.5.1 Implementing grammar rules		
+5	6.5.2 Expressions		
+5	6.5.3 Terms		
+5	6.5.4 Primary expressions		
+4	6.6 Trying the first version		
+4	6.7 Trying the second version		
+4	6.8 Tokenstreams		
+5	6.8.1 Implementing Token_stream		
+5	6.8.2 Reading tokens		
+5	6.8.3 Reading numbers		
+4	6.9 Program structure		
+			
+3	7. Completing a Program	completing.html	
+4	7.1 Introduction		
+4	7.2 Input and output		
+4	7.3 Error handling		
+4	7.4 Negative numbers		
+4	7.5 Remainder: %		
+4	7.6 Cleaning up the code		
+5	7.6.1 Symbolic constants		
+5	7.6.2 Use of functions		
+5	7.6.3 Code layout		
+5	7.6.4 Commenting		
+4	7.7 Recovering from errors		
+4	7.8 Variables		
+5	7.8.1 Variables and definitions		
+5	7.8.2 Introducing names		
+5	7.8.3 Predefined names		
+5	7.8.4 Are we there yet?		
+			
+3	"8. Technicalities: Functions, etc."	functions.html	
+4	8.1 Technicalities		
+4	8.2 Declarations and definitions		
+5	8.2.1 Kinds of declarations		
+5	8.2.2 Variable and constant declarations		
+5	8.2.3 Default initialization		
+4	8.3 Header files		
+4	8.4 Scope		
+4	8.5 Function call and return		
+5	8.5.1 Declaring arguments and return type		
+5	8.5.2 Returning a value		
+5	8.5.3 Pass-by-value		
+5	8.5.4 Pass-by-const-reference		
+5	8.5.5 Pass-by-reference		
+5	8.5.6 Pass-by-value vs. pass-by-reference		
+5	8.5.7 Argument checking and conversion		
+5	8.5.8 Function call implementation		
+5	8.5.9 constexpr functions		
+4	8.6 Order of evaluation		
+5	8.6.1 Expression evaluation		
+5	8.6.2 Global initialization		
+4	8.7 Namespaces		
+5	8.7.1 using declarations and using directives		
+			
+3	"9. Technicalities: Classes, etc."	classes.html	
+4	9.1 User-defined types		
+4	9.2 Classes and members		
+4	9.3 Interface and implementation		
+4	9.4 Evolving a class		
+5	9.4.1 struct and functions		
+5	9.4.2 Member functions and constructors		
+5	9.4.3 Keep details private		
+5	9.4.4 Defining member functions		
+5	9.4.5 Referring to the current object		
+5	9.4.6 Reporting errors		
+4	9.5 Enumerations		
+5	"9.5.1 ""Plain"" enumerations"		
+4	9.6 Operator overloading		
+4	9.7 Class interfaces		
+5	9.7.1 Argument types		
+5	9.7.2 Copying		
+5	9.7.3 Default constructors		
+5	9.7.4 const member functions		
+5	"9.7.5 Members and ""helper functions"""		
+4	9.8 The Date class		
+			
+2	Part II: Input and Output		
+			
+3	10. Input and Output Streams	iostreams.html	
+4	10.1 Input and output		
+4	10.2 The I/O stream model		
+4	10.3 Files		
+4	10.4 Opening a file		
+4	10.5 Reading and writing a file		
+4	10.6 I/O error handling		
+4	10.7 Reading a single value		
+5	10.7.1 Breaking the problem into manageable parts		
+5	10.7.2 Separating dialog from function		
+4	10.8 User-defined output operators		
+4	10.9 User-defined input operators		
+4	10.10 A standard input loop		
+4	10.11 Reading a structured file		
+5	10.11.1 In-memory representation		
+5	10.11.2 Reading structured values		
+5	10.11.3 Changing representations		
+			
+3	11. Customizing Input and Output	customizingio.html	
+4	11.1 Regularity and irregularity		
+4	11.2 Output formatting		
+5	11.2.1 Integer output		
+5	11.2.2 Integer input		
+5	11.2.3 Floating-point output		
+5	11.2.4 Precision		
+5	11.2.5 Fields		
+4	11.3 File opening and positioning		
+5	11.3.1 File open modes		
+5	11.3.2 Binary files		
+5	11.3.3 Positioning in files		
+4	11.4 String streams		
+4	11.5 Line-oriented input		
+4	11.6 Character classification		
+4	11.7 Using nonstandard separators		
+4	11.8 And there is so much more		
+			
+3	12. A Display Model	display_model.html	
+4	12.1 Why graphics?		
+4	12.2 A display model		
+4	12.3 A first example		
+4	12.4 Using a GUI library		
+4	12.5 Coordinates		
+4	12.6 Shapes		
+4	12.7 Using Shape primitives		
+5	12.7.1 Graphics headers and main		
+5	12.7.2 An almost blank window		
+5	12.7.3 Axis		
+5	12.7.4 Graphing a function		
+5	12.7.5 Polygons		
+5	12.7.6 Rectangles		
+5	12.7.7 Fill		
+5	12.7.8 Text		
+5	12.7.9 Images		
+5	12.7.10 And much more		
+4	12.8 Getting this to run		
+5	12.8.1 Sourcefiles		
+			
+3	13. Graphics Classes	graphics_classes.html	
+4	13.1 Overview of graphics classes	class-	
+4	13.2 Point and Line		
+4	13.3 Lines		
+4	13.4 Color		
+4	13.5 Line_style		
+4	13.6 Open_polyline		
+4	13.7 Closed_polyline		
+4	13.8 Polygon		
+4	13.9 Rectangle		
+4	13.10 Managing unnamed objects		
+4	13.11 Text		
+4	13.12 Circle		
+4	13.13 Ellipse		
+4	13.14 Marked_polyline		
+4	13.15 Marks		
+4	13.16 Mark		
+4	13.17 Images		
+			
+3	14. Graphics Class Design	class_design.html	
+4	14.1 Design principles		
+5	14.1.1 Types		
+5	14.1.2 Operations		
+5	14.1.3 Naming		
+5	14.1.4 Mutability		
+4	14.2 Shape		
+5	14.2.1 An abstract class		
+5	14.2.2 Access control		
+5	14.2.3 Drawing shapes		
+5	14.2.4 Copying and mutability		
+4	14.3 Base and derived classes		
+5	14.3.1 Object layout		
+5	14.3.2 Deriving classes and defining virtual functions		
+5	14.3.3 Overriding		
+5	14.3.4 Access		
+5	14.3.5 Pure virtual functions		
+4	14.4 Benefits of object-oriented programming		
+			
+3	15. Graphing Functions and Data	graphing_funcs.html	
+4	15.1 Introduction		
+4	15.2 Graphing simple functions		
+4	15.3 Function		
+5	15.3.1 Default Arguments		
+5	15.3.2 More examples		
+5	15.3.3 Lambdaexpressions		
+4	15.4 Axis		
+4	15.5 Approximation		
+4	15.6 Graphing data		
+5	15.6.1 Reading a file		
+5	15.6.2 General layout		
+5	15.6.3 Scaling data		
+5	15.6.4 Building the graph		
+			
+3	16. Graphical User Interfaces	gui.html	
+4	16.1 User interface alternatives		
+4	"16.2 The ""Next"" button"		
+4	16.3 A simple window		
+5	16.3.1 A callback function		
+5	16.3.2 A wait loop		
+5	16.3.3 A lambda expression as a callback		
+4	16.4 Button and other Widgets		
+5	16.4.1 Widgets		
+5	16.4.2 Buttons		
+5	16.4.3 In_box and Out_box		
+5	16.4.4 Menus		
+4	16.5 An example		
+4	16.6 Control inversion		
+4	16.7 Adding a menu		
+4	16.8 Debugging GUI code		
+			
+2	Part III: Data and Algorithms		
+			
+3	17. Vector and Free Store	vector_free.html	
+4	17.1 Introduction		
+4	17.2 vector basics		
+4	"17.3 Memory, addresses, and pointers"		
+5	17.3.1 The size of operator		
+4	17.4 Free store and pointers		
+5	17.4.1 Free-store allocation		
+5	17.4.2 Access through pointers		
+5	17.4.3 Ranges		
+5	17.4.4 Initialization		
+5	17.4.5 The null pointer		
+5	17.4.6 Free-store deallocation		
+4	17.5 Destructors		
+5	17.5.1 Generated destructors		
+5	17.5.2 Destructors and free store		
+4	17.6 Access to elements		
+4	17.7 Pointers to class objects		
+4	17.8 Messing with types: void* and casts		
+4	17.9 Pointers and references		
+5	17.9.1 Pointer and reference parameters		
+5	"17.9.2 Pointers, references, and inheritance"		
+5	17.9.3 An example: lists		
+5	17.9.4 List operations		
+5	17.9.5 List use		
+4	17.10 The this pointer		
+5	17.10.1 More link use		
+			
+3	18. Vectors and Arrays	vector_array.html	
+4	18.1 Introduction		
+4	18.2 Initialization		
+4	18.3 Copying		
+5	18.3.1 Copy constructors		
+5	18.3.2 Copy assignments		
+5	18.3.3 Copy terminology		
+5	18.3.4 Moving		
+4	18.4 Essential operations		
+5	18.4.1 Explicit constructors		
+5	18.4.2 Debugging constructors and destructors		
+4	18.5 Access to vector elements		
+5	18.5.1 Overloading on const		
+4	18.6 Arrays		
+5	18.6.1 Pointers to array elements		
+5	18.6.2 Pointers and arrays		
+5	18.6.3 Array initialization		
+5	18.6.4 Pointer problems		
+4	18.7 Examples: palindrome		
+5	18.7.1 Palindromes using string		
+5	18.7.2 Palindromes using arrays		
+5	18.7.3 Palindromes using pointers		
+			
+3	"19. Vector, Templates, and Exceptions"	vector_templ.html	
+4	19.1 The problems		
+4	19.2 Changing size		
+5	19.2.1 Representation		
+5	19.2.2 reserve and capacity		
+5	19.2.3 resize		
+5	19.2.4 push_back		
+5	19.2.5 Assignment		
+5	19.2.6 Our vector so far		
+4	19.3 Templates		
+5	19.3.1 Types as template parameters		
+5	19.3.2 Generic programming		
+5	19.3.3 Concepts		
+5	19.3.4 Containers and inheritance		
+5	19.3.5 Integers as template parameters		
+5	19.3.6 Template argument deduction		
+5	19.3.7 Generalizing vector		
+4	19.4 Range checking and exceptions		
+5	19.4.1 An aside: design considerations		
+5	19.4.2 A confession: macros		
+4	19.5 Resources and exceptions		
+5	19.5.1 Potential resource management problems		
+5	19.5.2 Resource acquisition is initialization		
+5	19.5.3 Guarantees		
+5	19.5.4 unique_ptr		
+5	19.5.5 Return by moving		
+5	19.5.6 RAII for vector		
+			
+3	20. Containers and Iterators	containers.html	
+4	20.1 Storing and processing data		
+5	20.1.1 Working with data		
+5	20.1.2 Generalizing code		
+4	20.2 STL ideals		
+4	20.3 Sequences and iterators		
+5	20.3.1 Back to the example		
+4	20.4 Linkedlists		
+5	20.4.1 Listoperations		
+5	20.4.2 Iteration		
+4	20.5 Generalizing vector yet again		
+5	20.5.1 Container traversal		
+5	20.5.2 auto		
+4	20.6 An example: a simple text editor		
+5	20.6.1 Lines		
+5	20.6.2 Iteration		
+4	"20.7 vector, list, and string"		
+5	20.7.1 insert and erase		
+4	20.8 Adapting our vector to the STL		
+4	20.9 Adapting built-in arrays to the STL		
+4	20.10 Container overview		
+5	20.10.1 Iterator categories		
+			
+3	21. Algorithms and Maps	algorithms.html	
+4	21.1 Standard library algorithms		
+4	21.2 The simplest algorithm: find()		
+5	21.2.1 Some generic uses		
+4	21.3 The general search: find_if()		
+4	21.4 Function objects		
+5	21.4.1 An abstract view of function objects		
+5	21.4.2 Predicates on class members		
+5	21.4.3 Lambda expressions		
+4	21.5 Numerical algorithms		
+5	21.5.1 Accumulate		
+5	21.5.2 Generalizingaccumulate()		
+5	21.5.3 Inner product		
+5	21.5.4 Generalizinginner_product()		
+4	21.6 Associative containers		
+5	21.6.1 map		
+5	21.6.2 map overview		
+5	21.6.3 Another map example		
+5	21.6.4 unordered_map		
+5	21.6.5 set		
+4	21.7 Copying		
+5	21.7.1 Copy		
+5	21.7.2 Stream iterators		
+5	21.7.3 Using a set to keep order		
+5	21.7.4 copy_if		
+4	21.8 Sorting and searching		
+4	21.9 Container algorithms		
+			
+2	Part IV Broadening the View		
+			
+3	22. Ideals and History	history.html	
+4	"22.1 History, ideals, and professionalism"		
+5	22.1.1 Programming language aims and philosophies		
+5	22.1.2 Programming ideals		
+5	22.1.3 Styles/paradigms		
+4	22.2 Programming language history overview		
+5	22.2.1 The earliest languages		
+5	22.2.2 The roots of modern languages		
+5	22.2.3 The Algol family		
+5	22.2.4 Simula		
+5	22.2.5 C		
+5	22.2.6 C++		
+5	22.2.7 Today		
+5	22.2.8 Information sources		
+			
+3	23. Text Manipulation	text.html	
+4	23.1 Text		
+4	23.2 Strings		
+4	23.3 I/O streams		
+4	23.4 Maps		
+5	23.4.1 Implementation details		
+4	23.5 A problem		
+4	23.6 The idea of regular expressions		
+5	23.6.1 Raw string literals		
+4	23.7 Searching with regular expressions		
+4	23.8 Regular expression syntax		
+5	23.8.1 Characters and special characters		
+5	23.8.2 Character classes		
+5	23.8.3 Repeats		
+5	23.8.4 Grouping		
+5	23.8.5 Alternation		
+5	23.8.6 Character sets and ranges		
+5	23.8.7 Regular expression errors		
+4	23.9 Matching with regular expressions		
+4	23.10 References		
+			
+3	24. Numerics	numerics.html	
+4	24.1 Introduction		
+4	"24.2 Size, precision, and overflow"		
+5	24.2.1 Numeric limits		
+4	24.3 Arrays		
+4	24.4 C-style multidimensional arrays		
+4	24.5 The Matrix library		
+5	24.5.1 Dimensions and access		
+5	24.5.2 1D Matrix		
+5	24.5.3 2D Matrix		
+5	24.5.4 Matrix I/O		
+5	24.5.5 3D Matrix		
+4	24.6 An example: solving linear equations		
+5	24.6.1 Classical Gaussian elimination		
+5	24.6.2 Pivoting		
+5	24.6.3 Testing		
+4	24.7 Random numbers		
+4	24.8 The standard mathematical functions		
+4	24.9 Complex numbers		
+4	24.10 References		
+			
+3	25. Embedded Systems Programming	embedded.html	
+4	25.1 Embedded systems		
+4	25.2 Basic concepts		
+5	25.2.1 Predictability		
+5	25.2.2 Ideals		
+5	25.2.3 Living with failure		
+4	25.3 Memory management		
+5	25.3.1 Free-store problems		
+5	25.3.2 Alternatives to the general free store		
+5	25.3.3 Pool example		
+5	25.3.4 Stack example		
+4	"25.4 Addresses, pointers, and arrays"		
+5	25.4.1 Unchecked conversions		
+5	25.4.2 A problem: dysfunctional interfaces		
+5	25.4.3 A solution: an interface class		
+5	25.4.4 Inheritance and containers		
+4	"25.5 Bits, bytes, and words"		
+5	25.5.1 Bits and bit operations		
+5	25.5.2 bitset		
+5	25.5.3 Signed and unsigned		
+5	25.5.4 Bit manipulation		
+5	25.5.5 Bitfields		
+5	25.5.6 An example: simple encryption		
+4	25.6 Coding standards		
+5	25.6.1 What should a coding standard be?		
+5	25.6.2 Sample rules		
+5	25.6.3 Real coding standards		
+			
+3	26. Testing	testing.html	
+4	26.1 What we want		
+5	26.1.1 Caveat		
+4	26.2 Proofs		
+4	26.3 Testing		
+5	26.3.1 Regression tests		
+5	26.3.2 Unit tests		
+5	26.3.3 Algorithms and non-algorithms		
+5	26.3.4 System tests		
+5	26.3.5 Finding assumptions that do not hold		
+4	26.4 Design for testing		
+4	26.5 Debugging		
+4	26.6 Performance		
+5	26.6.1 Timing		
+4	26.7 References		
+			
+3	27. The C Programming Language	C.html	
+4	27.1 C and C++: siblings		
+5	27.1.1 C/C++ compatibility		
+5	27.1.2 C++ features missing from C		
+5	27.1.3 The C standard library		
+4	27.2 Functions		
+5	27.2.1 No function name overloading		
+5	27.2.2 Function argument type checking		
+5	27.2.3 Functiondefinitions		
+5	27.2.4 Calling C from C++ and C++ from C		
+5	27.2.5 Pointers to functions		
+4	27.3 Minor language differences		
+5	27.3.1 struct tag namespace		
+5	27.3.2 Keywords		
+5	27.3.3 Definitions		
+5	27.3.4 C-stylecasts		
+5	27.3.5 Conversion of void*		
+5	27.3.6 enum		
+5	27.3.7 Namespaces		
+4	27.4 Freestore		
+4	27.5 C-style strings		
+5	27.5.1 C-style strings and const		
+5	27.5.2 Byte operations		
+5	27.5.3 An example: strcpy()		
+5	27.5.4 A style issue		
+4	27.6 Input/output: stdio		
+5	27.6.1 Output		
+5	27.6.2 Input		
+5	27.6.3 Files		
+4	27.7 Constants and macros		
+4	27.8 Macros		
+5	27.8.1 Function-like macros		
+5	27.8.2 Syntax macros		
+5	27.8.3 Conditional compilation		
+4	27.9 An example: intrusive containers		
+			
+1	Other Materials		
+2	Course Syllabus	syllabus.html	
+2	Source Code		
+			
+1	About	about.html	
