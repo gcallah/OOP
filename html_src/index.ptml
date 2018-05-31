@@ -16,6 +16,23 @@
                     Home
                 </h1>
 
+
+                <p class="leadquote">
+                    "Programming is understanding." -- Kristen Nygaard
+                </p>
+
+                <figure>
+                    <img src="graphics/Phylogenetic.png" width="50%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+
+                <hr>
+                <p class="credit">
+                    Graphic source:
+                    https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Phylogenetic_tree.svg/900px-Phylogenetic_tree.svg.png
+                </p>
+
             </div>
         </div>
 
