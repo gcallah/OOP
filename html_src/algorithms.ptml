@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            21. Algorithms and Maps
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    21. Algorithms and Maps
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    21.1 Standard library algorithms
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.2 The simplest algorithm: find()
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        21.2.1 Some generic uses
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.3 The general search: find_if()
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.4 Function objects
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        21.4.1 An abstract view of function objects
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.4.2 Predicates on class members
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.4.3 Lambda expressions
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.5 Numerical algorithms
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        21.5.1 Accumulate
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.5.2 Generalizingaccumulate()
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.5.3 Inner product
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.5.4 Generalizinginner_product()
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.6 Associative containers
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        21.6.1 map
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.6.2 map overview
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.6.3 Another map example
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.6.4 unordered_map
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.6.5 set
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.7 Copying
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        21.7.1 Copy
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.7.2 Stream iterators
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.7.3 Using a set to keep order
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        21.7.4 copy_if
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.8 Sorting and searching
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    21.9 Container algorithms
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

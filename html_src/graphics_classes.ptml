@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            13. Graphics Classes
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    13. Graphics Classes
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    13.1 Overview of graphics classes
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.2 Point and Line
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.3 Lines
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.4 Color
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.5 Line_style
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.6 Open_polyline
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.7 Closed_polyline
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.8 Polygon
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.9 Rectangle
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.10 Managing unnamed objects
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.11 Text
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.12 Circle
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.13 Ellipse
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.14 Marked_polyline
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.15 Marks
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.16 Mark
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    13.17 Images
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

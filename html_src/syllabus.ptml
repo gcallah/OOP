@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            Course Syllabus
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    Course Syllabus
+                </h1>
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            19. Vector, Templates, and Exceptions
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    19. Vector, Templates, and Exceptions
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    19.1 The problems
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    19.2 Changing size
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        19.2.1 Representation
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.2.2 reserve and capacity
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.2.3 resize
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.2.4 push_back
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.2.5 Assignment
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.2.6 Our vector so far
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    19.3 Templates
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        19.3.1 Types as template parameters
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.2 Generic programming
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.3 Concepts
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.4 Containers and inheritance
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.5 Integers as template parameters
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.6 Template argument deduction
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.3.7 Generalizing vector
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    19.4 Range checking and exceptions
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        19.4.1 An aside: design considerations
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.4.2 A confession: macros
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    19.5 Resources and exceptions
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        19.5.1 Potential resource management problems
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.5.2 Resource acquisition is initialization
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.5.3 Guarantees
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.5.4 unique_ptr
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.5.5 Return by moving
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        19.5.6 RAII for vector
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

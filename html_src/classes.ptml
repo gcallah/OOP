@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            9. Technicalities: Classes, etc.
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    9. Technicalities: Classes, etc.
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    9.1 User-defined types
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.2 Classes and members
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.3 Interface and implementation
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.4 Evolving a class
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        9.4.1 struct and functions
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.4.2 Member functions and constructors
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.4.3 Keep details private
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.4.4 Defining member functions
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.4.5 Referring to the current object
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.4.6 Reporting errors
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.5 Enumerations
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        9.5.1 "Plain" enumerations
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.6 Operator overloading
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.7 Class interfaces
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        9.7.1 Argument types
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.7.2 Copying
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.7.3 Default constructors
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.7.4 const member functions
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        9.7.5 Members and "helper functions"
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    9.8 The Date class
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

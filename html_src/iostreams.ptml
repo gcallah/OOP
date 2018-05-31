@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            10. Input and Output Streams
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    10. Input and Output Streams
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    10.1 Input and output
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.2 The I/O stream model
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.3 Files
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.4 Opening a file
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.5 Reading and writing a file
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.6 I/O error handling
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.7 Reading a single value
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        10.7.1 Breaking the problem into manageable parts
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        10.7.2 Separating dialog from function
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.8 User-defined output operators
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.9 User-defined input operators
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.10 A standard input loop
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    10.11 Reading a structured file
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        10.11.1 In-memory representation
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        10.11.2 Reading structured values
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        10.11.3 Changing representations
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--include head.txt -->
+        <title>
+            8. Technicalities: Functions, etc.
+        </title>
+<!--include googleAnalyticsScript.txt -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+<!--include navbar.txt -->
+            <div id="content">
+                <h1>
+                    8. Technicalities: Functions, etc.
+                </h1>
+                <details>
+                    <summary class="sum1">
+                    8.1 Technicalities
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.2 Declarations and definitions
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        8.2.1 Kinds of declarations
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.2.2 Variable and constant declarations
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.2.3 Default initialization
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.3 Header files
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.4 Scope
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.5 Function call and return
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        8.5.1 Declaring arguments and return type
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.2 Returning a value
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.3 Pass-by-value
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.4 Pass-by-const-reference
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.5 Pass-by-reference
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.6 Pass-by-value vs. pass-by-reference
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.7 Argument checking and conversion
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.8 Function call implementation
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.5.9 constexpr functions
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.6 Order of evaluation
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        8.6.1 Expression evaluation
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                    <details>
+                        <summary class="sum2">
+                        8.6.2 Global initialization
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+                <details>
+                    <summary class="sum1">
+                    8.7 Namespaces
+                    </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    <details>
+                        <summary class="sum2">
+                        8.7.1 using declarations and using directives
+                        </summary>
+                <figure>
+                    <img src="" width="40%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                </p>
+                    </details>
+                </details>
+
+            </div>
+        </div>
+
+    </body>
+</html>

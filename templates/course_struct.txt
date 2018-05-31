@@ -6,14 +6,14 @@
 			
 2	Part I: The Basics		
 			
-3	"2. Hello, World!"	hello.html	
+3	2. Hello, World!	hello.html	
 4	2.1 Programs		
 4	2.2 The classic first program		
 4	2.3 Compilation		
 4	2.4 Linking		
 4	2.5 Programming environments		
 			
-3	"3. Objects, Types, and Values"	otv.html	
+3	3. Objects, Types, and Values	otv.html	
 4	3.1 Input		
 4	3.2 Variables		
 4	3.3 Input and type		
@@ -118,7 +118,7 @@
 5	7.8.3 Predefined names		
 5	7.8.4 Are we there yet?		
 			
-3	"8. Technicalities: Functions, etc."	functions.html	
+3	8. Technicalities: Functions, etc.	functions.html	
 4	8.1 Technicalities		
 4	8.2 Declarations and definitions		
 5	8.2.1 Kinds of declarations		
@@ -142,7 +142,7 @@
 4	8.7 Namespaces		
 5	8.7.1 using declarations and using directives		
 			
-3	"9. Technicalities: Classes, etc."	classes.html	
+3	9. Technicalities: Classes, etc.	classes.html	
 4	9.1 User-defined types		
 4	9.2 Classes and members		
 4	9.3 Interface and implementation		
@@ -154,14 +154,14 @@
 5	9.4.5 Referring to the current object		
 5	9.4.6 Reporting errors		
 4	9.5 Enumerations		
-5	"9.5.1 ""Plain"" enumerations"		
+5	9.5.1 "Plain" enumerations		
 4	9.6 Operator overloading		
 4	9.7 Class interfaces		
 5	9.7.1 Argument types		
 5	9.7.2 Copying		
 5	9.7.3 Default constructors		
 5	9.7.4 const member functions		
-5	"9.7.5 Members and ""helper functions"""		
+5	9.7.5 Members and "helper functions"		
 4	9.8 The Date class		
 			
 2	Part II: Input and Output		
@@ -278,7 +278,7 @@
 			
 3	16. Graphical User Interfaces	gui.html	
 4	16.1 User interface alternatives		
-4	"16.2 The ""Next"" button"		
+4	16.2 The "Next" button		
 4	16.3 A simple window		
 5	16.3.1 A callback function		
 5	16.3.2 A wait loop		
@@ -298,7 +298,7 @@
 3	17. Vector and Free Store	vector_free.html	
 4	17.1 Introduction		
 4	17.2 vector basics		
-4	"17.3 Memory, addresses, and pointers"		
+4	17.3 Memory, addresses, and pointers		
 5	17.3.1 The size of operator		
 4	17.4 Free store and pointers		
 5	17.4.1 Free-store allocation		
@@ -315,7 +315,7 @@
 4	17.8 Messing with types: void* and casts		
 4	17.9 Pointers and references		
 5	17.9.1 Pointer and reference parameters		
-5	"17.9.2 Pointers, references, and inheritance"		
+5	17.9.2 Pointers, references, and inheritance		
 5	17.9.3 An example: lists		
 5	17.9.4 List operations		
 5	17.9.5 List use		
@@ -345,7 +345,7 @@
 5	18.7.2 Palindromes using arrays		
 5	18.7.3 Palindromes using pointers		
 			
-3	"19. Vector, Templates, and Exceptions"	vector_templ.html	
+3	19. Vector, Templates, and Exceptions	vector_templ.html	
 4	19.1 The problems		
 4	19.2 Changing size		
 5	19.2.1 Representation		
@@ -389,7 +389,7 @@
 4	20.6 An example: a simple text editor		
 5	20.6.1 Lines		
 5	20.6.2 Iteration		
-4	"20.7 vector, list, and string"		
+4	20.7 vector, list, and string		
 5	20.7.1 insert and erase		
 4	20.8 Adapting our vector to the STL		
 4	20.9 Adapting built-in arrays to the STL		
@@ -427,7 +427,7 @@
 2	Part IV Broadening the View		
 			
 3	22. Ideals and History	history.html	
-4	"22.1 History, ideals, and professionalism"		
+4	22.1 History, ideals, and professionalism		
 5	22.1.1 Programming language aims and philosophies		
 5	22.1.2 Programming ideals		
 5	22.1.3 Styles/paradigms		
@@ -464,7 +464,7 @@
 			
 3	24. Numerics	numerics.html	
 4	24.1 Introduction		
-4	"24.2 Size, precision, and overflow"		
+4	24.2 Size, precision, and overflow		
 5	24.2.1 Numeric limits		
 4	24.3 Arrays		
 4	24.4 C-style multidimensional arrays		
@@ -494,12 +494,12 @@
 5	25.3.2 Alternatives to the general free store		
 5	25.3.3 Pool example		
 5	25.3.4 Stack example		
-4	"25.4 Addresses, pointers, and arrays"		
+4	25.4 Addresses, pointers, and arrays		
 5	25.4.1 Unchecked conversions		
 5	25.4.2 A problem: dysfunctional interfaces		
 5	25.4.3 A solution: an interface class		
 5	25.4.4 Inheritance and containers		
-4	"25.5 Bits, bytes, and words"		
+4	25.5 Bits, bytes, and words		
 5	25.5.1 Bits and bit operations		
 5	25.5.2 bitset		
 5	25.5.3 Signed and unsigned		

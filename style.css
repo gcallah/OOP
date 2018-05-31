@@ -175,27 +175,27 @@ h5 {
 }
 
 summary.sum1 {
-    font-size: 2em;
-    color: #903;
+    font-size: 1.8em;
+    color: #fac;
+    font-weight: 400;
     margin: 1em 1.2em 1em 1.2em;
 }
 
 summary.sum2 {
     font-size: 1.6em;
-    color: #937;
-    font-weight: 500;
+    color: #f8d;
     margin: .8em 1.2em .8em 2em;
 }
 
 summary.sum3 {
     font-size: 1.5em;
-    color: #339;
+    color: #aac;
     margin: .6em 1.2em .6em 2.8em;
 }
 
 summary.sum4 {
     font-size: 1.4em;
-    color: #825;
+    color: #e9b;
     margin: .4em 1.2em .4em 2.8em;
 }
 
