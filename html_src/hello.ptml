@@ -25,6 +25,15 @@
                     </figcaption>
                 </figure>
                 <p>
+                <b>Program</b> is a command which tells the computer what to do.
+                <b>Programming</b> is an activity of writing and testing such
+                programs.
+
+                Computers are dumb, in the sense that they require instructions
+                to complete a certain task that a human can do with common
+                sense.The language in which instructions are  given is
+                <b>programming language </b>
+                We would be using C++ as our programming language.
                 </p>
                 </details>
                 <details>
@@ -37,8 +46,63 @@
                         Hello, world!
                     </figcaption>
                 </figure>
+                <h2>
+                    Classic Hello World Program
+                </h2>
+                <PRE>
+                //This program outpts "Hello World" to the monitor
+                #include &lt; iostream &gt;
+                int main() {
+                    cout &lt;&lt;"Hello, World!\n";
+                    return 0;
+                }
+                </PRE>
                 <p>
+                Let's understand the meaning of each line
                 </p>
+                <ol class="nested">
+                    <li>
+                        // This is a comment. It is ignored by the compiler.Written to
+                        make code more readable.
+                    </li>
+                    <li>
+                        #include is a directive, instructs compiler to include
+                        facilities from iostream
+                    </li>
+                    <li>
+                        The main is the function, from where the computer
+                        starts executing the code
+                    </li>
+                    <li>
+                        cout refers to standard output stream, it is an
+                        abbreviaton of "character output". character put in
+                        cout using &lt;&lt; will appear on screen
+                    </li>
+                </ol>
+                <p>
+                Every C++ program should have a main function to tell from
+                where to start executing the program. A function has four
+                parts:
+                </p>
+                <ol class="nested">
+                    <li>
+                        <i> return type</i> specifies type of result that
+                        particular function would return to the callee. 
+                        int here.
+                    </li>
+                    <li>
+                        <i>name</i>, here main
+                    </li>
+                    <li>
+                        <i>Parameter list</i> list of arguments the function
+                        takes.empty in the above example
+                    </li>
+                    <li>
+                        <i>function body</i> enclosed in curly braces,which
+                        lists the actions
+                    </li>
+
+                </ol>
                 </details>
                 <details>
                     <summary class="sum1">
@@ -53,6 +117,14 @@
                         </figcaption>
                     </figure>
                     <p>
+                    C++ is a compiled language which means that the code 
+                    has to be translated to machine level instructions.
+                    Translation is done by a compiler
+                    </p>
+                    <p>
+                    Source code is the code you write, for C++ the suffix is .cpp
+                    The machine code or object code, is .o (Unix) or .obj(Windows) 
+                    Compiler checks for grammatically errors and/or syntax.
                     </p>
                 </details>
                 <details>
@@ -67,7 +139,21 @@
                         </figcaption>
                     </figure>
                     <p>
+                        several parts of code must be compiled and the
+                        resulting code file must be linked together to form an
+                        executable. Linker links such parts together to form an
+                        executable.
                     </p>
+                    <p>
+                        object code and executables are not portable among systems.
+                        object code for windows will not run on Unix machines.
+                    </p>
+                    <p>
+                    <b>compile time errors</b>errors found by compilers
+                    <b>link time errors</b> errors found by linkers
+                    <b> run time/logical errors</b> found when program is run
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -81,6 +167,21 @@
                         </figcaption>
                     </figure>
                     <p>
+                    To program we either use a command line or IDE.
+                    To write and run a program, we require a certain
+                    programming language, compiler, linker and an editor.
+                    when using command line, you need to compile and link code
+                    by writing commands
+                    </p>
+                    <p>
+                    IDE (Intercative development Environment) has a simple
+                    click button, which performs the compile,link,run commands
+                    for you.
+                    IDE also has features like color coding to help distinguish
+                    between comments, keywords and other parts of program.
+                    </p>
+                    <p>
+                    Debugging is used to find errors in program and remove them.
                     </p>
                 </details>
 
