@@ -25,7 +25,34 @@
                     </figcaption>
                 </figure>
                 <p>
+                   Most programs need input to on the basis of which they
+                   perform results.The input to be read has to be placed
+                   somewhere in the computer's memory to be read by the
+                   program and is called an <i>object</i>. 
                 </p>
+                <p>
+                    A named object is called a variable and every object 
+                    has a type that specifies the kind of information placed 
+                    in that object.
+                </p>
+                <p>
+                int age &equals; 42, represents an object of <i>type</i> int,
+                <i>name</i> age and <i>value</i> 42.
+                </p>
+                <PRE>
+                int main() {
+                    cout &lt;&lt; "Please enter your name:\n";
+                    string first_name; // variable of type string
+                    cin &gt; &gt; first_name; // read characters into first name
+                    cout &lt;&lt; "Hello" &lt;&lt; your name is &lt;&lt;
+                    first_name;
+                }
+
+                </PRE>
+                <p>
+                until a newline is entered the all characters are added
+                </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -37,6 +64,20 @@
                     </figcaption>
                 </figure>
                 <p>
+                To access the object we need a name. A named object
+                is called a variable and should have a specific
+                type.
+                </p>
+                <p>
+                The type determines the type of operation that can 
+                be done on the variable.
+                A statement that defines a variable is called a 
+                definition and is generally used to provide an 
+                initial value.</br>
+                </p>
+                <p>
+                A compiler checks for the type of variable and 
+                makes sure that you use a variable according to it's type.</br>
                 </p>
                 </details>
                 <details>
