@@ -25,17 +25,17 @@
                     </figcaption>
                 </figure>
                 <p>
-                    <b>Program</b> is a command which tells the computer what to do.
-                    <b>Programming</b> is an activity of writing and testing such
-                    programs.</br>
+                    <b>Program</b> is a command which tells the computer what
+                    to do. <b>Programming</b> is an activity of writing and
+                    testing such programs.</br>
                 </p>
                 <p>
                 Computers are dumb, in the sense that they require instructions
                 to complete a certain task that a human can do with common
                 sense.</br> &#10;
 
-                The language in which instructions are  given is <b>programming 
-                language.</b> C++ would be our programming language.
+                The language in which instructions are  given is <b>programming
+                    language.</b> C++ would be our programming language.
                 </p>
                 </details>
                 <details>
@@ -52,33 +52,35 @@
                     Classic Hello World Program
                 </h2>
                 <PRE>
-                //This program outpts "Hello World" to the monitor
-                #include &lt; iostream &gt;
+                // This program outpts "Hello World" to the monitor
+                #include &lt;iostream&gt;
                 int main() {
                     cout &lt;&lt;"Hello, World!\n";
                     return 0;
                 }
                 </PRE>
                 <p>
-                Let's understand the meaning of each line
+                Let's look at the meaning of each line:
                 </p>
                 <ol class="nested">
                     <li>
-                        // This is a comment. It is ignored by the compiler.
+                        <i>//</i> is a comment. It is ignored by the compiler.
                         Written to make code more readable.
                     </li>
                     <li>
-                        #include is a directive, instructs compiler to include
-                        facilities from iostream
+                        <i>#include</i> is a directive; it 
+                        instructs the compiler to include
+                        facilities from iostream.
                     </li>
                     <li>
-                        The main is the function, from where the computer
-                        starts executing the code
+                        <i>main</i> is the function where the computer
+                        starts executing the code.
                     </li>
                     <li>
-                        cout refers to standard output stream, it is an
-                        abbreviaton of "character output". character put in
-                        cout using &lt;&lt; will appear on screen. </br></br>
+                        <i>cout</i> refers to the standard output stream, it is
+                        an abbreviaton of "character output". Character put in
+                        cout using &lt;&lt; will appear on screen (by default
+                        -- that can be changed by how you invoke the program). 
                     </li>
                 </ol>
 
@@ -121,8 +123,11 @@
                     </figure>
                     <p>
                     C++ is a compiled language which means that the code 
-                    has to be translated to machine level instructions.
-                    Translation is done by a compiler
+                    has to be translated to machine instructions <i>before</i>
+                    the program is run, by a compiler.
+                    (A language like Python translates to
+                    machine language <i>as</i> the program is run, without
+                    a separate compile step.)
                     </p>
                     <p>
                     Source code is the code you write, for C++ the 
@@ -144,19 +149,22 @@
                     </figure>
                     <p>
                         Several parts of code must be compiled and the
-                        resulting code file must be linked together to form
-                        an executable.Linker links such parts together 
-                        to form an executable.
+                        resulting object files must be linked together to form
+                        an executable. The linker does this.
                     </p>
+
                     <p>
                         Object code and executables are not portable among 
-                        systems i.e. Object code for windows will not run 
+                        systems i.e. object code for Windows will not run 
                         on Unix machines.</br></br>
                     </p>
                     <p>
-                        <b>compile tim1e errors</b> errors found by compilers </br>
-                        <b>link time errors</b> errors found by linkers</br>
-                        <b> run time/logical errors</b> found when program is run
+                        <b>Compile time errors:</b>
+                        errors found by the compiler. </br>
+                        <b>Link time errors:</b>
+                        errors found by the linker.</br>
+                        <b>Run time/logical errors:</b>
+                        found when program is run.
                         </br>
                     </p>
 
@@ -173,26 +181,27 @@
                         </figcaption>
                     </figure>
                     <p>
-                    To program we either use a command line or IDE.
-                    To write and run a program, we require a certain
-                    programming language, compiler, linker and an editor.</br>
+                    To program we either use the command line or an IDE.
+                    To write and run a program, we require a 
+                    compiler, a linker and an editor.</br>
                     </p>
                     <ul class="nested">
                         <li>
-                            When using command line, you need to compile 
-                            and link code by writing commands.
+                            When using the command line, you need to compile 
+                            and link code by typing commands.
                         </li>
                         <li>   
-                            IDE (Interactive development Environment) 
-                            has a simple click button, which performs
-                            the compile,link,run commands for you.</br>
-                            IDE also has features like color coding 
+                            In an IDE (Interactive Development Environment) 
+                            you simply click a button, which performs
+                            the compile, link, and run commands for you.
+                            IDEs also have features like color coding 
                             to help distinguish between comments, 
                             keywords and other parts of program.
                         </li>
                     </ul>
                     <p>
-                    <b>Debugging</b> is used to find errors in program and remove them.
+                    <b>Debugging</b> is used to find errors in program and
+                    remove them.
                     </p>
                 </details>
 
