@@ -10,6 +10,7 @@ HTMLFILES = $(shell ls $(PTML_DIR)/*.ptml | sed -e 's/.ptml/.html/' | sed -e 's/
 
 %.html: $(PTML_DIR)/%.ptml $(INCS)
 	python3 $(UTILS_DIR)/html_checker.py $< 
+	python3 $(UTILS_DIR)/url_checker.py $< https://gcallah.github.io/OOP/
 	$(UTILS_DIR)/html_include.awk <$< >$@
 	git add $@
 
