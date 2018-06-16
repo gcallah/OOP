@@ -19,207 +19,234 @@
                     <summary class="sum1">
                     14.1 Design principles
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         14.1.1 Types
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.1.2 Operations
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.1.3 Naming
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.1.4 Mutability
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     14.2 Shape
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         14.2.1 An abstract class
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.2.2 Access control
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.2.3 Drawing shapes
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.2.4 Copying and mutability
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     14.3 Base and derived classes
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         14.3.1 Object layout
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.3.2 Deriving classes and defining virtual functions
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.3.3 Overriding
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.3.4 Access
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         14.3.5 Pure virtual functions
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     14.4 Benefits of object-oriented programming
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
 
+                <details>
+                    <summary class="sum1">
+                    Test Yourself!
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Exams_in_Jaura%2C_India.jpg/560px-Exams_in_Jaura%2C_India.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+<!-- Include the text material here! -->
+                </details>
+
+                <details>
+                    <summary class="sum1">
+                    Drill
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Queens.guard.buck.palace.arp.jpg/600px-Queens.guard.buck.palace.arp.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+
+                        <ul>
+                        </ul>
+                    </figure>
+                </details>
             </div>
         </div>
 

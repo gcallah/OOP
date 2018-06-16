@@ -19,231 +19,258 @@
                     <summary class="sum1">
                     23.1 Text
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.2 Strings
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.3 I/O streams
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.4 Maps
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         23.4.1 Implementation details
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.5 A problem
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.6 The idea of regular expressions
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         23.6.1 Raw string literals
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.7 Searching with regular expressions
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.8 Regular expression syntax
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         23.8.1 Characters and special characters
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.2 Character classes
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.3 Repeats
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.4 Grouping
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.5 Alternation
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.6 Character sets and ranges
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         23.8.7 Regular expression errors
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.9 Matching with regular expressions
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     23.10 References
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
 
+                <details>
+                    <summary class="sum1">
+                    Test Yourself!
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Exams_in_Jaura%2C_India.jpg/560px-Exams_in_Jaura%2C_India.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+<!-- Include the text material here! -->
+                </details>
+
+                <details>
+                    <summary class="sum1">
+                    Drill
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Queens.guard.buck.palace.arp.jpg/600px-Queens.guard.buck.palace.arp.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+
+                        <ul>
+                        </ul>
+                    </figure>
+                </details>
             </div>
         </div>
 
