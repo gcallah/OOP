@@ -413,10 +413,10 @@
                 The compiler knows the operations that can be applied 
                 to each variables and can prevent many mistakes.
                 There are some usual arithmetic operations like </br>
-                &plus;</br>
-                &minus;</br>
-                &divide;</br>
-                and modulous operator</br>
+                &plus; </br>
+                &minus; </br>
+                &divide; </br>
+                &percnt; </br>
                 There are some operations which have defined functions 
                 like sqrt().
                 </p>
@@ -503,7 +503,9 @@
                 <li>
                     For the first word, the string is compared with " ".</br>
                     <b>Think:</b> Why is previous initialized 
-                    with " " and not passed through the cin.
+                    with " " (an empty string denoted by space character) and not
+                    passed through the cin, like instead of passing "Hi"
+                    through cin, why can't we pass " Hi"?</br>
                     
                 </li>
                 </ol>
@@ -520,6 +522,19 @@
                     </figcaption>
                 </figure>
                 <p>
+                Incrementing a variable is so common that C++ provides a syntax
+                for this.</br>
+                <b>Example:</b> counter &equals; counter &plus; 1;  &equiv;
+                counter++; Some other way to change the assigned value
+                to a variable is
+                a &plus; &equals; 7; </br>
+                a &lowast; &equals; 6; </br>
+                operators 
+                &plus; &equals; </br>
+                &minus; &equals; </br>
+                &divide; &equals; </br>
+                &percnt; &equals; </br>
+                &lowast; &equals; </br>
                 </p>
                     <details>
                         <summary class="sum2">
@@ -531,7 +546,28 @@
                     </figcaption>
                 </figure>
                 <p>
+                In the code we discussed above, we can modify the code 
+                to count the words and outputs the count for the repeated
+                words.
                 </p>
+                <PRE>
+                    int main() {
+                    int number_of_words = 0;    
+                        string previous = " ";
+                        string current;
+                        while (cin &gt;&gt; current) {
+                           ++number_of_words;
+                           if (previous &equals;&equals; current) {
+                                cout &lt;&lt; "repeated word" &lt;&lt; current
+                                &lt;&lt; "word number" &lt;&lt; number_of_words;
+                            }
+                            previous &equals; current;
+                        }
+                    }
+                </PRE>
+                We start word counter at 0. Each time we see a word, we
+                increment the counter and we print the word which is repeated
+                and the position at which it occured.
                     </details>
                 </details>
                 <details>
@@ -544,6 +580,9 @@
                     </figcaption>
                 </figure>
                 <p>
+                A name for a variable is used to make it easier to refer them
+                from somewhere else in the program. A name in C++ refers with 
+                a letter and can contain only letters, digits and underscore.
                 </p>
                 </details>
                 <details>
