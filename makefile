@@ -10,6 +10,7 @@ HTMLFILES = $(shell ls $(PTML_DIR)/*.ptml | sed -e 's/.ptml/.html/' | sed -e 's/
 
 %.html: $(PTML_DIR)/%.ptml $(INCS)
 	python3 $(UTILS_DIR)/html_checker.py $< 
+	python3 $(UTILS_DIR)/url_checker.py $< https://gcallah.github.io/OOP/
 	$(UTILS_DIR)/html_include.awk <$< >$@
 	git add $@
 
@@ -20,16 +21,13 @@ website: $(INCS) $(HTMLFILES)
 
 local: $(HTMLFILES)
 
-all:
-	make local
-
 clean:
 	touch $(PTML_DIR)/*.ptml; make local
 
 menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt
 
-html_files:
+ptml_files:
 	$(UTILS_DIR)/create_pages.py $(TEMPLATE_DIR)/course_struct.txt $(UTILS_DIR)/templates/template.ptml $(PTML_DIR)
 
 course_struct: menu html_files

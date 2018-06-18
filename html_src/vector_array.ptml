@@ -19,255 +19,282 @@
                     <summary class="sum1">
                     18.1 Introduction
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.2 Initialization
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.3 Copying
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         18.3.1 Copy constructors
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.3.2 Copy assignments
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.3.3 Copy terminology
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.3.4 Moving
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.4 Essential operations
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         18.4.1 Explicit constructors
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.4.2 Debugging constructors and destructors
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.5 Access to vector elements
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         18.5.1 Overloading on const
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.6 Arrays
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         18.6.1 Pointers to array elements
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.6.2 Pointers and arrays
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.6.3 Array initialization
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.6.4 Pointer problems
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
                 <details>
                     <summary class="sum1">
                     18.7 Examples: palindrome
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                    <figure>
+                        <img src="" width="40%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                    <p>
+                    </p>
                     <details>
                         <summary class="sum2">
                         18.7.1 Palindromes using string
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.7.2 Palindromes using arrays
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         18.7.3 Palindromes using pointers
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
                     </details>
                 </details>
 
+                <details>
+                    <summary class="sum1">
+                    Test Yourself!
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Exams_in_Jaura%2C_India.jpg/560px-Exams_in_Jaura%2C_India.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+<!-- Include the text material here! -->
+                </details>
+
+                <details>
+                    <summary class="sum1">
+                    Drill
+                    </summary>
+                    <figure>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Queens.guard.buck.palace.arp.jpg/600px-Queens.guard.buck.palace.arp.jpg"
+                        width="30%">
+                        <figcaption>
+                        </figcaption>
+
+                        <ul>
+                        </ul>
+                    </figure>
+                </details>
             </div>
         </div>
 
