@@ -89,8 +89,51 @@
                     <figcaption>
                     </figcaption>
                 </figure>
+                 <PRE>
+                 int main() {
+                    cout &lt;&lt; "Please enter your name:\n";
+                    string first_name; // variable of type string
+                    int age;
+                    cin &gt; &gt; first_name; // read characters into first name
+                    cin &gt;&gt; age;
+                    cout &lt;&lt; first_name &lt;&lt; age;
+                  } 
+                  </PRE>
                 <p>
+                The input operation is sensitive to the type,it reads 
+                depending on the type of input.</br>
+                if you provided "CS 2953" as an input "CS" will be read 
+                in a variable of type string and 2953 by variable of type
+                int.Reading of string is terminated by whitespace which is 
+                either space, tab or new line.</br>
+                cin would keep reading the input charachters until a 
+                new line is entered.After pressing enter, next line of
+                code will be executed</br>
                 </p>
+                <p>
+                If in the above string we provided "2953 CS", 2953 would
+                be read by the string, because 2953 is a sequence of 
+                character and age would be printed as 0.</br> 
+                </p>
+                <p>
+                As you didn't provide any value to the int variable 
+                and as there is a type mismatch in the above input, 
+                the output that would be printed is "2953 0".</br>
+                Hence, variable should be initialized so as to 
+                avoid unpredictable values of data.
+                </p>
+                <p>
+                A string read by &gt; &gt; is by default terminated 
+                by a whitespace. If we want to read more than one 
+                word, we would read something like in below example.
+                </p>
+                <PRE>
+                int main() {
+                    string first_name;
+                    string second_name;
+                    cin &gt;&gt; first_name &gt;&gt; second_name;
+                }
+                </PRE>
                 </details>
                 <details>
                     <summary class="sum1">
@@ -102,6 +145,38 @@
                     </figcaption>
                 </figure>
                 <p>
+                The type of variables determine the type of operation 
+                you can do on it.</br>
+                </p>
+                Example:
+                <PRE>
+                int count;
+                cin &gt;&gt; count;
+                string name;
+                cin &gt;&gt; name;
+                int c2 = count &plus; 2; // adds integer
+                string first_name = name &plus; "Jr"; // appends to string
+
+                int c3 = count &minus; 2; // - subtracts integer
+                string second_name = name &minus; "Jr"; // error: &minus;
+                                                        //isn't defined for
+                                                         // strings
+                </PRE>
+                <p>
+                The compiler knows the operations that can be applied 
+                to each variables and can prevent many mistakes.
+                There are some usual arithmetic operations like </br>
+                &plus;</br>
+                &minus;</br>
+                &divide;</br>
+                and modulous operator</br>
+                There are some operations which have defined functions 
+                like sqrt().
+                </p>
+                <p>
+                There are some operations on String that can be performed
+                &plus; is used to concatenate the string.
+                &equals; &equals; is used to compare strings.
                 </p>
                 </details>
                 <details>
@@ -114,6 +189,14 @@
                     </figcaption>
                 </figure>
                 <p>
+                Assignment operation is represented as &equals; </br>
+                int a &equals; 8; </br>
+                string b = "alpha"; </br>
+                b = b + "gamma"; </br>
+                Initialization and assignment are two different operations 
+                done using the same operator. Initialization means 
+                assigning to an empty variable. Assignment means
+                clearing out old value, before putting it new value.</br>
                 </p>
                     <details>
                         <summary class="sum2">
@@ -125,7 +208,40 @@
                     </figcaption>
                 </figure>
                 <p>
+                    Assignment is done when you want to put new values in the
+                    object.</br>
+                    Consider the following example which counts the number of
+                    repeated words.</br>
                 </p>
+                    <PRE>
+                    int main() {
+                        string previous = "";
+                        string current;
+                        while (cin &gt;&gt; current) {
+                            if (previous &equals;&equals; current) {
+                                cout &lt;&lt; "repeated word" &lt;&lt; current;
+                            }
+                            previous &equals; current;
+                        }
+                    }
+                    </PRE>
+                <p>
+                    Above example taken from "Programming practice and
+                    principles" by Bjarne Stroustrup.</br>
+                </p>
+                <p>
+                Let us understand the program.</br>
+                Most recent word is read into the variable current. The
+                <b>while</b> statement means that the statement will run
+                till there are characters to read.</br>
+                </p>
+                <p>
+                <b>Note:</b> for a string &gt;&gt; reads whitespace seperated
+                words and you need to terminate the loop by giving end-of-input
+                character. </br>
+                For Windows, Ctrl + Z is followed by an Enter.
+                </p>
+
                     </details>
                 </details>
                 <details>
