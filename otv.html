@@ -462,7 +462,7 @@
                 </p>
                     <PRE>
                     int main() {
-                        string previous = "";
+                        string previous = " ";
                         string current;
                         while (cin &gt;&gt; current) {
                             if (previous &equals;&equals; current) {
@@ -478,16 +478,35 @@
                 </p>
                 <p>
                 Let us understand the program.</br>
+                </p>
+                <ol class = "nested">
+                    <li>
                 Most recent word is read into the variable current. The
                 <b>while</b> statement means that the statement will run
                 till there are characters to read.</br>
-                </p>
-                <p>
-                <b>Note:</b> for a string &gt;&gt; reads whitespace seperated
-                words and you need to terminate the loop by giving end-of-input
-                character. </br>
-                For Windows, Ctrl + Z is followed by an Enter.
-                </p>
+                        <ul class = "nested">
+                            <li>
+                        <b>Note:</b> for a string &gt;&gt; reads whitespace seperated
+                        words and you need to terminate the loop by giving 
+                        end-of-input character. </br>
+                        For Windows, <i>Ctrl </i> &plus; <i>Z</i> is followed by an Enter is used
+                        to termminate the string. For Unix/Mac Os,<i> Ctrl</i>
+                        &plus;<i> D</i> 
+                            </li>
+                        </ul>
+                    </li>
+                <li>
+                    We store the input read in current to a variable named
+                    previous.Then we compare the current value with previous
+                    value and if they are equal, we print the output.
+                </li>
+                <li>
+                    For the first word, the string is compared with " ".</br>
+                    <b>Think:</b> Why is previous initialized 
+                    with " " and not passed through the cin.
+                    
+                </li>
+                </ol>
 
                     </details>
                 </details>
