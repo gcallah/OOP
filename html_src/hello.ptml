@@ -34,8 +34,9 @@
                 to complete a certain task that a human can do with common
                 sense.</br> &#10;
 
-                The language in which instructions are  given is <b>programming
-                    language.</b> C++ would be our programming language.
+                The language in which instructions are  given is 
+                the <b>programming language</b>.
+                C++ is our programming language.
                 </p>
                 </details>
                 <details>
@@ -215,7 +216,7 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the text material here! -->
+<!-- Include the test material here! -->
                 </details>
 
                 <details>
@@ -228,9 +229,64 @@
                         <figcaption>
                         </figcaption>
 
-                        <ul>
-                        </ul>
                     </figure>
+
+                    <ol>
+
+                        <li>
+                            Make your own GitHub repository for your code: 
+                            this is not optional, it is a course requirement.
+                        </li>
+
+                        <li>
+                            Login in to your PythonAnywhere account.
+                        </li>
+
+                        <li>
+                            Clone the repository: git clone
+                            &lt;your-repo-here&gt;
+                        </li>
+
+                        <li>
+                            Copy in the code directory from
+                            <a
+                    href="https://github.com/gcallah/OOP/tree/master/code">
+                                my repo</a>.
+                        </li>
+
+                        <li>
+                            Check this code into your GitHub repo:
+                            <br>
+                            <code>
+                            git commit -a -m "First commit of course code."
+                            <br>
+                            git push origin master
+                            </code>
+                        </li>
+
+                        <li>
+                            Compile the code on PythonAnywhere:
+                            <br>
+                            <code>
+                            g++ -std=c++11 -o hello hello.cpp
+                            </code>
+                        </li>
+
+                        <li>
+                            Run the program:
+                            <br>
+                            <code>
+                            ./hello
+                            </code>
+                        </li>
+
+                        <li>
+                            Create different errors in the program and
+                            re-compile at least five times. See what message
+                            the compiler gives you. Talk with a classmate and
+                            see if you can understand the error messages.
+                        </li>
+                    </ol>
                 </details>
 
             </div>
