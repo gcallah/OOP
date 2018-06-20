@@ -1,0 +1,86 @@
+        <ol class="nested">
+            <li>
+                Name the four parts of a function.
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                return type, name, parameter list, function body
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                main, include, link, compile
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                cout, std_lib, class, comment
+                </li>
+            </ol>
+            <li>
+                What does the linker do for your program?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                Turns your C++ code into an object file.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                Pulls in all of your include files.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                Joins separate object files and libraries into a single executable.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="d">
+                Handles pre-processing directives.
+                </li>
+            </ol>
+            <li>
+                What is the difference between a source file and an object file?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                The source file is in Python and the object file is in C++.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                The source file tells you where to look  on the Internet for good material and the object file complains.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                The source file is text in your programming language and the object file is binary.
+                </li>
+            </ol>
+            <li>
+                What does an .h suffix at the end of a file signify in C++?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                It is a heavy file that will take up lots of hard disk space.
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                It is a hard-coded file with lots of constants.
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                It is a healthy file that it would be good to incorporate into your program.
+                </li>
+                <li>
+                <input type="radio" name="q4" value="d">
+                It is a header file containing various definitions.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. a; 2. c; 3. c; 4. d; 
+            </p>
+        </details>
