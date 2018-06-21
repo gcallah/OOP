@@ -326,6 +326,7 @@
                 <details>
                     <summary class="sum1">
                     3.7 Names
+
                     </summary>
                 <figure>
                     <img src="" width="40%">
@@ -366,9 +367,35 @@
                 meaning.You should avoid case sensitive variable names like
                 IF or If, which is a case variation of a reserved word.
                 Compiler would not throw an error in such cases, but a
-                programmer might get confused with such assignments.
-                
+                programmer might get confused with such assignments. 
                 </p>
+                <p> 
+                <b>Notes:</b> 
+                </p>
+                <ol>
+                    <li>
+                    There are few keywords that are reserved by C++ like
+                if, string, while, cout, cin which should not be used as
+                variable.</br>
+                    </li>
+                    <li>
+                We should not use long variable names as they are hard to type,
+                too long and not required. </br>
+                    </li>
+                    <li>
+                General practice for variable names is either to use
+                underscores between names or to use camelCase like
+                <i>spice_jet</i> or <i>spiceJet</i>. </br>
+                    </li>
+                    <li>
+                You should avoid using variable names with all uppercase, it is
+                a bad practie.</br>
+                    </li>
+                    <li>
+                Initial letter as upperCase is used when defineing types like
+                Employee.</br>
+                    </li>
+                </ol>
                 </details>
                 <details>
                     <summary class="sum1">
@@ -380,7 +407,40 @@
                     </figcaption>
                 </figure>
                 <p>
+                    <b>Type</b> Defines set of possible values and operation
+                    for an object.</br>
+                    <b>Object</b> holds a value of a certain type.</br>
+                    <b>Value</b> bits in memory, interpreted according to the
+                    type assigned.</br>
+                    <b>declaration</b> is an assignment of name to an object</br>
+                    <b>definition</b> sets aside memory for an object.</br>
                 </p>
+                <p>
+                Informally, we can think of an object as a box, into which we
+                can put data of certain type. int a = 7 means a is of type int
+                and it can old integer values.
+                </p>
+                <p>
+                add image representation of strings //TODO
+                </p>
+                <p>
+                As we can see from above image, the string representation is a
+                bit complex. It also holds the length of string. The memory
+                required to store a data depends on the type of data.
+                A bit is a unit of memory in a computer. A byte is represented
+                by 8 bits. char requires 1 byte to store a data. int requires 
+                4 bytes.</br></br>
+                </p>
+                <p> 
+                    //TODO add memory table
+                </p>
+                <p>
+                </br>Each type of data is stored as bits in a computer memory,i.e.
+                an int 120 and char 'x' are both stored as bits,
+                hence it is necessary to specify the type of data to exactly
+                understand the value of data stored.</br>
+                </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -392,6 +452,18 @@
                     </figcaption>
                 </figure>
                 <p>
+                A program is type safe when operations on objects are done
+                according to the type of object. We can do certain operations
+                which are type unsafe and C++ compilers unfortunately allows
+                that. For example, one should not use a variable which is
+                uninitialized as it might give some unexpected output when
+                used. This operation is type unsafe and C++ compiler doesn't
+                catch it.</br>
+                Ideally a programmer should use operations that are checked by
+                compiler for static type safety, but this causes a lot of
+                restrictions while programmimg. With C++, a programmer should
+                be careful while coding and should avoid such type unsafe
+                operations. 
                 </p>
                     <details>
                         <summary class="sum2">
@@ -403,6 +475,18 @@
                     </figcaption>
                 </figure>
                 <p>
+                There are certain conversions between the types which can be
+                done without compromising the type safety.
+                For example an int can be converted to a double, or a char or
+                string can be converted to an int.Following are the conversions
+                which are safe. </br>
+                bool to char </br>
+                bool to int </br>
+                bool to double </br>
+                char to  int </br>
+                char to double </br>
+                int to double </br>
+                For a really large int we suffer lossy conversions
                 </p>
                     </details>
                     <details>
