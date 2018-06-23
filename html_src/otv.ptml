@@ -20,7 +20,8 @@
                     3.1 Input
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Backlit_keyboard.jpg/620px-Backlit_keyboard.jpg"
+                        width="30%">
                     <figcaption>
                     </figcaption>
                 </figure>
@@ -30,16 +31,11 @@
                    somewhere in the computer's memory to be read by the
                    program and is called an <i>object</i>. 
                 </p>
+
+
                 <p>
-                    A named object is called a variable and every object 
-                    has a type that specifies the kind of information placed 
-                    in that object.
-                </p>
-                <p>
-                int age &equals; 42, represents an object of <i>type</i> int,
-                <i>name</i> age and <i>value</i> 42.
-                </p>
                 <PRE>
+                <code>
                 int main() {
                     cout &lt;&lt; "Please enter your name:\n";
                     string first_name; // variable of type string
@@ -47,11 +43,15 @@
                     cout &lt;&lt; "Hello" &lt;&lt; your name is &lt;&lt;
                     first_name;
                 }
-
+                </code>
                 </PRE>
-                <p>
-                until a newline is entered the all characters are added
                 </p>
+
+                <p>
+                <code>cin</code> adds all characters typed
+                until a newline is entered.
+                </p>
+
 
                 </details>
                 <details>
@@ -59,26 +59,38 @@
                     3.2 Variables
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/VISTA_views_the_Trifid_Nebula_and_reveals_hidden_variable_stars.jpg/600px-VISTA_views_the_Trifid_Nebula_and_reveals_hidden_variable_stars.jpg"
+                        width="30%">
                     <figcaption>
+                        Stars have a variable brightness.
                     </figcaption>
                 </figure>
                 <p>
-                To access the object we need a name. A named object
-                is called a variable and should have a specific
-                type.
+                    A named object is called a <i>variable</i> and every object 
+                    has a type that specifies the kind of information 
+                    that can be placed in that object.
                 </p>
+
+                <p>
+                <code>int age &equals; 42</code>
+                represents an object of <i>type</i> int,
+                <i>name</i> "age" and <i>value</i> 42.
+                </p>
+
+                
                 <p>
                 The type determines the type of operation that can 
                 be done on the variable.
                 A statement that defines a variable is called a 
                 definition and is generally used to provide an 
-                initial value.</br>
+                initial value.
                 </p>
+
                 <p>
                 A compiler checks for the type of variable and 
-                makes sure that you use a variable according to it's type.</br>
+                makes sure that you use a variable according to its type.
                 </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -89,44 +101,52 @@
                     <figcaption>
                     </figcaption>
                 </figure>
-                 <PRE>
+                <PRE>
+                <code>
+                 #include "std_lib_facilities.h"
+
                  int main() {
-                    cout &lt;&lt; "Please enter your name:\n";
-                    string first_name; // variable of type string
-                    int age;
-                    cin &gt; &gt; first_name; // read characters into first name
-                    cin &gt;&gt; age;
-                    cout &lt;&lt; first_name &lt;&lt; age;
+                     cout &lt;&lt; "Please enter your name:\n";
+                     string first_name; // variable of type string
+                     int age;
+                     cin &gt; &gt; first_name; // read characters into first name
+                     cin &gt;&gt; age;
+                     cout &lt;&lt; first_name &lt;&lt; age;
                   } 
+                </code>
                   </PRE>
                 <p>
-                The input operation is sensitive to the type,it reads 
-                depending on the type of input.</br>
-                if you provided "CS 2953" as an input "CS" will be read 
-                in a variable of type string and 2953 by variable of type
-                int.Reading of string is terminated by whitespace which is 
-                either space, tab or new line.</br>
-                cin would keep reading the input charachters until a 
-                new line is entered.After pressing enter, next line of
-                code will be executed</br>
+                The input operation is sensitive to the type
+                of the variable being read into.
+                If you provided <span class="input">CS 2953</span>
+                as an input <span class="input">CS</span> will be read 
+                as type string and <span class="input">2953</span>
+                as type int. The reading of a string is terminated
+                by whitespace which is either space, tab or new line.
+                <code>cin</code> will keep reading the input characters until a 
+                new line is entered. After the user presses enter,
+                the next line of code will be executed.
                 </p>
+
                 <p>
-                If in the above string we provided "2953 CS", 2953 would
-                be read by the string, because 2953 is a sequence of 
-                character and age would be printed as 0.</br> 
+                If in the above code the user typed
+                <span class="input">2953 CS</span>,
+                <span class="input">2953</span> would
+                be read as a string, and age would be 0.
                 </p>
+
                 <p>
-                As you didn't provide any value to the int variable 
-                and as there is a type mismatch in the above input, 
+                As the user didn't provide a valid value to the int variable 
+                (there is a type mismatch in the above input),
                 the output that would be printed is "2953 0".</br>
-                Hence, variable should be initialized so as to 
-                avoid unpredictable values of data.
                 </p>
+
                 <p>
                 A string read by &gt; &gt; is by default terminated 
                 by a whitespace. If we want to read more than one 
-                word, we would read something like in below example.
+                string, we would use something like in this example:
                 </p>
+
                 <PRE>
                 int main() {
                     string first_name;
@@ -140,27 +160,32 @@
                     3.4 Operations and operators
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Telefonister%2C_Stockholms_telefonsstation_-_Nordiska_Museet_-_NMA.0037077.jpg/440px-Telefonister%2C_Stockholms_telefonsstation_-_Nordiska_Museet_-_NMA.0037077.jpg"
+                        width="30%">
                     <figcaption>
+                        Some smooth operators.
                     </figcaption>
                 </figure>
                 <p>
-                The type of variables determine the type of operation 
-                you can do on it.</br>
+                The type of a variable determine the types of operations
+                you can apply to it.
+                An example:
                 </p>
-                Example:
+
                 <PRE>
+                <code>
                 int count;
                 cin &gt;&gt; count;
                 string name;
                 cin &gt;&gt; name;
-                int c2 = count &plus; 2; // adds integer
+                int c2 = count &plus; 2; // adds an integer
                 string first_name = name &plus; "Jr"; // appends to string
 
-                int c3 = count &minus; 2; // - subtracts integer
+                int c3 = count &minus; 2; // - subtracts an integer
                 string second_name = name &minus; "Jr"; // error: &minus;
-                                                        //isn't defined for
-                                                         // strings
+                                                    //isn't defined for
+                                                    // strings
+                </code>
                 </PRE>
                 <p>
                 The compiler knows the operations that can be applied 
@@ -173,31 +198,38 @@
                 There are some operations which have defined functions 
                 like sqrt().
                 </p>
+
                 <p>
-                There are some operations on String that can be performed
-                &plus; is used to concatenate the string.
+                There are some operations that can be performed on strings:<br>
+                &plus; is used to concatenate strings.
+                <br />
                 &equals; &equals; is used to compare strings.
                 </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
                     3.5 Assignment and initialization
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Homework_-_vector_maths.jpg/660px-Homework_-_vector_maths.jpg"
+                        width="30%">
                     <figcaption>
                     </figcaption>
                 </figure>
                 <p>
-                Assignment operation is represented as &equals; </br>
-                int a &equals; 8; </br>
-                string b = "alpha"; </br>
-                b = b + "gamma"; </br>
+                The <i>assignment</i>
+                operation is represented by &equals;: </br>
+                <code>int a &equals; 8;</code> </br>
+                <code>string b = "alpha";</code> </br>
+                <code>b = b + "gamma";</code> </br>
                 Initialization and assignment are two different operations 
                 done using the same operator. Initialization means 
                 assigning to an empty variable. Assignment means
-                clearing out old value, before putting it new value.</br>
+                clearing out the old value and then putting 
+                in the new value.
                 </p>
+
                     <details>
                         <summary class="sum2">
                         3.5.1 An example: detect repeated words
@@ -213,6 +245,7 @@
                     Consider the following example which counts the number of
                     repeated words.</br>
                 </p>
+
                     <PRE>
                     int main() {
                         string previous = " ";
@@ -229,9 +262,11 @@
                     Above example taken from "Programming practice and
                     principles" by Bjarne Stroustrup.</br>
                 </p>
+
                 <p>
                 Let us understand the program.</br>
                 </p>
+
                 <ol class = "nested">
                     <li>
                 Most recent word is read into the variable current. The
@@ -277,18 +312,22 @@
                 <p>
                 Incrementing a variable is so common that C++ provides a syntax
                 for this.</br>
-                <b>Example:</b> counter &equals; counter &plus; 1;  &equiv;
-                counter++; Some other way to change the assigned value
-                to a variable is
-                a &plus; &equals; 7; </br>
-                a &lowast; &equals; 6; </br>
-                operators 
-                &plus; &equals; </br>
-                &minus; &equals; </br>
-                &divide; &equals; </br>
-                &percnt; &equals; </br>
-                &lowast; &equals; </br>
+                <b>Example:</b>
+                <code>counter &equals; counter &plus; 1;</code>
+                &equiv;
+                <code>counter++;</code>
+                Some other ways to change the assigned value
+                to a variable are:
                 </p>
+
+                <ul class="nested">
+                    <li>&plus; &equals; </li>
+                    <li>&minus; &equals; </li>
+                    <li>&divide; &equals; </li>
+                    <li>&percnt; &equals; </li>
+                    <li>&lowast; &equals; </li>
+                </ul>
+
                     <details>
                         <summary class="sum2">
                         3.6.1 An example: find repeated words
@@ -303,6 +342,7 @@
                 to count the words and outputs the count for the repeated
                 words.
                 </p>
+
                 <PRE>
                     int main() {
                     int number_of_words = 0;    
@@ -341,6 +381,7 @@
                 number.</br></br>
                 Here are some invalid variable names:</br> 
                 </p>
+
                 <ul>
                     <li>
                         #name       // not a valid character
@@ -369,9 +410,11 @@
                 Compiler would not throw an error in such cases, but a
                 programmer might get confused with such assignments. 
                 </p>
+
                 <p> 
                 <b>Notes:</b> 
                 </p>
+
                 <ol>
                     <li>
                     There are few keywords that are reserved by C++ like
@@ -415,11 +458,13 @@
                     <b>declaration</b> is an assignment of name to an object</br>
                     <b>definition</b> sets aside memory for an object.</br>
                 </p>
+
                 <p>
                 Informally, we can think of an object as a box, into which we
                 can put data of certain type. int a = 7 means a is of type int
                 and it can old integer values.
                 </p>
+
                 <figure>
                     <img src="graphics/StringMemory.png" width="50%">
                     <figcaption>
@@ -434,6 +479,7 @@
                 by 8 bits. char requires 1 byte to store a data. int requires 
                 4 bytes.</br></br>
                 </p>
+
                 
                 <figure>
                     <img src="graphics/TypeandMemory.png" width="50%">
@@ -446,6 +492,7 @@
                 hence it is necessary to specify the type of data to exactly
                 understand the value of data stored.</br>
                 </p>
+
 
                 </details>
                 <details>
@@ -471,41 +518,61 @@
                 be careful while coding and should avoid such type unsafe
                 operations. 
                 </p>
+
                     <details>
                         <summary class="sum2">
                         3.9.1 Safe conversions
                         </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Baseball_-_sledge_making_base.jpg/500px-Baseball_-_sledge_making_base.jpg"
+                        width="28%">
                     <figcaption>
+                        He's safe!
                     </figcaption>
                 </figure>
                 <p>
                 There are certain conversions between the types which can be
-                done without compromising the type safety.
-                For example an int can be converted to a double, or a char or
-                string can be converted to an int.Following are the conversions
-                which are safe. </br>
-                bool to char </br>
-                bool to int </br>
-                bool to double </br>
-                char to  int </br>
-                char to double </br>
-                int to double </br>
-                For a really large int we suffer lossy conversions
+                done without compromising type safety.
+                For example an int can be converted to a double, or a char 
+                can be converted to an int. The following are the conversions
+                which are safe:
                 </p>
+
+                <ul class="nested">
+                    <li>
+                        bool to char
+                    </li>
+                    <li>
+                        bool to int
+                    </li>
+                    <li>
+                        bool to double
+                    </li>
+                    <li>
+                        char to  int
+                    </li>
+                    <li>
+                        char to double
+                    </li>
+                    <li>
+                        int to double
+                    </li>
+                </ul>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         3.9.2 Unsafe conversions
                         </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </p>
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Partial_stadium_collapse_at_Big12_college_football_championship_-_2005.JPG/440px-Partial_stadium_collapse_at_Big12_college_football_championship_-_2005.JPG"
+                                width="30%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                        <p>
+                        </p>
+
                     </details>
                 </details>
 

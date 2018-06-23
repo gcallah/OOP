@@ -69,6 +69,12 @@ code {
     color: #fce;
 }
 
+pre {
+    background: inherit;
+    color: #fce;
+    outline: none;
+}
+
 ol, ul, dl, li {
     margin: 1em 1.5em .4em 1.5em;
     font-size: 1.1em;
@@ -179,6 +185,10 @@ h5 {
     font-weight: bold;
 }
 
+summary:focus{
+    outline: none;
+}
+
 summary.sum1 {
     font-size: 1.8em;
     color: #fac;
@@ -284,9 +294,9 @@ figcaption {
     margin: .8em 1em .6em 1em;
 }
 
-span.review {
-    color: #7386D5;
-    font-size: .8em;
+span.input {
+    color: #bbf;
+    font-family: monospace;
 }
 
 span.frac {
