@@ -616,46 +616,56 @@
 
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Ramesses_II_cartouches_at_Tanis.jpg/440px-Ramesses_II_cartouches_at_Tanis.jpg"
+                    width="27%">
                     <figcaption>
+                        The name of an Egyptian pharaoh.
                     </figcaption>
                 </figure>
                 <p>
                 A name for a variable is used to make it easier to refer them
                 from somewhere else in the program. A name in C++ refers with 
                 a letter and can contain only letters, digits and
-                underscore.A variable name cannot start with a
-                number.</br></br>
+                underscore. A variable name cannot start with a
+                number.
+                </p>
+
+                <p>
                 Here are some invalid variable names:</br> 
                 </p>
 
                 <ul>
                     <li>
-                        #name       // not a valid character
+                        #name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// # is
+                                                not a valid character
                     </li>
                     <li>
-                        var$name    // underscore is not allowed in a variable name
+                        var$name&nbsp;&nbsp;&nbsp;// a dollar sign
+                                    is not allowed in a variable name
                     </li>
                     <li>
-                        spice jet   // space is not allowed 
+                        spice jet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// space is
+                                                        not allowed 
                     </li>
                     <li>
-                        2x         // variable name cannot start with a number
+                        2x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        // a variable name cannot start with a number
                     </li>
                 </ul>
                 <p>
-                </br></br>Variable names shouldn't be a reserved word. As compiler will
-                generate error for such assignments.
-                Although underscore is allowed as a variable name and you can
-                start a variable with underscore, it is better to avoid such
-                names because C++ has reserved some variable names such as
-                _foo.The compiler has some words reserved for machine and
-                system implementation which start with underscore.</br> 
-                Variable names are case sensitive, foo and Foo hold a different
-                meaning.You should avoid case sensitive variable names like
-                IF or If, which is a case variation of a reserved word.
-                Compiler would not throw an error in such cases, but a
-                programmer might get confused with such assignments. 
+                Variable names shouldn't be a reserved word. The compiler will
+                generate errors for such uses.
+                Although an underscore is allowed as a variable name and you can
+                start a variable with an underscore, it is better to avoid such
+                names because the compiler has some words reserved for machine
+                and system implementation which start with an underscore.</br>
+                Variable names are case sensitive: <code>foo</code> and
+                <code>Foo</code> are different variables.  You should avoid
+                case sensitive variable names like IF or If, which is a case
+                variation of a reserved word.  Compiler would not throw an
+                error in such cases, but a programmer might get confused with
+                such assignments. 
                 </p>
 
                 <p> 
@@ -664,29 +674,35 @@
 
                 <ol>
                     <li>
-                    There are few keywords that are reserved by C++ like
-                if, string, while, cout, cin which should not be used as
-                variable.</br>
+                    There are keywords that are reserved by C++ like
+                <code>if</code>, <code>case</code>, <code>while</code>,
+                and <code>for</code>, which should not be used as variable names.
                     </li>
+
                     <li>
                 We should not use long variable names as they are hard to type,
-                too long and not required. </br>
+                too long and not required.
                     </li>
+
                     <li>
-                General practice for variable names is either to use
-                underscores between names or to use camelCase like
-                <i>spice_jet</i> or <i>spiceJet</i>. </br>
+                General practice for C++ variable names is to use
+                underscores between words, like
+                <code>spice_jet</code>.
                     </li>
+
                     <li>
-                You should avoid using variable names with all uppercase, it is
-                a bad practie.</br>
+                You should avoid using variable names that are all uppercase, 
+                as that use is reserved for macros.
                     </li>
+
                     <li>
-                Initial letter as upperCase is used when defineing types like
-                Employee.</br>
+                Initial letter as uppercase is used when creating user-defined
+                types like <code>Employee</code>.
                     </li>
                 </ol>
                 </details>
+
+
                 <details>
                     <summary class="sum1">
                     3.8 Types and objects
@@ -696,24 +712,45 @@
                     <figcaption>
                     </figcaption>
                 </figure>
-                <p>
-                    <b>Type</b> Defines set of possible values and operation
-                    for an object.</br>
-                    <b>Object</b> holds a value of a certain type.</br>
-                    <b>Value</b> bits in memory, interpreted according to the
-                    type assigned.</br>
-                    <b>declaration</b> is an assignment of name to an object</br>
-                    <b>definition</b> sets aside memory for an object.</br>
-                </p>
+                <ul class="nested">
+                    <li>
+                    <b>Type</b>:
+                    Defines set of possible values and operation
+                    for an object.
+                    </li>
+
+                    <li>
+                    <b>Object</b>:
+                    Holds a value of a certain type.
+                    </li>
+
+                    <li>
+                    <b>Value</b>:
+                    The actual bits in memory, interpreted according to the
+                    type assigned.
+                    </li>
+
+                    <li>
+                    <b>Declaration</b>:
+                    is an assignment of name to an object
+                    </li>
+
+                    <li>
+                    <b>Definition</b>:
+                    sets aside memory for an object.
+                    </li>
+
+                </ul>
 
                 <p>
                 Informally, we can think of an object as a box, into which we
-                can put data of certain type. int a = 7 means a is of type int
-                and it can old integer values.
+                can put data of certain type.
+                <code>int a = 7</code> means <code>a</code>
+                is of type <code>int</code> and it can hold integer values.
                 </p>
 
                 <figure>
-                    <img src="graphics/StringMemory.png" width="50%">
+                    <img src="" width="30%">
                     <figcaption>
                     </figcaption>
                 </figure>
@@ -729,7 +766,7 @@
 
                 
                 <figure>
-                    <img src="graphics/TypeandMemory.png" width="50%">
+                    <img src="" width="30%">
                     <figcaption>
                     </figcaption>
                 </figure>
@@ -747,7 +784,8 @@
                     3.9 Type safety
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Snake_warning_sign.jpg/500px-Snake_warning_sign.jpg"
+                    width="20%">
                     <figcaption>
                     </figcaption>
                 </figure>
@@ -758,7 +796,10 @@
                 that. For example, one should not use a variable which is
                 uninitialized as it might give some unexpected output when
                 used. This operation is type unsafe and C++ compiler doesn't
-                catch it.</br>
+                catch it.
+                </p>
+
+                <p>
                 Ideally a programmer should use operations that are checked by
                 compiler for static type safety, but this causes a lot of
                 restrictions while programmimg. With C++, a programmer should
