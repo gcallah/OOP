@@ -37,10 +37,10 @@
                 <PRE>
                 <code>
                 int main() {
-                    cout &lt;&lt; "Please enter your name:\n";
+                    cout &lt;&lt; <span class="string">"Please enter your name:\n"</span>;
                     string first_name; <span class="comment">// variable of type string</span>
                     cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
-                    cout &lt;&lt; "Hello" &lt;&lt; your name is &lt;&lt; first_name;
+                    cout &lt;&lt; <span class="string">"Hello"</span> &lt;&lt; first_name;
                 }
                 </code>
                 </PRE>
@@ -105,7 +105,7 @@
                  #include "std_lib_facilities.h"
 
                  int main() {
-                     cout &lt;&lt; "Please enter your name:\n";
+                     cout &lt;&lt; <span class="string">"Please enter your name:\n"</span>;
                      string first_name; <span class="comment">// variable of type string</span>
                      int age;
                      cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
