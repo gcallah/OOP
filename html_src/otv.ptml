@@ -15,6 +15,12 @@
                 <h1>
                     3. Objects, Types, and Values
                 </h1>
+
+                <p class="leadquote">
+                    "Fortune favors the prepared mind." -- Louis
+                    Pasteur
+                </p>
+
                 <details>
                     <summary class="sum1">
                     3.1 Input
@@ -603,7 +609,28 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            "Narrowing" conversions are unsafe: putting an
+                            object into a container too small to hold it. An
+                            example:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int a = 200000;
+                            char c = a;
+                            int b = c;
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            <code>b</code> will not equal <code>a</code> after
+                            the above code is executed, since <code>c</code>
+                            isn't big enough to hold the entire value of
+                            <code>a</code>.
                         </p>
 
                     </details>
