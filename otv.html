@@ -425,21 +425,26 @@
                 string name;
                 cin &gt;&gt; name;
                 int c2 = count &plus; 2; <span class="comment">// adds an integer</span>
-                string first_name = name &plus; "Jr"; <span class="comment">// appends to a string</span>
+                string first_name = name &plus; <span class="string">"Jr"</span>; <span class="comment">// appends to a string</span>
                 int c3 = count &minus; 2; <span class="comment">// - subtracts an integer</span>
-                string second_name = name &minus; "Jr"; <span class="comment">// error: &minus; isn't defined for strings</span>
+                string second_name = name &minus; <span class="string">"Jr"</span>; <span class="comment">// error: &minus; isn't defined for strings</span>
                 </code>
                 </PRE>
                 <p>
                 The compiler knows the operations that can be applied 
-                to each variables and can prevent many mistakes.
-                There are some usual arithmetic operations like </br>
-                &plus; </br>
-                &minus; </br>
-                &divide; </br>
-                &percnt; </br>
+                to each variable and can prevent many mistakes.
+                There are some usual arithmetic operations like:
+                </p>
+                <ul>
+                    <li><code>&plus;</code></li>
+                    <li><code>&minus;</code></li>
+                    <li><code>&divide;</code></li>
+                    <li><code>&percnt;</code></li>
+                </ul>
+
+                <p>
                 There are some operations which have defined functions 
-                like sqrt().
+                like <code>sqrt()</code>.
                 </p>
 
                 <p>
@@ -462,10 +467,10 @@
                 </figure>
                 <p>
                 The <i>assignment</i>
-                operation is represented by &equals;: </br>
+                operation is represented by <code>&equals;</code>: </br>
                 <code>int a &equals; 8;</code> </br>
-                <code>string b = "alpha";</code> </br>
-                <code>b = b + "gamma";</code> </br>
+                <code>string b = <span class="string">"alpha"</span>;</code> </br>
+                <code>b = b + <span class="string">"gamma"</span>;</code> </br>
                 Initialization and assignment are two different operations 
                 done using the same operator. Initialization means 
                 assigning to an empty variable. Assignment means
@@ -487,11 +492,11 @@
                     <PRE>
                     <code>
                     int main() {
-                        string previous = " ";
+                        string previous = <span class="string">" "</span>;
                         string current;
                         <span class="keyword">while</span> (cin &gt;&gt; current) {
                             <span class="keyword">if</span> (previous &equals;&equals; current) {
-                                cout &lt;&lt; "repeated word" &lt;&lt; current;
+                                cout &lt;&lt; <span class="string">"repeated word"</span> &lt;&lt; current;
                             }
                             previous &equals; current;
                         }
@@ -501,9 +506,9 @@
                 </p>
 
                 <p>
-                The above example is taken from <i>Programming: Principles
+                (The above example is taken from <i>Programming: Principles
                     and Practices Using C++</i> by Bjarne Stroustrup,
-                as our most of our other examples.
+                as our most of our other examples.)
                 </p>
 
                 <p>
@@ -523,8 +528,9 @@
                         words and you need to terminate the loop with an
                         end-of-input character. </br>
                         For Windows, <i>Ctrl </i> &plus; <i>Z</i>
-                        is followed by an Enter is used
+                        followed by &lt;Enter&gt; is used
                         to termminate the string. For Unix/Mac OS,
+                        it is 
                         <i> Ctrl</i> &plus;<i> D</i> 
                     </li>
                 <li>
@@ -547,15 +553,10 @@
                     <summary class="sum1">
                     3.6 Composite assignment operators
                     </summary>
-                <figure>
-                    <img src="" width="40%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
                 <p>
                 Incrementing a variable is so common that C++ provides a syntax
                 for this.</br>
-                <b>Example:</b>
+                <i>Example:</i>
                 <code>counter &equals; counter &plus; 1;</code>
                 &equiv;
                 <code>counter++;</code>
@@ -581,25 +582,26 @@
                     </figcaption>
                 </figure>
                 <p>
-                In the code we discussed above, we can modify the code 
-                to count the words and outputs the count for the repeated
+                We can modify the code example from the previous section
+                to count words and output the count for the repeated
                 words.
                 </p>
 
                 <PRE>
+                <code>
                     int main() {
                     int number_of_words = 0;    
-                        string previous = " ";
+                        string previous = <span class="string">" "</span>;
                         string current;
-                        while (cin &gt;&gt; current) {
+                        <span class="keyword">while</span> (cin &gt;&gt; current) {
                            ++number_of_words;
-                           if (previous &equals;&equals; current) {
-                                cout &lt;&lt; "repeated word" &lt;&lt; current
-                                &lt;&lt; "word number" &lt;&lt; number_of_words;
+                           <span class="keyword">if</span> (previous &equals;&equals; current) {
+                                cout &lt;&lt; <span class="string">"repeated word"</span> &lt;&lt; current &lt;&lt; <span class="string">"word number"</span> &lt;&lt; number_of_words;
                             }
                             previous &equals; current;
                         }
                     }
+                </code>
                 </PRE>
                 We start word counter at 0. Each time we see a word, we
                 increment the counter and we print the word which is repeated
@@ -633,20 +635,25 @@
 
                 <ul>
                     <li>
-                        #name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// # is
-                                                not a valid character
+                        <code>#name</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="comment">// # is not a valid
+                            character</span>
                     </li>
                     <li>
-                        var$name&nbsp;&nbsp;&nbsp;// a dollar sign
-                                    is not allowed in a variable name
+                        <code>var$name</code>&nbsp;&nbsp;&nbsp;
+                        <span class="comment">// a dollar sign is not allowed
+                            in a variable name</span>
                     </li>
                     <li>
-                        spice jet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// space is
-                                                        not allowed 
+                        <code>spice jet</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="comment">// space is not allowed </span>
                     </li>
                     <li>
-                        2x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        // a variable name cannot start with a number
+                        <code>2x</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        <span class="comment">
+                            // a variable name cannot start with a number
+                        </span>
                     </li>
                 </ul>
                 <p>
@@ -704,35 +711,36 @@
                     3.8 Types and objects
                     </summary>
                 <figure>
-                    <img src="" width="40%">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flight_dynamics_with_text.png/440px-Flight_dynamics_with_text.png"
+                    width="30%">
                     <figcaption>
                     </figcaption>
                 </figure>
                 <ul class="nested">
                     <li>
-                    <b>Type</b>:
+                    <i>Type</i>:
                     Defines set of possible values and operation
                     for an object.
                     </li>
 
                     <li>
-                    <b>Object</b>:
+                    <i>Object</i>:
                     Holds a value of a certain type.
                     </li>
 
                     <li>
-                    <b>Value</b>:
+                    <i>Value</i>:
                     The actual bits in memory, interpreted according to the
                     type assigned.
                     </li>
 
                     <li>
-                    <b>Declaration</b>:
+                    <i>Declaration</i>:
                     is an assignment of name to an object
                     </li>
 
                     <li>
-                    <b>Definition</b>:
+                    <i>Definition</i>:
                     sets aside memory for an object.
                     </li>
 
@@ -752,29 +760,17 @@
                 </figure>
                 
                 <p>
-                As we can see from above image, the string representation is a
+                As we can see from the above image [to be inserted],
+                the string representation is a
                 bit complex. It also holds the length of string. The memory
                 required to store a data depends on the type of data.
                 A bit is a unit of memory in a computer. A byte is represented
-                by 8 bits. char requires 1 byte to store a data. int requires 
-                4 bytes.</br></br>
+                by 8 bits. A <code>char</code> calls for 1 byte of storage.
+                An <code>int</code> typically uses 4 bytes.
                 </p>
-
-                
-                <figure>
-                    <img src="" width="30%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
-                <p>
-                </br>Each type of data is stored as bits in a computer memory,i.e.
-                an int 120 and char 'x' are both stored as bits,
-                hence it is necessary to specify the type of data to exactly
-                understand the value of data stored.</br>
-                </p>
-
 
                 </details>
+
                 <details>
                     <summary class="sum1">
                     3.9 Type safety

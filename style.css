@@ -305,6 +305,11 @@ span.keyword {
     font-family: monospace;
 }
 
+span.string {
+    color: #bbe;
+    font-family: monospace;
+}
+
 span.frac {
   display: inline-block;
   text-align: center;
