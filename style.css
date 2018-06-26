@@ -4,9 +4,10 @@ body {
     margin: 0;
     padding: 0;
     font-size: 100%;
-    background: #315;
+    background: #425;
     color: #ede;
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
 
 a, a:hover, a:focus {
@@ -50,7 +51,6 @@ p {
     margin: .4em 1.5em .4em 1.5em;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
-    font-weight: normal;
     line-height: 1.7em;
     color: inherit;
 }
@@ -123,7 +123,7 @@ dt {
 }
 
 h1,h2,h3 {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 h1 {
@@ -153,7 +153,6 @@ h2 {
     font-size: 1.7em;
     margin: 1.2em 1em .6em 4em;
     color: #99f;
-    font-weight: normal;
 }
 
 h2.centered {
@@ -161,28 +160,26 @@ h2.centered {
 }
 
 h2.subhead {
-    font-weight: normal;
 }
 
 h3 {
     font-size: 1.6em;
     margin: .8em 1.2em .8em 2em;
     color: #857;
-    font-weight: bold;
 }
 
 h4 {
     font-size: 1.5em;
     margin: .8em 1.6em .6em 1.6em;
     color: #339;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 h5 {
     font-size: 1.4em;
     margin: .8em 1.6em .6em 1.6em;
     color: #9900cc;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 summary:focus{
@@ -192,7 +189,6 @@ summary:focus{
 summary.sum1 {
     font-size: 1.8em;
     color: #fac;
-    font-weight: 400;
     margin: 1em 1.2em 1em 1.2em;
 }
 
