@@ -317,11 +317,11 @@
                 </p>
 
                 <ul class="nested">
-                    <li>&plus; &equals; </li>
-                    <li>&minus; &equals; </li>
-                    <li>&divide; &equals; </li>
-                    <li>&percnt; &equals; </li>
-                    <li>&lowast; &equals; </li>
+                    <li><code>&plus; &equals;</code> </li>
+                    <li><code>&minus; &equals;</code> </li>
+                    <li><code>&divide; &equals;</code> </li>
+                    <li><code>&percnt; &equals;</code> </li>
+                    <li><code>&lowast; &equals;</code> </li>
                 </ul>
 
                     <details>
