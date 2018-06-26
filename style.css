@@ -295,6 +295,16 @@ span.input {
     font-family: monospace;
 }
 
+span.comment {
+    color: #fbb;
+    font-family: monospace;
+}
+
+span.keyword {
+    color: #bfb;
+    font-family: monospace;
+}
+
 span.frac {
   display: inline-block;
   text-align: center;

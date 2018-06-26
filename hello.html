@@ -272,19 +272,20 @@
                     </figcaption>
                 </figure>
                 <p>
-                    <b>Program</b> is a command which tells the computer what
-                    to do. <b>Programming</b> is an activity of writing and
-                    testing such programs.</br>
+                    A <i>program</i> is a command which tells the computer what
+                    to do. <i>Programming</i> is the activity of writing and
+                    testing such programs.
                 </p>
                 <p>
                 Computers are dumb, in the sense that they require instructions
-                to complete a certain task that a human can do with common
-                sense.</br> &#10;
+                to complete a task that a human can do with common
+                sense.
 
                 The language in which instructions are  given is 
-                the <b>programming language</b>.
-                C++ is our programming language.
+                the <i>programming language</i>.
+                C++ is the programming language for our course.
                 </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -296,36 +297,38 @@
                         Hello, world!
                     </figcaption>
                 </figure>
-                <h2>
-                    Classic Hello World Program
-                </h2>
+                <p>
+                    The classic "Hello, World!" program:
+                </p>
                 <PRE>
+                <code>
                 // This program outpts "Hello World" to the monitor
                 #include &lt;iostream&gt;
                 int main() {
                     cout &lt;&lt;"Hello, World!\n";
                     return 0;
                 }
+                </code>
                 </PRE>
                 <p>
                 Let's look at the meaning of each line:
                 </p>
                 <ol class="nested">
                     <li>
-                        <i>//</i> is a comment. It is ignored by the compiler.
-                        Written to make code more readable.
+                        <code>//</code> is a comment. It is ignored by the compiler,
+                        included to make code more readable.
                     </li>
                     <li>
-                        <i>#include</i> is a directive; it 
+                        <code>#include</code> is a directive; it 
                         instructs the compiler to include
-                        facilities from iostream.
+                        facilities from, in this case, iostream.
                     </li>
                     <li>
-                        <i>main</i> is the function where the computer
+                        <code>main</code> is the function where the computer
                         starts executing the code.
                     </li>
                     <li>
-                        <i>cout</i> refers to the standard output stream, it is
+                        <code>cout</code> refers to the standard output stream, it is
                         an abbreviaton of "character output". Character put in
                         cout using &lt;&lt; will appear on screen (by default
                         -- that can be changed by how you invoke the program). 
@@ -333,26 +336,26 @@
                 </ol>
 
                 <p>
-                Every C++ program should have a main function to tell from
+                Every C++ program should have a main function to indicate
                 where to start executing the program. A function has four
                 parts:
                 </p>
                 <ol class="nested">
                     <li>
-                        <i> return type</i> specifies type of result that
-                        particular function would return to the callee. 
-                        int here.
+                        <i>return type</i>: specifies type of result that
+                        particular function would return to the callee:
+                        here, it is int.
                     </li>
                     <li>
-                        <i>name</i>, here main
+                        <i>name</i>: here main.
                     </li>
                     <li>
-                        <i>Parameter list</i> list of arguments the function
-                        takes.empty in the above example
+                        <i>Parameter list</i>: the list of arguments the function
+                        takes, which is empty in the above example.
                     </li>
                     <li>
-                        <i>function body</i> enclosed in curly braces,which
-                        lists the actions
+                        <i>function body</i>: enclosed in curly braces,
+                        stating which actions the function must perform.
                     </li>
 
                 </ol>
@@ -380,8 +383,8 @@
                     <p>
                     Source code is the code you write, for C++ the 
                     suffix is .cpp. The machine code or object code, 
-                    is .o (Unix) or .obj(Windows) </br></br> 
-                    Compiler checks for grammatically errors and/or syntax.
+                    is .o (Unix) or .obj (Windows) 
+                    The compiler checks for syntactical errors.
                     </p>
                 </details>
                 <details>
@@ -406,15 +409,20 @@
                         systems i.e. object code for Windows will not run 
                         on Unix machines.</br></br>
                     </p>
-                    <p>
-                        <b>Compile time errors:</b>
-                        errors found by the compiler. </br>
-                        <b>Link time errors:</b>
-                        errors found by the linker.</br>
-                        <b>Run time/logical errors:</b>
+                    <ul>
+                        <li>
+                        <i>Compile-time errors:</i>
+                        errors found by the compiler.
+                        </li>
+                        <li>
+                        <i>Link time errors:</i>
+                        errors found by the linker.
+                        </li>
+                        <li>
+                        <i>Run time/logical errors:</i>
                         found when program is run.
-                        </br>
-                    </p>
+                        </li>
+                    </ul>
 
                 </details>
                 <details>
@@ -443,13 +451,15 @@
                             you simply click a button, which performs
                             the compile, link, and run commands for you.
                             IDEs also have features like color coding 
-                            to help distinguish between comments, 
-                            keywords and other parts of program.
+                            to help distinguish between
+                            <span class="comment">comments</span>, 
+                            <span class="keyword">keywords</span>
+                            and other parts of program.
                         </li>
                     </ul>
                     <p>
-                    <b>Debugging</b> is used to find errors in program and
-                    remove them.
+                    <i>Debugging</i> is finding errors in a program and
+                    removing them. <i>Debuggers</i> are aids to doing this.
                     </p>
                 </details>
 

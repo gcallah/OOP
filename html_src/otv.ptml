@@ -38,10 +38,9 @@
                 <code>
                 int main() {
                     cout &lt;&lt; "Please enter your name:\n";
-                    string first_name; // variable of type string
-                    cin &gt; &gt; first_name; // read characters into first name
-                    cout &lt;&lt; "Hello" &lt;&lt; your name is &lt;&lt;
-                    first_name;
+                    string first_name; <span class="comment">// variable of type string</span>
+                    cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
+                    cout &lt;&lt; "Hello" &lt;&lt; your name is &lt;&lt; first_name;
                 }
                 </code>
                 </PRE>
@@ -107,9 +106,9 @@
 
                  int main() {
                      cout &lt;&lt; "Please enter your name:\n";
-                     string first_name; // variable of type string
+                     string first_name; <span class="comment">// variable of type string</span>
                      int age;
-                     cin &gt; &gt; first_name; // read characters into first name
+                     cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
                      cin &gt;&gt; age;
                      cout &lt;&lt; first_name &lt;&lt; age;
                   } 
@@ -178,13 +177,10 @@
                 cin &gt;&gt; count;
                 string name;
                 cin &gt;&gt; name;
-                int c2 = count &plus; 2; // adds an integer
-                string first_name = name &plus; "Jr"; // appends to string
-
-                int c3 = count &minus; 2; // - subtracts an integer
-                string second_name = name &minus; "Jr"; // error: &minus;
-                                                    //isn't defined for
-                                                    // strings
+                int c2 = count &plus; 2; <span class="comment">// adds an integer</span>
+                string first_name = name &plus; "Jr"; <span class="comment">// appends to a string</span>
+                int c3 = count &minus; 2; <span class="comment">// - subtracts an integer</span>
+                string second_name = name &minus; "Jr"; <span class="comment">// error: &minus; isn't defined for strings</span>
                 </code>
                 </PRE>
                 <p>
@@ -247,20 +243,23 @@
                 </p>
 
                     <PRE>
+                    <code>
                     int main() {
                         string previous = " ";
                         string current;
-                        while (cin &gt;&gt; current) {
-                            if (previous &equals;&equals; current) {
+                        <span class="keyword">while</span> (cin &gt;&gt; current) {
+                            <span class="keyword">if</span> (previous &equals;&equals; current) {
                                 cout &lt;&lt; "repeated word" &lt;&lt; current;
                             }
                             previous &equals; current;
                         }
                     }
+                    </code>
                     </PRE>
                 <p>
-                    Above example taken from "Programming practice and
-                    principles" by Bjarne Stroustrup.</br>
+                The above example taken from <i>Programming: Principles
+                    and Practices Using C++</i> by Bjarne Stroustrup,
+                as our most of our other examples.
                 </p>
 
                 <p>
@@ -269,32 +268,32 @@
 
                 <ol class = "nested">
                     <li>
-                Most recent word is read into the variable current. The
-                <b>while</b> statement means that the statement will run
+                The most recent word is read into the variable <code>current</code>.
+                The
+                <span class="keyword">while</span>
+                statement means that the statement will run
                 till there are characters to read.</br>
-                        <ul class = "nested">
-                            <li>
-                        <b>Note:</b> for a string &gt;&gt; reads whitespace seperated
-                        words and you need to terminate the loop by giving 
+                        <br>
+                        <i>Note:</i> for a string <code>&gt;&gt;</code>
+                        reads whitespace separated
+                        words and you need to terminate the loop with an
                         end-of-input character. </br>
-                        For Windows, <i>Ctrl </i> &plus; <i>Z</i> is followed by an Enter is used
-                        to termminate the string. For Unix/Mac Os,<i> Ctrl</i>
-                        &plus;<i> D</i> 
-                            </li>
-                        </ul>
+                        For Windows, <i>Ctrl </i> &plus; <i>Z</i>
+                        is followed by an Enter is used
+                        to termminate the string. For Unix/Mac OS,
+                        <i> Ctrl</i> &plus;<i> D</i> 
                     </li>
                 <li>
-                    We store the input read in current to a variable named
-                    previous.Then we compare the current value with previous
+                    We store the input read in <code>current</code>
+                    to a variable named
+                    <code>previous</code>.
+                    Then we compare the current value with previous
                     value and if they are equal, we print the output.
                 </li>
                 <li>
                     For the first word, the string is compared with " ".</br>
                     <b>Think:</b> Why is previous initialized 
-                    with " " (an empty string denoted by space character) 
-                    and not passed through the cin, like instead of 
-                    passing "Hi" through cin, why can't we pass " Hi"?</br>
-                    
+                    with " "?
                 </li>
                 </ol>
 
