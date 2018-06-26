@@ -579,22 +579,22 @@
 
                 <ul class="nested">
                     <li>
-                        bool to char
+                        <code>bool</code> to <code>char</code>
                     </li>
                     <li>
-                        bool to int
+                        <code>bool</code> to <code>int</code>
                     </li>
                     <li>
-                        bool to double
+                        <code>bool</code> to <code>double</code>
                     </li>
                     <li>
-                        char to  int
+                        <code>char</code> to <code>int</code>
                     </li>
                     <li>
-                        char to double
+                        <code>char</code> to <code>double</code>
                     </li>
                     <li>
-                        int to double
+                        <code>int</code> to <code>double</code>
                     </li>
                 </ul>
 
@@ -630,8 +630,35 @@
                             <code>b</code> will not equal <code>a</code> after
                             the above code is executed, since <code>c</code>
                             isn't big enough to hold the entire value of
-                            <code>a</code>.
+                            <code>a</code>. Unsafe conversions include:
                         </p>
+
+                        <ul class="nested">
+                            <li>
+                                <code>double</code> to <code>int</code>
+                            </li>
+
+                            <li>
+                                <code>double</code> to <code>char</code>
+                            </li>
+
+                            <li>
+                                <code>double</code> to <code>bool</code>
+                            </li>
+
+                            <li>
+                                <code>int</code> to <code>char</code>
+                            </li>
+
+                            <li>
+                                <code>int</code> to <code>bool</code>
+                            </li>
+
+                            <li>
+                                <code>char</code> to <code>bool</code>
+                            </li>
+
+                        </ul>
 
                     </details>
                 </details>
