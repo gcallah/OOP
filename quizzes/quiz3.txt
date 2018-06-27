@@ -1,0 +1,5 @@
+What terminates input into a string?#^whitespace#any number#green screen#Ctrl-C
+What is \n called?#netline#^newline#nerdline#nexus
+What is an object?#The definition of what the possible values are for some variable.#The bits in memory at some address.#^a container that holds a value of a certain type.#A pointer to some memory.
+What is a literal?#^A "plain" value such as 12 or "Hello."#An error message to the user.#Taking the value of a variable too literally.
+What is the difference between = and ==?#^The first assigns a value, the second tests for equality.#The first tests for equality, the second assigns a value.#They are the same: you can use the interchangeably.
