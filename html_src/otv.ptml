@@ -673,7 +673,7 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+<!--include quiz3.qhtm -->
                 </details>
 
                 <details>
@@ -685,10 +685,52 @@
                         width="20%">
                         <figcaption>
                         </figcaption>
-
-                        <ul>
-                        </ul>
                     </figure>
+
+                    <ol>
+                        <li>
+                            Section 3.1 contains a small C++ program. We
+                            are going to modify it to produce a form
+                            letter.
+                            Change the prompt to read "Enter the name of
+                            the person you want to write to" and change the
+                            output to "Dear <code>first_name</code>,".
+                        </li>
+
+                        <li>
+                            Add some introductory lines. Make 'em what you
+                            want.
+                        </li>
+
+                        <li>
+                            Prompt for a friend's name. Store it in 
+                            <code>friend_name</code>. Add the output,
+                            "Have you seen <code>friend_name</code>
+                            lately?"
+                        </li>
+
+                        <li>
+                            Add a prompt to enter the recipient's age.
+                            Then add the output "I hear you had a birthday
+                            and you are now <code>age</code> years old!"
+                        </li>
+
+                        <li>
+                            Add conditions for age: below 0 or above 110
+                            call <code>simple_error()</code> with a message
+                            of disbelief.
+                            <br>
+                            Below 17, print "You are young to be at NYU!"
+                            <br />
+                            Above 65, print "It's great to see senior
+                            students around campus!"
+                        </li>
+
+                        <li>
+                            Test that all possible inputs work.
+                        </li>
+
+                    </ol>
                 </details>
 
             </div>
