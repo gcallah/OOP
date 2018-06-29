@@ -36,14 +36,17 @@ th, td {
 }
 
 th {
+    color: #011;
     background: #cdf;
 }
 
 th.table-head {
+    color: #011;
     background: #7386D5;
 }
 
 td {
+    color: #045;
     background: #adf;
 }
 

@@ -363,8 +363,19 @@
                                 have to solve into smaller problems, each of
                                 which is easier to solve then the big problem.
                         </li>
-
                     </ul>
+
+                    <p>
+                        We break up our code into discrete "chunks" because a
+                        1000-line chunk of code will have far more than 10
+                        times the bugs as ten 100-line chunks of code.
+                        Also, we should use existing tools, such as libraries,
+                        whenever possible: someone else wrote and debugged it
+                        for us!
+                        <code>iostream</code> is a great example of this: if we
+                        had to deal with the I/O hardware directly, we might be
+                        writing hundreds of lines of code to do so.
+                    </p>
 
                 </details>
                 <details>
@@ -377,12 +388,32 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-                    <p>
-                    </p>
+
+                    <ul class="nested">
+                        <li>
+                        An expression computes a value from a number of
+                        operands.
+                        </li>
+
+                        <li>
+                            The simplest expression is a literal value, such as
+                            10, "Hello NYU students", or 2.71828.
+                        </li>
+
+                        <li>
+                            The names of variables are also expressions.
+                            <br>
+                            <code>int length = 20;</code>
+                            <br />
+                            In the above, a literal (20) is used to initialize
+                            a variable.
+                        </li>
+
+                    </ul>
 
                     <figure>
                         <img src="graphics/Chap4Diag3.png"
-                            width="30%">
+                            width="25%">
                         <figcaption>
                             A variable is a box, labeled by its name.
                         </figcaption>
@@ -397,7 +428,37 @@
                             </figcaption>
                         </figure>
                         <p>
+                            We often have the idea of some constant value we
+                            want to name, but we don't want ever to be changed;
+                            for instance, <code>pi</code> can't change in the
+                            course of a program, so we can write:
+                            <br />
+                            <code>
+                                constexpr double pi = 3.14159;
+                            </code>
+                            <br />
+                            After that, we can just use <code>pi</code>
+                            whenever we need that value. And if we at some
+                            point need more precision, we can just add it to
+                            the <code>constexpr</code> and not need to roam
+                            around our program changing it in many spots.
                         </p>
+
+                        <p>
+                            C++ <i>also</i> has the idea of a
+                            <code>const</code> the value of which is not known
+                            at compile time, but can't be changed after it is
+                            set. So:
+                            <br />
+                            <code>
+                                const c2 = n + 7;
+                            </code>
+                            <br />
+                            The value of <code>n</code> won't be known until
+                            the code is run, but once <code>c2</code> is set to
+                            <code>n + 7</code>, it can't be changed later on.
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -409,7 +470,263 @@
                             </figcaption>
                         </figure>
                         <p>
+                            Operators serve to combine literal or variable
+                            values to create a new value.
+                            Here are the most common operators:
                         </p>
+
+                        <table>
+                            <tr>
+                                <th>
+                                    Operator
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Explanation
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>f(a)</b>
+                                </td>
+                                <td>
+                                    function call
+                                </td>
+                                <td>
+                                    pass <b>a</b> to <b>f</b>
+                                    as an argument
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>++lval</b>
+                                </td>
+                                <td>
+                                    pre-increment
+                                </td>
+                                <td>
+                                    increment and use the incremented value
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>--lval</b>
+                                </td>
+                                <td>
+                                    pre-decrement
+                                </td>
+                                <td>
+                                    decrement and use the decremented value
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>!a</b>
+                                </td>
+                                <td>
+                                    not
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>-a</b>
+                                </td>
+                                <td>
+                                    unary minus
+                                </td>
+                                <td>
+                                    negates <b>a</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a*b</b>
+                                </td>
+                                <td>
+                                    multiply
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a/b</b>
+                                </td>
+                                <td>
+                                    divide
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a%b</b>
+                                </td>
+                                <td>
+                                    modulo (remainder)
+                                </td>
+                                <td>
+                                    only for integer types
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a+b</b>
+                                </td>
+                                <td>
+                                    add
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a-b</b>
+                                </td>
+                                <td>
+                                    subtract
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>out&lt;&lt;b</b>
+                                </td>
+                                <td>
+                                    write <b>b</b> to <b>out</b>
+                                </td>
+                                <td>
+                                    where <b>out</b> is an <b>ostream</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>in&gt;&gt;b</b>
+                                </td>
+                                <td>
+                                    read <b>b</b> from <b>in</b>
+                                </td>
+                                <td>
+                                    where <b>in</b> is an <b>istream</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a&lt;b</b>
+                                </td>
+                                <td>
+                                    less than
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a&le;b</b>
+                                </td>
+                                <td>
+                                    less than or equal
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a&gt;b</b>
+                                </td>
+                                <td>
+                                    greater than
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a&ge;b</b>
+                                </td>
+                                <td>
+                                    greater than or equal
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a==b</b>
+                                </td>
+                                <td>
+                                    equal
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a!=b</b>
+                                </td>
+                                <td>
+                                    not equal
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a && b</b>
+                                </td>
+                                <td>
+                                    logical and
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>a || b</b>
+                                </td>
+                                <td>
+                                    logical or
+                                </td>
+                                <td>
+                                    result is <b>bool</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>lval = a</b>
+                                </td>
+                                <td>
+                                    assignment
+                                </td>
+                                <td>
+                                    avoid confusion with ==
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>lval *= a</b>
+                                </td>
+                                <td>
+                                    compound assignment
+                                </td>
+                                <td>
+                                    also works with /, + and -
+                                </td>
+                            </tr>
+                        </table>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -503,7 +820,7 @@
                     4.6 <code>vector</code>
                     </summary>
                     <figure>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Vector_add_scale.svg/400px-Vector_add_scale.svg.png"
+                        <img src="graphics/Chap4Diag4.png"
                         width="40%">
                         <figcaption>
                         </figcaption>
@@ -527,7 +844,7 @@
                         4.6.2 Growing a vector
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="graphics/Chap4Diag5.png" width="28%">
                             <figcaption>
                             </figcaption>
                         </figure>
