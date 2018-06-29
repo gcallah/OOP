@@ -20,19 +20,55 @@
                     4.1 Computation
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap4Diag1.png"
+                        width="35%">
                         <figcaption>
                         </figcaption>
                     </figure>
-                    <p>
-                    </p>
+
+                    <ul>
+                        <li>
+                        All programs "compute": they run on computers, after
+                        all! And all they do can be called computation.
+                        </li>
+
+                        <li>
+                            But: we can usefully break down this truism and say
+                            that different parts of a program compute based on
+                            input from another part, and then output the result
+                            to be used by some other part.
+                        </li>
+
+                        <li>
+                            So we can view our programs as pockets of
+                            computation connected by I/O channels.
+                        </li>
+
+                        <li>
+                            Inside a program, the inputs are often called
+                            <i>arguments</i> and the outputs are called
+                            <i>results</i>.
+                        </li>
+
+                        <li>
+                            So our refined view of our programs is:
+                        </li>
+                    </ul>
+
+                    <figure>
+                        <img src="graphics/Chap4Diag2.png"
+                            width="48%">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
                 </details>
                 <details>
                     <summary class="sum1">
                     4.2 Objectives and tools
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/20060513_toolbox.jpg/574px-20060513_toolbox.jpg"
+                        width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
@@ -96,6 +132,13 @@
                     </figure>
                     <p>
                     </p>
+
+                    <figure>
+                        <img src="graphics/Chap4Diag3.png">
+                        <figcaption>
+                            A variable is a box, labeled by its name.
+                        </figcaption>
+                    </figure>
                     <details>
                         <summary class="sum2">
                         4.3.1 Constant expressions
@@ -125,7 +168,8 @@
                         4.3.3 Conversions
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Money-Euro-USD-LEI_53073-480x360_%284791385567%29.jpg"
+                            width="25%">
                             <figcaption>
                             </figcaption>
                         </figure>
