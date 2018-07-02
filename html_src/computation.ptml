@@ -700,19 +700,139 @@
                             </pre>
                         </code>
                         </p>
+                    </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Write a program that accepts some input from a
+                            range, like letter grades, and then uses a
+                            <code>switch</code> statement to reply with a
+                            message based on the input.
+                        </p>
 
                     </details>
+
                     <details>
                         <summary class="sum2">
                         4.4.2 Iteration
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Serpiente_alquimica.jpg/440px-Serpiente_alquimica.jpg"
+                                width="20%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            Iteration executes the same (block) of statements
+                            repeatedly. (Hopefully, this stops at some point!)
+                            The two C++ looping constructs are:
                         </p>
+
+
+                        <details>
+                            <summary class="sum3">
+                                The <code>while</code> statement
+                            </summary>
+
+                        <p>
+                            A while loop that prints the first 100 squares of
+                            integers:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int main()
+                            {
+                                int i=0;
+                                while(i&lt;100) {
+                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+                                     i++;
+                                }
+                            }
+                            </pre>
+                        </code>
+                        </p>
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Drill
+                            </summary>
+
+                            <p>
+                            Write a program that uses a <code>while</code>
+                            loop to print the ASCII value of all lowercase
+                            letters, relying on the fact that <code>'b'</code>
+                            is <code>'a' + 1</code>.
+                            </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Blocks
+                            </summary>
+
+                            <p>
+                                Blocks in C++ are set off by 
+                                <code>{ some code; }</code>: we often
+                                call those "squiggly braces".
+                                They delimit what is done inside an
+                                <code>if</code>, <code>for</code>,
+                                <code>while</code> statement, or a function.
+                                They aren't needed when what is to be done
+                                is only a single statement. (See for loop below
+                                for an example.)
+                            </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                The <code>for</code> statement
+                            </summary>
+
+                            <p>
+                                When we want to loop over a sequence of
+                                numbers, C++ offers a more concise form than
+                                the <code>while</code> statement: the
+                                <code>for</code> statement:
+                            </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int main()
+                            {
+                                for(i=0; i&lt;100; ++i)
+                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+                            }
+                            </pre>
+                        </code>
+                        </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Drill
+                            </summary>
+
+                            <p>
+                            Write a program like the previous one,
+                            but that uses a <code>for</code>
+                            loop to print the ASCII value of all 
+                            letters, both upper and lower.
+                            </p>
+
+                        </details>
+
                     </details>
                 </details>
                 <details>
