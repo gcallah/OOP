@@ -15,13 +15,19 @@
                 <h1>
                     4. Computation
                 </h1>
+                
+                <p class="leadquote">
+                    "If [a program] doesn't have to produce correct results, I can make
+                    it arbitrarily fast." -- Gerald M. Weinberg
+                </p>
+
                 <details>
                     <summary class="sum1">
                     4.1 Computation
                     </summary>
                     <figure>
                         <img src="graphics/Chap4Diag1.png"
-                        width="35%">
+                        width="40%">
                         <figcaption>
                         </figcaption>
                     </figure>
@@ -57,7 +63,7 @@
 
                     <figure>
                         <img src="graphics/Chap4Diag2.png"
-                            width="48%">
+                            width="58%">
                         <figcaption>
                         </figcaption>
                     </figure>
