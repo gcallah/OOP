@@ -845,8 +845,26 @@
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        What was <code>square() </code> in the code above?
+                        It is a <i>function</i>. A function is a named sequence
+                        of statements, that may accept one or more
+                        <i>arguments</i> and it may return a value.
+                        Here is a possible definition of <code>square</code>:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+                        int square(int x)
+                        {
+                            return x*x;
+                        }
+                        </pre>
+                    </code>
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         4.5.1 Why bother with functions?
