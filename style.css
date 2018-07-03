@@ -293,6 +293,10 @@ figcaption {
     margin: .8em 1em .6em 1em;
 }
 
+span.hilight {
+    color: #ff0;
+}
+
 span.input {
     color: #bbf;
     font-family: monospace;
