@@ -262,13 +262,19 @@
                 <h1>
                     4. Computation
                 </h1>
+                
+                <p class="leadquote">
+                    "If [a program] doesn't have to produce correct results, I can make
+                    it arbitrarily fast." -- Gerald M. Weinberg
+                </p>
+
                 <details>
                     <summary class="sum1">
                     4.1 Computation
                     </summary>
                     <figure>
                         <img src="graphics/Chap4Diag1.png"
-                        width="35%">
+                        width="40%">
                         <figcaption>
                         </figcaption>
                     </figure>
@@ -304,7 +310,7 @@
 
                     <figure>
                         <img src="graphics/Chap4Diag2.png"
-                            width="48%">
+                            width="58%">
                         <figcaption>
                         </figcaption>
                     </figure>
@@ -738,8 +744,58 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can "mix" different types in expressions: what
+                            is the type of the result? There are rules for
+                            this. For instance:
                         </p>
+
+                        <ul>
+                            <li>
+                                <code>5/2</code> is <code>2</code>
+                            </li>
+
+                            <li>
+                                <code>2.5/2</code> means
+                                <code>2.5/double(2)</code> == <code>1.25</code>
+                            </li>
+
+                            <li>
+                                <code>'a'+1</code> means
+                                <code>int{'a'}+1</code>
+                            </li>
+                        </ul>
+
+                        <p>
+                            <code>type(value)</code>
+                            and
+                            <code>type{value}</code>
+                            mean "convert <code>value</code>
+                            to <code>type</code>.
+                            The difference between them is that the version
+                            with squiggly braces {} prevents narrowing, but the
+                            one with parentheses () does not.
+                        </p>
+
+                        <p>
+                            Be careful not to write something like:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            double dc;
+                            cin &gt;&gt; dc;
+                            double df = 9/5*dc+32;
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                        <code>9/5</code> is equal to 1, not 1.8!
+                        </p>
+
                     </details>
                 </details>
                 <details>
@@ -752,30 +808,278 @@
                         </figcaption>
                     </figure>
                     <p>
+                        A <i>statement</i> is the next level of C++ language
+                        structure up from an expression. The simplest statement
+                        is just an expression followed by a semi-colon:
                     </p>
+
+                    <p>
+                    <code>
+                            a=b;
+                            <br>
+                            ++b;
+                    </code>
+                    </p>
+
+                    <p>
+                        When statements simply follow each other, the computer
+                        executes them in order. We typically want statements to
+                        have an effect:
+                        <br />
+                        <code>3+3;</code>
+                        <br />
+                        is a useless statement, since it has no effect on the
+                        state of future computations.
+                    </p>
+
+                    <p>
+                        A common error: accidentally create an empty statement,
+                        e.g.:
+                        <br />
+                        <code>if(x==5);<br>
+                            { y = 3; }
+                        </code>
+                        <br />
+                        The programmer meant to assign
+                        <code>3</code> to <code>y</code> only if
+                        <code>x</code> equaled
+                        <code>5</code>, but the "extra" semi-colon
+                        means <code>y</code> is set to <code>3</code>
+                        regardless.
+                    </p>
+
+                    <p>
+                        Code that just executes statements in order is a bit...
+                        boring. We want to be able to select what statements to
+                        execute, and excute some statements many times. Let's
+                        see how to do those things.
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         4.4.1 Selection
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Butterfly_Ballot%2C_Florida_2000_%28large%29.jpg/300px-Butterfly_Ballot%2C_Florida_2000_%28large%29.jpg"
+                                width="20%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            The simplest form of selection is an
+                            <code>if</code> statement, which selects between
+                            two alternatives; for instance, here is code that
+                            returns the maximum of two values: 
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int max(int a, int b)
+                            {
+                                if(a&lt;b)
+                                    return b;
+                                else
+                                    return a;
+                            }
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            The notion is simple: if a condition is true, do
+                            one thing, else if it is false, do another. If the
+                            class you want is available, register for it, else,
+                            choose a different class:
+                            <br />
+                            <code>if(my_choice==available) choose_it();
+                            <br />
+                            else choose_another();
+                            </code>
+                        </p>
+
+                        <p>
+                            When we have many alternatives to choose among, it
+                            may be clearer to express them in a
+                            <code>switch</code> statement, like this:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            switch (grade) {
+                            case 'A':
+                                cout &lt;&lt; "You done great!"
+                                break;
+                            case 'B':
+                                cout &lt;&lt; "That's pretty good."
+                                break;
+                            case 'C':
+                                cout &lt;&lt; "Not bad, but we hope for better."
+                                break;
+                            case 'D':
+                                cout &lt;&lt; "Consider retaking the course."
+                                break;
+                            case 'F':
+                                cout &lt;&lt; "You're going to have to retake the course."
+                                break;
+                            }
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            When many cases should result in the same behavior,
+                            then omitting the <code>break</code> statement can
+                            merge those cases:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                                switch (num) {
+                                case '0'; case '2'; case '4'; case '6'; case '8':
+                                    cout &lt; &lt; "Digit entered was even.";
+                                case '1'; case '3'; case '5'; case '7'; case '9':
+                                    cout &lt; &lt; "Digit entered was odd.";
+                                default:
+                                    cout &lt;&lt; "That wasn't a digit".
+                            </pre>
+                        </code>
                         </p>
                     </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Write a program that accepts some input from a
+                            range, like letter grades, and then uses a
+                            <code>switch</code> statement to reply with a
+                            message based on the input.
+                        </p>
+
+                    </details>
+
                     <details>
                         <summary class="sum2">
                         4.4.2 Iteration
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Serpiente_alquimica.jpg/440px-Serpiente_alquimica.jpg"
+                                width="20%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            Iteration executes the same (block) of statements
+                            repeatedly. (Hopefully, this stops at some point!)
+                            The two C++ looping constructs are:
                         </p>
+
+
+                        <details>
+                            <summary class="sum3">
+                                The <code>while</code> statement
+                            </summary>
+
+                        <p>
+                            A while loop that prints the first 100 squares of
+                            integers:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int main()
+                            {
+                                int i=0;
+                                while(i&lt;100) {
+                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+                                     i++;
+                                }
+                            }
+                            </pre>
+                        </code>
+                        </p>
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Drill
+                            </summary>
+
+                            <p>
+                            Write a program that uses a <code>while</code>
+                            loop to print the ASCII value of all lowercase
+                            letters, relying on the fact that <code>'b'</code>
+                            is <code>'a' + 1</code>.
+                            </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Blocks
+                            </summary>
+
+                            <p>
+                                Blocks in C++ are set off by 
+                                <code>{ some code; }</code>: we often
+                                call those "squiggly braces".
+                                They delimit what is done inside an
+                                <code>if</code>, <code>for</code>,
+                                <code>while</code> statement, or a function.
+                                They aren't needed when what is to be done
+                                is only a single statement. (See for loop below
+                                for an example.)
+                            </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                The <code>for</code> statement
+                            </summary>
+
+                            <p>
+                                When we want to loop over a sequence of
+                                numbers, C++ offers a more concise form than
+                                the <code>while</code> statement: the
+                                <code>for</code> statement:
+                            </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            int main()
+                            {
+                                for(int i=0; i&lt;100; ++i)
+                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+                            }
+                            </pre>
+                        </code>
+                        </p>
+
+                        </details>
+
+                        <details>
+                            <summary class="sum3">
+                                Drill
+                            </summary>
+
+                            <p>
+                            Write a program like the previous one,
+                            but that uses a <code>for</code>
+                            loop to print the ASCII value of all 
+                            letters, both upper and lower.
+                            </p>
+
+                        </details>
+
                     </details>
                 </details>
                 <details>
@@ -788,8 +1092,26 @@
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        What was <code>square() </code> in the code above?
+                        It is a <i>function</i>. A function is a named sequence
+                        of statements, that may accept one or more
+                        <i>arguments</i> and it may return a value.
+                        Here is a possible definition of <code>square</code>:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+                        int square(int x)
+                        {
+                            return x*x;
+                        }
+                        </pre>
+                    </code>
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         4.5.1 Why bother with functions?
