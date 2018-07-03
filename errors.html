@@ -272,14 +272,14 @@
                         </figcaption>
                     </figure>
                     <p>
-                      While developing a program, <i>Errors</i> are unacceptable
+                      While developing a program, <i>errors</i> are unacceptable
                       mistakes done by programmer often referred to as bugs.
-                      To maintain the quality of a program, Errors need be
+                      To maintain the quality of a program, errors need be
                       removed and a program should be free of errors to be
                       considered acceptable.
                     </p>
                     <br>
-                    <p>The Errors can be classified as follows: </p>
+                    <p>The errors can be classified as follows: </p>
 
                     <table style="width:80%" align="center">
                       <tr>
@@ -287,7 +287,8 @@
                         <th>Found By</th>
                       </tr>
                       <tr>
-                        <td>Compile-time errors</td>
+                        <td>Compile-time errors <br>
+                          (Syntax, Type Errors)</td>
                         <td>Compiler</td>
                       </tr>
                       <tr>
@@ -306,18 +307,46 @@
                            results)</td>
                       </tr>
                     </table>
+                    <br>
+                    <p>How to deal with errors to produce an acceptable software
+                    ?</p>
+                    <p><b><i>Answer: </i></b>  Follow these 3 basic approaches
+                    </p>
+                    <ul>
+                      <li>Organize software to minimize errors</li>
+                      <li>Eliminate most of the errors we made through
+                      debugging and testing</li>
+                      <li>Make sure the remaining errors are not serious</li>
+                    </ul>
                 </details>
                 <details>
                     <summary class="sum1">
                     5.2 Sources of errors
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
-                    <p>
-                    </p>
+                    <ul>
+                      <li><font color="yellow">Poor specification & Incomplete
+                        programs:</font>
+                        <i>Occurs when all cases are not handled including
+                        error cases</i></li>
+                      <li><font color="yellow">Unexpected arguments: </font>
+                        <i>Occurs when a argument is not handled in a function
+                        </i> <br>Example: <code>sqrt(-1.2)</code><br>
+                         Since <code>sqrt()</code> of a <code>double</code>
+                         returns <code>double</code>, there is no
+                         possible correct return value.
+                      </li>
+                      <li><font color="yellow">Unexpected input: </font>
+                        <i>Occurs when input cases are nor handled</i><br>
+                        Example: When user enters a string input instead of
+                        a expected integer input</li>
+                      <li><font color="yellow">Unexpected state: </font>
+                        <i>Most programs keep a lot of data around for use
+                          by different parts of the system. What if such a data
+                          is wrong or incomplete?</i></li>
+                      <li><font color="yellow">Logical errors: </font>
+                        <i>The program you build is not working as you desire
+                        </i></li>
+                    </ul>
                 </details>
                 <details>
                     <summary class="sum1">
@@ -329,6 +358,9 @@
                         </figcaption>
                     </figure>
                     <p>
+                      Compiler analyzes to detect syntax errors and type errors.
+                      Many of the errors are simply "silly" errors caused due to
+                      incomplete edits of the code or mistyping.
                     </p>
                     <details>
                         <summary class="sum2">
