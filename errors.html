@@ -350,10 +350,10 @@
                 </details>
                 <details>
                     <summary class="sum1">
-                    5.3 Compile-timeerrors
+                    5.3 Compile-time errors
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap5Diag2.png" width="40%">
                         <figcaption>
                         </figcaption>
                     </figure>
@@ -364,15 +364,27 @@
                     </p>
                     <details>
                         <summary class="sum2">
-                        5.3.1 Syntaxerrors
+                        5.3.1 Syntax errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                        <PRE>
+                        <code>
+                          int s1 = area(7; <span class="comment">// error: ) missing</span>
+                          int s2 = area(7) <span class="comment">// error: ; missing</span>
+                          Int s3 = area(7); <span class="comment">// error: Int is not a type</span>
+                          int s4 = area('7); <span class="comment">// error: non-terminated character (' missing)</span>
+                        </code>
+                        </PRE>
                         </p>
+                        <p>For example, given the error in the declaration of s3
+                          above, a compiler is unlikely to say
+                        “You misspelled <code>int</code>; don’t capitalize the
+                        <code>i</code>.”<br>Rather, it’ll say something like<br>
+                        “syntax error: missing ‘<code>;</code>’
+                        before identifier ‘<code>s3</code>’”<br>
+                        “‘<code>s3</code>’ missing storage-class or
+                        type identifiers”<br>“‘<code>Int</code>’ missing
+                        storage-class or type identifiers”</p>
                     </details>
                     <details>
                         <summary class="sum2">
