@@ -1044,18 +1044,50 @@
                         </code>
                         </p>
 
+                        <p>
+                            To traverse a <code>vector</code> we need to
+                            traverse the half-open sequence <code>v[0]</code>
+                            to <code>v[v.size()-1]</code>.
+                        </p>
+
+                        <p>
+                            C++ has a built-in way to loop over everything in a
+                            half-open sequence:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
+                            for(int x : v)
+                                cout &lt;&lt; x &lt;&lt; '\n';  
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            This is called a range-for-loop, since <i>range</i>
+                            is a synonym for "a sequence of elements."
+                            <br />
+                            More complicated loops involving vectors are
+                            tyoically better coded in the traditional for-loop
+                            style listed above.
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         4.6.2 Growing a vector
                         </summary>
+                        <p>
+                            We grow a <code>vector</code> by using its 
+                            <code>push_back()</code> 
+                        </p>
                         <figure>
                             <img src="graphics/Chap4Diag5.png" width="28%">
                             <figcaption>
                             </figcaption>
                         </figure>
-                        <p>
-                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
