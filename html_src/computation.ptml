@@ -1081,8 +1081,23 @@
                         </summary>
                         <p>
                             We grow a <code>vector</code> by using its 
-                            <code>push_back()</code> 
+                            <code>push_back()</code> method. For instance, this
+                            code:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            vector&lt;double&gt; v; <span style="comment">// empty vector! </span>
+
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            Results in:
+                        </p>
+
                         <figure>
                             <img src="graphics/Chap4Diag5.png" width="28%">
                             <figcaption>
