@@ -360,12 +360,14 @@
 
                     <ul>
                         <li>
-                            <i>Abstraction</i>: hide messy details behind a simple
+                            <span class="hilight">Abstraction</span>:
+                            hide messy details behind a simple
                             interface.
                         </li>
 
                         <li>
-                            <i>"Divide and conquer"</i>: break up the problem we
+                            <span class="hilight">"Divide and conquer"</span>:
+                            break up the problem we
                                 have to solve into smaller problems, each of
                                 which is easier to solve then the big problem.
                         </li>
@@ -947,6 +949,42 @@
                             </pre>
                         </code>
                         </p>
+
+                        <p>
+                        <span class="hilight">Switch technicalities:</span>
+                        </p>
+
+                        <ol>
+                            <li>
+                                The value switched on must be a character,
+                                integer, or enumeration type. You can't switch
+                                on strings or other more complex objects.
+                            </li>
+
+                            <li>
+                                The values in the <code>case</code> labels
+                                must be constants.
+                            </li>
+
+                            <li>
+                                No two <code>case</code> labels can have the
+                                same value.
+                            </li>
+
+                            <li>
+                                You can use several <code>case</code> labels
+                                for a single case.
+                            </li>
+
+                            <li>
+                                Typical source of bugs: forgetting to use a 
+                                <code>break</code> when you don't want to drop
+                                through to the next case. The compiler will
+                                think you meant to do 4. above.
+                            </li>
+
+                        </ol>
+
                     </details>
 
                     <details>
@@ -1094,7 +1132,7 @@
                     </figure>
 
                     <p>
-                        What was <code>square() </code> in the code above?
+                        What was <code>square()</code> in the code above?
                         It is a <i>function</i>. A function is a named sequence
                         of statements, that may accept one or more
                         <i>arguments</i> and it may return a value.
@@ -1112,6 +1150,18 @@
                     </code>
                     </p>
 
+                    <p>
+                        What does all that mean? Well, the first bit says this
+                        function will return an <code>int</code> value to its
+                        caller. <code>square</code> is the name of the
+                        function, the name that can be used to call it. And
+                        <code>int x</code> says that the function will require
+                        and only accept a single argument, <code>x</code>, that
+                        must be an integer. And the <i>function body</i> is the
+                        block between the squiggly braces, here
+                        <code>return x*x</code>, that actually does the work.
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         4.5.1 Why bother with functions?
@@ -1121,8 +1171,40 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+                        <ul>
+                            <li>
+                                Makes the computation logically separate
+                            </li>
+
+                            <li>
+                                Make the program logically clearer (by naming
+                                the computation)
+                            </li>
+
+                            <li>
+                                Makes it possible to use the function in more
+                                than one place
+                            </li>
+
+                            <li>
+                                Eases testing (we can test functional units
+                                separately)
+                            </li>
+
+                        </ul>
+
                         <p>
+                            Why use <code>square()</code> instead of a function
+                            named <code>print_square()</code> that both
+                            squares a number and then prints it?
+                            <br />
+                            Basically, we want a function to do one thing, not
+                            two, as then we can use it in more places: e.g,
+                            where we just want to square a number but then use 
+                            the result in another computation without printing
+                            it.
                         </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -1134,6 +1216,22 @@
                             </figcaption>
                         </figure>
                         <p>
+                            We must differentiate between function
+                            <i>declarations</i> and function
+                            <i>definitions</i>.
+                            The declaration of a function need only announce
+                            the type it returns, its name, and the types of its
+                            arguments. The function definition must include how
+                            it carries out its work. Often in our programs, we
+                            just want to mention the declaration part of a
+                            function, so the compiler knows if we are using it
+                            wrongly, and not include the definition, which may
+                            live in some third-party library. We typically do
+                            that in header files, with the extension ".h".
+                            <br />
+                            A function declaration looks like:
+                            <br />
+                            <code>int square(int);</code>
                         </p>
                     </details>
                 </details>
@@ -1141,14 +1239,35 @@
                     <summary class="sum1">
                     4.6 <code>vector</code>
                     </summary>
+                    <p>
+                        Programs typically need a collection of data to work
+                        on, say, to calculate the average shooting percentage
+                        of all NBA basketball players, we need a list of how
+                        many shots each player took, and how many he made. To
+                        catalogue a library, we need a list of books in it.
+                    </p>
+
+                    <p>
+                        A <code>vector</code> is one of the simplest and most
+                        useful ways of storing data. It is a sequence of
+                        elements you can access by an index, like this:
+                    </p>
+
                     <figure>
                         <img src="graphics/Chap4Diag4.png"
                         width="40%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        We access the elements by "indexing" the  vector,
+                        starting from position 0, so in the above case,
+                        <code>v[0]</code> is <code>5</code>, 
+                        <code>v[1]</code> is <code>7</code>, 
+                        and so on.
                     </p>
+
                     <details>
                         <summary class="sum2">
                         4.6.1 Traversing a vector
@@ -1159,7 +1278,19 @@
                             </figcaption>
                         </figure>
                         <p>
+                            We can traverse a <code>vector</code> as follows:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                            vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
+                            for(int i = 0; i&lt;v.size(); i++)
+                                cout &lt;&lt; v[i] &lt;&lt; '\n';  
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
