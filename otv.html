@@ -292,7 +292,7 @@
                 int main() {
                     cout &lt;&lt; <span class="string">"Please enter your name:\n"</span>;
                     string first_name; <span class="comment">// variable of type string</span>
-                    cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
+                    cin &gt;&gt; first_name; <span class="comment">// read characters into first name</span>
                     cout &lt;&lt; <span class="string">"Hello"</span> &lt;&lt; first_name;
                 }
                 </code>
@@ -361,7 +361,7 @@
                      cout &lt;&lt; <span class="string">"Please enter your name:\n"</span>;
                      string first_name; <span class="comment">// variable of type string</span>
                      int age;
-                     cin &gt; &gt; first_name; <span class="comment">// read characters into first name</span>
+                     cin &gt;&gt; first_name; <span class="comment">// read characters into first name</span>
                      cin &gt;&gt; age;
                      cout &lt;&lt; first_name &lt;&lt; age;
                   } 
@@ -394,7 +394,7 @@
                 </p>
 
                 <p>
-                A string read by &gt; &gt; is by default terminated 
+                A string read by &gt;&gt; is by default terminated 
                 by a whitespace. If we want to read more than one 
                 string, we would use something like in this example:
                 </p>
@@ -501,7 +501,7 @@
                         string current;
                         <span class="keyword">while</span> (cin &gt;&gt; current) {
                             <span class="keyword">if</span> (previous &equals;&equals; current) 
-                                cout &lt;&lt; <span class="string">"repeated word"</span> &lt;&lt; current;
+                                cout &lt;&lt; <span class="string">"repeated word "</span> &lt;&lt; current;
                             previous &equals; current;
                         }
                     }
@@ -913,8 +913,10 @@
                             conversions listed above. For instance, initialize
                             a double, assign it to an int, and then print out
                             the initial value you used and the resulting value
-                            in the "narrowed" type. "Hand" this program in to
-                            your TA.
+                            in the "narrowed" type.
+                            Convert <i>back</i> to the broader type, and output
+                            that value, so you can see what was lost.
+                            "Hand" this program in to your TA.
                         </p>
                     </details>
 
