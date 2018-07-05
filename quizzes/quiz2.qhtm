@@ -96,12 +96,29 @@
                 cin
                 </li>
             </ol>
+            <li>
+                In our first program, what is the purpose of <code>return 0;</code>?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                It signals to the OS that the program failed.
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                It signals to the OS that the program succeeded.
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                It tells the user that this program did nothing of interest.
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. a; 2. c; 3. c; 4. d; 5. c; 
+                1. a; 2. c; 3. c; 4. d; 5. c; 6. b; 
             </p>
         </details>

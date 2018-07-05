@@ -176,11 +176,11 @@
                         errors found by the compiler.
                         </li>
                         <li>
-                        <i>Link time errors:</i>
+                        <i>Link-time errors:</i>
                         errors found by the linker.
                         </li>
                         <li>
-                        <i>Run time/logical errors:</i>
+                        <i>Run-time/logical errors:</i>
                         found when program is run.
                         </li>
                     </ul>

@@ -455,9 +455,9 @@
 
                 <p>
                 There are some operations that can be performed on strings:<br>
-                &plus; is used to concatenate strings.
+                <code>&plus;</code> is used to concatenate strings.
                 <br />
-                &equals; &equals; is used to compare strings.
+                <code>&equals;&equals;</code> is used to compare strings.
                 </p>
 
                 </details>
@@ -480,8 +480,7 @@
                 Initialization and assignment are two different operations 
                 done using the same operator. Initialization means 
                 assigning to an empty variable. Assignment means
-                clearing out the old value and then putting 
-                in the new value.
+                putting in a new value, which wipes out the old one.
                 </p>
 
                     <details>
@@ -501,9 +500,8 @@
                         string previous = <span class="string">" "</span>;
                         string current;
                         <span class="keyword">while</span> (cin &gt;&gt; current) {
-                            <span class="keyword">if</span> (previous &equals;&equals; current) {
+                            <span class="keyword">if</span> (previous &equals;&equals; current) 
                                 cout &lt;&lt; <span class="string">"repeated word"</span> &lt;&lt; current;
-                            }
                             previous &equals; current;
                         }
                     }
@@ -514,7 +512,7 @@
                 <p>
                 (The above example is taken from <i>Programming: Principles
                     and Practices Using C++</i> by Bjarne Stroustrup,
-                as our most of our other examples.)
+                as are most of our other examples.)
                 </p>
 
                 <p>
@@ -523,11 +521,10 @@
 
                 <ol class = "nested">
                     <li>
-                The most recent word is read into the variable <code>current</code>.
-                The
-                <span class="keyword">while</span>
-                condition means that the loop will run
-                till there are no more characters to read.</br>
+                        Input is read into the variable <code>current</code>.
+                        The <span class="keyword">while</span>
+                        condition means that the loop will run
+                        till there are no more characters to read.</br>
                         <br>
                         <i>Note:</i> For a string <code>&gt;&gt;</code>
                         will read whitespace separated
@@ -540,16 +537,16 @@
                         <i> Ctrl</i> &plus;<i> D</i> 
                     </li>
                 <li>
-                    We store the input read in <code>current</code>
-                    to a variable named
-                    <code>previous</code>.
-                    Then we compare the current value with previous
+                    We compare the current value with previous
                     value and if they are equal, we print the output.
+                    Then we store the input read in <code>current</code>
+                    to a variable named <code>previous</code>.
                 </li>
                 <li>
-                    For the first word, the string is compared with " ".</br>
-                    <b>Think:</b> Why is previous initialized 
-                    with " "?
+                    For the first word, the input is compared with
+                    <span class="string">" "</span>.</br>
+                    <b>Query:</b> Why is previous initialized 
+                    with <span class="string">" "</span>?
                 </li>
                 </ol>
 
@@ -571,11 +568,11 @@
                 </p>
 
                 <ul class="nested">
-                    <li><code>&plus; &equals;</code> </li>
-                    <li><code>&minus; &equals;</code> </li>
-                    <li><code>&divide; &equals;</code> </li>
-                    <li><code>&percnt; &equals;</code> </li>
-                    <li><code>&lowast; &equals;</code> </li>
+                    <li><code>&plus;&equals;</code> </li>
+                    <li><code>&minus;&equals;</code> </li>
+                    <li><code>&divide;&equals;</code> </li>
+                    <li><code>&percnt;&equals;</code> </li>
+                    <li><code>*&equals;</code> </li>
                 </ul>
 
                     <details>
@@ -599,11 +596,11 @@
                     int number_of_words = 0;    
                         string previous = <span class="string">" "</span>;
                         string current;
-                        <span class="keyword">while</span> (cin &gt;&gt; current) {
+                        <span class="keyword">while</span> (cin &gt;&gt; current) 
                            ++number_of_words;
-                           <span class="keyword">if</span> (previous &equals;&equals; current) {
-                                cout &lt;&lt; <span class="string">"repeated word"</span> &lt;&lt; current &lt;&lt; <span class="string">"word number"</span> &lt;&lt; number_of_words;
-                            }
+                           <span class="keyword">if</span> (previous &equals;&equals; current)
+                                cout &lt;&lt; <span class="string">"word number "</span> &lt;&lt; number_of_words;
+                                    <span class="string">" repeated: "</span> &lt;&lt; current
                             previous &equals; current;
                         }
                     }
