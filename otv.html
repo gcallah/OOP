@@ -669,9 +669,9 @@
                 Variable names are case sensitive: <code>foo</code> and
                 <code>Foo</code> are different variables.  You should avoid
                 case sensitive variable names like IF or If, which is a case
-                variation of a reserved word.  Compiler would not throw an
-                error in such cases, but a programmer might get confused with
-                such assignments. 
+                variation of a reserved word. The compiler would not throw an
+                error in such cases, but a programmer might easily get
+                confused!
                 </p>
 
                 <p> 
@@ -680,30 +680,30 @@
 
                 <ol>
                     <li>
-                    There are keywords that are reserved by C++ like
-                <code>if</code>, <code>case</code>, <code>while</code>,
-                and <code>for</code>, which should not be used as variable names.
+                        There are keywords that are reserved by C++ like
+                    <code>if</code>, <code>case</code>, <code>while</code>,
+                    and <code>for</code>, which should not be used as variable names.
                     </li>
 
                     <li>
-                We should not use long variable names as they are hard to type,
-                too long and not required.
+                    We should not use long variable names as they are hard to type,
+                    and make code harder to read.
                     </li>
 
                     <li>
-                General practice for C++ variable names is to use
-                underscores between words, like
-                <code>spice_jet</code>.
+                    General practice for C++ variable names is to use
+                    underscores between words, like
+                    <code>spice_jet</code>.
                     </li>
 
                     <li>
-                You should avoid using variable names that are all uppercase, 
-                as that use is reserved for macros.
+                    You should avoid using variable names that are all uppercase, 
+                    as that use is reserved for macros.
                     </li>
 
                     <li>
-                Initial letter as uppercase is used when creating user-defined
-                types like <code>Employee</code>.
+                    Initial letter as uppercase is used when creating user-defined
+                    types like <code>Employee</code>.
                     </li>
                 </ol>
                 </details>
@@ -787,11 +787,8 @@
                 <p>
                 A program is type safe when operations on objects are done
                 according to the type of object. We can do certain operations
-                which are type unsafe and C++ compilers unfortunately allows
-                that. For example, one should not use a variable which is
-                uninitialized as it might give some unexpected output when
-                used. This operation is type unsafe and C++ compiler doesn't
-                catch it.
+                which are type unsafe and C++ compilers unfortunately allow
+                that.
                 </p>
 
                 <p>
@@ -905,6 +902,23 @@
                         </ul>
 
                     </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Write a program that tests all of the unsafe type
+                            conversions listed above. For instance, initialize
+                            a double, assign it to an int, and then print out
+                            the initial value you used and the resulting value
+                            in the "narrowed" type. "Hand" this program in to
+                            your TA.
+                        </p>
+                    </details>
+
+
                 </details>
 
                 <details>
