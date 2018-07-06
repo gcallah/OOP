@@ -434,14 +434,15 @@
                       int area(int length, int width); <span class="comment">// calculate area of a rectangle</span>
                       int main()
                       {
-                      int x = area(2,3);
+                          int x = area(2,3);
                       }
                     </code>
                     </PRE>
                     </p>
                     <p>
                       The linker will complain that it didn't find a definition
-                      <code>area()</code>, unless <code>area()</code> is defined
+                      of <code>area()</code>, unless
+                      <code>area()</code> is defined
                        in some other source file and it is linked to the
                        generated code from the source file. <br>Also, both the
                        return type and the argument types must be same as that
