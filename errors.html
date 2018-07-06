@@ -572,7 +572,7 @@
                         </p>
                         <p>
                           The termination condition is <code>i&lt=v.size()</code>
-                          rather than the correct <code>i&ltv.size().</code><br>
+                          rather than the correct <code>i&ltv.size()</code>.<br>
                           It is an example of an <i>off-by-one error</i>.
                         </p>
                     </details>
@@ -580,23 +580,49 @@
                         <summary class="sum2">
                         5.6.3 Bad input
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Consider reading a floating-point number:<br>
+                          <PRE>
+                            <code>
+                              double d = 0;
+                              cin &gt&gt d;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Testing if the last input operation succeeded by
+                          testing <code>cin</code><br>
+                          <PRE>
+                            <code>
+                              if (cin) {
+                                <span class="comment">// all is well, and we can try reading again</span>
+                              }
+                              else {
+                                <span class="comment">// the last read didn’t succeed, so we take some other action</span>
+                              }
+                            </code>
+                          </PRE>
+                          One possible reason for operation failure is that there
+                           wasn’t a <code>double</code> for <code>&gt&gt</code> to read.<br>
+                          <PRE>
+                            <code>
+                              double some_function()
+                              {
+                                  double d = 0;
+                                  cin &gt&gt d;
+                                  if (!cin) error("couldn't read a double in 'some_function()'");
+                                  <span class="comment">// do something useful</span>
+                              }
+                            </code>
+                          </PRE>
+                          The condition <code>!cin</code> means that the previous
+                           operation on <code>cin</code> failed.
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.6.4 Narrowing errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
                         </p>
                     </details>
