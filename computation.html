@@ -796,6 +796,7 @@
 
                         <p>
                         <code>9/5</code> is equal to 1, not 1.8!
+                        Write <code>9.0/5.0</code> to get the result you want.
                         </p>
 
                     </details>
@@ -942,8 +943,10 @@
                                 switch (num) {
                                 case '0'; case '2'; case '4'; case '6'; case '8':
                                     cout &lt; &lt; "Digit entered was even.";
+                                    break;
                                 case '1'; case '3'; case '5'; case '7'; case '9':
                                     cout &lt; &lt; "Digit entered was odd.";
+                                    break;
                                 default:
                                     cout &lt;&lt; "That wasn't a digit".
                             </pre>
@@ -1320,8 +1323,8 @@
                             tyoically better coded in the traditional for-loop
                             style listed above.
                         </p>
-
                     </details>
+
                     <details>
                         <summary class="sum2">
                         4.6.2 Growing a vector
@@ -1351,6 +1354,22 @@
                             </figcaption>
                         </figure>
                     </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Write a program that uses a <code>while</code> 
+                            loop to accept a series of integers
+                            from the user, adds them as new elements to a
+                            vector, and then, once the user ends input, prints
+                            out the vector with a <code>for</code> loop.
+                        </p>
+
+                    </details>
+
                     <details>
                         <summary class="sum2">
                         4.6.3 A numeric example
