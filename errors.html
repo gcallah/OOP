@@ -310,7 +310,7 @@
                     <br>
                     <p>How to deal with errors to produce an acceptable software
                     ?</p>
-                    <p><b><i>Answer: </i></b>  Follow these 3 basic approaches
+                    <p><b><i><span class="hilight">Answer: </span></i></b>  Follow these 3 basic approaches
                     </p>
                     <ul>
                       <li>Organize software to minimize errors</li>
@@ -463,7 +463,7 @@
                       encounters a runtime error.<br>We say, a program crashes
                       when it halts due to a runtime error.
                     </p>
-                    <p>Examples:</p>
+                    <p><span class="hilight">Examples:</span></p>
                     <ul>
                       <li>division by zero</li>
                       <li>accessing a non existing file, dictionary value,
@@ -533,24 +533,47 @@
                         <summary class="sum2">
                         5.6.1 Bad arguments
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              class Bad_area { };   <span class="comment">// a type specifically for reporting errors from area()</span>
+
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// throw a Bad_area exception in case of a bad argument</span>
+                              int area(int length, int width)
+                              {
+                                if (length&lt=0 || width&lt=0) throw Bad_area{};
+                                  return length*width;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          <code>Bad_area{}</code> means “Make an object of type
+                          Bad_area with the default value,”<br>
+                          <code>throw Bad_area{}</code> means “Make an object of
+                           type Bad_area and throw it.”
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.6.2 Range errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              vector&ltint&gt v;    <span class="comment">// a vector of ints</span>
+                              for (int i; cin&gt&gtI; )
+                                  v.push_back(i);     <span class="comment">// get values</span>
+                              for (int i = 0; i&lt=v.size(); ++i)     <span class="comment">// print values</span>
+                                  cout &lt&lt "v[" &lt&lt i &lt&lt"] == " &lt&lt v[i] &lt&lt '\n';
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The termination condition is <code>i&lt=v.size()</code>
+                          rather than the correct <code>i&ltv.size().</code><br>
+                          It is an example of an <i>off-by-one error</i>.
                         </p>
                     </details>
                     <details>
