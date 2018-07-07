@@ -390,7 +390,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>a&le;b</b>
+                                    <b>a&lt;=b</b>
                                 </td>
                                 <td>
                                     less than or equal
@@ -412,7 +412,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>a&ge;b</b>
+                                    <b>a&gt;=b</b>
                                 </td>
                                 <td>
                                     greater than or equal
@@ -540,9 +540,9 @@
                         <p>
                         <code>
                             <pre>
-                            double dc;
-                            cin &gt;&gt; dc;
-                            double df = 9/5*dc+32;
+double dc;
+cin &gt;&gt; dc;
+double df = 9/5*dc+32;
                             </pre>
                         </code>
                         </p>
@@ -631,13 +631,13 @@
                         <p>
                         <code>
                             <pre>
-                            int max(int a, int b)
-                            {
-                                if(a&lt;b)
-                                    return b;
-                                else
-                                    return a;
-                            }
+<span class="type">int</span> max(<span class="type">int</span> a, <span class="type">int</span> b)
+{
+    <span class="keyword">if</span>(a&lt;b)
+        <span class="keyword">return</span> b;
+    <span class="keyword">else</span>
+        <span class="keyword">return</span> a;
+}
                             </pre>
                         </code>
                         </p>
@@ -663,45 +663,45 @@
                         <p>
                         <code>
                             <pre>
-                            switch (grade) {
-                            case 'A':
-                                cout &lt;&lt; "You done great!"
-                                break;
-                            case 'B':
-                                cout &lt;&lt; "That's pretty good."
-                                break;
-                            case 'C':
-                                cout &lt;&lt; "Not bad, but we hope for better."
-                                break;
-                            case 'D':
-                                cout &lt;&lt; "Consider retaking the course."
-                                break;
-                            case 'F':
-                                cout &lt;&lt; "You're going to have to retake the course."
-                                break;
-                            }
+<span class="keyword">switch</span> (grade) {
+<span class="keyword">case</span> 'A':
+    cout &lt;&lt; <span class="string">"You done great!"</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> 'B':
+    cout &lt;&lt; <span class="string">"That's pretty good."</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> 'C':
+    cout &lt;&lt; <span class="string">"Not bad, but we hope for better."</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> 'D':
+    cout &lt;&lt; <span class="string">"Consider retaking the course."</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> 'F':
+    cout &lt;&lt; <span class="string">"You're going to have to retake the course."</span>
+    <span class="keyword">break</span>;
+}
                             </pre>
                         </code>
                         </p>
 
                         <p>
-                            When many cases should result in the same behavior,
+                            When many <span class="keyword">case</span>s should result in the same behavior,
                             then omitting the <code>break</code> statement can
-                            merge those cases:
+                            merge those <span class="keyword">case</span>s:
                         </p>
 
                         <p>
                         <code>
                             <pre>
-                                switch (num) {
-                                case '0'; case '2'; case '4'; case '6'; case '8':
-                                    cout &lt; &lt; "Digit entered was even.";
-                                    break;
-                                case '1'; case '3'; case '5'; case '7'; case '9':
-                                    cout &lt; &lt; "Digit entered was odd.";
-                                    break;
-                                default:
-                                    cout &lt;&lt; "That wasn't a digit".
+<span class="keyword">switch</span> (num) {
+<span class="keyword">case</span> '0'; <span class="keyword">case</span> '2'; <span class="keyword">case</span> '4'; <span class="keyword">case</span> '6'; <span class="keyword">case</span> '8':
+    cout &lt; &lt; <span class="string">"Digit entered was even.</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> '1'; <span class="keyword">case</span> '3'; <span class="keyword">case</span> '5'; <span class="keyword">case</span> '7'; <span class="keyword">case</span> '9':
+    cout &lt; &lt; <span class="string">"Digit entered was odd.</span>
+    <span class="keyword">break</span>;
+<span class="keyword">default</span>:
+    cout &lt;&lt; <span class="string">"That wasn't a digit";</span>
                             </pre>
                         </code>
                         </p>
@@ -788,14 +788,14 @@
                         <p>
                         <code>
                             <pre>
-                            int main()
-                            {
-                                int i=0;
-                                while(i&lt;100) {
-                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
-                                     i++;
-                                }
-                            }
+int main()
+{
+    int i=0;
+    while(i&lt;100) {
+         cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+         i++;
+    }
+}
                             </pre>
                         </code>
                         </p>
@@ -849,11 +849,11 @@
                         <p>
                         <code>
                             <pre>
-                            int main()
-                            {
-                                for(int i=0; i&lt;100; ++i)
-                                     cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
-                            }
+int main()
+{
+    for(int i=0; i&lt;100; ++i)
+        cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
+}
                             </pre>
                         </code>
                         </p>
@@ -898,10 +898,10 @@
                     <p>
                     <code>
                         <pre>
-                        int square(int x)
-                        {
-                            return x*x;
-                        }
+int square(int x)
+{
+    return x*x;
+}
                         </pre>
                     </code>
                     </p>
@@ -1040,9 +1040,9 @@
                         <p>
                         <code>
                             <pre>
-                            vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
-                            for(int i = 0; i&lt;v.size(); i++)
-                                cout &lt;&lt; v[i] &lt;&lt; '\n';  
+vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
+for(int i = 0; i&lt;v.size(); i++)
+    cout &lt;&lt; v[i] &lt;&lt; '\n';  
                             </pre>
                         </code>
                         </p>
@@ -1091,7 +1091,10 @@
                         <p>
                         <code>
                             <pre>
-                            vector&lt;double&gt; v; <span style="comment">// empty vector! </span>
+vector&lt;<span class="type">double</span>&gt; v; <span class="comment">// empty vector! </span>
+v.push_back(<span class="double">2.7</span>);
+v.push_back(<span class="double">5.6</span>);
+v.push_back(<span class="double">7.9</span>);
 
                             </pre>
                         </code>
@@ -1106,6 +1109,12 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
+                        <p>
+                            <code>push_back()</code> is a <i>member
+                            function</i> of the class <code>vector</code>.
+                        </p>
+
                     </details>
 
                     <details>
@@ -1133,7 +1142,36 @@
                             </figcaption>
                         </figure>
                         <p>
+                            To illustrate a somewhat realistic example 
+                            of growing a vector,
+                            we're going to read in a series of values and
+                            calculate their mean.
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+#include "std_lib_facilities.h"
+
+int main()
+{
+    cout &lt;&lt; "Enter recent temperatures and we will calculate their average:\n";
+
+    vector&lt;double&gt; temps;
+    for(double temp; cin&gt;&gt;temp; )
+        temps.push_back(temp);
+    double total = 0.0;
+    for(double temp : temps)
+        total += temp;
+    double mean = total / temps.size();
+    cout&lt;&lt;"Your mean temperature for the last "&lt;&lt;temps.size()&lt;&lt;" days was "&lt;&lt;mean&lt;&lt;'\n';
+    keep_window_open();
+    return 0;
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">

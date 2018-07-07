@@ -303,12 +303,22 @@ span.input {
 }
 
 span.comment {
-    color: #fbb;
+    color: #bfb;
     font-family: monospace;
 }
 
 span.keyword {
-    color: #bfb;
+    color: #f99;
+    font-family: monospace;
+}
+
+span.type {
+    color: #f9f;
+    font-family: monospace;
+}
+
+span.double {
+    color: #fb8;
     font-family: monospace;
 }
 
