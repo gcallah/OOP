@@ -1151,17 +1151,18 @@ v.push_back(<span class="double">7.9</span>);
                         <p>
                         <code>
                             <pre>
-#include "std_lib_facilities.h"
+#include <span class="string">"std_lib_facilities.h"</span>
 
-int main()
+<span class="type">int</span> main()
 {
-    cout &lt;&lt; "Enter recent temperatures and we will calculate their average:\n";
+    cout &lt;&lt; <span class="string">"Enter recent temperatures and we will
+    calculate their average:\n"</span>;
 
     vector&lt;double&gt; temps;
-    for(double temp; cin&gt;&gt;temp; )
+    <span class="keyword">for</span>(double temp; cin&gt;&gt;temp; )
         temps.push_back(temp);
     double total = 0.0;
-    for(double temp : temps)
+    <span class="keyword">for</span>(double temp : temps)
         total += temp;
     double mean = total / temps.size();
     cout&lt;&lt;"Your mean temperature for the last "&lt;&lt;temps.size()&lt;&lt;" days was "&lt;&lt;mean&lt;&lt;'\n';
