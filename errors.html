@@ -360,9 +360,9 @@
                         </figcaption>
                     </figure>
                     <p>
-                      Compiler analyzes to detect syntax errors and type errors.
-                      Many of the errors are simply "silly" errors caused due to
-                      incomplete edits of the code or mistyping.
+                      Compiler analyzes to detect syntax errors and type
+                      errors.<br>Many of the errors are simply "silly" errors
+                      caused due to incomplete edits of the code or mistyping.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -426,7 +426,8 @@
                     5.4 Link-time errors
                     </summary>
                     <p>
-                      Translational units - several separately compiled parts in a program.
+                      Translational units - several separately compiled
+                      parts in a program.
                     </p>
                     <p>
                     <PRE>
@@ -602,8 +603,11 @@
                               }
                             </code>
                           </PRE>
-                          One possible reason for operation failure is that there
-                           wasn’t a <code>double</code> for <code>&gt&gt</code> to read.<br>
+                        </p>
+                        <p>
+                          One possible reason for operation failure is that
+                          there wasn’t a <code>double</code> for
+                          <code>&gt&gt</code> to read.<br>
                           <PRE>
                             <code>
                               double some_function()
@@ -615,8 +619,10 @@
                               }
                             </code>
                           </PRE>
-                          The condition <code>!cin</code> means that the previous
-                           operation on <code>cin</code> failed.
+                        </p>
+                        <p>
+                          The condition <code>!cin</code> means that the
+                          previous operation on <code>cin</code> failed.
                         </p>
                     </details>
                     <details>
@@ -624,6 +630,23 @@
                         5.6.4 Narrowing errors
                         </summary>
                         <p>
+                          Narrowing errors are errors when we assign a value
+                          that’s “too large to fit” to a variable, it is
+                          implicitly truncated.<br>
+                          <PRE>
+                            <code>
+                              int x = 2.9;
+                              char c = 1066;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Since <code>ints</code> don't have fractional values
+                          of an integer, x will get the value 2 rather than
+                          2.9.
+                          <br>And <code>c</code> will get the value 42
+                          (representing the character *) as per ASCII
+                          character set.
                         </p>
                     </details>
                 </details>
