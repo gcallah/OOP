@@ -714,9 +714,9 @@
                       <br><br>
                       Always ask yourself these questions:<br>
                       <ul>
-                        <li>1.  Is this answer to this particular problem
+                        <li>Is this answer to this particular problem
                           plausible?</li>
-                        <li>2. How would I recognize a plausible result?</li>
+                        <li>How would I recognize a plausible result?</li>
                       </ul><br>
                     </p>
                     <p>
@@ -730,23 +730,58 @@
                     <summary class="sum1">
                     5.9 Debugging
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      When you have written some code, you have to find and
+                      remove the errors. That process is usually called
+                      <i>debugging</i> and <i>the errors bugs</i>.<br><br>
+                      <i>Debugging</i> works roughly like this:<br>
+                      <ul>
+                        <li>Get the program to compile.</li>
+                        <li>Get the program to link.</li>
+                        <li>Get the program to do what it is supposed to do.
+                        </li>
+                      </ul>
+                    </p><br>
+                    <p>
+                      <i>Debugging</i> the most tedious and time-wasting aspect
+                      of programming and will go to great lengths during design
+                      and programming to minimize the amount of time spent
+                      hunting for bugs.
                     </p>
                     <details>
                         <summary class="sum2">
                         5.9.1 Practical debug advice
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Make the program easy to read so that you have a
+                          chance of spotting the bugs:<br>
+                          <ul>
+                            <li>Comment your code well</li>
+                            <li>The name of the program</li>
+                            <li>The purpose of the program</li>
+                            <li>Who wrote this code and when</li>
+                            <li>Version numbers</li>
+                            <li>What complicated code fragments are supposed
+                              to do</li>
+                            <li>What the general design ideas are</li>
+                            <li>How the source code is organized</li>
+                            <li>What assumptions are made about inputs</li>
+                            <li>What parts of the code are still missing
+                              and what cases are still not handled</li>
+                            <li>Use meaningful names</li>
+                            <li>Use a consistent layout of code</li>
+                            <li>Break code into small functions,
+                              each expressing a logical action</li>
+                            <li>Avoid complicated code sequences</li>
+                            <li>Try to avoid nested loops,
+                              nested if-statements, complicated conditions</li>
+                            <li>Use library facilities rather than your
+                              own code when you can</li>
+                            <li>A library is likely to be better
+                              thought out and better tested than
+                              what you could produce as an alternative while
+                              busily solving your main problem</li>
+                          </ul>
                         </p>
                     </details>
                 </details>
