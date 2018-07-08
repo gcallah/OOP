@@ -823,6 +823,46 @@
                         5.10.1 Post-conditions
                         </summary>
                         <p>
+                          <PRE>
+                            <code>
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// throw a Bad_area exception in case of a bad argument</span>
+                              int area(int length, int width)
+                              {
+                                  if (length&lt=0 || width &lt=0) throw Bad_area();
+                                      return length*width;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          It checks its pre-condition,
+                          but it doesn’t state it in the comment
+                          (that may be OK for such a short function) and
+                          it assumes that the computation is correct
+                          (that’s probably OK for such a trivial computation).
+                          <br><br>However, we could be a bit more explicit:
+                        </p>
+                        <p>
+                          <PRE>
+                            <code>
+                              int area(int length, int width)
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// pre-conditions: length and width are positive</span>
+                              <span class="comment">// post-condition: returns a positive value that is the area</span>
+                              {
+                                  if (length&lt=0 || width &lt=0) error("area() pre-condition");
+                                      int a = length*width;
+                                  if (a&lt=0) error("area() post-condition");
+                                      return a;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          We couldn’t check the complete post-condition,
+                          but we checked the part that said that it should be
+                          positive.
                         </p>
                     </details>
                 </details>
