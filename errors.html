@@ -609,15 +609,15 @@
                           there wasn’t a <code>double</code> for
                           <code>&gt&gt</code> to read.<br>
                           <PRE>
-                            <code>
-                              double some_function()
-                              {
-                                  double d = 0;
-                                  cin &gt&gt d;
-                                  if (!cin) error("couldn't read a double in 'some_function()'");
-                                  <span class="comment">// do something useful</span>
-                              }
-                            </code>
+                          <code>
+                            double some_function()
+                            {
+                                double d = 0;
+                                cin &gt&gt d;
+                                if (!cin) error("couldn't read a double in 'some_function()'");
+                                <span class="comment">// do something useful</span>
+                            }
+                          </code>
                           </PRE>
                         </p>
                         <p>
@@ -789,22 +789,39 @@
                     <summary class="sum1">
                     5.10 Pre- and post-conditions
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <span class="hilight">Pre-condition Example</span>:<br>
+                      <PRE>
+                        <code>
+                          int my_complicated_function(int a, int b, int c)
+                          <span class="comment">// the arguments are positive and a &lt b &lt c</span>
+                          {
+                              if (!(0&lta && a&ltb && b&ltc)) <span class="comment">// ! means “not” and && means “and”</span>
+                              error("bad arguments for mcf");
+                              <span class="comment">// . . .</span>
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      <PRE>
+                      <code>
+                        int x = my_complicated_function(1, 2, "horsefeathers");
+                      </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Here, the compiler will catch that the requirement
+                      (“pre-condition”) that the third argument be an integer
+                      was violated.<br>
+                      Basically, what we are talking about here is what to do
+                      with the requirements/pre-conditions that the compiler
+                      can’t check.
                     </p>
                     <details>
                         <summary class="sum2">
                         5.10.1 Post-conditions
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
                         </p>
                     </details>
