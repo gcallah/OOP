@@ -654,12 +654,52 @@
                     <summary class="sum1">
                     5.7 Logic errors
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      After removing initial compiler and linker errors,
+                      logic errors occur when the program runs but produces
+                      wrong output.
+                      <PRE>
+                        <code>
+                          int main()
+                          {
+                              vector&ltdouble&gt temps; <span class="comment">// temperatures</span>
+
+                              for (double temp; cin&gt&gttemp; ) <span class="comment">// read and put into temps</span>
+                                  temps.push_back(temp);
+
+                              double sum = 0;
+                              double high_temp = 0;
+                              double low_temp = 0;
+
+                              for (int x : temps)
+                              {
+                                  if(x &gt high_temp) high_temp = x; <span class="comment">// find high</span>
+                                  if(x &lt low_temp) low_temp = x; <span class="comment">// find low</span>
+                                  sum += x; <span class="comment">// compute sum</span>
+                              }
+
+                              cout &lt&lt "High temperature: " &lt&lt high_temp &lt&lt '\n';
+                              cout &lt&lt "Low temperature: " &lt&lt low_temp &lt&lt '\n';
+                              cout &lt&lt "Average temperature: " &lt&lt sum/temps.size() &lt&lt '\n';
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      For values,<br>
+                      <code>
+                        76.5, 73.5, 71.0, 73.6, 70.1, 73.5, 77.6, 85.3,
+                        88.5, 91.7, 95.9, 99.2, 98.2, 100.6, 106.3, 112.4,
+                        110.2, 103.6, 94.9, 91.7, 88.4, 85.2, 85.4, 87.7
+                      </code><br><br>
+                      The output produced was,<br>
+                      <code>High temperature: 112.4</code><br>
+                      <code>Low temperature: 0.0</code><br>
+                      <code>Average temperature: 89.2</code><br><br>
+                      Since <code>low_temp</code> was initialized at
+                      <code>0.0</code>, it would remain <code>0.0</code>
+                      unless one of the temperatures in the data was
+                      below zero.
                     </p>
                 </details>
                 <details>
