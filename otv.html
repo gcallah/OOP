@@ -596,11 +596,11 @@
                     int number_of_words = 0;    
                         string previous = <span class="string">" "</span>;
                         string current;
-                        <span class="keyword">while</span> (cin &gt;&gt; current) 
+                        <span class="keyword">while</span> (cin &gt;&gt; current) {
                            ++number_of_words;
                            <span class="keyword">if</span> (previous &equals;&equals; current)
-                                cout &lt;&lt; <span class="string">"word number "</span> &lt;&lt; number_of_words;
-                                    <span class="string">" repeated: "</span> &lt;&lt; current
+                                cout &lt;&lt; <span class="string">"word number "</span> &lt;&lt; number_of_words &lt;&lt;
+                                    <span class="string">" repeated: "</span> &lt;&lt; current;
                             previous &equals; current;
                         }
                     }
@@ -626,10 +626,9 @@
                 </figure>
                 <p>
                 A name for a variable is used to make it easier to refer them
-                from somewhere else in the program. A name in C++ refers with 
-                a letter and can contain only letters, digits and
-                underscore. A variable name cannot start with a
-                number.
+                from somewhere else in the program. A name in C++ 
+                starts with a letter and can contain only letters, digits and
+                underscore. A variable name cannot start with a number.
                 </p>
 
                 <p>

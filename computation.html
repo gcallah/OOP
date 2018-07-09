@@ -637,7 +637,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>a&le;b</b>
+                                    <b>a&lt;=b</b>
                                 </td>
                                 <td>
                                     less than or equal
@@ -659,7 +659,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>a&ge;b</b>
+                                    <b>a&gt;=b</b>
                                 </td>
                                 <td>
                                     greater than or equal
@@ -941,14 +941,15 @@
                         <code>
                             <pre>
                                 switch (num) {
-                                case '0'; case '2'; case '4'; case '6'; case '8':
-                                    cout &lt; &lt; "Digit entered was even.";
+                                case '0': case '2': case '4': case '6': case '8':
+                                    cout &lt;&lt; "Digit entered was even.";
                                     break;
-                                case '1'; case '3'; case '5'; case '7'; case '9':
-                                    cout &lt; &lt; "Digit entered was odd.";
+                                case '1': case '3': case '5': case '7': case '9':
+                                    cout &lt;&lt; "Digit entered was odd.";
                                     break;
                                 default:
                                     cout &lt;&lt; "That wasn't a digit".
+                                }
                             </pre>
                         </code>
                         </p>
