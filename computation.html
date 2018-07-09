@@ -264,8 +264,8 @@
                 </h1>
                 
                 <p class="leadquote">
-                    "If [a program] doesn't have to produce correct results, I can make
-                    it arbitrarily fast." -- Gerald M. Weinberg
+                    "If [a program] doesn't have to produce correct results,
+                    I can make it arbitrarily fast." -- Gerald M. Weinberg
                 </p>
 
                 <details>
@@ -940,7 +940,6 @@ double df = 9/5*dc+32;
                         <p>
                         <code>
                             <pre>
-<<<<<<< HEAD
                                 switch (num) {
                                 case '0': case '2': case '4': case '6': case '8':
                                     cout &lt;&lt; "Digit entered was even.";
@@ -951,17 +950,6 @@ double df = 9/5*dc+32;
                                 default:
                                     cout &lt;&lt; "That wasn't a digit".
                                 }
-=======
-<span class="keyword">switch</span> (num) {
-<span class="keyword">case</span> '0'; <span class="keyword">case</span> '2'; <span class="keyword">case</span> '4'; <span class="keyword">case</span> '6'; <span class="keyword">case</span> '8':
-    cout &lt; &lt; <span class="string">"Digit entered was even.</span>
-    <span class="keyword">break</span>;
-<span class="keyword">case</span> '1'; <span class="keyword">case</span> '3'; <span class="keyword">case</span> '5'; <span class="keyword">case</span> '7'; <span class="keyword">case</span> '9':
-    cout &lt; &lt; <span class="string">"Digit entered was odd.</span>
-    <span class="keyword">break</span>;
-<span class="keyword">default</span>:
-    cout &lt;&lt; <span class="string">"That wasn't a digit";</span>
->>>>>>> a44fe56b218cca4cbb3767848f4f5de96c6d8ddf
                             </pre>
                         </code>
                         </p>
@@ -1389,7 +1377,6 @@ v.push_back(<span class="double">7.9</span>);
                             vector, and then, once the user ends input, prints
                             out the vector with a <code>for</code> loop.
                         </p>
-
                     </details>
 
                     <details>
@@ -1415,8 +1402,7 @@ v.push_back(<span class="double">7.9</span>);
 
 <span class="type">int</span> main()
 {
-    cout &lt;&lt; <span class="string">"Enter recent temperatures and we will
-    calculate their average:\n"</span>;
+    cout &lt;&lt; <span class="string">"Enter recent temperatures and we will calculate their average:\n"</span>;
 
     vector&lt;double&gt; temps;
     <span class="keyword">for</span>(double temp; cin&gt;&gt;temp; )
@@ -1425,15 +1411,28 @@ v.push_back(<span class="double">7.9</span>);
     <span class="keyword">for</span>(double temp : temps)
         total += temp;
     double mean = total / temps.size();
-    cout&lt;&lt;"Your mean temperature for the last "&lt;&lt;temps.size()&lt;&lt;" days was "&lt;&lt;mean&lt;&lt;'\n';
+    cout&lt;&lt;<span class="string">"Your mean temperature for the last "</span>&lt;&lt;temps.size()&lt;&lt;<span class="string">" days was "</span>&lt;&lt;mean&lt;&lt;'\n';
     keep_window_open();
     return 0;
 }
                             </pre>
                         </code>
                         </p>
+                    </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Modify the above program, using the 
+                            <code>sort()</code> facility to also get the
+                            median temperature.
+                        </p>
 
                     </details>
+
                     <details>
                         <summary class="sum2">
                         4.6.4 A text example
