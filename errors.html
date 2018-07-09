@@ -310,7 +310,7 @@
                     <br>
                     <p>How to deal with errors to produce an acceptable software
                     ?</p>
-                    <p><b><i>Answer: </i></b>  Follow these 3 basic approaches
+                    <p><span class="hilight">Answer: </span>  Follow these 3 basic approaches
                     </p>
                     <ul>
                       <li>Organize software to minimize errors</li>
@@ -360,14 +360,19 @@
                         </figcaption>
                     </figure>
                     <p>
-                      Compiler analyzes to detect syntax errors and type errors.
-                      Many of the errors are simply "silly" errors caused due to
-                      incomplete edits of the code or mistyping.
+                      Compiler analyzes to detect syntax errors and type
+                      errors.<br>Many of the errors are simply "silly" errors
+                      caused due to incomplete edits of the code or mistyping.
                     </p>
                     <details>
                         <summary class="sum2">
                         5.3.1 Syntax errors
                         </summary>
+                        <figure>
+                            <img src="graphics/Chap5Diag6.JPG" width="40%">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
                         <p>
                         <PRE>
                         <code>
@@ -426,7 +431,8 @@
                     5.4 Link-time errors
                     </summary>
                     <p>
-                      Translational units - several separately compiled parts in a program.
+                      Translational units - several separately compiled
+                      parts in a program.
                     </p>
                     <p>
                     <PRE>
@@ -434,15 +440,14 @@
                       int area(int length, int width); <span class="comment">// calculate area of a rectangle</span>
                       int main()
                       {
-                          int x = area(2,3);
+                      int x = area(2,3);
                       }
                     </code>
                     </PRE>
                     </p>
                     <p>
                       The linker will complain that it didn't find a definition
-                      of <code>area()</code>, unless
-                      <code>area()</code> is defined
+                      <code>area()</code>, unless <code>area()</code> is defined
                        in some other source file and it is linked to the
                        generated code from the source file. <br>Also, both the
                        return type and the argument types must be same as that
@@ -464,7 +469,7 @@
                       encounters a runtime error.<br>We say, a program crashes
                       when it halts due to a runtime error.
                     </p>
-                    <p>Examples:</p>
+                    <p><span class="hilight">Examples:</span></p>
                     <ul>
                       <li>division by zero</li>
                       <li>accessing a non existing file, dictionary value,
@@ -534,48 +539,119 @@
                         <summary class="sum2">
                         5.6.1 Bad arguments
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              class Bad_area { };   <span class="comment">// a type specifically for reporting errors from area()</span>
+
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// throw a Bad_area exception in case of a bad argument</span>
+                              int area(int length, int width)
+                              {
+                                if (length&lt=0 || width&lt=0) throw Bad_area{};
+                                  return length*width;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          <code>Bad_area{}</code> means “Make an object of type
+                          Bad_area with the default value,”<br>
+                          <code>throw Bad_area{}</code> means “Make an object of
+                           type Bad_area and throw it.”
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.6.2 Range errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              vector&ltint&gt v;    <span class="comment">// a vector of ints</span>
+                              for (int i; cin&gt&gtI; )
+                                  v.push_back(i);     <span class="comment">// get values</span>
+                              for (int i = 0; i&lt=v.size(); ++i)     <span class="comment">// print values</span>
+                                  cout &lt&lt "v[" &lt&lt i &lt&lt"] == " &lt&lt v[i] &lt&lt '\n';
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The termination condition is <code>i&lt=v.size()</code>
+                          rather than the correct <code>i&ltv.size()</code>.<br>
+                          It is an example of an <i>off-by-one error</i>.
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.6.3 Bad input
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Consider reading a floating-point number:<br>
+                          <PRE>
+                            <code>
+                              double d = 0;
+                              cin &gt&gt d;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Testing if the last input operation succeeded by
+                          testing <code>cin</code><br>
+                          <PRE>
+                            <code>
+                              if (cin) {
+                                <span class="comment">// all is well, and we can try reading again</span>
+                              }
+                              else {
+                                <span class="comment">// the last read didn’t succeed, so we take some other action</span>
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          One possible reason for operation failure is that
+                          there wasn’t a <code>double</code> for
+                          <code>&gt&gt</code> to read.<br>
+                          <PRE>
+                          <code>
+                            double some_function()
+                            {
+                                double d = 0;
+                                cin &gt&gt d;
+                                if (!cin) error("couldn't read a double in 'some_function()'");
+                                <span class="comment">// do something useful</span>
+                            }
+                          </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The condition <code>!cin</code> means that the
+                          previous operation on <code>cin</code> failed.
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.6.4 Narrowing errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Narrowing errors are errors when we assign a value
+                          that’s “too large to fit” to a variable, it is
+                          implicitly truncated.<br>
+                          <PRE>
+                            <code>
+                              int x = 2.9;
+                              char c = 1066;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Since <code>ints</code> don't have fractional values
+                          of an integer, x will get the value 2 rather than
+                          2.9.
+                          <br>And <code>c</code> will get the value 42
+                          (representing the character *) as per ASCII
+                          character set.
                         </p>
                     </details>
                 </details>
@@ -584,23 +660,80 @@
                     5.7 Logic errors
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap5Diag8.jpg" width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                      After removing initial compiler and linker errors,
+                      logic errors occur when the program runs but produces
+                      wrong output.
+                      <PRE>
+                        <code>
+                          int main()
+                          {
+                              vector&ltdouble&gt temps; <span class="comment">// temperatures</span>
+
+                              for (double temp; cin&gt&gttemp; ) <span class="comment">// read and put into temps</span>
+                                  temps.push_back(temp);
+
+                              double sum = 0;
+                              double high_temp = 0;
+                              double low_temp = 0;
+
+                              for (int x : temps)
+                              {
+                                  if(x &gt high_temp) high_temp = x; <span class="comment">// find high</span>
+                                  if(x &lt low_temp) low_temp = x; <span class="comment">// find low</span>
+                                  sum += x; <span class="comment">// compute sum</span>
+                              }
+
+                              cout &lt&lt "High temperature: " &lt&lt high_temp &lt&lt '\n';
+                              cout &lt&lt "Low temperature: " &lt&lt low_temp &lt&lt '\n';
+                              cout &lt&lt "Average temperature: " &lt&lt sum/temps.size() &lt&lt '\n';
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      For values,<br>
+                      <code>
+                        76.5, 73.5, 71.0, 73.6, 70.1, 73.5, 77.6, 85.3,
+                        88.5, 91.7, 95.9, 99.2, 98.2, 100.6, 106.3, 112.4,
+                        110.2, 103.6, 94.9, 91.7, 88.4, 85.2, 85.4, 87.7
+                      </code><br><br>
+                      The output produced was,<br>
+                      <code>High temperature: 112.4</code><br>
+                      <code>Low temperature: 0.0</code><br>
+                      <code>Average temperature: 89.2</code><br><br>
+                      Since <code>low_temp</code> was initialized at
+                      <code>0.0</code>, it would remain <code>0.0</code>
+                      unless one of the temperatures in the data was
+                      below zero.
                     </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     5.8 Estimation
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <i>Estimation</i> is a noble art that combines common
+                      sense and some very simple arithmetic applied to a few
+                      facts.
+                      Also sometimes humorously called as <i>guesstimation</i>.
+                      <br><br>
+                      Always ask yourself these questions:<br>
+                      <ul>
+                        <li>Is this answer to this particular problem
+                          plausible?</li>
+                        <li>How would I recognize a plausible result?</li>
+                      </ul><br>
+                    </p>
+                    <p>
+                      Here, we are not asking,
+                      <i>“What’s the exact answer?”</i> or
+                      <i>“What’s the correct answer?”</i><br>
+                      That’s what we are writing the program to tell us.
                     </p>
                 </details>
                 <details>
@@ -608,22 +741,67 @@
                     5.9 Debugging
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap5Diag9.png" width="50%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                      When you have written some code, you have to find and
+                      remove the errors. That process is usually called
+                      <i>debugging</i> and <i>the errors bugs</i>.<br><br>
+                      <i>Debugging</i> works roughly like this:<br>
+                      <ul>
+                        <li>Get the program to compile.</li>
+                        <li>Get the program to link.</li>
+                        <li>Get the program to do what it is supposed to do.
+                        </li>
+                      </ul>
+                    </p><br>
+                    <p>
+                      <i>Debugging</i> the most tedious and time-wasting aspect
+                      of programming and will go to great lengths during design
+                      and programming to minimize the amount of time spent
+                      hunting for bugs.
                     </p>
                     <details>
                         <summary class="sum2">
                         5.9.1 Practical debug advice
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="graphics/Chap5Diag10.jpg" width="35%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                          Make the program easy to read so that you have a
+                          chance of spotting the bugs:<br>
+                          <ul>
+                            <li>Comment your code well</li>
+                            <li>The name of the program</li>
+                            <li>The purpose of the program</li>
+                            <li>Who wrote this code and when</li>
+                            <li>Version numbers</li>
+                            <li>What complicated code fragments are supposed
+                              to do</li>
+                            <li>What the general design ideas are</li>
+                            <li>How the source code is organized</li>
+                            <li>What assumptions are made about inputs</li>
+                            <li>What parts of the code are still missing
+                              and what cases are still not handled</li>
+                            <li>Use meaningful names</li>
+                            <li>Use a consistent layout of code</li>
+                            <li>Break code into small functions,
+                              each expressing a logical action</li>
+                            <li>Avoid complicated code sequences</li>
+                            <li>Try to avoid nested loops,
+                              nested if-statements, complicated conditions</li>
+                            <li>Use library facilities rather than your
+                              own code when you can</li>
+                            <li>A library is likely to be better
+                              thought out and better tested than
+                              what you could produce as an alternative while
+                              busily solving your main problem</li>
+                          </ul>
                         </p>
                     </details>
                 </details>
@@ -632,22 +810,84 @@
                     5.10 Pre- and post-conditions
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap5Diag11.png" width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                      <span class="hilight">Pre-condition Example</span>:<br>
+                      <PRE>
+                        <code>
+                          int my_complicated_function(int a, int b, int c)
+                          <span class="comment">// the arguments are positive and a &lt b &lt c</span>
+                          {
+                              if (!(0&lta && a&ltb && b&ltc)) <span class="comment">// ! means “not” and && means “and”</span>
+                              error("bad arguments for mcf");
+                              <span class="comment">// . . .</span>
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      <PRE>
+                      <code>
+                        int x = my_complicated_function(1, 2, "horsefeathers");
+                      </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Here, the compiler will catch that the requirement
+                      (“pre-condition”) that the third argument be an integer
+                      was violated.<br>
+                      Basically, what we are talking about here is what to do
+                      with the requirements/pre-conditions that the compiler
+                      can’t check.
                     </p>
                     <details>
                         <summary class="sum2">
                         5.10.1 Post-conditions
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// throw a Bad_area exception in case of a bad argument</span>
+                              int area(int length, int width)
+                              {
+                                  if (length&lt=0 || width &lt=0) throw Bad_area();
+                                      return length*width;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          It checks its pre-condition,
+                          but it doesn’t state it in the comment
+                          (that may be OK for such a short function) and
+                          it assumes that the computation is correct
+                          (that’s probably OK for such a trivial computation).
+                          <br><br>However, we could be a bit more explicit:
+                        </p>
+                        <p>
+                          <PRE>
+                            <code>
+                              int area(int length, int width)
+                              <span class="comment">// calculate area of a rectangle;</span>
+                              <span class="comment">// pre-conditions: length and width are positive</span>
+                              <span class="comment">// post-condition: returns a positive value that is the area</span>
+                              {
+                                  if (length&lt=0 || width &lt=0) error("area() pre-condition");
+                                      int a = length*width;
+                                  if (a&lt=0) error("area() post-condition");
+                                      return a;
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          We couldn’t check the complete post-condition,
+                          but we checked the part that said that it should be
+                          positive.
                         </p>
                     </details>
                 </details>
@@ -656,11 +896,18 @@
                     5.11 Testing
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="graphics/Chap5Diag7.jpg" width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                      <i>Testing</i> is a systematic way to search for errors.
+                      <i>“The last bug”</i> is a programmers’ joke.
+                      There is no “the last bug” in a large program.
+                      <br><br>
+                      <i>Testing</i> includes comparing the results to what is
+                      expected by executing a program with a large and
+                      systematically selected set of inputs.
                     </p>
                 </details>
 
