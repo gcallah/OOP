@@ -568,5 +568,6 @@
 2	Source Code	https://github.com/gcallah/OOP/tree/03c8d77c5ee5faae253d8a8e989aa347af0c3c45/code		glyphicon-list-alt
 
 2	Our textbook's website	http://www.stroustrup.com/programming.html		glyphicon-book
+2	Guide to UNIX	https://gcallah.github.io/utils/unix_guide.html
 
 1	About	about.html		glyphicon-info-sign

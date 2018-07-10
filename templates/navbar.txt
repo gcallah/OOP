@@ -206,6 +206,11 @@
             Our textbook's website
             </a>
             </li>
+            <li>
+            <a href="https://gcallah.github.io/utils/unix_guide.html">
+            Guide to UNIX
+            </a>
+            </li>
         </ul>
         <li>
         <a href="about.html">
