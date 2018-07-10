@@ -164,7 +164,7 @@
                         <li>
                             The names of variables are also expressions.
                             <br>
-                            <code>int length = 20;</code>
+                            <code><span class="type">int</span> length = 20;</code>
                             <br />
                             In the above, a literal (20) is used to initialize
                             a variable.
@@ -195,7 +195,7 @@
                             course of a program, so we can write:
                             <br />
                             <code>
-                                constexpr double pi = 3.14159;
+                                constexpr <span class="type">double</span> pi = 3.14159;
                             </code>
                             <br />
                             After that, we can just use <code>pi</code>
@@ -513,7 +513,7 @@
 
                             <li>
                                 <code>2.5/2</code> means
-                                <code>2.5/double(2)</code> == <code>1.25</code>
+                                <code>2.5/<span class="type">double</span>(2)</code> == <code>1.25</code>
                             </li>
 
                             <li>
@@ -540,9 +540,9 @@
                         <p>
                         <code>
                             <pre>
-double dc;
+<span class="type">double</span> dc;
 cin &gt;&gt; dc;
-double df = 9/5*dc+32;
+<span class="type">double</span> df = 9/5*dc+32;
                             </pre>
                         </code>
                         </p>
@@ -791,7 +791,7 @@ double df = 9/5*dc+32;
                             <pre>
 int main()
 {
-    int i=0;
+    <span class="type">int</span> i=0;
     while(i&lt;100) {
          cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
          i++;
@@ -852,7 +852,7 @@ int main()
                             <pre>
 int main()
 {
-    for(int i=0; i&lt;100; ++i)
+    for(<span class="type">int</span> i=0; i&lt;100; ++i)
         cout &lt;&lt; i &lt;&lt; '\t' &lt;&lt; square(i) &lt;&lt; '\n';
 }
                             </pre>
@@ -899,7 +899,7 @@ int main()
                     <p>
                     <code>
                         <pre>
-int square(int x)
+int square(<span class="type">int</span> x)
 {
     return x*x;
 }
@@ -912,7 +912,7 @@ int square(int x)
                         function will return an <code>int</code> value to its
                         caller. <code>square</code> is the name of the
                         function, the name that can be used to call it. And
-                        <code>int x</code> says that the function will require
+                        <code><span class="type">int</span> x</code> says that the function will require
                         and only accept a single argument, <code>x</code>, that
                         must be an integer. And the <i>function body</i> is the
                         block between the squiggly braces, here
@@ -988,7 +988,7 @@ int square(int x)
                             <br />
                             A function declaration looks like:
                             <br />
-                            <code>int square(int);</code>
+                            <code><span class="type">int</span> square(int);</code>
                         </p>
                     </details>
                 </details>
@@ -1041,8 +1041,8 @@ int square(int x)
                         <p>
                         <code>
                             <pre>
-vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
-for(int i = 0; i&lt;v.size(); i++)
+vector&lt;<span class="type">int</span>&gt; v = {5, 7, 9, 4, 6, 8};
+for(<span class="type">int</span> i = 0; i&lt;v.size(); i++)
     cout &lt;&lt; v[i] &lt;&lt; '\n';  
                             </pre>
                         </code>
@@ -1062,9 +1062,9 @@ for(int i = 0; i&lt;v.size(); i++)
                         <p>
                         <code>
                             <pre>
-                            vector&lt;int&gt; v = {5, 7, 9, 4, 6, 8};
-                            for(int x : v)
-                                cout &lt;&lt; x &lt;&lt; '\n';  
+vector&lt;<span class="type">int</span>&gt; v = {5, 7, 9, 4, 6, 8};
+for(<span class="type">int</span> x : v)
+    cout &lt;&lt; x &lt;&lt; '\n';  
                             </pre>
                         </code>
                         </p>
@@ -1157,16 +1157,16 @@ v.push_back(<span class="double">7.9</span>);
 {
     cout &lt;&lt; <span class="string">"Enter recent temperatures and we will calculate their average:\n"</span>;
 
-    vector&lt;double&gt; temps;
-    <span class="keyword">for</span>(double temp; cin&gt;&gt;temp; )
+    vector&lt;<span class="type">double</span>&gt; temps;
+    <span class="keyword">for</span>(<span class="type">double</span> temp; cin&gt;&gt;temp; )
         temps.push_back(temp);
-    double total = 0.0;
-    <span class="keyword">for</span>(double temp : temps)
+    <span class="type">double</span> total = 0.0;
+    <span class="keyword">for</span>(<span class="type">double</span> temp : temps)
         total += temp;
-    double mean = total / temps.size();
+    <span class="type">double</span> mean = total / temps.size();
     cout&lt;&lt;<span class="string">"Your mean temperature for the last "</span>&lt;&lt;temps.size()&lt;&lt;<span class="string">" days was "</span>&lt;&lt;mean&lt;&lt;'\n';
     keep_window_open();
-    return 0;
+    <span class="keyword">return</span> 0;
 }
                             </pre>
                         </code>
@@ -1188,7 +1188,7 @@ v.push_back(<span class="double">7.9</span>);
 
                     <details>
                         <summary class="sum2">
-                        4.6.4 A text example
+                        4.6.4 A text example: Drill
                         </summary>
                         <figure>
                             <img src="" width="40%">
@@ -1196,6 +1196,15 @@ v.push_back(<span class="double">7.9</span>);
                             </figcaption>
                         </figure>
                         <p>
+                            Write a program that accepts a series of words as
+                            input and writes out a <i>concordance</i>, a 
+                            list of all the words in the text, in alphabetical
+                            order, along with how many times each word
+                            occurred.
+                            <br>
+                            <b>Hint:</b> Use the <code>sort</code> function
+                            provided in <code>std_lib_facilities.h</code> 
+                            to do this.
                         </p>
                     </details>
 
