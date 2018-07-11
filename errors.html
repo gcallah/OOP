@@ -504,16 +504,147 @@ int main()
                       <li>using a non-defined identifier</li>
                       <li>operation on incompatible types</li>
                     </ul>
+                    <p>
+                      <PRE>
+                        <code>
+                          int area(int length, int width) <span class="comment">// calculate area of a rectangle</span>
+                          {
+                              return length*width;
+                          }
+                          int framed_area(int x, int y) <span class="comment">// calculate area within frame</span>
+                          {
+                              return area(x–2,y–2);
+                          }
+                          int main()
+                          {
+                              int x = –1;
+                              int y = 2;
+                              int z = 4;
+                              // . .
+                              int area1 = area(x,y);
+                              int area2 = framed_area(1,z);
+                              int area3 = framed_area(y,z);
+                              double ratio = double(area1)/area3; <span class="comment">// convert to double to get</span>
+                              // floating-point division
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      The above calls lead to negative values of areas,
+                      being assigned to <code>area1</code> and
+                      <code>area2</code>.<br>
+                      Also, look at the calculation of the ratio in the code
+                      above. It looks innocent enough.<br>
+                      Did you notice something wrong with it?<br>
+                      <span class="hilight">Look again: </span>
+                      <code>area3</code> will be <code>0</code>,
+                      so that <code>double(area1)/area3</code> divides by zero.
+                      <br><br>
+                      The above leads to a hardware-detected error
+                      that terminates the program. This problem can be dealt in
+                      two ways:
+                      <ul>
+                        <li>The caller of <code>area()</code>
+                          deal with bad arguments.</li>
+                        <li><code>area()</code> (the called function)
+                          deal with bad arguments.</li>
+                      </ul>
+                    </p>
                     <details>
                         <summary class="sum2">
                         5.5.1 The caller deals with errors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Protect the call of <code>area(x,y)</code> in
+                          <code>main()</code>:
+                          <PRE>
+                            <code>
+                              if (x&lt=0) error("non-positive x");
+                              if (y&lt=0) error("non-positive y");
+                              int area1 = area(x,y);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          To complete protecting <code>area()</code>
+                          from bad arguments, we have to deal with the calls
+                          through <code>framed_area()</code>:
+                          <PRE>
+                            <code>
+          if (z&lt=2)
+            error("non-positive 2nd area() argument called by framed_area()");
+          int area2 = framed_area(1,z);
+          if (y&lt=2 || z&lt=2)
+            error("non-positive area() argument called by framed_area()");
+          int area3 = framed_area(y,z);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          <span class="hilight"><i>This is messy,
+                            but there is also something fundamentally
+                            wrong.</i></span><br>
+                            What if someone modified <code>framed_area()</code>
+                             to use <code>1</code> instead of <code>2</code>?
+                             <br>Someone doing that would have to look at
+                            every call of <code>framed_area()</code> and modify
+                             the error-checking code correspondingly.<br>
+                             Such code is called “brittle” because it breaks
+                             easily.
+                        </p>
+                        <p>
+                          We could make the code less brittle by giving the
+                          value subtracted by <code>framed_area()</code> a name:
+                          <PRE>
+                            <code>
+            constexpr int frame_width = 2;
+            int framed_area(int x, int y) <span class="comment">// calculate area within frame</span>
+            {
+            return area(x–frame_width,y–frame_width);
+            }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          That name could be used by code calling
+                          <code>framed_area()</code>:
+                          <PRE>
+                            <code>
+        if (1–frame_width&lt=0 || z–frame_width&lt=0)
+            error("non-positive argument for area() called by framed_area()");
+        int area2 = framed_area(1,z);
+        if (y–frame_width&lt=0 || z–frame_width&lt=0)
+            error("non-positive argument for area() called by framed_area()");
+        int area3 = framed_area(y,z);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Look at that code! <br>
+                          <span class="hilight"><i>Are you sure it is correct?
+                            Do you find it pretty? Is it easy to read?</i>
+                          </span>
+                          Actually, we find it ugly (and therefore
+                          error-prone).<br>
+                          We have more than trebled the size of the code
+                          and exposed an implementation detail of
+                          <code>framed_area()</code>. There
+                          has to be a better way!<br>
+                        </p>
+                        <p>
+                          Look at the original code:
+                          <PRE>
+                            <code>
+                              int area2 = framed_area(1,z);
+                              int area3 = framed_area(y,z);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          It may be wrong, but at least we can see what it is
+                          supposed to do. We can keep this code if we
+                          put the check inside <code>framed_area()</code>.
                         </p>
                     </details>
                     <details>
@@ -526,7 +657,41 @@ int main()
                             </figcaption>
                         </figure>
                         <p>
+                          <PRE>
+                            <code>
+          int framed_area(int x, int y) <span class="comment">// calculate area within frame</span>
+          {
+            constexpr int frame_width = 2;
+            if (x–frame_width&lt=0 || y–frame_width&lt=0)
+              error("non-positive area() argument called by framed_area()");
+            return area(x–frame_width,y–frame_width);
+          }
+                            </code>
+                          </PRE>
                         </p>
+                        <p>
+                          This is rather nice, and we no longer have to write a
+                          test for each call of <code>framed_area()</code>.<br>
+                          Furthermore, if anything to do with the error
+                          handling changes, we only have to modify the code
+                          in one place.
+                        </p>
+                        <p>
+                          <PRE>
+                            <code>
+          int area(int length, int width) <span class="comment">// calculate area of a rectangle</span>
+          {
+            if (length&lt=0 || width &lt=0) error("non-positive area() argument");
+            return length*width;
+          }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          This will catch all errors in calls to
+                          <code>area()</code>, so we no longer need to check
+                          in <code>framed_area()</code>.
+                        </p> 
                     </details>
                     <details>
                         <summary class="sum2">
@@ -642,13 +807,13 @@ int main()
                           <code>&gt&gt</code> to read.<br>
                           <PRE>
                           <code>
-                            double some_function()
-                            {
-                                double d = 0;
-                                cin &gt&gt d;
-                                if (!cin) error("couldn't read a double in 'some_function()'");
-                                <span class="comment">// do something useful</span>
-                            }
+            double some_function()
+            {
+                double d = 0;
+                cin &gt&gt d;
+                if (!cin) error("couldn't read a double in 'some_function()'");
+                <span class="comment">// do something useful</span>
+            }
                           </code>
                           </PRE>
                         </p>
@@ -775,7 +940,8 @@ int main()
                     <p>
                       When you have written some code, you have to find and
                       remove the errors. That process is usually called
-                      <i>debugging</i> and <i>the errors bugs</i>.<br><br>
+                      <i>debugging</i> and <i>the errors are called bugs</i>.
+                      <br><br>
                       <i>Debugging</i> works roughly like this:<br>
                       <ul>
                         <li>Get the program to compile.</li>
