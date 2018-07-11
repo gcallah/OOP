@@ -15,52 +15,234 @@
                 <h1>
                     6. Writing a Program
                 </h1>
+
+                <p class="leadquote">
+                    "Programming is understanding." -- Kristen Nygaard
+                </p>
+
                 <details>
                     <summary class="sum1">
                     6.1 A problem
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img
+                        src="https://upload.wikimedia.org/wikipedia/en/9/9e/4-cube_4%5E4.png"
+                            width="20%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        We want the problem we take on next to have the
+                        following characteristics:
                     </p>
+
+                    <ul>
+                        <li>
+                            Illustrates good design and programming techniques
+                        </li>
+
+                        <li>
+                            We explore the kind of decisions we make in
+                            designing "real" programs.
+                        </li>
+
+                        <li>
+                            Doesn't require too many new programming languages
+                            features.
+                        </li>
+
+                        <li>
+                            Is complicated enough to require thought about its
+                            design.
+                        </li>
+
+                        <li>
+                            Allows for many variations in its solution.
+                        </li>
+
+                        <li>
+                            Solves an easily understood problem.
+                        </li>
+
+                        <li>
+                            Solves a problem worth solving.
+                        </li>
+
+                        <li>
+                            Has a small enough solution to fully comprehend.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Our author chose programming a calculator as our first
+                        multi-part program.
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
                     6.2 Thinking about the problem
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Le_penseur_de_la_Porte_de_lEnfer_%28musée_Rodin%29_%284528252054%29.jpg/520px-Le_penseur_de_la_Porte_de_lEnfer_%28musée_Rodin%29_%284528252054%29.jpg"
+                            width="33%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        We start by thinking about the problem. An important
+                        point: Stroustrup recommends <i>discussing the problem
+                        with a friend</i>. Programming is a <i>social</i>
+                        activity.
                     </p>
+
+                    <p>
+                        The technique of development here progressively refines
+                        an initial cut at the problem. This is the method that
+                        has the best track-record for achieving good results.
+                        In today's jargon, it is often called "developing a
+                        minimal viable product" (MVP) to start with, and then
+                        continually improving that product.
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         6.2.1 Stages of development
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Iterative_development_model.svg/600px-Iterative_development_model.svg.png"
+                                width="33%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Working on a problem, we typically
+                            <i>repeatedly</i> go through these stages:
                         </p>
+
+                        <ul>
+                            <li>
+                                <span class="hilight">
+                                    Analysis:
+                                </span>
+                                What does a solution to our problem look like?
+                                What features <i>must</i> it include? What
+                                features would be <i>nice</i> to include?
+                            </li>
+
+                            <li>
+                                <span class="hilight">
+                                    Design:
+                                </span>
+                                How do we break the system into comprehensible
+                                parts to achieve the goals analysis has
+                                revealed to us?
+                            </li>
+
+                            <li>
+                                <span class="hilight">
+                                    Development:
+                                </span>
+                                Write the code that implements our design, and
+                                debug and test it.
+                            </li>
+                        </ul>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         6.2.2 Strategy
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Staunton_chess_set.jpg"
+                                width="30%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Some suggestions:
                         </p>
+
+                        <ul>
+                            <li>
+                                Take the user's point of view and ask what the
+                                program is for. If you were using it, how would
+                                you like it to work?
+                                <ul class="nested">
+                                    <li>
+                                        Is the problem clear? Are we asking for
+                                        too much? (Best to build an MVP, and
+                                        then improve it based on user
+                                        feedback.)
+                                    </li>
+
+                                    <li>
+                                        Can we really tackle this project,
+                                        given our time, resources, knowledge,
+                                        etc.? No point in taking on something
+                                        you can't possibly complete!
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                Break the program down into manageable parts.
+                                <ul class="nested">
+                                    <li>
+                                        Can we use existing tools, libraries,
+                                        etc. that might help?
+                                        If so, always use them!
+                                        How do we know if they are worth
+                                        adopting? Ask friends, ask Google, look
+                                        on StackOverflow.
+                                    </li>
+
+                                    <li>
+                                        Look for parts of the solution that can
+                                        be separately described and potentially
+                                        re-used. Correctly identifying such
+                                        parts requires experience: that is why
+                                        we present you with many examples.
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                Build a small, limited version of the program
+                                that solves a key part of the problem.
+                                <br />
+                                Why?
+                                <ul class="nested">
+                                    <li>
+                                        This will force to the surface
+                                        misapprehensions in our understanding 
+                                        of the problem we wish to solve.
+                                        Ultimately, the computer itself is the
+                                        measure of our design!
+                                    </li>
+
+                                    <li>
+                                        We also may need to change some aspects
+                                        of the design to make our problem
+                                        manageable: perhaps the "ideal" spec
+                                        involves using an exponential
+                                        algorithm, but in fact we can come
+                                        "close enough" with a polynomial one.
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                Build a full-scale version, using parts of the
+                                initial version. <span class="hilight">Our
+                                ideal:</span> Grow a program from working
+                                parts.
+                            </li>
+                        </ul>
+
                     </details>
                 </details>
                 <details>
@@ -68,31 +250,120 @@
                     6.3 Back to the calculator!
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Grant_mechanical_calculating_machine_1877.jpg/440px-Grant_mechanical_calculating_machine_1877.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        We're not going to try to learn GUI programming in this
+                        course, so let's stick to the console, using
+                        <code>cout</code> and <code>cin</code>. We want to be
+                        able to take as input, say:
+                        <br />
+                        <code>2+2</code>
+                        <br />
+                        and return <code>4</code> as a result. Or we should be
+                        able to accept:
+                        <br />
+                        <code>2+2*3</code>
+                        and return <code>8</code> as a result.
                     </p>
+
+                    <p>
+                        We may first come up with some <i>pseudo-code</i> like:
+                        <br />
+                        <code>read_a_line
+                        <br />
+                        calculate
+                        <br />
+                        write_result
+                        <br />
+                        </code> 
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         6.3.1 First attempt
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Climbing_over_a_Crevasse_Bridge.jpg/440px-Climbing_over_a_Crevasse_Bridge.jpg"
+                                width="27%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            Well, we are anxious to start writing code, so let
+                            us try:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+#include "std_lib_facilities.h"
+
+int main()
+{
+    cout &lt;&lt;"Please enter an expression (we can handle + and -):";
+    int lval = 0;
+    int rval;
+    char op;
+    int res;
+    cin &gt;&gt; lval &gt;&gt; op &gt;&gt; rval; // read e.g. 1 + 3
+
+    if(op=='+')
+        res = lval + rval;
+    else if(op=='-')
+        res = lval - rval;
+
+    cout &lt;&lt; "Result: " &lt;&lt; res &lt;&lt; '\n';
+    keep_window_open();  // if necessary on your system!
+    return 0;
+}
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            <code>lval</code> is our variable for the left-hand
+                            value, and <code>rval</code> for the right-hand
+                            value.
+                            <br />
+                            Well, we have something (kind of) working!
+                            <br />
+                            Let's improve our program by:
+                        </p>
+
+                        <ol>
+
+                            <li>
+                                Clean up our code
+                            </li>
+
+                            <li>
+                                Add multiplication and division
+                            </li>
+
+                            <li>
+                                Add the ability to handle more than one operand
+                                (e.g., <code>1+2+3</code>)
+                            </li>
+
+                        </ol>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         6.3.2 Tokens
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IsthmusCityChips.jpg/440px-IsthmusCityChips.jpg"
+                                width="24%">
                             <figcaption>
+                                (Source: By Podknox, User:AlanM1 - Cropped from
+                                [1], CC BY 2.0,
+                                https://commons.wikimedia.org/w/index.php?curid=21571904)
                             </figcaption>
                         </figure>
                         <p>
@@ -100,7 +371,7 @@
                     </details>
                     <details>
                         <summary class="sum2">
-                        6.3.3 Implementingtokens
+                        6.3.3 Implementing tokens
                         </summary>
                         <figure>
                             <img src="" width="40%">
@@ -112,7 +383,7 @@
                     </details>
                     <details>
                         <summary class="sum2">
-                        6.3.4 Usingtokens
+                        6.3.4 Using tokens
                         </summary>
                         <figure>
                             <img src="" width="40%">

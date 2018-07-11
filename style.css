@@ -99,7 +99,7 @@ ol.centered, ul.centered dl.centered {
 }
 
 ol.nested, ul.nested, dl.nested {
-    font-size: 1em;
+    font-size: .86em;
 }
 
 dt {
