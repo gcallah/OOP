@@ -691,18 +691,79 @@ int main()
                           This will catch all errors in calls to
                           <code>area()</code>, so we no longer need to check
                           in <code>framed_area()</code>.
-                        </p> 
+                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         5.5.3 Error reporting
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Once you have checked a set of arguments and
+                          found an error, what should you do?<br>
+                          Sometimes you can return an “error value.” <br>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+        <code>
+        <span class="comment">// ask user for a yes-or-no answer;</span>
+        <span class="comment">// return 'b' to indicate a bad answer (i.e., not yes or no)</span>
+        char ask_user(string question)
+        {
+          cout &lt&lt question &lt&lt "? (yes or no)\n";
+          string answer = " ";
+          cin &gt&gt answer;
+          if (answer =="y" || answer=="yes") return 'y';
+          if (answer =="n" || answer=="no") return 'n';
+          return 'b'; <span class="comment">// ‘b’ for “bad answer”</span>
+        }
+
+
+        <span class="comment">// calculate area of a rectangle;</span>
+        <span class="comment">// return –1 to indicate a bad argument</span>
+        int area(int length, int width)
+        {
+          if (length&lt=0 || width &lt=0) return –1;
+          return length*width;
+        }
+        </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          That way, we can have the called function do the
+                          detailed checking, while letting each caller
+                          handle the error as desired.
+                        </p>
+                        <p>
+                          This approach seems like it could work,
+                          but it has a couple of problems that make
+                          it unusable in many cases:
+                          <ul>
+                            <li>
+                              Now both the called function and all callers
+                              must test. The caller has only a simple test to
+                              do but must still write that test and decide what
+                              to do if it fails.
+                            </li>
+                            <li>
+                              A caller can forget to test.
+                              That can lead to unpredictable behavior
+                              further along in the program.
+                            </li>
+                            <li>
+                              Many functions do not have an “extra” return
+                              value that they can use to indicate an error.
+                               For example, a function that reads an integer
+                               from input (such as <code>cin</code>’s operator
+                               <code>&gt&gt</code>) can obviously return
+                               any <code>int</code> value,
+                               so there is no <code>int</code> that it could
+                               return to indicate failure.
+                            </li>
+                          </ul>
+                        </p>
+                        <p>
+                          <i>There is another solution that deals with this
+                          problem: <span class="hilight">using exceptions.
+                          </span></i>
                         </p>
                     </details>
                 </details>
