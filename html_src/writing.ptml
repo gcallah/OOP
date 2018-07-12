@@ -361,25 +361,65 @@ int main()
 
 int main()
 {
-    cout &lt;&lt;"Please enter an expression (we can handle +, -, *, and /):\n";
+    cout &lt;&lt; "Please enter an expression (we can handle +, -, *, and /):\n";
+    cout &lt;&lt; "Add an x to end expression (e.g., 1+2*3x): ";
     int lval = 0;
     int rval;
-    char op;
     int res;
-    cin &gt;&gt; lval &gt;&gt; op &gt;&gt; rval; // read e.g. 1 + 3
-
-    if(op=='+')
-        res = lval + rval;
-    else if(op=='-')
-        res = lval - rval;
-
-    cout &lt;&lt; "Result: " &lt;&lt; res &lt;&lt; '\n';
-    keep_window_open();  // if necessary on your system!
-    return 0;
+    cin &gt;&gt; lval;
+    if(!cin) error("No first operand!");
+    for(char op; cin &gt;&gt; op;) {   // repeatedly read ops
+        if(op!='x') cin &gt;&gt; rval;
+        if(!cin) error("No second operand!");
+        switch(op) {
+        case '+':
+            lval += rval;
+            break;
+        case '-':
+            lval -= rval;
+            break;
+        case '*':
+            lval *= rval;
+            break;
+        case '/':
+            lval /= rval;
+            break;
+        default:
+            cout &lt;&lt; "Result: " &lt;&lt; lval &lt;&lt; '\n';
+            keep_window_open();  // if necessary on your system!
+            return 0;
+        }
+    }
+    error("Bad expression");
 }
                             </pre>
                         </code>
                         </p>
+
+                        <p>
+                            Problems:
+                        </p>
+
+                        <ol>
+                            <li>
+                                We accept multi-line expressions.
+                            </li>
+
+                            <li>
+                                Our operator precedence is wrong! 
+                                But how do we find the "correct"
+                                operator amongst all input?
+                            </li>
+
+                            <li>
+                                How do we remember the place of each op?
+                            </li>
+
+                            <li>
+                                How do we avoid proceeding strictly
+                                left-to-right?
+                            </li>
+                        </ol>
 
                     </details>
                     <details>
@@ -391,14 +431,38 @@ int main()
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IsthmusCityChips.jpg/440px-IsthmusCityChips.jpg"
                                 width="24%">
                             <figcaption>
-                                (Source: By Podknox, User:AlanM1 - Cropped from
-                                [1], CC BY 2.0,
-                                https://commons.wikimedia.org/w/index.php?curid=21571904)
                             </figcaption>
                         </figure>
+
                         <p>
+                            We are going to <i>tokenize</i> our input
+                            to get this right!
+                            <code>Token</code> will be our first
+                            <i>user-defined type</i>.
+                            We will initially define:
                         </p>
+
+                        <ul>
+                            <li>
+                                Floating point numbers: 1.23, 0.274e2, 42
+                            </li>
+
+                            <li>
+                                Operators: +, -, *, /, %
+                            </li>
+
+                            <li>
+                                Parentheses: (, )
+                            </li>
+                        </ul>
+
+
+                        <p>
+                            Tokens will hold a kind and a value (for floats).
+                        </p>
+
                     </details>
+
                     <details>
                         <summary class="sum2">
                         6.3.3 Implementing tokens
@@ -409,8 +473,37 @@ int main()
                             </figcaption>
                         </figure>
                         <p>
+                            Our initial definition of <code>Token</code>:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+class Token {
+public:
+    char kind;
+    double value;
+};
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            We can initialize (construct) <code>Token</code> 
+                            objects like this:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+Token t1 {'+'};
+Token t2 {'8', 11.5};
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
+                        
                     <details>
                         <summary class="sum2">
                         6.3.4 Using tokens
@@ -420,8 +513,28 @@ int main()
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We will read a stream of tokens into a 
+                            <code>vector</code>, so we need:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+Token get_token();  // read token from cin
+
+vector&lt;Token&gt; tok;
+
+int main()
+{
+    Token t = get_token();
+    tok.push_back(t);
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -433,6 +546,11 @@ int main()
                             </figcaption>
                         </figure>
                         <p>
+                            OK, we have tokens: now what? This helps us 
+                            sorting out the text into pieces, but how do
+                            we get the order of evaluations correct?
+                            And can we support variables?
+                            We'd better back up and think some more.
                         </p>
                     </details>
                 </details>
@@ -446,7 +564,62 @@ int main()
                         </figcaption>
                     </figure>
                     <p>
+                        How do we get an expression like
+                        <code>45+11.5/7</code>  correct?
+                        We tokenize it to:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+45
++
+11/5
+/
+7
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Then we write a <i>grammar</i> to express
+                        our rules like "division binds tighter than addition"
+                        and write code to implement that grammar. For example:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+// a simple expression grammar:
+
+Expression:
+    Term
+    Expression "+" Term
+    Expression "-" Term
+Term:
+    Primary
+    Term "*" Primary
+    Term "/" Primary
+    Term "%" Primary
+Primary:
+    Number
+    "(" Expression ")"
+Number:
+    floating-point literal
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Let's parse some expressions using this grammar:
+                        <br />
+                        2
+                        <br />
+                        2+3
+                        <br />
+                        45+11.5*7
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         6.4.1 A detour: English grammar
@@ -456,8 +629,40 @@ int main()
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            To wrap our heads around this, let's make 
+                            a simplistic grammar for English:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+Sentence:
+    Noun Verb
+    Sentence Conjunction Sentence
+Conjunction:
+    "and"
+    "but"
+    "or"
+Noun:
+    "birds"
+    "fish"
+    "C++"
+Verb:
+    "rules"
+    "fly"
+    "swim"
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            We can now make sentences like "C++ rules
+                            but fish swim."
+                        </p>
+
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -468,8 +673,45 @@ int main()
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            A grammar for lists:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+List:
+    "{" Sequence "}"
+Sequence:
+    Element
+    Element "," Sequence
+Element:
+    "A"
+    "B"
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            According to that grammar, which of the following
+                            are valid lists, and which not?
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+{ A }
+{ }
+A, B, A, B
+{ A, B, B, B }
+{ A, B, B, B, }
+{ A B B B }
+                            </pre>
+                        </code>
+                        </p>
+
+
                     </details>
                 </details>
                 <details>
@@ -558,7 +800,7 @@ int main()
                 </details>
                 <details>
                     <summary class="sum1">
-                    6.8 Tokenstreams
+                    6.8 Token streams
                     </summary>
                     <figure>
                         <img src="" width="40%">
