@@ -1109,8 +1109,40 @@ A, B, A, B
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        The structure of the whole program (with details
+                        omitted) should be:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+#include "std_lib_facilities.h"
+
+class Token { /* ... */ };
+class Token_stream { /* ... */ };
+
+void Token_strem::putback(Token t) { /* ... */ }
+Token Token_stream::get() { /* ... */ }
+
+Token_stream ts;
+double expression();
+
+double primary() { /* ... */ }
+double term() { /* ... */ }
+double expression() { /* ... */ }
+
+int main() { /* ... */ }
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Order is important! Names must be declared before
+                        they are used.
+                    </p>
+
                 </details>
 
                 <details>
