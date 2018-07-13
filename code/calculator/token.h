@@ -5,6 +5,7 @@ public:
     double value;
 };
 
+
 class Token_stream {
     public:
         Token get();

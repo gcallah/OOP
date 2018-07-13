@@ -1,3 +1,3 @@
-double expression();
-double term();
-double primary();
+double expression(Token_stream& ts);
+double term(Token_stream& ts);
+double primary(Token_stream& ts);

@@ -1,13 +1,24 @@
 #include "std_lib_facilities.h"
+#include "token.h"
 #include "parser.h"
 
 int main()
 {
+    Token_stream ts;
+
     try {
+        double val = 0.0;
         while(cin) {
-            int flag;
-            cout << expression() << '\n';
-            cin >> flag;
+            Token t = ts.get();
+// this output is for debugging:
+			cout << "in main(), got token: " << t.kind
+				<< " with val of " << t.value << '\n';
+            if(t.kind == 'q') break;
+            if(t.kind == ';')
+                cout << " = " << val << '\n';
+            else
+                ts.putback(t);
+            val = expression(ts);
         }
         // keep_window_open();   only if needed!
     }

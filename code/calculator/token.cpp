@@ -1,11 +1,11 @@
 #include "std_lib_facilities.h"
 #include "token.h"
 
-vector<Token> tokens;
 
 // uncomment this for testing:
 //int main()
 //{
+// vector<Token> tokens;
 //    // frazzyswizel!
 //    for(Token t = get_token(); t.kind != 'q'; t = get_token()) {
 //    	tokens.push_back(t);
@@ -22,6 +22,11 @@ vector<Token> tokens;
 //	}
 //    return 0;
 //}
+
+std::ostream &operator<<(std::ostream &os, Token const &t) { 
+    return os << t.kind;
+}
+
 
 void Token_stream::putback(Token t)
 {
