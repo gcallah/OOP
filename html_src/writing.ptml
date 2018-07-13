@@ -736,20 +736,75 @@ A, B, A, B
                             </figcaption>
                         </figure>
                         <p>
+                            We are going to try to turn our grammar rules into
+                            working C++ code. I will offer you pseudo-code for
+                            each of the elements of the grammar in what
+                            follows. What we will need to implement this
+                            grammar is:
                         </p>
+
+                        <ol>
+                            <li>
+                                A way to get the next token of input.
+                            </li>
+
+                            <li>
+                                A function to implement the expression rule:
+                                <code>expression()</code>.
+                            </li>
+
+                            <li>
+                                A function to implement the term rule:
+                                <code>term()</code>.
+                            </li>
+
+                            <li>
+                                A function to implement the primary rule:
+                                <code>primary()</code>.
+                            </li>
+                        </ol>
+
+                        <p>
+                            So let's look at pseudo-code version of 2-4: we
+                            will create a new class to handle 1.
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         6.5.2 Expressions
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lars_Jacob_as_Comedy_%26_Tragedy_1972.JPG/440px-Lars_Jacob_as_Comedy_%26_Tragedy_1972.JPG"
+                                width="20%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Expression pseudo-code:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+double expression()
+{
+    left = term();
+    Token t = get_the_next_token(); // we will see how to do this later!
+    while(true) {
+        switch(t.kind) {
+            // here we need cases to handle + and -
+            // the default case will return left
+        }
+    }
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
+
                     <details>
                         <summary class="sum2">
                         6.5.3 Terms
@@ -759,8 +814,29 @@ A, B, A, B
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Term pseudo-code:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+double term()
+{
+    double left = primary();
+    Token t = get_the_next_token(); // we will see how to do this later!
+    while(true) {
+        switch(t.kind) {
+            // here we need cases to handle * and /
+            // the default case will return left
+        }
+    }
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -771,10 +847,37 @@ A, B, A, B
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Primary pseudo-code:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+double primary()
+{
+    Token t = get_next_token; // we will see how to do this later!
+    switch (t.kind) {
+    case '(':    // handle '(' expression ')'
+        {    
+// here we will expect an expression, and then a ')':
+// you must write this switch so as to handle that
+            return d;
+        }
+    case '8':            // we use '8' to represent a number
+        return t.value;  // return the number's value
+    default:
+        error("primary expected");
+}
+
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     6.6 Trying the first version
@@ -785,6 +888,10 @@ A, B, A, B
                         </figcaption>
                     </figure>
                     <p>
+                        I'm going to let you try to implement the pseudo-code
+                        of the final version. Nevertheless, looking at the
+                        textbook's ode for the first version is a useful
+                        exercise.
                     </p>
                 </details>
                 <details>
@@ -796,7 +903,12 @@ A, B, A, B
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        I'm going to let you try to implement the pseudo-code
+                        of the final version. Nevertheless, looking at the
+                        textbook's code for the second version is a useful
+                        exercise.
                     </p>
                 </details>
                 <details>
@@ -804,12 +916,18 @@ A, B, A, B
                     6.8 Token streams
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SpearfishCreek.jpg/440px-SpearfishCreek.jpg"
+                             width="20%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        <code>Token_stream</code> will allow us to push back
+                            tokens when we have read one too many in our
+                            parsing efforts.
                     </p>
+
                     <details>
                         <summary class="sum2">
                         6.8.1 Implementing Token_stream
@@ -819,8 +937,60 @@ A, B, A, B
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Here is an implementation of
+                            <code>Token_stream</code>:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+class Token_stream {
+    public:
+        Token get();
+        void putback(Token t);
+    private:
+        bool full{false};
+        Token buffer;
+};
+
+void Token_stream::putback(Token t)
+{
+    buffer =t;
+    full = true;
+}
+
+Token Token_stream::get() {
+    if(full) {
+        full = false;
+        return buffer;
+    }
+    char ch;
+    cin &gt;&gt: ch;
+    switch(ch) {
+        case ';':
+        case 'q':
+        case '(': case ')': case '+': case '-': case '/': case '*': case '%':
+            return Token{ch};
+        case '.':
+        case '0': case '1': case '2': case '3': case '4':
+        case '5': case '6': case '7': case '8': case '9':
+        {
+            cin.putback(ch);
+            double val;
+            cin &gt;&gt: val;
+            return Token{'8', val};
+        }
+        default:
+            return Token{'i', double(ch)};
+    }
+    return Token{'q'};
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -832,6 +1002,8 @@ A, B, A, B
                             </figcaption>
                         </figure>
                         <p>
+							Most tokens we recognize by simply seeing the
+                            character that represents that token.
                         </p>
                     </details>
                     <details>
@@ -844,6 +1016,11 @@ A, B, A, B
                             </figcaption>
                         </figure>
                         <p>
+                            However, when we see a digit, we want to take
+                            advantage of the C++ facility to read a
+                            <code>double</code> for us: thus, we push the digit
+                            we read back onto <code>cin</code>, and then try to
+                            read a double from <code>cin</code>.
                         </p>
                     </details>
                 </details>
