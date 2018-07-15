@@ -278,6 +278,8 @@
                         </figcaption>
                     </figure>
                     <p>
+                        Now that we are "done" with our program, let's actually
+                        complete it!
                     </p>
                 </details>
                 <details>
@@ -285,11 +287,13 @@
                     7.2 Input and output
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Information_processing_system_%28english%29.svg/1000px-Information_processing_system_%28english%29.svg.png"
+                            width="35%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        Let's add a simple prompt for input: <code>&gt;</code>
                     </p>
                 </details>
                 <details>
@@ -297,32 +301,90 @@
                     7.3 Error handling
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Project_error.jpg/440px-Project_error.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        Now we should <i>try</i> to break our program.
+                        Let's generate many instances of "bad" input, like:
                     </p>
+
+                    <ul>
+                        <li>
+                            <code>4 + + ;</code>
+                        </li>
+
+                        <li>
+                            <code>6 + ( 4 * ) - 2 ;</code>
+                        </li>
+
+                        <li>
+                            <code>3 ;;;;;</code>
+                        </li>
+
+                        <li>
+                            <code>(1+);</code>
+                        </li>
+                    </ul>
+
+                    <p>
+                        Try "ridiculous" input that no one should try:
+                        <code>foozziefabblebop</code>.
+                        Our book author used to feed his emails into the
+                        compiler.
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
                     7.4 Negative numbers
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/US_Navy_070317-N-3642E-379_During_the_warmest_part_of_the_day%2C_a_thermometer_outside_of_the_Applied_Physics_Laboratory_Ice_Station%27s_%28APLIS%29_mess_tent_still_does_not_break_out_of_the_sub-freezing_temperatures.jpg/440px-thumbnail.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        Our program does not handle negative numbers properly.
+                        It is typical that we only find out if our design is
+                        correct by coding it: the computer is the only real
+                        test as to whether the design works.
+                        To implement unary minus (and plus -- might as well!)
+                        we change our grammar for primary to:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+Primary:
+    Number
+    "(" Expression ")"
+    "-" Primary
+    "+" Primary
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Changing the code accordingly is so simple it might
+                        just work the first run!
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
                     7.5 Remainder: %
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Clock_group.svg/500px-Clock_group.svg.png"
+                            width="32%">
                         <figcaption>
+                            Adding 4 to 9, in 12-hour clock arithmetic, yields
+                            1.
                         </figcaption>
                     </figure>
                     <p>

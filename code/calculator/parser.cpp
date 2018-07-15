@@ -43,6 +43,14 @@ double term(Token_stream& ts)
                 t = ts.get();
                 break;
             }
+        case '%':
+            {
+                double d = primary(ts);
+                if (d == 0) error("divide by zero");
+                left = fmod(left, d);
+                t = ts.get();
+                break;
+            }
         default: 
             ts.putback(t);     // put t back into the token stream
             return left;
@@ -64,6 +72,10 @@ double primary(Token_stream& ts)
         }
     case '8':            // we use '8' to represent a number
         return t.value;  // return the number's value
+    case '-':
+        return -primary(ts);
+    case '+':
+        return primary(ts);
     default:
         error("primary expected");
     }
