@@ -273,25 +273,24 @@
                     8.1 Technicalities
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                          <img src="graphics/Chap8Diag1.jpg" width="40%">
                     </figure>
                     <p>
                       When you start programming, your programming language
                       is a foreign language for which you need to look at
-                      <i>“grammar and vocabulary”</i>.<br>
+                      <i>“grammar and vocabulary”</i>.<br><br>
                       Most design and programming concepts are universal,
                       and many such concepts are widely supported by popular
-                      programming languages.<br>
+                      programming languages.<br><br>
                       That means that the fundamental ideas and techniques
                       we learn in a good programming course carry
-                      over from language to language.<br>
+                      over from language to language.<br><br>
                       The language technicalities, however, are specific to a
                       given language. Fortunately, programming languages do not
                       develop in a vacuum, so much of what you learn here will
                       have reasonably obvious counterparts in other languages.
-                      <br>In particular, C++ belongs to a group of languages
+                      <br><br>
+                      In particular, C++ belongs to a group of languages
                       that also includes C, Java, and C#,
                       so quite a few technicalities are shared with those
                       languages.
@@ -302,12 +301,10 @@
                     8.2 Declarations and definitions
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag2.png" width="40%">
                     </figure>
                     <p>
-                      A declaration is a statement that introduces a
+                      A <i>declaration</i> is a statement that introduces a
                       name into a scope:
                       <ul>
                         <li>Specifying a type for what is named
@@ -330,7 +327,7 @@
                     </p>
                     <p>
                       Before a name can be used in a C++ program,
-                      it must be declared. <br>
+                      it must be declared. <br><br>
                       <span class="hilight">Consider:</span>
                       <PRE>
                         <code>
@@ -345,6 +342,7 @@
                         <code>cout</code>, <code>f</code>, and <code>i</code>
                          are not declared anywhere in this program fragment.</i>
                     </p>
+                    <br>
                     <p>
                       <span class="hilight">After Fixing:</span>
                       <PRE>
@@ -358,6 +356,25 @@
                           }
                         </code>
                       </PRE>
+                      <i>This will compile because every name has been declared,
+                         but it will not link because we have not defined
+                         <code>f()</code>; that is, nowhere have we specified
+                         what <code>f()</code> actually does.
+                      </i>
+                    </p>
+                    <br>
+                    <p>
+                      A <i>definition</i> specifies exactly what a name refers
+                      to. In particular, a definition of a variable sets
+                      aside memory for that variable.<br>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                          int x = 7; <span class="comment">// definition</span>
+
+                          double sqrt(double d) { /* . . . */ } <span class="comment">// definition</span>
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
@@ -369,6 +386,16 @@
                             </figcaption>
                         </figure>
                         <p>
+                          Following are the kind of entities that a programmer
+                          can define in C++:<br>
+                          <ul>
+                            <li>Variables</li>
+                            <li>Constants</li>
+                            <li>Functions</li>
+                            <li>Namespaces</li>
+                            <li>Types (classes and enumerations)</li>
+                            <li>Templates</li>
+                          </ul>
                         </p>
                     </details>
                     <details>
