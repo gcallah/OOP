@@ -2,26 +2,33 @@
 #include "token.h"
 #include "parser.h"
 
+const string prompt = "> ";
+const string result = "= ";
+
+void calculate(Token_stream& ts)
+{
+    while(cin) {
+        cout << prompt;
+        Token t = ts.get();
+// this output is for debugging:
+//			cout << "in main(), got token: " << t.kind
+//				<< " with val of " << t.value << '\n';
+        while(t.kind == print) t = ts.get();
+        if(t.kind == quit) return;
+        ts.putback(t);
+        cout << result << expression(ts) << '\n';
+    }
+}
+
+
 int main()
 {
     Token_stream ts;
 
     try {
-        double val = 0.0;
-        while(cin) {
-            cout << "> ";
-            Token t = ts.get();
-// this output is for debugging:
-//			cout << "in main(), got token: " << t.kind
-//				<< " with val of " << t.value << '\n';
-            while(t.kind == print) t = ts.get();
-            if(t.kind == quit) {
-                // keep_window_open();   only if needed!
-                return 0;
-            }
-            ts.putback(t);
-            cout << "= " << expression(ts) << '\n';
-        }
+        calculate(ts);
+        // keep_window_open();   only if needed!
+        return 0;
     }
     catch(exception& e) {
         cerr << e.what() << '\n';

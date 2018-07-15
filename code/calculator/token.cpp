@@ -42,9 +42,15 @@ Token Token_stream::get() {
 	char ch;
 	cin >> ch;
 	switch(ch) {
-    	case ';':
-    	case 'q':
-        case '(': case ')': case '+': case '-': case '/': case '*': case '%':
+    	case print:
+    	case quit:
+        case '(':
+        case ')':
+        case '+':
+        case '-':
+        case '/':
+        case '*':
+        case '%':
     		return Token{ch};
     	case '.':
     	case '0': case '1': case '2': case '3': case '4':

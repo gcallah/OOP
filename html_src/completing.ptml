@@ -206,7 +206,8 @@ case '%':
                             We can make a big step forward in both the
                             readability and maintainability of our program by
                             defining some symbolic constants. In particular, we
-                            will want them for '8', ';', and 'q'.
+                            will want them for '8', ';', and 'q', for input,
+                            and for '&gt;' and '=' for output;
                         </p>
                     </details>
                     <details>
@@ -218,9 +219,59 @@ case '%':
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Our functions should name and isolate logically
+                            separate parts of our program. Most of our
+                            functions so far are pretty good in this respect:
+                            <code>expression()</code>, <code>term()</code>,
+                            and <code>primary()</code> directly express our
+                            grammar, <code>get()</code> handles fetchijng
+                            tokens from our input. But at this point 
+                            <code>main()</code> both provides the "scaffolding"
+                            for the whole program, and also handles the
+                            calculation loop. Let's divide that into two
+                            functions to reflect this logical division.
+                        </p>
+
+
+                        <p>
+                        <code>
+                            <pre>
+void calculate(Token_stream&amp; ts)
+{
+    while(cin) {
+        cout &lt;&lt; prompt;
+        Token t = ts.get();
+// this output is for debugging:
+//          cout &lt;&lt; "in main(), got token: " &lt;&lt; t.kind
+//              &lt;&lt; " with val of " &lt;&lt; t.value &lt;&lt; '\n';
+        while(t.kind == print) t = ts.get();
+        if(t.kind == quit) return;
+        ts.putback(t);
+        cout &lt;&lt; result &lt;&lt; expression(ts) &lt;&lt; '\n';
+    }
+}
+                            </pre>
+                        </code>
                         </p>
                     </details>
+
+                    <details>
+                        <summary class="sum2">
+                            Drill
+                        </summary>
+
+                        <p>
+                            Write the baove function in your calculator source
+                            code file, and then
+                            modify your <code>main()</code> to that it uses
+                            that function.
+                            (This is called <i>re-factoring</i> your code.)
+                        </p>
+
+                    </details>
+
                     <details>
                         <summary class="sum2">
                         7.6.3 Code layout
@@ -230,7 +281,17 @@ case '%':
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            The way we format our code can make a big
+                            difference as to its readability. For instance,
+                            while C++ compilers don't care aout indentation, 
+                            "proper" indentation can make a huge difference to
+                            us as human readers of code.
+                            Our textbook author suggests we re-organize 
+                            <code>Token_stream::get()</code>
+                            so that the first set of
+                            cases are on separate lines.
                         </p>
                     </details>
                     <details>
@@ -242,8 +303,21 @@ case '%':
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Write comments only to express the intentions of
+                            your code that you can't make obvious by the code
+                            itself. For instance, never write:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+                                int x = a + b;  // add a and b and assign the result to x
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                 </details>
                 <details>
