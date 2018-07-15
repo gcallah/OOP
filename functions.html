@@ -278,6 +278,23 @@
                         </figcaption>
                     </figure>
                     <p>
+                      When you start programming, your programming language
+                      is a foreign language for which you need to look at
+                      <i>“grammar and vocabulary”</i>.<br>
+                      Most design and programming concepts are universal,
+                      and many such concepts are widely supported by popular
+                      programming languages.<br>
+                      That means that the fundamental ideas and techniques
+                      we learn in a good programming course carry
+                      over from language to language.<br>
+                      The language technicalities, however, are specific to a
+                      given language. Fortunately, programming languages do not
+                      develop in a vacuum, so much of what you learn here will
+                      have reasonably obvious counterparts in other languages.
+                      <br>In particular, C++ belongs to a group of languages
+                      that also includes C, Java, and C#,
+                      so quite a few technicalities are shared with those
+                      languages.
                     </p>
                 </details>
                 <details>
@@ -290,6 +307,57 @@
                         </figcaption>
                     </figure>
                     <p>
+                      A declaration is a statement that introduces a
+                      name into a scope:
+                      <ul>
+                        <li>Specifying a type for what is named
+                          (e.g., a variable or a function)</li>
+                        <li>Optionally, specifying an initializer
+                          (e.g., an initializer value or a function body)</li>
+                      </ul>
+                    </p>
+                    <p>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                          int a = 7; <span class="comment">// an int variable</span>
+                          const double cd = 8.7; <span class="comment">// a double-precision floating-point constant</span>
+                          double sqrt(double); <span class="comment">// a function taking a double argument</span>
+                                               <span class="comment">// and returning a double result</span>
+                          vector&ltToken&gt v; <span class="comment">// a vector-of-Tokens variable</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Before a name can be used in a C++ program,
+                      it must be declared. <br>
+                      <span class="hilight">Consider:</span>
+                      <PRE>
+                        <code>
+                          int main()
+                          {
+                              cout &lt&lt f(i) &lt&lt '\n';
+                          }
+                        </code>
+                      </PRE>
+                      <i>The compiler will give at least three
+                        “undeclared identifier” errors for this:
+                        <code>cout</code>, <code>f</code>, and <code>i</code>
+                         are not declared anywhere in this program fragment.</i>
+                    </p>
+                    <p>
+                      <span class="hilight">After Fixing:</span>
+                      <PRE>
+                        <code>
+                          #include "std_lib_facilities.h" <span class="comment">// we find the declaration of cout in here</span>
+                          int f(int); <span class="comment">// declaration of f</span>
+                          int main()
+                          {
+                            int i = 7; <span class="comment">// declaration of i</span>
+                            cout &lt&lt f(i) &lt&lt '\n';
+                          }
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
