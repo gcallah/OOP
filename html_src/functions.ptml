@@ -48,7 +48,7 @@
                     8.2 Declarations and definitions
                     </summary>
                     <figure>
-                        <img src="graphics/Chap8Diag2.png" width="40%">
+                        <img src="graphics/Chap8Diag2.png" width="35%">
                     </figure>
                     <p>
                       A <i>declaration</i> is a statement that introduces a
@@ -127,11 +127,6 @@
                         <summary class="sum2">
                         8.2.1 Kinds of declarations
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
                           Following are the kind of entities that a programmer
                           can define in C++:<br>
@@ -150,11 +145,33 @@
                         8.2.2 Variable and constant declarations
                         </summary>
                         <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
+                          <img src="graphics/Chap8Diag3.jpg" width="40%">
                         </figure>
+                        <br>
                         <p>
+                          The declaration of a variable or a constant specifies
+                          a name, a type, and optionally an initializer:<br>
+                          <PRE>
+                            <code>
+                              int a; <span class="comment">// no initializer</span>
+                              double d = 7; <span class="comment">// initializer using the = syntax</span>
+                              vector&ltint&gt vi(10); <span class="comment">// initializer using the ( ) syntax</span>
+                              vector&ltint&gt vi2 {1,2,3,4}; <span class="comment">// initializer using the { } syntax</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Constants have the same declaration syntax as
+                          variables. They differ in having <code>const</code>
+                           as part of their type and requiring an initializer:
+                           <br>
+                           <PRE>
+                             <code>
+                                const int x = 7; <span class="comment">// initializer using the = syntax</span>
+                                const int x2 {9}; <span class="comment">// initializer using the {} syntax</span>
+                             </code>
+                           </PRE>
                         </p>
                     </details>
                     <details>
@@ -167,6 +184,30 @@
                             </figcaption>
                         </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              vector&ltstring&gt v;
+                              string s;
+                              while (cin&gt&gts) v.push_back(s);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Here, <code>string</code> and <code>vector</code> are
+                          defined so that variables of those types are
+                          initialized with a default value whenever we don’t supply one
+                          explicitly.<br><br>
+                          Thus, <code>v</code> is empty (it has no elements)
+                          and <code>s</code> is the empty string
+                          (<code>""</code>) before we reach the loop.<br><br>
+                           The mechanism for guaranteeing
+                           default initialization is called a
+                           <i>default constructor</i>.
+                        </p>
+                        <br>
+                        <p>
+                          <i>Unfortunately, the language doesn’t allow us to
+                            make such guarantees for built-in types.</i>
                         </p>
                     </details>
                 </details>
