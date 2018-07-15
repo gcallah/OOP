@@ -70,7 +70,7 @@ double primary(Token_stream& ts)
             if (t.kind != ')') error("')' expected");
             return d;
         }
-    case '8':            // we use '8' to represent a number
+    case number:
         return t.value;  // return the number's value
     case '-':
         return -primary(ts);

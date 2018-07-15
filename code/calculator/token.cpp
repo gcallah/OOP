@@ -53,7 +53,7 @@ Token Token_stream::get() {
     		cin.putback(ch);
     		double val;
     		cin >> val;
-    		return Token{'8', val};
+    		return Token{number, val};
     	}
         default:
             return Token{'i', double(ch)};

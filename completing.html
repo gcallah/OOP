@@ -383,34 +383,83 @@ Primary:
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Clock_group.svg/500px-Clock_group.svg.png"
                             width="32%">
                         <figcaption>
-                            Adding 4 to 9, in 12-hour clock arithmetic, yields
+                            Adding 4 to 9, in 12-hour-clock arithmetic, yields
                             1.
                         </figcaption>
                     </figure>
+
                     <p>
+                        Adding modulo (%) should be easy: we add it as a
+                        <code>Token</code>, and define a meaning for it.
                     </p>
+
+                    <p>
+                        The meaning for integer operands is clear and
+                        unambiguous. But what about for floating point numbers?
+                        There is no perfect answer. But often, modulo
+                        for floats is defined as:
+                        <br />
+                        <code>x%y==x-y*int(x/y)</code>
+                        <br />
+                        The standard library function <code>fmod()</code>
+                        from <code>&lt;cmath&gt;</code> implements that
+                        definition. So let's modify <code>term()</code>
+                        to include:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+case '%':
+    {
+        double d = primary(ts);
+        if (d == 0) error("divide by zero");
+        left = fmod(left, d);
+        t = ts.get();
+        break;
+    }
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        As our textbook notes, we could have also decided to
+                        forbid non-integer args to modulo.
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
                     7.6 Cleaning up the code
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Engineers_Clean_JWST_Secondary_Reflector_with_Carbon_Dioxide_Snow.jpg/430px-Engineers_Clean_JWST_Secondary_Reflector_with_Carbon_Dioxide_Snow.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        We should never consider our code done until it is in a
+                        state where we could hand it off to someone else for
+                        maintenance, without having to rely on us being by
+                        their side to understand what is going on.
                     </p>
                     <details>
                         <summary class="sum2">
                         7.6.1 Symbolic constants
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Blank_stop_sign_octagon.svg/260px-Blank_stop_sign_octagon.svg.png"
+                                width="30%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can make a big step forward in both the
+                            readability and maintainability of our program by
+                            defining some symbolic constants. In particular, we
+                            will want them for '8', ';', and 'q'.
                         </p>
                     </details>
                     <details>

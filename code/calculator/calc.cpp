@@ -14,8 +14,8 @@ int main()
 // this output is for debugging:
 //			cout << "in main(), got token: " << t.kind
 //				<< " with val of " << t.value << '\n';
-            while(t.kind==';') t = ts.get();
-            if(t.kind == 'q') {
+            while(t.kind == print) t = ts.get();
+            if(t.kind == quit) {
                 // keep_window_open();   only if needed!
                 return 0;
             }
