@@ -566,7 +566,7 @@ void calculate(Token_stream&amp; ts)
                         <p>
                         <code>
                             <pre>
-                                int x = a + b;  // add a and b and assign the result to x
+int x = a + b;  // add a and b and assign the result to x
                             </pre>
                         </code>
                         </p>
@@ -578,12 +578,38 @@ void calculate(Token_stream&amp; ts)
                     7.7 Recovering from errors
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/ASC_Leiden_-_Coutinho_Collection_-_20_01_-_Life_in_the_villages_around_Sara%2C_Guinea-Bissau_-_1974.tif/lossy-page1-440px-ASC_Leiden_-_Coutinho_Collection_-_20_01_-_Life_in_the_villages_around_Sara%2C_Guinea-Bissau_-_1974.tif.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        Instead of exiting on an error, let's clean up our
+                        mess and get ready to accept more input!
+                        Here is our first try at cleaning up:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+void clean_up_mess()   // naive version
+{
+    while(true) {      // skip until we hit a print
+        Token t = ts.get();
+        if(t.kind == print) return;
+    }
+}
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Nice try, but not quite there. To see why, try:
+                        <br />
+                        <code>1@z; 1+3; </code>
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
