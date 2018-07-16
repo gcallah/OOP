@@ -431,11 +431,6 @@
                         <summary class="sum2">
                         8.2.3 Default initialization
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
                           <PRE>
                             <code>
@@ -469,11 +464,23 @@
                     8.3 Header files
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag4.png" width="40%">
                     </figure>
                     <p>
+                      As programs grow larger and larger
+                      (and include more files), it becomes increasingly tedious
+                      to have to forward declare every function you want to
+                      use that lives in a different file. <br><br>
+                      Wouldn’t it be nice if you could put all your declarations
+                       in one place?
+                    </p>
+                    <p>
+                      <i>Header files</i> usually have a <code>.h</code>
+                      extension, but you will sometimes see them with a
+                      <code>.hpp</code> extension or no extension at all.
+                      <br><br>
+                      The purpose of a header file is to hold declarations
+                      for other files to use.
                     </p>
                 </details>
                 <details>
