@@ -584,6 +584,11 @@ int x = a + b;  // add a and b and assign the result to x
                         </figcaption>
                     </figure>
 
+                    <p class="leadquote">
+                        "Quality error handling is one mark of a
+                        professional." -- Bjarne Stroustrup
+                    </p>
+
                     <p>
                         Instead of exiting on an error, let's clean up our
                         mess and get ready to accept more input!
@@ -608,6 +613,36 @@ void clean_up_mess()   // naive version
                         Nice try, but not quite there. To see why, try:
                         <br />
                         <code>1@z; 1+3; </code>
+                        <br />
+                        A better approach is to build this into
+                        <code>Token_stream</code>:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+void Token_stream::ignore(char c)
+    // c is token kind to look for
+{
+    // first check buffer:
+    if(full &amp;&amp; c == buffer.kind) {
+        full = false;
+        return;
+    }
+    full = false;
+
+    // now search input:
+    char ch = 0;
+    while(cin &gt;&gt; ch)
+        if(ch == c) return;
+}
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Remember: this must also be declared in the class
+                        interface!
                     </p>
 
                 </details>

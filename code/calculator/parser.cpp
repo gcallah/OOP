@@ -4,6 +4,14 @@
 
 double expression(Token_stream& ts)
 {
+/* grammar recognized:
+ *
+ Expression:
+    Term
+    Expression "+" Term
+    Expression "-" Term
+ *
+ */
     double left = term(ts);      // read and evaluate a Term
     Token t = ts.get();        // get the next token from token stream
 
@@ -26,7 +34,7 @@ double expression(Token_stream& ts)
 
 double term(Token_stream& ts)
 {
-   double left = primary(ts);
+    double left = primary(ts);
     Token t = ts.get();        // get the next token from token stream
 
     while(true) {
