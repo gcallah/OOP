@@ -524,23 +524,93 @@
                     <summary class="sum1">
                     8.7 Namespaces
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Classes are used to organized functions,
+                       data and types into a type.
+                      A function and a class both do two things:
+                      <ul>
+                        <li>Allow to define a number of "entities"
+                          (without worrying about name clashes).</li>
+                        <li>Give a name to refer to what is defined.</li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      A <i>namespace</i> is a language
+                      mechanism for groupings of declarations.<br>
+                      It is used to organize classes, functions,
+                      data and types into an identifiable and
+                      named part of the program without defining a type.
+                    </p>
+                    <p>
+                      <PRE>
+                        <code>
+                          namespace Graph_lib {
+                            struct Color { /* . . . */ };
+                            struct Shape { /* . . . */ };
+                            struct Line : Shape { /* . . . */ };
+                            struct Function : Shape { /* . . . */ };
+                            struct Text : Shape { /* . . . */ };
+                            <span class="comment">// . . .</span>
+                            int gui_main() { /* . . . */ }
+                          }
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         8.7.1 using declarations and using directives
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Writing fully qualified names can be tedious.
+                          <PRE>
+                            <code>
+                              #include&ltstring&gt <span class="comment">// get the string library</span>
+                              #include&ltiostream&gt <span class="comment">// get the iostream library</span>
+                              int main()
+                              {
+                                std::string name;
+                                std::cout &lt&lt "Please enter your first name\n";
+                                std::cin &gt&gt name;
+                                std::cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The above code can be reduced to:
+                          <PRE>
+                            <code>
+                              #include&ltstring&lt <span class="comment">// get the string library</span>
+                              #include&ltiostream&lt <span class="comment">// get the iostream library</span>
+                              using namespace std; <span class="comment">// make names from std directly accessible</span>
+                              int main()
+                              {
+                                string name;
+                                cout &lt&lt "Please enter your first name\n";
+                                cin &gt&gt name;
+                                cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          It can be further reduced to by placing a
+                          <code>using</code> derivative for <code>std</code>:
+                          <PRE>
+                            <code>
+                              #include "std_lib_facilities.h"
+                              int main()
+                              {
+                                string name;
+                                cout &lt&lt "Please enter your first name\n";
+                                cin &gt&gt name;
+                                cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                 </details>
