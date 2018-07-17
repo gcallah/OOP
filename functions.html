@@ -443,8 +443,8 @@
                         <p>
                           Here, <code>string</code> and <code>vector</code> are
                           defined so that variables of those types are
-                          initialized with a default value whenever we don’t supply one
-                          explicitly.<br><br>
+                          initialized with a default value whenever we don’t
+                          supply one explicitly.<br><br>
                           Thus, <code>v</code> is empty (it has no elements)
                           and <code>s</code> is the empty string
                           (<code>""</code>) before we reach the loop.<br><br>
@@ -471,8 +471,8 @@
                       (and include more files), it becomes increasingly tedious
                       to have to forward declare every function you want to
                       use that lives in a different file. <br><br>
-                      Wouldn’t it be nice if you could put all your declarations
-                       in one place?
+                      Wouldn’t it be nice if you could put all your
+                      declarations in one place?
                     </p>
                     <p>
                       <i>Header files</i> usually have a <code>.h</code>
@@ -488,11 +488,29 @@
                     8.4 Scope
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag7.png" width="30%">
                     </figure>
                     <p>
+                      <i>Scope</i> is a region of program text
+                      with the main purpose to keep  the extent of a
+                      program code within which the variable can be accessed.
+                      <br>
+                      Kinds of scopes used to control where names
+                      can be used are:<br>
+                      <ul>
+                        <li><span class="hilight">Global scope:</span>
+                           the area of text outside any other scope</li>
+                        <li><span class="hilight">Namespace scope:</span>
+                           a named scope nested in the global scope or
+                           in another namespace</li>
+                        <li><span class="hilight">Class scope:</span>
+                           the area of text within a class</li>
+                        <li><span class="hilight">Local scope:</span>
+                          between <code>{ . . . }</code> braces of a block or in a
+                          function argument list</li>
+                        <li><span class="hilight">Statement scope:</span>
+                           e.g., in a <code>for</code>-statement</li>
+                      </ul>
                     </p>
                 </details>
                 <details>
@@ -500,20 +518,21 @@
                     8.5 Function call and return
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag5.png" width="20%">
                     </figure>
                     <p>
+                      Functions are the way we represent actions and
+                      computations.<br>
+                      In Programming Languague, a function is a type of
+                      procedure or routine. Functions allow us to reuse code
+                      instead of rewriting it.
                     </p>
                     <details>
                         <summary class="sum2">
                         8.5.1 Declaring arguments and return type
                         </summary>
                         <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
+                            <img src="graphics/Chap8Diag6.jpg" width="40%">
                         </figure>
                         <p>
                         </p>
