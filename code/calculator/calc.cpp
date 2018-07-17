@@ -38,7 +38,7 @@ int main()
 
     try {
         calculate(ts);
-        // keep_window_open();   only if needed!
+        // keep_window_open();   // only if needed!
         return 0;
     }
     catch(...) {

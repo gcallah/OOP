@@ -51,6 +51,7 @@ Token Token_stream::get() {
         case '/':
         case '*':
         case '%':
+        case '=':
     		return Token{ch};
     	case '.':
     	case '0': case '1': case '2': case '3': case '4':
@@ -62,9 +63,17 @@ Token Token_stream::get() {
     		return Token{number, val};
     	}
         default:
-            return Token{'i', double(ch)};
+            if(isalpha(ch)) {
+                cin.putback(ch);
+                string s;
+                s += ch;
+                while(cin.get(ch) && isalpha(ch)) s += ch;
+                cin.putback(ch);
+                return Token{name, s};
+            }
+            return Token{invalid, double(ch)};
 	}
-    return Token{'q'};
+    return Token{quit};
 }
 
 void Token_stream::ignore(char c)
