@@ -5,21 +5,32 @@
 const string prompt = "> ";
 const string result = "= ";
 
+void clean_up_mess(Token_stream& ts)   // naive version
+{
+    ts.ignore(print);
+}
+
 void calculate(Token_stream& ts)
 {
     while(cin) {
-        cout << prompt;
-        Token t = ts.get();
+        try {
+            cout << prompt;
+            Token t = ts.get();
 // this output is for debugging:
 //			cout << "in main(), got token: " << t.kind
 //				<< " with val of " << t.value << '\n';
-        while(t.kind == print) t = ts.get();
-        if(t.kind == quit) return;
-        ts.putback(t);
-        cout << result << expression(ts) << '\n';
+            while(t.kind == print) t = ts.get();
+            if(t.kind == quit) return;
+            ts.putback(t);
+            cout << result << expression(ts) << '\n';
+        }
+        catch(exception& e) {
+            cerr << e.what() << '\n';
+            clean_up_mess(ts);
+        }
     }
-}
 
+}
 
 int main()
 {
@@ -30,15 +41,8 @@ int main()
         // keep_window_open();   only if needed!
         return 0;
     }
-    catch(exception& e) {
-        cerr << e.what() << '\n';
-        cout << "Please enter the character ~ to close the window\n";
-        for(char ch; cin >> ch; )
-            if(ch=='~') return 1;
-        return 1;
-    }
     catch(...) {
-        cerr << "exception \n";
+        cerr << "unknown exception \n";
         return 2;
     }
 }

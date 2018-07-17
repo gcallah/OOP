@@ -66,3 +66,20 @@ Token Token_stream::get() {
 	}
     return Token{'q'};
 }
+
+void Token_stream::ignore(char c)
+    // c is token kind to look for
+{
+    // first check buffer:
+    if(full && c == buffer.kind) {
+        full = false;
+        return;
+    }
+    full = false;
+
+    // now search input:
+    char ch = 0;
+    while(cin>>ch)
+        if(ch == c) return;
+}
+
