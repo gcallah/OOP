@@ -1,0 +1,4 @@
+Why did we introduce a const name like 'number' into our program?#to make the program more maintainable#to make it easier to change the char for a number#^all answers are correct#to make the program more readable
+When should you start to test your program?#only when done coding#testing isn't really necessary#^almost as soon as you've started coding
+When should you retest?#Only after major changes.#^After every change, no matter how small.#One round of testing is enough.
+What is wrong with commenting x = a + b; with // add a and b and put value in x#It does not describe the code  correctly.#Variable names should never occur in comments.#It will confuse the compiler.#^It only says what the code already clearly says.
