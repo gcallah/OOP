@@ -446,8 +446,9 @@
                       through statements according to the language rules.
                       The order of evaluation is as follows:<br>
                       <ul>
-                        <li>Variable is constructed when "thread of execution"
-                          reaches definition of a variable</li>
+                        <li>Variable is constructed when
+                            the "thread of execution" reaches 
+                          the definition of a variable</li>
                         <li>Object is initialized by setting aside
                           memory for the object</li>
                         <li>Variable destroyed as it goes out of scope</li>
