@@ -285,6 +285,9 @@ compiler knows how to represent objects of the type and which operations can be
 done on it (such as + and *) without being
 told by declarations supplied by a programmer in source code.
                     </p>
+                    <p>
+                    
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
@@ -296,6 +299,17 @@ told by declarations supplied by a programmer in source code.
                         </figcaption>
                     </figure>
                     <p>
+                    A class is a user-defined type. It is composed of built-in
+types, other user-defined types, and functions. The parts used to define
+the class are called members. A class has zero or more members. For example:
+
+                    </p>
+                    <p>
+                    class X { <br /> 
+public:<br /> 
+int m; // data member <br /> 
+int mf(int v) { int old = m; m=v; return old; } // function member <br /> 
+};
                     </p>
                 </details>
                 <details>
