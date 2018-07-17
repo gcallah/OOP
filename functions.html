@@ -676,34 +676,100 @@
                     8.6 Order of evaluation
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag9.jpg" width="30%">
                     </figure>
                     <p>
+                      The <i>evaluation/execution</i> of a program proceeds
+                      through statements according to the language rules.
+                      The order of evaluation is as follows:<br>
+                      <ul>
+                        <li>Variable is constructed when "thread of execution"
+                          reaches definition of a variable</li>
+                        <li>Object is initialized by setting aside
+                          memory for the object</li>
+                        <li>Variable destroyed as it goes out of scope</li>
+                        <li>Object referred by the variable is removed</li>
+                        <li>Memory is free for the compiler to be
+                          used for something exclusively</li>
+                      </ul>
+                    </p>
+                    <p>
+                      <PRE>
+                        <code>
+                          string program_name = "silly";
+                          vector&ltstring&gt v; <span class="comment">// v and program_name are global, they live until program terminates</span>
+
+                          void f()
+                          {
+                              string s; <span class="comment">// s is local to f</span>
+                              while (cin&gt&gts && s!="quit") {
+                                  string stripped; <span class="comment">// stripped is local to the loop</span>
+                                  string not_letters;
+                                  for (int i=0; i&lts.size(); ++i) <span class="comment">// i has statement scope</span>
+                                      if (isalpha(s[i]))
+                                          stripped += s[i];
+                                      else
+                                          not_letters += s[i];
+                                  v.push_back(stripped);
+                                  <span class="comment">// . . .</span>
+                              }
+                              <span class="comment">// . . .</span>
+                          }
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         8.6.1 Expression evaluation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          If the value of a variable in an expression is
+                          changed, never read or write it twice in
+                          that same expression.
+                          <PRE>
+                            <code>
+                              v[i] = ++i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              v[++i] = i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              int x = ++i + ++i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              cout &lt&lt ++i &lt&lt ' ' &lt&lt i &lt&lt '\n'; <span class="comment">// don’t: undefined order of evaluation</span>
+                              f(++i,++i); <span class="comment">// don’t: undefined order of evaluation</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.6.2 Global initialization
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Global variables in a single translation unit
+                          are initialized in the order in which they appear.
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+                              int x1 = 1;
+                              int y1 = x1+2; <span class="comment">// y1 becomes 3</span>
+                            </code>
+                          </PRE>
+                          This initialization logically takes place
+                          “before the code in <code>main()</code> is executed.
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+                              const Date& default_date()
+                              {
+                                static const Date dd(1970,1,1); <span class="comment">// initialize dd first time we get here</span>
+                                return dd;
+                              }
+                            </code>
+                          </PRE>
+                          The <code>static</code> local variable is initialized
+                          (constructed) only the first time its function is
+                          called.
                         </p>
                     </details>
                 </details>
