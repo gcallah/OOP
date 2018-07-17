@@ -519,6 +519,7 @@
                     </summary>
                     <figure>
                         <img src="graphics/Chap8Diag5.png" width="20%">
+                        <img src="graphics/Chap8Diag8.png" width="20%">
                     </figure>
                     <p>
                       Functions are the way we represent actions and
@@ -535,18 +536,54 @@
                             <img src="graphics/Chap8Diag6.jpg" width="40%">
                         </figure>
                         <p>
+                          A function can be declared in following way:<br>
+                          <code>return_type function_name( parameter list );
+                          </code><br><br>
+                          A <i>definition</i> contains the function body
+                          (the statements to be executed by a call),
+                          whereas a declaration that isn’t a definition
+                          just has a semicolon.<br><br>
+                          Formal arguments are often called <i>parameters</i>.
+                          <ul>
+                            <li>
+                                If you don’t want a function to take arguments,
+                                just leave out the formal arguments.
+                            </li>
+                            <li>
+                                If you don’t want to return a value
+                                from a function, give <code>void</code>
+                                as its return type.
+                            </li>
+                          </ul>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.2 Returning a value
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A <i><code>return</code> type </i> specifies
+                          the type of the data value being returned by the
+                          written function.<br>
+                          Also, function may or may not return a value.<br>
+                          The return type is <code>void</code> if the function
+                          does not return a value.
+                          <PRE>
+                            <code>
+                              void print_until_s(vector&ltstring&gt v, string quit)
+                              {
+                                for(int s : v) {
+                                  if (s==quit) return;
+                                  cout &lt&lt s &lt&lt '\n';
+                                }
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          In code shown in <span class="hilight">8.5.1
+                          </span>, the return value is an integer value
+                          <code>c</code>, which is <code>int</code>.
                         </p>
                     </details>
                     <details>
