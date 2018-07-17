@@ -1,0 +1,141 @@
+        <ol class="nested">
+            <li>
+                List some ways to break a program into smaller, more manageable parts?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                classes and functions
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                classes and control structures
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                if and while statements
+                </li>
+                <li>
+                <input type="radio" name="q1" value="d">
+                variables and functions
+                </li>
+            </ol>
+            <li>
+                What are the three main phases of software development?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                analysis, design and implementation
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                classes, functions, and variables
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                hacking, coding, and testing
+                </li>
+            </ol>
+            <li>
+                If we input (3+7)/(8-2) to the calculator, then (3+7) is a
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                expression
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                term
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                primary
+                </li>
+                <li>
+                <input type="radio" name="q3" value="d">
+                number
+                </li>
+            </ol>
+            <li>
+                We typically break an interpreter into two phases called
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                expressing and optimizing
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                tokenization and compiling
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                tokenization and parsing
+                </li>
+                <li>
+                <input type="radio" name="q4" value="d">
+                parsing and expressing
+                </li>
+            </ol>
+            <li>
+                In the switch() in the expression function, why is the default to "put back" the token?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                That token will probably be a + or - and can be dealt with by the next call to expression.
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                If we hit the default case, we have read one token too many.
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                That token will be meaningless, and we want to throw it away.
+                </li>
+            </ol>
+            <li>
+                A primary purpose of classes is to
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                make our program more classy
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                organize our code better
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                make our program more object-oriented
+                </li>
+            </ol>
+            <li>
+                Classes include
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q7" value="a">
+                header files and libraries
+                </li>
+                <li>
+                <input type="radio" name="q7" value="b">
+                methods and header files
+                </li>
+                <li>
+                <input type="radio" name="q7" value="c">
+                variables and methods
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. a; 2. a; 3. c; 4. c; 5. b; 6. b; 7. c; 
+            </p>
+        </details>

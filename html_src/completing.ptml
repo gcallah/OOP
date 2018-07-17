@@ -464,7 +464,7 @@ void Token_stream::ignore(char c)
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+<!--include quiz7.qhtm -->
                 </details>
 
                 <details>
