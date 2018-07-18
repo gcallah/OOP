@@ -56,7 +56,27 @@ the class are called members. A class has zero or more members. For example:
 public:<br /> 
 int m; // data member <br /> 
 int mf(int v) { int old = m; m=v; return old; } // function member <br /> 
-};
+};<br />
+Members can be of various types. Most are either data members, which define the
+representation of an object of the class, or
+function members, which provide operations on such objects. We access members
+using the object.member notation. For
+example:<br />
+X var;            // var is a variable of type X<br />
+var.m = 7;        // assign to var’s data member m<br />
+int x = var.mf(9);//call var’s member function mf()<br />
+
+You can read var.m as var’s m. Most people pronounce it “var dot m” or “var’s
+m.” The type of a member determines what
+operations we can do on it. We can read and write an int member, call a
+function member, etc.<br />
+A member function, such as X’s mf(), does not need to use the var.m notation.
+It can use the plain member name (m in this
+example). Within a member function, a member name refers to the member of that
+name in the object for which the member
+function was called. Thus, in the call var.mf(9), the m in the definition of
+mf() refers to var.m.
+
                     </p>
                 </details>
                 <details>
