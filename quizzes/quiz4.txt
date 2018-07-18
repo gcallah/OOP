@@ -3,3 +3,4 @@ Which of the following operators requires an lvalue?#^+=#%#+#/
 Which of the following operations can be used on an int but not a string?#+#^/#+=
 The first part of the header of a for loop...#is done each time around the loop.#^initializes the loop variable.#determines when the loop terminates.
 We should prefer a switch statement to if and else statements when...#we only have two options to consider.#^there are many cases to consider.#the conditions for the branches are string comparisons.
+What is the index of the third element of a vector?#4#^2#3#can't say
