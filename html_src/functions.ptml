@@ -521,13 +521,60 @@
                         <summary class="sum2">
                         8.5.8 Function call implementation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
-
+                          Lets say we have functions <code>expression(), term(), 
+                            primary()</code>.<br>
+                          A data structure is set aside which contains
+                          copy of all parameters and local variables as soon
+                          as a function is called.<br>
+                          A data structure called <i>function activation
+                            record</i> which maintains information like the
+                            function to which the caller needs to
+                            return and return value is maintained.<br>
+                          Now, <code>expression()</code> is called first:
+                          <figure>
+                            <img src="graphics/Chap8Diag12.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          <code>expression()</code> calls <code>term()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag13.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          <code>term()</code> calls <code>primary()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag14.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          And then <code>primary()</code> calls
+                          <code>expression()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag15.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          So this becomes a <i>recursive</i> function.
+                          Each time when a function is called, the
+                          <i>stack of activation records (stack)</i> grows
+                          by one record.<br>
+                          When the function returns, the record is no
+                          longer in use.
+                          That means the stack reverts.
+                          It works as "Last in, first out".
+                          <figure>
+                            <img src="graphics/Chap8Diag16.png" width="30%">
+                          </figure>
+                          <br>
+                          <figure>
+                            <img src="graphics/Chap8Diag17.png" width="30%">
+                          </figure>
                         </p>
                     </details>
                     <details>
