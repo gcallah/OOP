@@ -443,20 +443,75 @@
                         <br>
                         <p>
                           <span class="hilight">Graphical Representation:</span>
-                          <br>
-                          <img src="graphics/Chap8Diag11.png" width="50%">
+                          <figure>
+                            <img src="graphics/Chap8Diag11.png" width="40%">
+                          </figure>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.5 Pass-by-reference
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Passing by reference means the called functions'
+                          parameter will be the same as the callers'
+                          passed argument
+                          (not the value, but the identity -
+                          the variable itself).<br>
+                          A reference can be a convenient
+                          shorthand for some object, is what makes them
+                          useful as arguments.<br>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+                              <span class="comment">// pass-by-reference (let the function refer back to the variable passed)</span>
+                              int f(int& x)
+                              {
+                                x = x+1;
+                                return x;
+                              }
+
+                              int main()
+                              {
+                                int xx = 0;
+                                cout &lt&lt f(xx) &lt&lt '\n'; <span class="comment">// write: 1</span>
+                                cout &lt&lt xx &lt&lt '\n'; <span class="comment">// write: 1; f() changed the value of xx</span>
+                                int yy = 7;
+                                cout &lt&lt f(yy) &lt&lt '\n'; <span class="comment">// write: 8</span>
+                                cout &lt&lt yy &lt&lt '\n'; <span class="comment">// write: 8; f() changed the value of yy</span>
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          <span class="hilight">Graphical Representation:</span>
+                          <figure>
+                            <img src="graphics/Chap8Diag18.png" width="30%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Application in Sorting
+                            (Swap function):</span>
+                          <PRE>
+                            <code>
+                              void swap(double& d1, double& d2)
+                              {
+                                double temp = d1; <span class="comment">// copy d1’s value to temp</span>
+                                d1 = d2; <span class="comment">// copy d2’s value to d1</span>
+                                d2 = temp; <span class="comment">// copy d1’s old value to d2</span>
+                              }
+
+                              int main()
+                              {
+                                double x = 1;
+                                double y = 2;
+                                cout &lt&lt "x == " &lt&lt x &lt&lt " y== " &lt&lt y &lt&lt '\n'; <span class="comment">// write: x==1 y==2</span>
+                                swap(x,y);
+                                cout &lt&lt "x == " &lt&lt x &lt&lt " y== " &lt&lt y &lt&lt '\n'; <span class="comment">// write: x==2 y==1</span>
+                              }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
