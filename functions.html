@@ -490,9 +490,9 @@
                     </summary>
 
                     <p>
-                        Separate out the tokenizing code from the rest of your 
+                        Separate out the tokenizing code from the rest of your
                         calculator program. Put your declarations in
-                        <code>token.h</code> and your definitions to 
+                        <code>token.h</code> and your definitions to
                         <code>token.cpp</code>. Get this version to compile and
                         link.
                     </p>
@@ -606,24 +606,98 @@
                         <summary class="sum2">
                         8.5.3 Pass-by-value
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The simplest way of passing an argument to a
+                          function is to give the function a copy of the value
+                          you use as the argument. An argument of a function
+                          <code>f()</code> is a local variable in
+                          <code>f()</code> that’s initialized each time
+                          <code>f()</code> is called.<br>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+                              <span class="comment">// pass-by-value (give the function a copy of the value passed)</span>
+                              int f(int x)
+                              {
+                                x = x+1; <span class="comment">// give the local x a new value</span>
+                                return x;
+                              }
+                              int main()
+                              {
+                                int xx = 0;
+                                cout &lt&lt f(xx) &lt&lt '\n'; <span class="comment">// write: 1</span>
+                                cout &lt&lt xx &lt&lt '\n'; <span class="comment">// write: 0; f() doesn’t change xx</span>
+                                int yy = 7;
+                                cout &lt&lt f(yy) &lt&lt '\n'; <span class="comment">// write: 8</span>
+                                cout &lt&lt yy &lt&lt '\n'; <span class="comment">// write: 7; f() doesn’t change yy</span>
+                              }
+                            </code>
+                          </PRE>
                         </p>
+                        <p>
+                          <span class="hilight">Graphical Representation:</span>
+                        <figure>
+                            <img src="graphics/Chap8Diag10.png" width="50%">
+                        </figure>
+                      </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.4 Pass-by-const-reference
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          If a value is large, such as an image
+                          (often, several million bits),
+                          a large table of values (say, thousands of
+                          integers), or a long string
+                          (say, hundreds of characters)? Then, Pass-by-value
+                           can be costly.<br>
+                           <span class="hilight">Example:</span>
+                           <PRE>
+                             <code>
+                                void print(const vector&ltdouble&gt& v) <span class="comment">// pass-by-const-reference</span>
+                                {
+                                  cout &lt&lt "{ ";
+                                  for (int i = 0; i&ltv.size(); ++i) {
+                                      cout &lt&lt v[i];
+                                      if (i!=v.size()–1) cout &lt&lt ", ";
+                                  }
+                                  cout &lt&lt " }\n";
+                                }
+
+                                void f(int x)
+                                {
+                                  vector&ltdouble&gt vd1(10); <span class="comment">// small vector</span>
+                                  vector&ltdouble&gt vd2(1000000); <span class="comment">// large vector</span>
+                                  vector&ltdouble&gt vd3(x); <span class="comment">// vector of some unknown size</span>
+                                  <span class="comment">// . . . fill vd1, vd2, vd3 with values . . .</span>
+                                  print(vd1);
+                                  print(vd2);
+                                  print(vd3);
+                                }
+                              </code>
+                            </PRE>
+                        </p>
+                        <p>
+                          The above code shows a way of giving our
+                          <code>print()</code> function “the address” of the
+                          vector to <code>print()</code> rather than the
+                          copy of the vector. Such an “address” is
+                          called a <i>reference</i>.<br><br>
+                          The <code>&</code> means “reference” and
+                          the const is there to stop <code>print()</code>
+                           modifying its argument by accident. Apart from
+                           the change to the argument declaration, all is the
+                           same as before; the only change is that
+                           instead of operating on a copy, <code>print()</code>
+                            now refers back to the argument through the
+                            reference.
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Graphical Representation:</span>
+                          <br>
+                          <img src="graphics/Chap8Diag11.png" width="50%">
                         </p>
                     </details>
                     <details>
@@ -654,36 +728,133 @@
                         <summary class="sum2">
                         8.5.7 Argument checking and conversion
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          When an argument is passed during a call,
+                          initialization of the function’s formal
+                          argument with the actual argument takes place.
+                          <PRE>
+                            <code>
+                              void f(double x);
+                              void g(int y)
+                              {
+                                f(y);
+                                double x = y; <span class="comment">// initialize x with y</span>
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          There was a need to convert an
+                          <code>int</code> into a <code>double</code>.
+                          This happens in the call of <code>f()</code>
+                          and also in <code>f()</code> where <code>double</code>
+                           value is stored in <code>x</code>.<br><br>
+                          In conversions,
+                          if a <code>double</code> value has to be truncated
+                          into an <code>int</code> mention it explicitly.<br>
+                          <PRE>
+                            <code>
+                              void ggg(double x)
+                              {
+                                int x1 = x; <span class="comment">// truncate x</span>
+                                int x2 = int(x);
+                                int x3 = static_cast&ltint&gt(x); <span class="comment">// very explicit conversion</span>
+                                ff(x1);
+                                ff(x2);
+                                ff(x3);
+                                ff(x); <span class="comment">// truncate x</span>
+                                ff(int(x));
+                                ff(static_cast&ltint&gt(x)); <span class="comment">// very explicit conversion</span>
+                              }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.8 Function call implementation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Lets say we have functions <code>expression(), term(), 
+                            primary()</code>.<br>
+                          A data structure is set aside which contains
+                          copy of all parameters and local variables as soon
+                          as a function is called.<br>
+                          A data structure called <i>function activation
+                            record</i> which maintains information like the
+                            function to which the caller needs to
+                            return and return value is maintained.<br>
+                          Now, <code>expression()</code> is called first:
+                          <figure>
+                            <img src="graphics/Chap8Diag12.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          <code>expression()</code> calls <code>term()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag13.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          <code>term()</code> calls <code>primary()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag14.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          And then <code>primary()</code> calls
+                          <code>expression()</code>:
+                          <figure>
+                            <img src="graphics/Chap8Diag15.png" width="30%">
+                          </figure>
+                          <br>
+                        </p>
+                        <p>
+                          So this becomes a <i>recursive</i> function.
+                          Each time when a function is called, the
+                          <i>stack of activation records (stack)</i> grows
+                          by one record.<br>
+                          When the function returns, the record is no
+                          longer in use.
+                          That means the stack reverts.
+                          It works as "Last in, first out".
+                          <figure>
+                            <img src="graphics/Chap8Diag16.png" width="30%">
+                          </figure>
+                          <br>
+                          <figure>
+                            <img src="graphics/Chap8Diag17.png" width="30%">
+                          </figure>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.9 constexpr functions
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A <code>constexpr</code> function is a non-constructor
+                          function declared with a constexpr specifier.<br>
+                          It is a function that can be invoked within a
+                          constant expression.
+                          Conditions to be satisfied by a
+                          <code>constexpr</code> function are:
+                          <ul>
+                            <li>It cannot be virtual.</li>
+                            <li>Return type must be literal type.</li>
+                            <li>Also each of its parameters must be literal
+                              type as well.</li>
+                            <li>In a constant expression, each constructor
+                              call and implicit conversion is
+                              valid while initializing the return value.</li>
+                            <li>Function body is = delete or = default</li>
+                            <li>If not function body must contain
+                              null statements, static_assert declarations,
+                              typedef declarations, using declarations,
+                              using directives, one return statement</li>
+                          </ul>
                         </p>
                     </details>
                 </details>
@@ -700,7 +871,7 @@
                       The order of evaluation is as follows:<br>
                       <ul>
                         <li>Variable is constructed when
-                            the "thread of execution" reaches 
+                            the "thread of execution" reaches
                           the definition of a variable</li>
                         <li>Object is initialized by setting aside
                           memory for the object</li>

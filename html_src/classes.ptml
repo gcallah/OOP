@@ -56,7 +56,27 @@ the class are called members. A class has zero or more members. For example:
 public:<br /> 
 int m; // data member <br /> 
 int mf(int v) { int old = m; m=v; return old; } // function member <br /> 
-};
+};<br />
+Members can be of various types. Most are either data members, which define the
+representation of an object of the class, or
+function members, which provide operations on such objects. We access members
+using the object.member notation. For
+example:<br />
+X var;            // var is a variable of type X<br />
+var.m = 7;        // assign to var’s data member m<br />
+int x = var.mf(9);//call var’s member function mf()<br />
+
+You can read var.m as var’s m. Most people pronounce it “var dot m” or “var’s
+m.” The type of a member determines what
+operations we can do on it. We can read and write an int member, call a
+function member, etc.<br />
+A member function, such as X’s mf(), does not need to use the var.m notation.
+It can use the plain member name (m in this
+example). Within a member function, a member name refers to the member of that
+name in the object for which the member
+function was called. Thus, in the call var.mf(9), the m in the definition of
+mf() refers to var.m.
+
                     </p>
                 </details>
                 <details>
@@ -69,6 +89,41 @@ int mf(int v) { int old = m; m=v; return old; } // function member <br />
                         </figcaption>
                     </figure>
                     <p>
+Usually, we think of a class as having an interface plus an implementation. The
+interface is the part of the class’s declaration
+that its users access directly. The implementation is that part of the class’s
+declaration that its users access only indirectly
+through the interface. The public interface is identified by the label public:
+and the implementation by the label private:. You
+can think of a class declaration like this: <br />
+
+class X {<br />
+// this class’s name is X<br />
+public:<br />
+// public members:<br />
+//<br />
+– the interface to users (accessible by all)<br />
+// functions<br />
+// types<br />
+// data (often best kept private)<br />
+private:<br />
+// private members:<br />
+//<br />
+– the implementation details (used by members of this class only)<br />
+// functions<br />
+// types<br />
+// data<br />
+};<br />
+Class members are private by default<br />
+
+We use private and public to represent the important distinction between an
+interface (the user’s view of the class) and
+implementation details (the implementer’s view of the class). We explain that
+and give lots of examples as we go along. Here
+we’ll just mention that for something that’s just data, this distinction
+doesn’t make sense. So, there is a useful simplified
+notation for a class that has no private implementation details.
+
                     </p>
                 </details>
                 <details>
@@ -81,6 +136,15 @@ int mf(int v) { int old = m; m=v; return old; } // function member <br />
                         </figcaption>
                     </figure>
                     <p>
+Let’s illustrate the language facilities supporting classes and the basic
+techniques for using them by showing how — and why
+— we might evolve a simple data structure into a class with private
+implementation details and supporting operations. We use
+the apparently trivial problem of how to represent a date (such as August 14,
+1954) in a program. The need for dates in many
+programs is obvious (commercial transactions, weather data, calendar programs,
+work records, inventory management, etc.).
+The only question is how we might represent them.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -92,6 +156,21 @@ int mf(int v) { int old = m; m=v; return old; } // function member <br />
                             </figcaption>
                         </figure>
                         <p>
+How would we represent a date? When asked, most people answer, “Well, how about
+the year, the month, and the day of the
+month?” That’s not the only answer and not always the best answer, but it’s
+good enough for our uses, so that’s what we’ll do.
+Our first attempt is a simple struct:<br />
+// simple Date (too simple?)<br />
+struct Date {<br />
+int y;<br />
+// year<br />
+int m; // month in year<br />
+int d;<br />
+// day of month<br />
+};<br />
+Date today;<br />
+// a Date variable (a named object)<br />
                         </p>
                     </details>
                     <details>
@@ -116,6 +195,7 @@ int mf(int v) { int old = m; m=v; return old; } // function member <br />
                             </figcaption>
                         </figure>
                         <p>
+
                         </p>
                     </details>
                     <details>
@@ -140,6 +220,30 @@ int mf(int v) { int old = m; m=v; return old; } // function member <br />
                             </figcaption>
                         </figure>
                         <p>
+Consider a simple use of the Date class so far:<br/>
+Click here to view code image<br/>
+class Date {<br/>
+// . . .<br/>
+int month() { return m; }<br/>
+// . . .<br/>
+private:<br/>
+int y, m, d;<br/>
+// year, month, day<br/>
+};void f(Date d1, Date d2)<br/>
+{<br/>
+cout &lt&lt d1.month() &lt&lt ' ' &lt&lt d2.month() &lt&lt '\n';<br/>
+}<br/>
+How does Date::month() know to return the value of d1.m in the first call
+and
+d2.m in the second? Look again at
+Date::month(); its declaration specifies no function argument! How does
+Date::month() know for which object it was
+called? A class member function, such as Date::month(), has an implicit
+argument which it uses to identify the object for
+which it is called. So in the first call, m correctly refers to d1.m and in
+the
+second call it refers to d2.m. See §17.10 for more
+uses of this implicit argument.
                         </p>
                     </details>
                     <details>
