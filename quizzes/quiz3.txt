@@ -6,4 +6,5 @@ What is the difference between = and ==?#^The first assigns a value, the second 
 Which of the following is a legal variable name in C++?#isalpha?#is this ok#^number#123streetA
 We use a declaration of a function when we...#we want to write the function body, without giving the return type or the types of the parameters.#^just want to state its return type and the types of its parameters, but not write the function body.#just want to declare that the function exists.
 Which of the following is a legal variable name that, nevertheless, you should not use?#iF#while_#Int#^all of the other answers
-Which of the following is a <b>safe</b> type conversion?#all of these are safe#int to double#^int to char#bool to int
+Which of the following is a <b>safe</b> type conversion?#all of these are safe#int to double#^int to char#int to bool
+If we convert a double value of 3.25 to an int, the problem is that...#^the conversion will lose the .25.#it will produce a run-time error.#the double number is out of the range of the int type.
