@@ -5,4 +5,5 @@ What is a literal?#^A "plain" value such as 12 or "Hello."#An error message to t
 What is the difference between = and ==?#^The first assigns a value, the second tests for equality.#The first tests for equality, the second assigns a value.#They are the same: you can use the interchangeably.
 Which of the following is a legal variable name in C++?#isalpha?#is this ok#^number#123streetA
 We use a declaration of a function when we...#we want to write the function body, without giving the return type or the types of the parameters.#^just want to state its return type and the types of its parameters, but not write the function body.#just want to declare that the function exists.
-Which of the following is a legal variable name that, nvertheless, you should not use?#iF#while_#Int#^all of the other answers
+Which of the following is a legal variable name that, nevertheless, you should not use?#iF#while_#Int#^all of the other answers
+Which of the following is a <b>safe</b> type conversion?#all of these are safe#int to double#^int to char#bool to int
