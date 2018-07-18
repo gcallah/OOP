@@ -96,12 +96,109 @@
                 They are the same: you can use the interchangeably.
                 </li>
             </ol>
+            <li>
+                Which of the following is a legal variable name in C++?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                isalpha?
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                is this ok
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                number
+                </li>
+                <li>
+                <input type="radio" name="q6" value="d">
+                123streetA
+                </li>
+            </ol>
+            <li>
+                We use a declaration of a function when we...
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q7" value="a">
+                we want to write the function body, without giving the return type or the types of the parameters.
+                </li>
+                <li>
+                <input type="radio" name="q7" value="b">
+                just want to state its return type and the types of its parameters, but not write the function body.
+                </li>
+                <li>
+                <input type="radio" name="q7" value="c">
+                just want to declare that the function exists.
+                </li>
+            </ol>
+            <li>
+                Which of the following is a legal variable name that, nevertheless, you should not use?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q8" value="a">
+                iF
+                </li>
+                <li>
+                <input type="radio" name="q8" value="b">
+                while_
+                </li>
+                <li>
+                <input type="radio" name="q8" value="c">
+                Int
+                </li>
+                <li>
+                <input type="radio" name="q8" value="d">
+                all of the other answers
+                </li>
+            </ol>
+            <li>
+                Which of the following is a <b>safe</b> type conversion?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q9" value="a">
+                all of these are safe
+                </li>
+                <li>
+                <input type="radio" name="q9" value="b">
+                int to double
+                </li>
+                <li>
+                <input type="radio" name="q9" value="c">
+                int to char
+                </li>
+                <li>
+                <input type="radio" name="q9" value="d">
+                int to bool
+                </li>
+            </ol>
+            <li>
+                If we convert a double value of 3.25 to an int, the problem is that...
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q10" value="a">
+                the conversion will lose the .25.
+                </li>
+                <li>
+                <input type="radio" name="q10" value="b">
+                it will produce a run-time error.
+                </li>
+                <li>
+                <input type="radio" name="q10" value="c">
+                the double number is out of the range of the int type.
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. a; 2. b; 3. c; 4. a; 5. a; 
+                1. a; 2. b; 3. c; 4. a; 5. a; 6. c; 7. b; 8. d; 9. c; 10. a; 
             </p>
         </details>
