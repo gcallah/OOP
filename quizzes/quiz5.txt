@@ -4,3 +4,4 @@ An example of a run-time error is when...#you send the wrong type of argument to
 An example of a logic error is when...y#you send the wrong type of argument to a function.#^you meant to add tax to the sales price but you subtracted it instead.#your program tries to divide by zero.#you forget the semi-colon at the end of a line of code.
 One reason why throwing an exception is better than returning an error value is...#^the exception cannot be ignored.#throwing an exception makes the code that produced the error also handle it.#throwing exceptions is a more modern style.
 An example of something student programs are <b>not</b> expected to handle is:#bad input#^hardware failures#divide-by-zero errors
+Most large programs...#^will <b>always</b> contain some bugs.#can be fully de-bugged in a couple of days.#will likely be bug-free from the start.
