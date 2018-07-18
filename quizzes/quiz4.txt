@@ -4,3 +4,4 @@ Which of the following operations can be used on an int but not a string?#+#^/#+
 The first part of the header of a for loop...#is done each time around the loop.#^initializes the loop variable.#determines when the loop terminates.
 We should prefer a switch statement to if and else statements when...#we only have two options to consider.#^there are many cases to consider.#the conditions for the branches are string comparisons.
 What is the index of the third element of a vector?#4#^2#3#can't say
+If a function is declared as int f(double x); that means...#it doubles the value of its argument x and then converts it to an int.#the name of the function is int and it applies the operator f to a double.#^it returns a double and accepts and int as an argument.
