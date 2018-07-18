@@ -1,0 +1,3 @@
+The four major types of errors are...#header errors, variable errors, function errors and class errors#^compile-time, link-time, run-time, and logical#object errors, inheritance errors, template errors and polymorphism errors
+A linker error would occur when...#^A function used in your source code can't be found in any linked file or library.#A variable should be linked by assignment to another variable but it is not.#A link between one class and another is missing.
+An example of a run-time error is when...#you send the wrong type of argument to a function.#you meant to add tax to the sales price but you subtracted it instead.#^your program tries to divide by zero.#you forget the semi-colon at the end of a line of code.
