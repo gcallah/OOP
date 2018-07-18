@@ -490,9 +490,9 @@
                     </summary>
 
                     <p>
-                        Separate out the tokenizing code from the rest of your 
+                        Separate out the tokenizing code from the rest of your
                         calculator program. Put your declarations in
-                        <code>token.h</code> and your definitions to 
+                        <code>token.h</code> and your definitions to
                         <code>token.cpp</code>. Get this version to compile and
                         link.
                     </p>
@@ -606,13 +606,40 @@
                         <summary class="sum2">
                         8.5.3 Pass-by-value
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The simplest way of passing an argument to a
+                          function is to give the function a copy of the value
+                          you use as the argument. An argument of a function
+                          <code>f()</code> is a local variable in
+                          <code>f()</code> that’s initialized each time
+                          <code>f()</code> is called.<br>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+                              <span class="comment">// pass-by-value (give the function a copy of the value passed)</span>
+                              int f(int x)
+                              {
+                                x = x+1; <span class="comment">// give the local x a new value</span>
+                                return x;
+                              }
+                              int main()
+                              {
+                                int xx = 0;
+                                cout &lt&lt f(xx) &lt&lt '\n'; <span class="comment">// write: 1</span>
+                                cout &lt&lt xx &lt&lt '\n'; <span class="comment">// write: 0; f() doesn’t change xx</span>
+                                int yy = 7;
+                                cout &lt&lt f(yy) &lt&lt '\n'; <span class="comment">// write: 8</span>
+                                cout &lt&lt yy &lt&lt '\n'; <span class="comment">// write: 7; f() doesn’t change yy</span>
+                              }
+                            </code>
+                          </PRE>
                         </p>
+                        <p>
+                          <span class="hilight">Graphical Representation:</span>
+                        <figure>
+                            <img src="graphics/Chap8Diag10.png" width="50%">
+                        </figure>
+                      </p>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -624,6 +651,12 @@
                             </figcaption>
                         </figure>
                         <p>
+                          If a value is large, such as an image
+                          (often, several million bits),
+                          a large table of values (say, thousands of
+                          integers), or a long string
+                          (say, hundreds of characters)? Then, Pass-by-value
+                           can be costly.<br>
                         </p>
                     </details>
                     <details>
@@ -678,12 +711,27 @@
                         <summary class="sum2">
                         8.5.9 constexpr functions
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A <code>constexpr</code> function is a non-constructor
+                          function declared with a constexpr specifier.<br>
+                          It is a function that can be invoked within a
+                          constant expression.
+                          Conditions to be satisfied by a
+                          <code>constexpr</code> function are:
+                          <ul>
+                            <li>It cannot be virtual.</li>
+                            <li>Return type must be literal type.</li>
+                            <li>Also each of its parameters must be literal
+                              type as well.</li>
+                            <li>In a constant expression, each constructor
+                              call and implicit conversion is
+                              valid while initializing the return value.</li>
+                            <li>Function body is = delete or = default</li>
+                            <li>If not function body must contain
+                              null statements, static_assert declarations,
+                              typedef declarations, using declarations,
+                              using directives, one return statement</li>
+                          </ul>
                         </p>
                     </details>
                 </details>
@@ -700,7 +748,7 @@
                       The order of evaluation is as follows:<br>
                       <ul>
                         <li>Variable is constructed when
-                            the "thread of execution" reaches 
+                            the "thread of execution" reaches
                           the definition of a variable</li>
                         <li>Object is initialized by setting aside
                           memory for the object</li>
