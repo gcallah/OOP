@@ -397,7 +397,8 @@
                           (often, several million bits),
                           a large table of values (say, thousands of
                           integers), or a long string
-                          (say, hundreds of characters)? Then, Pass-by-value
+                          (say, hundreds of characters)?
+                          <br>Then, Pass-by-value
                            can be costly.<br>
                            <span class="hilight">Example:</span>
                            <PRE>
@@ -519,11 +520,20 @@
                         8.5.6 Pass-by-value vs. pass-by-reference
                         </summary>
                         <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
+                            <img src="graphics/Chap8Diag19.gif" width="50%">
                         </figure>
                         <p>
+                          Our rule of thumb is:
+                          <ol>
+                            <li>Use pass-by-value to pass very small
+                              objects.</li>
+                            <li>Use pass-by-const-reference to pass large
+                              objects that you don’t need to modify.</li>
+                            <li>Return a result rather than modifying an
+                              object through a reference argument.</li>
+                            <li>Use pass-by-reference only when you
+                              have to.</li>
+                          </ol>
                         </p>
                     </details>
                     <details>
@@ -651,7 +661,8 @@
                             <li>In a constant expression, each constructor
                               call and implicit conversion is
                               valid while initializing the return value.</li>
-                            <li>Function body is = delete or = default</li>
+                            <li>Function body is <code>= delete</code> or
+                              <code>= default</code></li>
                             <li>If not function body must contain
                               null statements, static_assert declarations,
                               typedef declarations, using declarations,
