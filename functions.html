@@ -645,11 +645,6 @@
                         <summary class="sum2">
                         8.5.4 Pass-by-const-reference
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
                           If a value is large, such as an image
                           (often, several million bits),
@@ -657,6 +652,52 @@
                           integers), or a long string
                           (say, hundreds of characters)? Then, Pass-by-value
                            can be costly.<br>
+                           <span class="hilight">Example:</span>
+                           <PRE>
+                             <code>
+                                void print(const vector&ltdouble&gt& v) <span class="comment">// pass-by-const-reference</span>
+                                {
+                                  cout &lt&lt "{ ";
+                                  for (int i = 0; i&ltv.size(); ++i) {
+                                      cout &lt&lt v[i];
+                                      if (i!=v.size()–1) cout &lt&lt ", ";
+                                  }
+                                  cout &lt&lt " }\n";
+                                }
+
+                                void f(int x)
+                                {
+                                  vector&ltdouble&gt vd1(10); <span class="comment">// small vector</span>
+                                  vector&ltdouble&gt vd2(1000000); <span class="comment">// large vector</span>
+                                  vector&ltdouble&gt vd3(x); <span class="comment">// vector of some unknown size</span>
+                                  <span class="comment">// . . . fill vd1, vd2, vd3 with values . . .</span>
+                                  print(vd1);
+                                  print(vd2);
+                                  print(vd3);
+                                }
+                              </code>
+                            </PRE>
+                        </p>
+                        <p>
+                          The above code shows a way of giving our
+                          <code>print()</code> function “the address” of the
+                          vector to <code>print()</code> rather than the
+                          copy of the vector. Such an “address” is
+                          called a <i>reference</i>.<br><br>
+                          The <code>&</code> means “reference” and
+                          the const is there to stop <code>print()</code>
+                           modifying its argument by accident. Apart from
+                           the change to the argument declaration, all is the
+                           same as before; the only change is that
+                           instead of operating on a copy, <code>print()</code>
+                            now refers back to the argument through the
+                            reference.
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Graphical Representation:</span>
+                          <br>
+                          <img src="graphics/Chap8Diag11.png" width="50%">
                         </p>
                     </details>
                     <details>
@@ -687,12 +728,46 @@
                         <summary class="sum2">
                         8.5.7 Argument checking and conversion
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          When an argument is passed during a call,
+                          initialization of the function’s formal
+                          argument with the actual argument takes place.
+                          <PRE>
+                            <code>
+                              void f(double x);
+                              void g(int y)
+                              {
+                                f(y);
+                                double x = y; <span class="comment">// initialize x with y</span>
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          There was a need to convert an
+                          <code>int</code> into a <code>double</code>.
+                          This happens in the call of <code>f()</code>
+                          and also in <code>f()</code> where <code>double</code>
+                           value is stored in <code>x</code>.<br><br>
+                          In conversions,
+                          if a <code>double</code> value has to be truncated
+                          into an <code>int</code> mention it explicitly.<br>
+                          <PRE>
+                            <code>
+                              void ggg(double x)
+                              {
+                                int x1 = x; <span class="comment">// truncate x</span>
+                                int x2 = int(x);
+                                int x3 = static_cast&ltint&gt(x); <span class="comment">// very explicit conversion</span>
+                                ff(x1);
+                                ff(x2);
+                                ff(x3);
+                                ff(x); <span class="comment">// truncate x</span>
+                                ff(int(x));
+                                ff(static_cast&ltint&gt(x)); <span class="comment">// very explicit conversion</span>
+                              }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
@@ -705,6 +780,7 @@
                             </figcaption>
                         </figure>
                         <p>
+
                         </p>
                     </details>
                     <details>
