@@ -11,7 +11,7 @@ double get_value(string s)
 
 void set_value(string s, double d)
 {
-    for(Variable& var : var_table)
+    for(Variable var : var_table)
         if(var.name == s) {
             var.value = d;
             return;

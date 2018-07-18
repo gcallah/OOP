@@ -443,8 +443,8 @@
                         <p>
                           Here, <code>string</code> and <code>vector</code> are
                           defined so that variables of those types are
-                          initialized with a default value whenever we don’t supply one
-                          explicitly.<br><br>
+                          initialized with a default value whenever we don’t
+                          supply one explicitly.<br><br>
                           Thus, <code>v</code> is empty (it has no elements)
                           and <code>s</code> is the empty string
                           (<code>""</code>) before we reach the loop.<br><br>
@@ -471,8 +471,8 @@
                       (and include more files), it becomes increasingly tedious
                       to have to forward declare every function you want to
                       use that lives in a different file. <br><br>
-                      Wouldn’t it be nice if you could put all your declarations
-                       in one place?
+                      Wouldn’t it be nice if you could put all your
+                      declarations in one place?
                     </p>
                     <p>
                       <i>Header files</i> usually have a <code>.h</code>
@@ -483,16 +483,49 @@
                       for other files to use.
                     </p>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Separate out the tokenizing code from the rest of your 
+                        calculator program. Put your declarations in
+                        <code>token.h</code> and your definitions to 
+                        <code>token.cpp</code>. Get this version to compile and
+                        link.
+                    </p>
+                </details>
+
                 <details>
                     <summary class="sum1">
                     8.4 Scope
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag7.png" width="30%">
                     </figure>
                     <p>
+                      <i>Scope</i> is a region of program text
+                      with the main purpose to keep  the extent of a
+                      program code within which the variable can be accessed.
+                      <br>
+                      Kinds of scopes used to control where names
+                      can be used are:<br>
+                      <ul>
+                        <li><span class="hilight">Global scope:</span>
+                           the area of text outside any other scope</li>
+                        <li><span class="hilight">Namespace scope:</span>
+                           a named scope nested in the global scope or
+                           in another namespace</li>
+                        <li><span class="hilight">Class scope:</span>
+                           the area of text within a class</li>
+                        <li><span class="hilight">Local scope:</span>
+                          between <code>{ . . . }</code> braces of a block or in a
+                          function argument list</li>
+                        <li><span class="hilight">Statement scope:</span>
+                           e.g., in a <code>for</code>-statement</li>
+                      </ul>
                     </p>
                 </details>
                 <details>
@@ -500,34 +533,73 @@
                     8.5 Function call and return
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag5.png" width="20%">
+                        <img src="graphics/Chap8Diag8.png" width="20%">
                     </figure>
                     <p>
+                      Functions are the way we represent actions and
+                      computations.<br>
+                      In a programming language, a function is a type of
+                      procedure or routine. Functions allow us to reuse code
+                      instead of rewriting it.
+                      They also help organize the code.
                     </p>
                     <details>
                         <summary class="sum2">
                         8.5.1 Declaring arguments and return type
                         </summary>
                         <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
+                            <img src="graphics/Chap8Diag6.jpg" width="40%">
                         </figure>
                         <p>
+                          A function can be declared in following way:<br>
+                          <code>return_type function_name( parameter list );
+                          </code><br><br>
+                          A <i>definition</i> contains the function body
+                          (the statements to be executed by a call),
+                          whereas a declaration that isn’t a definition
+                          just has a semicolon.<br><br>
+                          Formal arguments are often called <i>parameters</i>.
+                          <ul>
+                            <li>
+                                If you don’t want a function to take arguments,
+                                just leave out the formal arguments.
+                            </li>
+                            <li>
+                                If you don’t want to return a value
+                                from a function, give <code>void</code>
+                                as its return type.
+                            </li>
+                          </ul>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.5.2 Returning a value
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A <i><code>return</code> type </i> specifies
+                          the type of the data value being returned by the
+                          written function.<br>
+                          Also, function may or may not return a value.<br>
+                          The return type is <code>void</code> if the function
+                          does not return a value.
+                          <PRE>
+                            <code>
+                              void print_until_s(vector&ltstring&gt v, string quit)
+                              {
+                                for(int s : v) {
+                                  if (s==quit) return;
+                                  cout &lt&lt s &lt&lt '\n';
+                                }
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          In code shown in <span class="hilight">8.5.1
+                          </span>, the return value is an integer value
+                          <code>c</code>, which is <code>int</code>.
                         </p>
                     </details>
                     <details>
@@ -620,34 +692,101 @@
                     8.6 Order of evaluation
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap8Diag9.jpg" width="30%">
                     </figure>
                     <p>
+                      The <i>evaluation/execution</i> of a program proceeds
+                      through statements according to the language rules.
+                      The order of evaluation is as follows:<br>
+                      <ul>
+                        <li>Variable is constructed when
+                            the "thread of execution" reaches 
+                          the definition of a variable</li>
+                        <li>Object is initialized by setting aside
+                          memory for the object</li>
+                        <li>Variable destroyed as it goes out of scope</li>
+                        <li>Object referred by the variable is removed</li>
+                        <li>Memory is free for the compiler to be
+                          used for something exclusively</li>
+                      </ul>
+                    </p>
+                    <p>
+                      <PRE>
+                        <code>
+                          string program_name = "silly";
+                          vector&ltstring&gt v; <span class="comment">// v and program_name are global, they live until program terminates</span>
+
+                          void f()
+                          {
+                              string s; <span class="comment">// s is local to f</span>
+                              while (cin&gt&gts && s!="quit") {
+                                  string stripped; <span class="comment">// stripped is local to the loop</span>
+                                  string not_letters;
+                                  for (int i=0; i&lts.size(); ++i) <span class="comment">// i has statement scope</span>
+                                      if (isalpha(s[i]))
+                                          stripped += s[i];
+                                      else
+                                          not_letters += s[i];
+                                  v.push_back(stripped);
+                                  <span class="comment">// . . .</span>
+                              }
+                              <span class="comment">// . . .</span>
+                          }
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         8.6.1 Expression evaluation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          If the value of a variable in an expression is
+                          changed, never read or write it twice in
+                          that same expression.
+                          <PRE>
+                            <code>
+                              v[i] = ++i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              v[++i] = i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              int x = ++i + ++i; <span class="comment">// don’t: undefined order of evaluation</span>
+                              cout &lt&lt ++i &lt&lt ' ' &lt&lt i &lt&lt '\n'; <span class="comment">// don’t: undefined order of evaluation</span>
+                              f(++i,++i); <span class="comment">// don’t: undefined order of evaluation</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         8.6.2 Global initialization
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Global variables in a single translation unit
+                          are initialized in the order in which they appear.
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+                              int x1 = 1;
+                              int y1 = x1+2; <span class="comment">// y1 becomes 3</span>
+                            </code>
+                          </PRE>
+                          This initialization logically takes place
+                          “before the code in <code>main()</code> is executed.
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+                              const Date& default_date()
+                              {
+                                static const Date dd(1970,1,1); <span class="comment">// initialize dd first time we get here</span>
+                                return dd;
+                              }
+                            </code>
+                          </PRE>
+                          The <code>static</code> local variable is initialized
+                          (constructed) only the first time its function is
+                          called.
                         </p>
                     </details>
                 </details>
@@ -655,23 +794,93 @@
                     <summary class="sum1">
                     8.7 Namespaces
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Classes are used to organized functions,
+                       data and types into a type.
+                      A function and a class both do two things:
+                      <ul>
+                        <li>Allow to define a number of "entities"
+                          (without worrying about name clashes).</li>
+                        <li>Give a name to refer to what is defined.</li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      A <i>namespace</i> is a language
+                      mechanism for groupings of declarations.<br>
+                      It is used to organize classes, functions,
+                      data and types into an identifiable and
+                      named part of the program without defining a type.
+                    </p>
+                    <p>
+                      <PRE>
+                        <code>
+                          namespace Graph_lib {
+                            struct Color { /* . . . */ };
+                            struct Shape { /* . . . */ };
+                            struct Line : Shape { /* . . . */ };
+                            struct Function : Shape { /* . . . */ };
+                            struct Text : Shape { /* . . . */ };
+                            <span class="comment">// . . .</span>
+                            int gui_main() { /* . . . */ }
+                          }
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         8.7.1 using declarations and using directives
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Writing fully qualified names can be tedious.
+                          <PRE>
+                            <code>
+                              #include&ltstring&gt <span class="comment">// get the string library</span>
+                              #include&ltiostream&gt <span class="comment">// get the iostream library</span>
+                              int main()
+                              {
+                                std::string name;
+                                std::cout &lt&lt "Please enter your first name\n";
+                                std::cin &gt&gt name;
+                                std::cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The above code can be reduced to:
+                          <PRE>
+                            <code>
+                              #include&ltstring&lt <span class="comment">// get the string library</span>
+                              #include&ltiostream&lt <span class="comment">// get the iostream library</span>
+                              using namespace std; <span class="comment">// make names from std directly accessible</span>
+                              int main()
+                              {
+                                string name;
+                                cout &lt&lt "Please enter your first name\n";
+                                cin &gt&gt name;
+                                cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          It can be further reduced to by placing a
+                          <code>using</code> derivative for <code>std</code>:
+                          <PRE>
+                            <code>
+                              #include "std_lib_facilities.h"
+                              int main()
+                              {
+                                string name;
+                                cout &lt&lt "Please enter your first name\n";
+                                cin &gt&gt name;
+                                cout &lt&lt "Hello, " &lt&lt name &lt&lt '\n';
+                              }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                 </details>
