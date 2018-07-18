@@ -389,6 +389,15 @@ notation for a class that has no private implementation details.
                         </figcaption>
                     </figure>
                     <p>
+Let’s illustrate the language facilities supporting classes and the basic
+techniques for using them by showing how — and why
+— we might evolve a simple data structure into a class with private
+implementation details and supporting operations. We use
+the apparently trivial problem of how to represent a date (such as August 14,
+1954) in a program. The need for dates in many
+programs is obvious (commercial transactions, weather data, calendar programs,
+work records, inventory management, etc.).
+The only question is how we might represent them.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -400,6 +409,21 @@ notation for a class that has no private implementation details.
                             </figcaption>
                         </figure>
                         <p>
+How would we represent a date? When asked, most people answer, “Well, how about
+the year, the month, and the day of the
+month?” That’s not the only answer and not always the best answer, but it’s
+good enough for our uses, so that’s what we’ll do.
+Our first attempt is a simple struct:<br />
+// simple Date (too simple?)<br />
+struct Date {<br />
+int y;<br />
+// year<br />
+int m; // month in year<br />
+int d;<br />
+// day of month<br />
+};<br />
+Date today;<br />
+// a Date variable (a named object)<br />
                         </p>
                     </details>
                     <details>
@@ -424,6 +448,7 @@ notation for a class that has no private implementation details.
                             </figcaption>
                         </figure>
                         <p>
+
                         </p>
                     </details>
                     <details>
@@ -448,6 +473,30 @@ notation for a class that has no private implementation details.
                             </figcaption>
                         </figure>
                         <p>
+Consider a simple use of the Date class so far:<br/>
+Click here to view code image<br/>
+class Date {<br/>
+// . . .<br/>
+int month() { return m; }<br/>
+// . . .<br/>
+private:<br/>
+int y, m, d;<br/>
+// year, month, day<br/>
+};void f(Date d1, Date d2)<br/>
+{<br/>
+cout &lt&lt d1.month() &lt&lt ' ' &lt&lt d2.month() &lt&lt '\n';<br/>
+}<br/>
+How does Date::month() know to return the value of d1.m in the first call
+and
+d2.m in the second? Look again at
+Date::month(); its declaration specifies no function argument! How does
+Date::month() know for which object it was
+called? A class member function, such as Date::month(), has an implicit
+argument which it uses to identify the object for
+which it is called. So in the first call, m correctly refers to d1.m and in
+the
+second call it refers to d2.m. See §17.10 for more
+uses of this implicit argument.
                         </p>
                     </details>
                     <details>
