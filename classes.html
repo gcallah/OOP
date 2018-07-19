@@ -819,7 +819,28 @@ enum class Day {
                             </figcaption>
                         </figure>
                         <p>
+                        In addition to the enum classes, also known as scoped
+                        enumerations, there are “plain” enumerations that differ from scoped
+                        enumerations by implicitly “exporting” their enumerators to the scope of the
+                        enumeration and allowing implicit conversions to
+                        int. For example:
                         </p>
+
+                    <code>
+                    <pre>
+enum Month {                   // note: no “class”
+    jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+};
+Month m = feb;                  //OK: feb in scope
+Month m2 = Month::feb;          //also OK
+m = 7;                          //error: can’t assign an int to a Month
+int n = m;                      //OK: we can assign a Month to an int
+Month mm = Month(7);            //convert int to Month (unchecked)
+                    </pre>
+                    </code>
+                    <p>
+                    “plain” enums are less strict than enum classes.
+                    </p>
                     </details>
                 </details>
                 <details>
