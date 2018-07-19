@@ -534,7 +534,28 @@ catch(Date::Invalid) {
                         </figcaption>
                     </figure>
                     <p>
+                    An <code>enum</code> (an enumeration) is a very simple user-defined type, specifying its set
+                    of values (its enumerators) as symbolic
+                    constants. For example:
                     </p>
+                    <code>
+                    <pre>
+enum class Month {
+    jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+};
+                    </pre>
+                    </code>
+                    <p>
+If we don’t initialize the first enumerator, the count starts with 0. For
+example:
+                    </p>
+                    <pre>
+                    <code>
+enum class Day {
+    monday, tuesday, wednesday, thursday, friday, saturday, sunday
+};
+                    </code>
+                    </pre>
                     <details>
                         <summary class="sum2">
                         9.5.1 "Plain" enumerations
