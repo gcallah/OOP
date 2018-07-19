@@ -559,7 +559,31 @@ Date christmas = Date{1976,12,24};  //also OK (verbose style)
                             </figcaption>
                         </figure>
                         <p>
-
+                        We still have a problem: What if someone forgets to use
+                        the member function add_day()? What if someone decides to change
+                        the month directly? After all, we “forgot” to provide a facility for that:
+                        </p>
+                        <code>
+                        <pre>
+Date birthday {1960,12,31}; //December 31, 1960
+++birthday.d;               //ouch! Invalid date
+                            //(birthday.d==32 makes today invalid)
+Date today {1970,2,3};      //ouch! Invalid date
+today.m = 14;               //(today.m==14 makes today invalid)
+                        </pre>
+                        </code>
+                        <p>
+                        As long as we leave the representation of Date
+                        accessible to everybody, somebody will — by accident or design — mess it
+                        up; that is, someone will do something that produces an invalid value. In this
+                        case, we created a Date with a value that doesn’t
+                        correspond to a day on the calendar. Such invalid objects are time bombs; it is
+                        just a matter of time before someone innocently
+                        uses the invalid value and gets a run-time error or — usually worse — produces
+                        a bad result.<br/>
+                        Such concerns lead us to conclude that the representation of Date should be
+                        inaccessible to users except through the public
+                        member functions that we supply
                         </p>
                     </details>
                     <details>
