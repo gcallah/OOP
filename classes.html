@@ -479,7 +479,75 @@ Date today; // a Date variable (a named object)
                             </figcaption>
                         </figure>
                         <p>
+                        We provided an initialization function for <code>Date</code>s, one
+                        that provided an important check on the validity of <code>Date</code>s. However,
+                        checking functions are of little use if we fail to use them. For example,
+                        assume that we have defined the output operator <code><pre>&lt;&lt;</pre></code> for a Date
                         </p>
+                        <p>
+                        <code>
+                        <pre>
+void f()
+{
+    Date today;
+    // . . .
+    cout &lt;&lt; today &lt;&lt; '\n';              //use today
+    // . . .
+    init_day(today,2008,3,30);
+    // . . .
+    Date tomorrow;
+    tomorrow.y = today.y;
+    tomorrow.m = today.m;              //add 1 to today
+    tomorrow.d = today.d+1;            //use tomorrow
+    cout &lt;&lt; tomorrow &lt;&lt; '\n';
+}
+                        </pre>
+                        </code>
+                        </p>
+                        <p>
+                        Here, we “forgot” to immediately initialize today and “someone” used it before
+                        we got around to calling init_day().
+                        “Someone else” decided that it was a waste of time to call add_day() — or maybe
+                        hadn’t heard of it — and constructedtomorrow by hand. As it happens, this is
+                        bad code — very bad code. Sometimes, probably most of the time, it works, but
+                        small changes lead to serious errors.
+                        </p>
+                        <p>
+                        This kind of thinking leads to a demand for an
+                        initialization function that can’t be forgotten and for operations that are less
+                        likely to be overlooked. The basic tool for that is member functions, that is,
+                        functions declared as members of the class within
+                        the class body. For example:
+                   </p>
+                    <code>
+                    <pre>
+// simple Date
+// guarantee initialization with constructor
+// provide some notational convenience
+struct Date {
+    int y, m, d;                // year, month, day
+    Date(int y, int m, int d);  // check for valid date and initialize
+    void add_day(int n);        // increase the Date by n days
+};
+                    </pre>
+                    </code>
+                    <p>
+                    A member function with the same name as its class is
+                    special. It is called a constructor and will be used for initialization
+                    (“construction”) of objects of the class. It is an error — caught by the
+                    compiler — to forget to initialize an object of a class that
+                    has a constructor that requires an argument, and there is a special convenient
+                    syntax for doing such initialization:
+                    </p>
+                    <code>
+                    <pre>
+Date my_birthday;                   //error: my_birthday not initialized
+Date today {12,24,2007};            //oops! run-time error
+Date last {2000,12,31};             //OK (colloquial style)
+Date next = {2014,2,14};            //also OK (slightly verbose)
+Date christmas = Date{1976,12,24};  //also OK (verbose style)
+                    </pre>
+                    </code>
                     </details>
                     <details>
                         <summary class="sum2">
