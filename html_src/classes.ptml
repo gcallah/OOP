@@ -126,21 +126,21 @@ int x = var.mf(9); //call var’s member function mf()
                     <code>
                         <pre>
 class X {
-// this class’s name is X
-public:
-// public members:
-//
-– the interface to users (accessible by all)
-// functions
-// types
-// data (often best kept private)
-private:
-// private members:
-//
-– the implementation details (used by members of this class only)
-// functions
-// types
-// data
+    // this class’s name is X
+    public:
+        // public members:
+        //
+        – the interface to users (accessible by all)
+        // functions
+        // types
+        // data (often best kept private)
+    private:
+        // private members:
+        //
+        – the implementation details (used by members of this class only)
+        // functions
+        // types
+        // data
 };
                         </pre>
                     </code>
@@ -171,15 +171,17 @@ private:
                         </figcaption>
                     </figure>
                     <p>
-Let’s illustrate the language facilities supporting classes and the basic
-techniques for using them by showing how — and why
-— we might evolve a simple data structure into a class with private
-implementation details and supporting operations. We use
-the apparently trivial problem of how to represent a date (such as August 14,
-1954) in a program. The need for dates in many
-programs is obvious (commercial transactions, weather data, calendar programs,
-work records, inventory management, etc.).
-The only question is how we might represent them.
+                        Let’s illustrate the language facilities supporting
+                        classes and the basic techniques for using them by
+                        showing how — and why — we might evolve a simple data
+                        structure into a class with private implementation
+                        details and supporting operations. We use the
+                        apparently trivial problem of how to represent a date
+                        (such as August 14, 1954) in a program. The need for
+                        dates in many programs is obvious (commercial
+                        transactions, weather data, calendar programs, work
+                        records, inventory management, etc.).  The only
+                        question is how we might represent them.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -191,22 +193,28 @@ The only question is how we might represent them.
                             </figcaption>
                         </figure>
                         <p>
-How would we represent a date? When asked, most people answer, “Well, how about
-the year, the month, and the day of the
-month?” That’s not the only answer and not always the best answer, but it’s
-good enough for our uses, so that’s what we’ll do.
-Our first attempt is a simple struct:<br />
-// simple Date (too simple?)<br />
-struct Date {<br />
-int y;<br />
-// year<br />
-int m; // month in year<br />
-int d;<br />
-// day of month<br />
-};<br />
-Date today;<br />
-// a Date variable (a named object)<br />
+                            How would we represent a date? When asked, most
+                            people answer, “Well, how about the year, the
+                            month, and the day of the month?” That’s not the
+                            only answer and not always the best answer, but
+                            it’s good enough for our uses, so that’s what we’ll
+                            do. Our first attempt is a simple struct:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+// simple Date (too simple?)
+struct Date {
+    int y; // year
+    int m; // month in year
+    int d; // day of month
+};
+Date today; // a Date variable (a named object)
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
