@@ -709,8 +709,73 @@ void f(Date d1, Date d2)
                             </figcaption>
                         </figure>
                         <p>
+                        What do we do when we find an invalid date? Where in
+                        the code do we look for invalid dates? We know that the
+                        answer to the first question is “Throw an exception,” and the obvious place to
+                        look is where we first construct a <code>Date</code>. If we
+                        don’t create invalid <code>Date</code>s and also write our member functions correctly, we
+                        will never have a<code> Date</code> with an invalid value.
+                        So, we’ll prevent users from ever creating a<code> Date</code> with an invalid state:
                         </p>
-                    </details>
+                        <code>
+                        <pre>
+// simple Date (prevent invalid dates)
+class Date {
+public:
+    class Invalid { };              // to be used as exception
+    Date(int y, int m, int d);      // check for valid date and initialize
+// . . .
+private:
+    int y, m, d;                    // year, month, day
+    bool is_valid();                // return true if date is valid
+};
+                        </pre>
+                        </code>
+                        <p>
+                        We put the testing of validity into a separate<code> is_valid()</code> function because
+                        checking for validity is logically distinct from
+                        initialization and because we might want to have several constructors. As you
+                        can see, we can have private functions as well
+                        as private data:
+                        </p>
+                        <code>
+                        <pre>
+Date::Date(int yy, int mm, int dd)
+: y{yy}, m{mm}, d{dd}                   //initialize data members
+{
+    if (!is_valid()) throw Invalid{};   //check for validity    
+}
+bool Date::is_valid()                   //return true if date is valid
+{
+    if (m&lt;1 || 12&lt;m) return false;
+    // . . .
+}
+                        </pre>
+                        </code>
+                        <p>
+                        Given that definition of<code> Date</code>, we can write
+                        </p>
+                        <code>
+                        <pre>
+void f(int x, int y)
+try {
+    Date dxy {2004,x,y};
+    cout &lt;&lt; dxy &lt;&lt; '\n';
+dxy.add_day(2);
+}
+catch(Date::Invalid) {
+    error("invalid date");
+}
+                        </pre>
+                        </code>
+                        <p>
+                        We now know that &lt;&lt; and <code>add_day()</code>will have a valid
+                        <code>Date</code> on which to operate.
+                        Before completing the evolution of our<code> Date</code> class in section 9.7, we’ll take a detour
+                        to describe a couple of general languagefacilities that we’ll need to do that
+                        well: enumerations and operator overloading.
+                        </p>
+                </details>   
                 </details>
                 <details>
                     <summary class="sum1">
