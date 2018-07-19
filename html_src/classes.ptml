@@ -343,7 +343,70 @@ today.m = 14;               //(today.m==14 makes today invalid)
                             </figcaption>
                         </figure>
                         <p>
+                        So far, we have looked at Date from the point of view
+                        of an interface designer and a user. But sooner or later, we have to
+                        implement those member functions. First, here is a subset of the Date class
+                        reorganized to suit the common style of providing
+                        the public interface first:
                         </p>
+                        <code>
+                        <pre>
+// simple Date (some people prefer implementation details last)
+class Date {
+public:
+Date(int y, int m, int d); // constructor: check for valid date and initialize
+void add_day(int n);       // increase the Date by n days
+int month();               // . . .
+private:
+int y, m, d;                // year, month, day
+};
+                        </pre>
+                        </code>
+                        <p>
+                        People put the public interface first because the
+                        interface is what most people are interested in. In principle, a user need not
+                        look at the implementation details. In reality, we are typically curious and
+                        have a quick look to see if the implementation looks
+                        reasonable and if the implementer used some technique that we could learn from.
+                        However, unless we are the implementers,
+                        we do tend to spend much more time with the public interface. The compiler
+                        doesn’t care about the order of class function and
+                        data members; it takes the declarations in any order you care to present them.<br/>
+                        When we define a member outside its class, we need to
+                        say which class it is a member of. We do that using the
+                        class_name::member_name notation:
+                        </p>
+                        <code>
+                        <pre>
+Date::Date(int yy, int mm, int dd)      // constructor
+:y{yy}, m{mm}, d{dd}                    // note: member initializers
+{
+}
+void Date::add_day(int n)
+{   
+    // . . .
+}
+int month()                             // oops: we forgot Date::
+{
+return m;                               // not the member function, can’t access m
+}
+                        </pre>
+                        </code>
+                        <p>
+                        The<code> :y{yy}, m{mm}, d{dd}</code> notation is how we initialize
+                        members. It is called a (member) initializer list. We could have
+                        written
+                        </p>
+                        <code>
+                        <pre>
+Date::Date(int yy, int mm, int dd) //Constructor
+{
+    y = yy;
+    m = mm;
+    d = dd;
+}
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -355,30 +418,32 @@ today.m = 14;               //(today.m==14 makes today invalid)
                             </figcaption>
                         </figure>
                         <p>
-Consider a simple use of the Date class so far:<br/>
-Click here to view code image<br/>
-class Date {<br/>
-// . . .<br/>
-int month() { return m; }<br/>
-// . . .<br/>
-private:<br/>
-int y, m, d;<br/>
-// year, month, day<br/>
-};void f(Date d1, Date d2)<br/>
-{<br/>
-cout &lt&lt d1.month() &lt&lt ' ' &lt&lt d2.month() &lt&lt '\n';<br/>
-}<br/>
-How does Date::month() know to return the value of d1.m in the first call
-and
-d2.m in the second? Look again at
-Date::month(); its declaration specifies no function argument! How does
-Date::month() know for which object it was
-called? A class member function, such as Date::month(), has an implicit
-argument which it uses to identify the object for
-which it is called. So in the first call, m correctly refers to d1.m and in
-the
-second call it refers to d2.m. See §17.10 for more
-uses of this implicit argument.
+                        Consider a simple use of the <code>Date</code> class so far:
+                        </p>
+                        <code>
+                        <pre>
+class Date {
+    // . . .
+    int month() { return m; }
+    // . . .
+private:
+    int y, m, d;    // year, month, day
+};
+void f(Date d1, Date d2)
+{
+    cout &lt;&lt; d1.month() &lt;&lt; ' ' &lt;&lt; d2.month() &lt;&lt; '\n';<br/>
+}
+                        </pre>
+                        </code>
+                        <p>
+                        How does<code> Date::month()</code> know to return the value of<code> d1.m </code>in the first call and
+                        <code>d2.m</code> in the second? Look again at
+                        <code>Date::month();</code> its declaration specifies no function argument! How does
+                        <code>Date::month()</code> know for which object it was
+                        called? A class member function, such as <code>Date::month()</code>, has an implicit
+                        argument which it uses to identify the object for
+                        which it is called. So in the first call,<code> m</code>correctly refers to <code>d1.m</code> and in the
+                        second call it refers to <code>d2.m.</code>.
                         </p>
                     </details>
                     <details>
