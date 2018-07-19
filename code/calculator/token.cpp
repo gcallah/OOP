@@ -2,27 +2,6 @@
 #include "token.h"
 
 
-// uncomment this for testing:
-//int main()
-//{
-// vector<Token> tokens;
-//    // frazzyswizel!
-//    for(Token t = get_token(); t.kind != 'q'; t = get_token()) {
-//    	tokens.push_back(t);
-//	}
-//
-//	for(Token tok : tokens) {
-//        if(tok.kind == '8')
-//		    cout << "A number token with val = " << tok.value << '\n';
-//        else if(tok.kind == 'i')
-//		    cout << "We received an invalid token of value " 
-//                << char(tok.value) << '\n';
-//        else
-//		    cout << "A token of kind " << tok.kind << '\n';
-//	}
-//    return 0;
-//}
-
 std::ostream &operator<<(std::ostream &os, Token const &t) { 
     return os << t.kind;
 }
@@ -64,7 +43,6 @@ Token Token_stream::get() {
     	}
         default:
             if(isalpha(ch)) {
-                cin.putback(ch);
                 string s;
                 s += ch;
                 while(cin.get(ch) && isalpha(ch)) s += ch;
