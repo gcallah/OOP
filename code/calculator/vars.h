@@ -7,3 +7,4 @@ class Variable {
 
 double get_value(string s);
 void set_value(string s, double d);
+void print_vars();
