@@ -644,7 +644,24 @@ Month m = Sep;
                         </figcaption>
                     </figure>
                     <p>
+                    We have argued that the public interface and the
+                    implementation parts of a class should be separated. As long as we leave
+                    openthe possibility of using structs for types that are “plain old data,” few
+                    professionals would disagree. However, how do we
+                    design a good interface? What distinguishes a good public interface from a
+                    mess? Part of that answer can be given only by
+                    example, but there are a few general principles that we can list and that are
+                    given some support in C++:
                     </p>
+                    <ul>
+                    <li>Keep interfaces complete</li>
+                    <li>Keep interfaces minimal</li>
+                    <li>Provide constructors</li>
+                    <li>Support copying (or prohibit it)</li>
+                    <li>Use types to provide good argument checking</li>
+                    <li>Identify nonmodifying member functions</li>
+                    <li>Free all resources in the destructor</li>
+                    </ul>
                     <details>
                         <summary class="sum2">
                         9.7.1 Argument types
@@ -654,8 +671,42 @@ Month m = Sep;
                             <figcaption>
                             </figcaption>
                         </figure>
-                        <p>
+                        <p>When we defined the constructor for Date in §9.4.3,
+                        we used three ints as the arguments. That caused some problems:
                         </p>
+                        <code>
+                        <pre>
+Date d1 {4,5,2005}; // oops: year 4, day 2005
+Date d2 {2005,4,5}; // April 5 or May 4?
+                        </pre>
+                        </code>
+                        <p>
+                        The first problem (an illegal day of the month) is easily dealt with by a test
+                        in the constructor. However, the second (a month
+                        vs. day-of-the-month confusion) can’t be caught by code written by the user.
+                        The second problem is simply that the conventions
+                        for writing month and day-in-month differ; for example, 4/5 is April 5 in the
+                        United States and May 4 in England. Since we
+                        can’t calculate our way out of this, we must do something else. The obvious
+                        solution is to use a<code> Month</code> type:
+                        </p>
+                        <code>
+                        <pre>
+enum class Month {
+    jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+};
+// simple Date (use Month type)
+class Date {
+public:
+    Date(int y, Month m, int d);
+// . . .
+private:
+    int y;
+    Month m;
+    int d;
+};
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
