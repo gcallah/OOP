@@ -600,7 +600,39 @@ Month mm = Month(7);            //convert int to Month (unchecked)
                         </figcaption>
                     </figure>
                     <p>
+                    You can define almost all C++ operators for class or
+                    enumeration operands. That’s often called operator overloading. We use
+                    it when we want to provide conventional notation for a type we design. For
+                    example:
                     </p>
+                    <code>
+                    <pre>
+enum class Month {
+    Jan=1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+};
+Month operator++(Month &amp; m)                  //prefix increment operator
+{
+    m = (m==Dec) ? Jan : Month(int(m)+1);   //“wrap around”
+    return m;
+}
+                    </pre>
+                    </code>
+                    <p>
+The<code> ? :</code> construct is an “arithmetic if”: <code>m</code> becomes
+<code>Jan</code> if (m==Dec) and
+<code>Month(int(m)+1)</code> otherwise. It is a reasonably
+elegant way of expressing the fact that months “wrap around” after December.
+The<code> Month</code> type can now be used like this:
+                    </p>
+<code>
+<pre>
+Month m = Sep;
+++m;        // m becomes Oct
+++m;        // m becomes Nov
+++m;        // m becomes Dec
+++m;        // m becomes Jan (“wrap around”)
+</pre>
+</code>
                 </details>
                 <details>
                     <summary class="sum1">
