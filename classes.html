@@ -897,7 +897,24 @@ Month m = Sep;
                         </figcaption>
                     </figure>
                     <p>
+                    We have argued that the public interface and the
+                    implementation parts of a class should be separated. As long as we leave
+                    openthe possibility of using structs for types that are “plain old data,” few
+                    professionals would disagree. However, how do we
+                    design a good interface? What distinguishes a good public interface from a
+                    mess? Part of that answer can be given only by
+                    example, but there are a few general principles that we can list and that are
+                    given some support in C++:
                     </p>
+                    <ul>
+                    <li>Keep interfaces complete</li>
+                    <li>Keep interfaces minimal</li>
+                    <li>Provide constructors</li>
+                    <li>Support copying (or prohibit it)</li>
+                    <li>Use types to provide good argument checking</li>
+                    <li>Identify nonmodifying member functions</li>
+                    <li>Free all resources in the destructor</li>
+                    </ul>
                     <details>
                         <summary class="sum2">
                         9.7.1 Argument types
@@ -907,8 +924,42 @@ Month m = Sep;
                             <figcaption>
                             </figcaption>
                         </figure>
-                        <p>
+                        <p>When we defined the constructor for Date in §9.4.3,
+                        we used three ints as the arguments. That caused some problems:
                         </p>
+                        <code>
+                        <pre>
+Date d1 {4,5,2005}; // oops: year 4, day 2005
+Date d2 {2005,4,5}; // April 5 or May 4?
+                        </pre>
+                        </code>
+                        <p>
+                        The first problem (an illegal day of the month) is easily dealt with by a test
+                        in the constructor. However, the second (a month
+                        vs. day-of-the-month confusion) can’t be caught by code written by the user.
+                        The second problem is simply that the conventions
+                        for writing month and day-in-month differ; for example, 4/5 is April 5 in the
+                        United States and May 4 in England. Since we
+                        can’t calculate our way out of this, we must do something else. The obvious
+                        solution is to use a<code> Month</code> type:
+                        </p>
+                        <code>
+                        <pre>
+enum class Month {
+    jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+};
+// simple Date (use Month type)
+class Date {
+public:
+    Date(int y, Month m, int d);
+// . . .
+private:
+    int y;
+    Month m;
+    int d;
+};
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -920,7 +971,33 @@ Month m = Sep;
                             </figcaption>
                         </figure>
                         <p>
+                        We always have to create objects; that is, we must
+                        always consider initialization and constructors. Arguably they are the most
+                        important members of a class: to write them, you have to decide what it takes
+                        to initialize an object and what it means for a
+                        value to be valid (what is the invariant?). Just thinking about initialization
+                        will help you avoid errors.<br/>
+                        
+                        The next thing to consider is often: Can we copy our
+                        objects? And if so, how do we copy them?<br/>
+                    
+                        For Date or Month, the answer is that we obviously want
+                        to copy objects of that type and that the meaning of copy is
+                        trivial: just copy all of the members. Actually, this is the default case. So
+                        as long as you don’t say anything else, the compiler
+                        will do exactly that. For example, if you copy a Date as an initializer or
+                        right-hand side of an assignment, all its members are
+                        copied:
                         </p>
+                        <code>
+                        <pre>
+Date holiday {1978, Month::jul, 4};   // initialization
+Date d2 = holiday;
+Date d3 = Date{1978, Month::jul, 4};
+holiday = Date{1978, Month::dec, 24}; // assignment
+d3 = holiday;
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -932,6 +1009,14 @@ Month m = Sep;
                             </figcaption>
                         </figure>
                         <p>
+                    Uninitialized variables can be a serious source of errors.
+                    To counter that problem, we have the notion of a constructor to
+                    guarantee that every object of a class is initialized. For example, we declared
+                    the constructor<code> Date::Date(int,Month,int)</code>
+                    to ensure that every<code> Date</code> is properly
+                    initialized. In the case of <code>Date</code>, that
+                    means that the programmer must supply three
+                    arguments of the right types
                         </p>
                     </details>
                     <details>
@@ -944,6 +1029,10 @@ Month m = Sep;
                             </figcaption>
                         </figure>
                         <p>
+                        Some variables are meant to be changed — that’s why we
+                        call them “variables” — but some are not; that is, we have
+                        “variables” representing immutable values. Those, we typically call constants
+                         or just consts.
                         </p>
                     </details>
                     <details>
@@ -956,6 +1045,24 @@ Month m = Sep;
                             </figcaption>
                         </figure>
                         <p>
+                        When we design our interfaces to be minimal (though
+                        complete), we have to leave out lots of operations that are merely useful.
+                        A function that can be simply, elegantly, and efficiently implemented as a
+                        freestanding function (that is, as a nonmember
+                        function) should be implemented outside the class. That way, a bug in that
+                        function cannot directly corrupt the data in a class
+                        object. Not accessing the representation is important because the usual debug
+                        technique is “Round up the usual suspects”; that
+                        is, when something goes wrong with a class, we first look at the functions that
+                        directly access the representation: one of those
+                        almost certainly did it. If there are a dozen such functions, we will be much
+                        happier than if there were 50.<br/>
+                        Helper functions are also called convenience functions,
+                        auxiliary functions, and many other things. The distinction between
+                        these functions and other nonmember functions is logical; that is, “helper
+                        function” is a design concept, not a programming
+                        language concept. The helper functions often take arguments of the classes that
+                        they are helpers of.
                         </p>
                     </details>
                 </details>
@@ -969,6 +1076,14 @@ Month m = Sep;
                         </figcaption>
                     </figure>
                     <p>
+                    So, let’s just put it all together and see what that <code>Date</code>
+                    class might look like when we combine all of the ideas/concerns. Where
+                    a function’s body is just a . . . comment, the actual implementation is tricky
+                    (please don’t try to write those just yet).
+                    </p>
+                    <p>
+                    the code illustrated in this section of the book is very
+                    interesting and you should definitely take a look at it.
                     </p>
                 </details>
 
