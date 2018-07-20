@@ -20,7 +20,7 @@ void calculate(Token_stream& ts)
 // this output is for debugging:
 //            cout << "in main(), got token: " << t.kind
 //                << " with val of " << t.value << '\n';
-            while(t.kind == print) t = ts.get();
+            while(t.kind == print) t = ts.get();  // eat multiple prints!
             if(t.kind == quit) return;
             ts.putback(t);
             cout << result << statement(ts) << '\n';
