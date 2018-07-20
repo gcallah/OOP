@@ -1029,6 +1029,10 @@ d3 = holiday;
                             </figcaption>
                         </figure>
                         <p>
+                        Some variables are meant to be changed — that’s why we
+                        call them “variables” — but some are not; that is, we have
+                        “variables” representing immutable values. Those, we typically call constants
+                         or just consts.
                         </p>
                     </details>
                     <details>
@@ -1041,6 +1045,24 @@ d3 = holiday;
                             </figcaption>
                         </figure>
                         <p>
+                        When we design our interfaces to be minimal (though
+                        complete), we have to leave out lots of operations that are merely useful.
+                        A function that can be simply, elegantly, and efficiently implemented as a
+                        freestanding function (that is, as a nonmember
+                        function) should be implemented outside the class. That way, a bug in that
+                        function cannot directly corrupt the data in a class
+                        object. Not accessing the representation is important because the usual debug
+                        technique is “Round up the usual suspects”; that
+                        is, when something goes wrong with a class, we first look at the functions that
+                        directly access the representation: one of those
+                        almost certainly did it. If there are a dozen such functions, we will be much
+                        happier than if there were 50.<br/>
+                        Helper functions are also called convenience functions,
+                        auxiliary functions, and many other things. The distinction between
+                        these functions and other nonmember functions is logical; that is, “helper
+                        function” is a design concept, not a programming
+                        language concept. The helper functions often take arguments of the classes that
+                        they are helpers of.
                         </p>
                     </details>
                 </details>
