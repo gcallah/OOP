@@ -756,6 +756,14 @@ d3 = holiday;
                             </figcaption>
                         </figure>
                         <p>
+                    Uninitialized variables can be a serious source of errors.
+                    To counter that problem, we have the notion of a constructor to
+                    guarantee that every object of a class is initialized. For example, we declared
+                    the constructor<code> Date::Date(int,Month,int)</code>
+                    to ensure that every<code> Date</code> is properly
+                    initialized. In the case of <code>Date</code>, that
+                    means that the programmer must supply three
+                    arguments of the right types
                         </p>
                     </details>
                     <details>
