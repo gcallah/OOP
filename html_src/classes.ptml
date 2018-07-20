@@ -80,7 +80,7 @@ class X {
                         <pre>
 X var;             // var is a variable of type X
 var.m = 7;         // assign to var’s data member m
-int x = var.mf(9); //call var’s member function mf()
+int x = var.mf(9); // call var’s member function mf()
                         </pre>
                     </code>
                     </p>
@@ -226,10 +226,13 @@ Date today; // a Date variable (a named object)
                             </figcaption>
                         </figure>
                         <p>
-                        We provided an initialization function for <code>Date</code>s, one
-                        that provided an important check on the validity of <code>Date</code>s. However,
-                        checking functions are of little use if we fail to use them. For example,
-                        assume that we have defined the output operator <code><pre>&lt;&lt;</pre></code> for a Date
+                        We provided an initialization function for
+                        <code>Date</code>s, one that provided an important
+                        check on the validity of <code>Date</code>s. However,
+                        checking functions are of little use if we fail to use
+                        them. For example, assume that we have defined the
+                        output operator <code><pre>&lt;&lt;</pre></code> for a
+                            <code>Date</code>.
                         </p>
                         <p>
                         <code>
@@ -238,31 +241,37 @@ void f()
 {
     Date today;
     // . . .
-    cout &lt;&lt; today &lt;&lt; '\n';              //use today
+    cout &lt;&lt; today &lt;&lt; '\n';              // use today
     // . . .
     init_day(today,2008,3,30);
     // . . .
     Date tomorrow;
     tomorrow.y = today.y;
-    tomorrow.m = today.m;              //add 1 to today
-    tomorrow.d = today.d+1;            //use tomorrow
+    tomorrow.m = today.m;              // add 1 to today
+    tomorrow.d = today.d+1;            // use tomorrow
     cout &lt;&lt; tomorrow &lt;&lt; '\n';
 }
                         </pre>
                         </code>
                         </p>
                         <p>
-                        Here, we “forgot” to immediately initialize today and “someone” used it before
+                        Here, we “forgot” to immediately initialize
+                        today and “someone” used it before
                         we got around to calling init_day().
-                        “Someone else” decided that it was a waste of time to call add_day() — or maybe
-                        hadn’t heard of it — and constructedtomorrow by hand. As it happens, this is
-                        bad code — very bad code. Sometimes, probably most of the time, it works, but
+                        “Someone else” decided that it was a
+                        waste of time to call add_day() — or maybe
+                        hadn’t heard of it — and constructed
+                        tomorrow by hand. As it happens, this is
+                        bad code — very bad code. Sometimes,
+                        probably most of the time, it works, but
                         small changes lead to serious errors.
                         </p>
                         <p>
                         This kind of thinking leads to a demand for an
-                        initialization function that can’t be forgotten and for operations that are less
-                        likely to be overlooked. The basic tool for that is member functions, that is,
+                        initialization function that can’t
+                        be forgotten and for operations that are less
+                        likely to be overlooked. The basic
+                        tool for that is member functions, that is,
                         functions declared as members of the class within
                         the class body. For example:
                    </p>
@@ -280,19 +289,20 @@ struct Date {
                     </code>
                     <p>
                     A member function with the same name as its class is
-                    special. It is called a constructor and will be used for initialization
-                    (“construction”) of objects of the class. It is an error — caught by the
-                    compiler — to forget to initialize an object of a class that
-                    has a constructor that requires an argument, and there is a special convenient
+                    special. It is called a constructor and will be used for
+                    initialization (“construction”) of objects of the class. It
+                    is an error — caught by the compiler — to forget to
+                    initialize an object of a class that has a constructor that
+                    requires an argument, and there is a special convenient
                     syntax for doing such initialization:
                     </p>
                     <code>
                     <pre>
-Date my_birthday;                   //error: my_birthday not initialized
-Date today {12,24,2007};            //oops! run-time error
-Date last {2000,12,31};             //OK (colloquial style)
-Date next = {2014,2,14};            //also OK (slightly verbose)
-Date christmas = Date{1976,12,24};  //also OK (verbose style)
+Date my_birthday;                   // error: my_birthday not initialized
+Date today {12,24,2007};            // oops! run-time error
+Date last {2000,12,31};             // OK (colloquial style)
+Date next = {2014,2,14};            // also OK (slightly verbose)
+Date christmas = Date{1976,12,24};  // also OK (verbose style)
                     </pre>
                     </code>
                     </details>
@@ -307,32 +317,39 @@ Date christmas = Date{1976,12,24};  //also OK (verbose style)
                         </figure>
                         <p>
                         We still have a problem: What if someone forgets to use
-                        the member function add_day()? What if someone decides to change
-                        the month directly? After all, we “forgot” to provide a facility for that:
+                        the member function <code>add_day()</code>?
+                        What if someone decides to change the month directly?
+                        After all, we “forgot” to provide a facility for that:
                         </p>
                         <code>
                         <pre>
-Date birthday {1960,12,31}; //December 31, 1960
-++birthday.d;               //ouch! Invalid date
-                            //(birthday.d==32 makes today invalid)
-Date today {1970,2,3};      //ouch! Invalid date
-today.m = 14;               //(today.m==14 makes today invalid)
+Date birthday {1960,12,31}; // December 31, 1960
+++birthday.d;               // ouch! Invalid date
+                            // (birthday.d==32 makes today invalid)
+Date today {1970,2,3};      
+today.m = 14;               // (today.m==14 makes today invalid)
                         </pre>
                         </code>
                         <p>
                         As long as we leave the representation of Date
-                        accessible to everybody, somebody will — by accident or design — mess it
-                        up; that is, someone will do something that produces an invalid value. In this
-                        case, we created a Date with a value that doesn’t
-                        correspond to a day on the calendar. Such invalid objects are time bombs; it is
-                        just a matter of time before someone innocently
-                        uses the invalid value and gets a run-time error or — usually worse — produces
-                        a bad result.<br/>
-                        Such concerns lead us to conclude that the representation of Date should be
-                        inaccessible to users except through the public
-                        member functions that we supply
+                        accessible to everybody, somebody will — by accident or
+                        design — mess it up; that is, someone will do something
+                        that produces an invalid value. In this case, we
+                        created a Date with a value that doesn’t correspond to
+                        a day on the calendar. Such invalid objects are time
+                        bombs; it is just a matter of time before someone
+                        innocently uses the invalid value and gets a run-time
+                        error or — usually worse — produces a bad result.
+                        </p>
+
+                        <p>
+                        Such concerns lead us to conclude that the
+                        representation of Date should be inaccessible to users
+                        except through the public member functions that we
+                        supply
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         9.4.4 Defining member functions
@@ -344,10 +361,11 @@ today.m = 14;               //(today.m==14 makes today invalid)
                         </figure>
                         <p>
                         So far, we have looked at Date from the point of view
-                        of an interface designer and a user. But sooner or later, we have to
-                        implement those member functions. First, here is a subset of the Date class
-                        reorganized to suit the common style of providing
-                        the public interface first:
+                        of an interface designer and a user. But sooner or
+                        later, we have to implement those member functions.
+                        First, here is a subset of the Date class reorganized
+                        to suit the common style of providing the public
+                        interface first:
                         </p>
                         <code>
                         <pre>
@@ -364,14 +382,26 @@ int y, m, d;                // year, month, day
                         </code>
                         <p>
                         People put the public interface first because the
-                        interface is what most people are interested in. In principle, a user need not
-                        look at the implementation details. In reality, we are typically curious and
-                        have a quick look to see if the implementation looks
-                        reasonable and if the implementer used some technique that we could learn from.
-                        However, unless we are the implementers,
-                        we do tend to spend much more time with the public interface. The compiler
-                        doesn’t care about the order of class function and
-                        data members; it takes the declarations in any order you care to present them.<br/>
+                        interface is what most people are interested in. In
+                        principle, a user need not look at the implementation
+                        details. In reality, we are typically curious and have
+                        a quick look to see if the implementation looks
+                        reasonable and if the implementer used some technique
+                        that we could learn from.  However, unless we are the
+                        implementers, we do tend to spend much more time with
+                        the public interface. The compiler doesn’t care about
+                        the order of class function and data members; it takes
+                        the declarations in any order you care to present
+                        them.
+                        </p>
+                        
+                        <p>
+                        Defining member functions outside the class
+                        declaration is the preferred C++ style. It
+                        makes the declaration cleaner, and reduces
+                        recompilation.
+                        But for small functions, the benefits of inlining
+                        may help.
                         When we define a member outside its class, we need to
                         say which class it is a member of. We do that using the
                         class_name::member_name notation:
@@ -386,20 +416,20 @@ void Date::add_day(int n)
 {   
     // . . .
 }
-int month()                             // oops: we forgot Date::
+int month()                 // oops: we forgot Date::
 {
-return m;                               // not the member function, can’t access m
+    return m;               // not the member function, can’t access m
 }
                         </pre>
                         </code>
                         <p>
-                        The<code> :y{yy}, m{mm}, d{dd}</code> notation is how we initialize
-                        members. It is called a (member) initializer list. We could have
-                        written
+                        The<code> :y{yy}, m{mm}, d{dd}</code> notation is how
+                        we initialize members. It is called a (member)
+                        initializer list. We could have written:
                         </p>
                         <code>
                         <pre>
-Date::Date(int yy, int mm, int dd) //Constructor
+Date::Date(int yy, int mm, int dd) // Constructor
 {
     y = yy;
     m = mm;
@@ -458,11 +488,14 @@ void f(Date d1, Date d2)
                         <p>
                         What do we do when we find an invalid date? Where in
                         the code do we look for invalid dates? We know that the
-                        answer to the first question is “Throw an exception,” and the obvious place to
-                        look is where we first construct a <code>Date</code>. If we
-                        don’t create invalid <code>Date</code>s and also write our member functions correctly, we
-                        will never have a<code> Date</code> with an invalid value.
-                        So, we’ll prevent users from ever creating a<code> Date</code> with an invalid state:
+                        answer to the first question is “Throw an exception,”
+                        and the obvious place to look is where we first
+                        construct a <code>Date</code>. If we don’t create
+                        invalid <code>Date</code>s and also write our member
+                        functions correctly, we will never have a<code>
+                        Date</code> with an invalid value.  So, we’ll prevent
+                    users from ever creating a<code> Date</code> with an
+                    invalid state:
                         </p>
                         <code>
                         <pre>
@@ -479,20 +512,21 @@ private:
                         </pre>
                         </code>
                         <p>
-                        We put the testing of validity into a separate<code> is_valid()</code> function because
-                        checking for validity is logically distinct from
-                        initialization and because we might want to have several constructors. As you
-                        can see, we can have private functions as well
-                        as private data:
+                        We put the testing of validity into a separate<code>
+                            is_valid()</code> function because checking for
+                        validity is logically distinct from initialization and
+                        because we might want to have several constructors. As
+                        you can see, we can have private functions as well as
+                        private data:
                         </p>
                         <code>
                         <pre>
 Date::Date(int yy, int mm, int dd)
-: y{yy}, m{mm}, d{dd}                   //initialize data members
+: y{yy}, m{mm}, d{dd}                   // initialize data members
 {
-    if (!is_valid()) throw Invalid{};   //check for validity    
+    if (!is_valid()) throw Invalid{};   // check for validity    
 }
-bool Date::is_valid()                   //return true if date is valid
+bool Date::is_valid()                   // return true if date is valid
 {
     if (m&lt;1 || 12&lt;m) return false;
     // . . .
@@ -516,14 +550,35 @@ catch(Date::Invalid) {
                         </pre>
                         </code>
                         <p>
-                        We now know that &lt;&lt; and <code>add_day()</code>will have a valid
-                        <code>Date</code> on which to operate.
-                        Before completing the evolution of our<code> Date</code> class in section 9.7, we’ll take a detour
-                        to describe a couple of general languagefacilities that we’ll need to do that
-                        well: enumerations and operator overloading.
+                        We now know that &lt;&lt; and
+                        <code>add_day()</code>will have a valid
+                        <code>Date</code> on which to operate.  Before
+                        completing the evolution of our<code> Date</code> class
+                        in section 9.7, we’ll take a detour to describe a
+                        couple of general language
+                        facilities that we’ll need to
+                        do that well: enumerations and operator overloading.
                         </p>
-                </details>   
+                    </details>   
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Write the date class above, along with a main that has
+                        tests for valid and invalid dates.
+                        Include increment methods for year, month, and day.
+                        Write tests to make sure these do not give you
+                        dates like 14/34/2018!
+                    </p>
+
+
+                </details>
+
+
                 <details>
                     <summary class="sum1">
                     9.5 Enumerations
@@ -534,9 +589,9 @@ catch(Date::Invalid) {
                         </figcaption>
                     </figure>
                     <p>
-                    An <code>enum</code> (an enumeration) is a very simple user-defined type, specifying its set
-                    of values (its enumerators) as symbolic
-                    constants. For example:
+                    An <code>enum</code> (an enumeration) is a very simple
+                    user-defined type, specifying its set of values (its
+                    enumerators) as symbolic constants. For example:
                     </p>
                     <code>
                     <pre>
@@ -546,8 +601,8 @@ enum class Month {
                     </pre>
                     </code>
                     <p>
-If we don’t initialize the first enumerator, the count starts with 0. For
-example:
+                        If we don’t initialize the first enumerator, the count
+                        starts with 0. For example:
                     </p>
                     <pre>
                     <code>
@@ -567,10 +622,11 @@ enum class Day {
                         </figure>
                         <p>
                         In addition to the enum classes, also known as scoped
-                        enumerations, there are “plain” enumerations that differ from scoped
-                        enumerations by implicitly “exporting” their enumerators to the scope of the
-                        enumeration and allowing implicit conversions to
-                        int. For example:
+                        enumerations, there are “plain” enumerations that
+                        differ from scoped enumerations by implicitly
+                        “exporting” their enumerators to the scope of the
+                        enumeration and allowing implicit conversions to int.
+                        For example:
                         </p>
 
                     <code>
@@ -578,11 +634,11 @@ enum class Day {
 enum Month {                   // note: no “class”
     jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
 };
-Month m = feb;                  //OK: feb in scope
-Month m2 = Month::feb;          //also OK
-m = 7;                          //error: can’t assign an int to a Month
-int n = m;                      //OK: we can assign a Month to an int
-Month mm = Month(7);            //convert int to Month (unchecked)
+Month m = feb;                  // OK: feb in scope
+Month m2 = Month::feb;          // also OK
+m = 7;                          // error: can’t assign an int to a Month
+int n = m;                      // OK: we can assign a Month to an int
+Month mm = Month(7);            // convert int to Month (unchecked)
                     </pre>
                     </code>
                     <p>
@@ -590,6 +646,25 @@ Month mm = Month(7);            //convert int to Month (unchecked)
                     </p>
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Add enums for month and day of the week to your Date
+                        class.
+                        Add a vector of strings that maps months from the
+                        enum to words for the months.
+                        Add a method <code>print_long_date</code> 
+                        that prints out the month as a word not a number.
+                        Think about how to add the option to print day of
+                        the week.
+                    </p>
+
+                </details>
+
                 <details>
                     <summary class="sum1">
                     9.6 Operator overloading
@@ -601,8 +676,9 @@ Month mm = Month(7);            //convert int to Month (unchecked)
                     </figure>
                     <p>
                     You can define almost all C++ operators for class or
-                    enumeration operands. That’s often called operator overloading. We use
-                    it when we want to provide conventional notation for a type we design. For
+                    enumeration operands. That’s often called operator
+                    overloading. We use it when we want to provide conventional
+                    notation for a type we design. For
                     example:
                     </p>
                     <code>
@@ -610,9 +686,9 @@ Month mm = Month(7);            //convert int to Month (unchecked)
 enum class Month {
     Jan=1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
 };
-Month operator++(Month &amp; m)                  //prefix increment operator
+Month operator++(Month &amp; m)                  // prefix increment operator
 {
-    m = (m==Dec) ? Jan : Month(int(m)+1);   //“wrap around”
+    m = (m==Dec) ? Jan : Month(int(m)+1);   // “wrap around”
     return m;
 }
                     </pre>
@@ -645,13 +721,14 @@ Month m = Sep;
                     </figure>
                     <p>
                     We have argued that the public interface and the
-                    implementation parts of a class should be separated. As long as we leave
-                    openthe possibility of using structs for types that are “plain old data,” few
-                    professionals would disagree. However, how do we
-                    design a good interface? What distinguishes a good public interface from a
-                    mess? Part of that answer can be given only by
-                    example, but there are a few general principles that we can list and that are
-                    given some support in C++:
+                    implementation parts of a class should be separated. As
+                    long as we leave open the possibility of using structs for
+                    types that are “plain old data,” few professionals would
+                    disagree. However, how do we design a good interface? What
+                    distinguishes a good public interface from a mess? Part of
+                    that answer can be given only by example, but there are a
+                    few general principles that we can list and that are given
+                    some support in C++:
                     </p>
                     <ul>
                     <li>Keep interfaces complete</li>
@@ -671,24 +748,31 @@ Month m = Sep;
                             <figcaption>
                             </figcaption>
                         </figure>
-                        <p>When we defined the constructor for Date in §9.4.3,
-                        we used three ints as the arguments. That caused some problems:
+
+                        <p>
+                        When we defined the constructor for Date in §9.4.3, we
+                        used three ints as the arguments. That caused some
+                        problems:
                         </p>
+
                         <code>
                         <pre>
 Date d1 {4,5,2005}; // oops: year 4, day 2005
 Date d2 {2005,4,5}; // April 5 or May 4?
                         </pre>
                         </code>
+
                         <p>
-                        The first problem (an illegal day of the month) is easily dealt with by a test
-                        in the constructor. However, the second (a month
-                        vs. day-of-the-month confusion) can’t be caught by code written by the user.
-                        The second problem is simply that the conventions
-                        for writing month and day-in-month differ; for example, 4/5 is April 5 in the
-                        United States and May 4 in England. Since we
-                        can’t calculate our way out of this, we must do something else. The obvious
-                        solution is to use a<code> Month</code> type:
+                        The first problem (an illegal day of the month) is
+                        easily dealt with by a test in the constructor.
+                        However, the second (a month vs. day-of-the-month
+                        confusion) can’t be caught by code written by the user.
+                        The second problem is simply that the conventions for
+                        writing month and day-in-month differ; for example, 4/5
+                        is April 5 in the United States and May 4 in England.
+                        Since we can’t calculate our way out of this, we must
+                        do something else. The obvious solution is to use
+                        a<code> Month</code> type:
                         </p>
                         <code>
                         <pre>
@@ -719,20 +803,20 @@ private:
                         </figure>
                         <p>
                         We always have to create objects; that is, we must
-                        always consider initialization and constructors. Arguably they are the most
-                        important members of a class: to write them, you have to decide what it takes
-                        to initialize an object and what it means for a
-                        value to be valid (what is the invariant?). Just thinking about initialization
-                        will help you avoid errors.<br/>
-                        
+                        always consider initialization and constructors.
+                        Arguably they are the most important members of a
+                        class: to write them, you have to decide what it takes
+                        to initialize an object and what it means for a value
+                        to be valid (what is the invariant?). Just thinking
+                        about initialization will help you avoid errors.<br/>
                         The next thing to consider is often: Can we copy our
-                        objects? And if so, how do we copy them?<br/>
-                    
-                        For Date or Month, the answer is that we obviously want
-                        to copy objects of that type and that the meaning of copy is
-                        trivial: just copy all of the members. Actually, this is the default case. So
-                        as long as you don’t say anything else, the compiler
-                        will do exactly that. For example, if you copy a Date as an initializer or
+                        objects? And if so, how do we copy them?<br/> For Date
+                        or Month, the answer is that we obviously want to copy
+                        objects of that type and that the meaning of copy is
+                        trivial: just copy all of the members. Actually, this
+                        is the default case. So as long as you don’t say
+                        anything else, the compiler will do exactly that. For
+                        example, if you copy a Date as an initializer or
                         right-hand side of an assignment, all its members are
                         copied:
                         </p>
@@ -757,12 +841,13 @@ d3 = holiday;
                         </figure>
                         <p>
                     Uninitialized variables can be a serious source of errors.
-                    To counter that problem, we have the notion of a constructor to
-                    guarantee that every object of a class is initialized. For example, we declared
-                    the constructor<code> Date::Date(int,Month,int)</code>
-                    to ensure that every<code> Date</code> is properly
-                    initialized. In the case of <code>Date</code>, that
-                    means that the programmer must supply three
+                    To counter that problem, we have the notion of a
+                    constructor to guarantee that every object of a class is
+                    initialized. For example, we declared the constructor<code>
+                    Date::Date(int,Month,int)</code> to ensure that every<code>
+                    Date</code> is properly initialized. In the case of
+                    <code>Date</code>, that means that the
+                    programmer must supply three
                     arguments of the right types
                         </p>
                     </details>
@@ -777,9 +862,9 @@ d3 = holiday;
                         </figure>
                         <p>
                         Some variables are meant to be changed — that’s why we
-                        call them “variables” — but some are not; that is, we have
-                        “variables” representing immutable values. Those, we typically call constants
-                         or just consts.
+                        call them “variables” — but some are not; that is, we
+                        have “variables” representing immutable values. Those,
+                        we typically call constants or just consts.
                         </p>
                     </details>
                     <details>
@@ -793,45 +878,32 @@ d3 = holiday;
                         </figure>
                         <p>
                         When we design our interfaces to be minimal (though
-                        complete), we have to leave out lots of operations that are merely useful.
-                        A function that can be simply, elegantly, and efficiently implemented as a
+                        complete), we have to leave out lots of operations that
+                        are merely useful.  A function that can be simply,
+                        elegantly, and efficiently implemented as a
                         freestanding function (that is, as a nonmember
-                        function) should be implemented outside the class. That way, a bug in that
-                        function cannot directly corrupt the data in a class
-                        object. Not accessing the representation is important because the usual debug
-                        technique is “Round up the usual suspects”; that
-                        is, when something goes wrong with a class, we first look at the functions that
-                        directly access the representation: one of those
-                        almost certainly did it. If there are a dozen such functions, we will be much
-                        happier than if there were 50.<br/>
+                        function) should be implemented outside the class. That
+                        way, a bug in that function cannot directly corrupt the
+                        data in a class object. Not accessing the
+                        representation is important because the usual debug
+                        technique is “Round up the usual suspects”; that is,
+                        when something goes wrong with a class, we first look
+                        at the functions that directly access the
+                        representation: one of those almost certainly did it.
+                        If there are a dozen such functions, we will be much
+                        happier than if there were 50.
+                        </p>                
+                                        
+                        <p>
                         Helper functions are also called convenience functions,
-                        auxiliary functions, and many other things. The distinction between
-                        these functions and other nonmember functions is logical; that is, “helper
-                        function” is a design concept, not a programming
-                        language concept. The helper functions often take arguments of the classes that
-                        they are helpers of.
+                        auxiliary functions, and many other things. The
+                        distinction between these functions and other nonmember
+                        functions is logical; that is, “helper function” is a
+                        design concept, not a programming language concept. The
+                        helper functions often take arguments of the classes
+                        that they are helpers of.
                         </p>
                     </details>
-                </details>
-                <details>
-                    <summary class="sum1">
-                    9.8 The Date class
-                    </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
-                    <p>
-                    So, let’s just put it all together and see what that <code>Date</code>
-                    class might look like when we combine all of the ideas/concerns. Where
-                    a function’s body is just a . . . comment, the actual implementation is tricky
-                    (please don’t try to write those just yet).
-                    </p>
-                    <p>
-                    the code illustrated in this section of the book is very
-                    interesting and you should definitely take a look at it.
-                    </p>
                 </details>
 
                 <details>
@@ -839,12 +911,12 @@ d3 = holiday;
                     Test Yourself!
                     </summary>
                     <figure>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Exams_in_Jaura%2C_India.jpg/560px-Exams_in_Jaura%2C_India.jpg"
+                        <img src="https:// upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Exams_in_Jaura%2C_India.jpg/560px-Exams_in_Jaura%2C_India.jpg"
                         width="20%">
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+<!--include quiz9.qhtm -->
                 </details>
 
                 <details>
@@ -852,13 +924,48 @@ d3 = holiday;
                     Drill
                     </summary>
                     <figure>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Queens.guard.buck.palace.arp.jpg/600px-Queens.guard.buck.palace.arp.jpg"
+                        <img src="https:// upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Queens.guard.buck.palace.arp.jpg/600px-Queens.guard.buck.palace.arp.jpg"
                         width="20%">
                         <figcaption>
                         </figcaption>
                     </figure>
 
+                    <p>
+                        Code a full date class and write a main showing its
+                        complete usage. You should include:
+                    </p>
+
                     <ol>
+
+                        <li>
+                            Exceptions for bad dates.
+                        </li>
+
+                        <li>
+                            Methods to get and to increment the day, month and
+                            year.
+                        </li>
+
+                        <li>
+                            A month <code>enum</code> class to ensure argument 
+                            order.
+                        </li>
+
+                        <li>
+                            A boolean test for leapyear outside the class.
+                        </li>
+
+                        <li>
+                            Operator overloading for &lt;&lt;,
+                            &gt;&gt;, ==, and !=.
+                        </li>
+
+                        <li>
+                            Methods for day of the week, the next weekday,
+                            and a function outside the class for testing
+                            date validity, that will be passed y, m and d.
+                        </li>
+
                     </ol>
                 </details>
             </div>
