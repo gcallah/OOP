@@ -971,7 +971,33 @@ private:
                             </figcaption>
                         </figure>
                         <p>
+                        We always have to create objects; that is, we must
+                        always consider initialization and constructors. Arguably they are the most
+                        important members of a class: to write them, you have to decide what it takes
+                        to initialize an object and what it means for a
+                        value to be valid (what is the invariant?). Just thinking about initialization
+                        will help you avoid errors.<br/>
+                        
+                        The next thing to consider is often: Can we copy our
+                        objects? And if so, how do we copy them?<br/>
+                    
+                        For Date or Month, the answer is that we obviously want
+                        to copy objects of that type and that the meaning of copy is
+                        trivial: just copy all of the members. Actually, this is the default case. So
+                        as long as you don’t say anything else, the compiler
+                        will do exactly that. For example, if you copy a Date as an initializer or
+                        right-hand side of an assignment, all its members are
+                        copied:
                         </p>
+                        <code>
+                        <pre>
+Date holiday {1978, Month::jul, 4};   // initialization
+Date d2 = holiday;
+Date d3 = Date{1978, Month::jul, 4};
+holiday = Date{1978, Month::dec, 24}; // assignment
+d3 = holiday;
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
