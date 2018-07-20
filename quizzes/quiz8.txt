@@ -1,2 +1,4 @@
 What is the difference between a function declaration and a function definition?#the declaration includes the function body, while the definition just gives the functions return and parameter types#^the declaration just gives the functions return and parameter types, while the definition includes the function body
 What are header files used for?#To heaad off disaster.#To put a nice header at the top of your code if you print it.#^To provide declarations needed for multiple source code files.
+How does indentation help in a C++ program?#it helps the compiler do code optimizations#^it makes the structure of the code clearer to a human reader#it is necessary to compile the code correctly, just as in Python
+If we need to alter the original of a variable we are passing to a function, we should...#pass by constant reference#^pass by reference#pass by value
