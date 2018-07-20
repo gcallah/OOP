@@ -1,16 +1,42 @@
 #include "std_lib_facilities.h"
 #include "token.h"
+#include "vars.h"
 #include "parser.h"
+
+double statement(Token_stream& ts)
+{
+/* grammar recognized:
+ Statement:
+    Var "=" Expression
+    Var ";"
+    Expression
+ */
+    Token t = ts.get();
+    if(t.kind == name) {
+        Token var = t;
+//        cout << "Got a var with name " << var.name << endl;
+        t = ts.get();
+        if(t.kind == '=') {  // an assignment
+            double d = expression(ts);
+            set_value(var.name, d);
+            return d;
+        }
+        else if(t.kind == print) {
+            ts.putback(t);
+            return get_value(var.name);
+        }
+    }
+    ts.putback(t);
+    return expression(ts);
+}
 
 double expression(Token_stream& ts)
 {
 /* grammar recognized:
- *
  Expression:
     Term
     Expression "+" Term
     Expression "-" Term
- *
  */
     double left = term(ts);      // read and evaluate a Term
     Token t = ts.get();        // get the next token from token stream
@@ -34,6 +60,13 @@ double expression(Token_stream& ts)
 
 double term(Token_stream& ts)
 {
+/* grammar recognized:
+Term:
+    Primary
+    Term "*" Primary
+    Term "/" Primary
+    Term "%" Primary
+*/
     double left = primary(ts);
     Token t = ts.get();        // get the next token from token stream
 
@@ -69,7 +102,17 @@ double term(Token_stream& ts)
 
 double primary(Token_stream& ts)
 {
-	Token t = ts.get();
+/* grammar recognized:
+Primary:
+    Number
+    "(" Expression ")"
+    +Number
+    -Number
+    Variable
+    -Variable
+    +Variable
+*/
+    Token t = ts.get();
     switch (t.kind) {
     case '(':    // handle '(' expression ')'
         {    
@@ -80,6 +123,8 @@ double primary(Token_stream& ts)
         }
     case number:
         return t.value;  // return the number's value
+    case name:
+        return get_value(t.name);
     case '-':
         return -primary(ts);
     case '+':
@@ -87,5 +132,6 @@ double primary(Token_stream& ts)
     default:
         error("primary expected");
     }
+    return 0.0;
 }
 
