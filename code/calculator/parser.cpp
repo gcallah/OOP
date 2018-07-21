@@ -25,6 +25,9 @@ double statement(Token_stream& ts)
             ts.putback(t);
             return get_value(var.name);
         }
+        ts.putback(t);
+        ts.putback(var);
+        return expression(ts);
     }
     ts.putback(t);
     return expression(ts);

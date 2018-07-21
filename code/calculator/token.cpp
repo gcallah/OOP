@@ -9,14 +9,20 @@ std::ostream &operator<<(std::ostream &os, Token const &t) {
 
 void Token_stream::putback(Token t)
 {
-    buffer =t;
-    full = true;
+    buffer.push_back(t);
+}
+
+Token Token_stream::popback()
+{
+    Token t = buffer.back();
+    buffer.pop_back();
+    return t;
 }
 
 Token Token_stream::get() {
-    if(full) {
-        full = false;
-        return buffer;
+    if(buffer.size() > 0) {
+        Token t = popback();
+        return t;
     }
     char ch;
     cin >> ch;
@@ -58,11 +64,10 @@ void Token_stream::ignore(char c)
     // c is token kind to look for
 {
     // first check buffer:
-    if(full && c == buffer.kind) {
-        full = false;
-        return;
+    while(buffer.size() > 0) {
+        Token t = popback();
+        if(t.kind == c) return;
     }
-    full = false;
 
     // now search input:
     char ch = 0;
