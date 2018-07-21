@@ -70,18 +70,18 @@ Term:
     Term "/" Primary
     Term "%" Primary
 */
-    double left = primary(ts);
+    double left = expon(ts);
     Token t = ts.get();        // get the next token from token stream
 
     while(true) {
         switch (t.kind) {
         case '*':
-            left *= primary(ts);
+            left *= expon(ts);
             t = ts.get();
             break;
         case '/':
             {    
-                double d = primary(ts);
+                double d = expon(ts);
                 if (d == 0) error("divide by zero");
                 left /= d; 
                 t = ts.get();
@@ -89,7 +89,7 @@ Term:
             }
         case '%':
             {
-                double d = primary(ts);
+                double d = expon(ts);
                 if (d == 0) error("divide by zero");
                 left = fmod(left, d);
                 t = ts.get();
@@ -101,6 +101,25 @@ Term:
         }
     }
 
+}
+
+double expon(Token_stream& ts)
+{
+/* grammar recognized:
+Exp:
+    Primary
+    Primary "^" Primary
+*/
+    double left = primary(ts);
+    Token t = ts.get();
+    if(t.kind == power) {
+        double d = primary(ts);
+        return pow(left, d);
+    }
+    else {
+        ts.putback(t);     // put t back into the token stream
+        return left;
+    }
 }
 
 double primary(Token_stream& ts)
