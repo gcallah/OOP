@@ -1,0 +1,40 @@
+    <ol class="nested">
+            <li>
+                What is the difference between a function declaration and a function definition?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                the declaration includes the function body, while the definition just gives the functions return and parameter types
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                the declaration just gives the functions return and parameter types, while the definition includes the function body
+                </li>
+            </ol>
+            <li>
+                What are header files used for?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                To heaad off disaster.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                To put a nice header at the top of your code if you print it.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                To provide declarations needed for multiple source code files.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. b; 2. c;
+            </p>
+        </details>

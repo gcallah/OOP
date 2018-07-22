@@ -1,1 +1,0 @@
-difference between a declaration and a definition is#^a
