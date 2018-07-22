@@ -1,6 +1,7 @@
 #include "std_lib_facilities.h"
 #include "token.h"
 #include "vars.h"
+#include "funcs.h"
 #include "parser.h"
 
 double statement(Token_stream& ts)
@@ -133,6 +134,7 @@ Primary:
     Variable
     -Variable
     +Variable
+    Function "(" Expression ")"
 */
     Token t = ts.get();
     switch (t.kind) {
@@ -146,7 +148,20 @@ Primary:
     case number:
         return t.value;  // return the number's value
     case name:
-        return get_value(t.name);
+        {
+            Token next_t = ts.get();
+            if(next_t.kind == '(') {
+                double d = expression(ts);
+                d = exec_func(t.name, d);
+                t = ts.get();
+                if (t.kind != ')') error("')' expected");
+                return d;
+            }
+            else {
+                ts.putback(next_t);
+                return get_value(t.name);
+            }
+        }
     case '-':
         return -primary(ts);
     case '+':
