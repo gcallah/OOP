@@ -4,5 +4,5 @@ Is int a; a definition or just a declaration?#^Declaration Only#Declaration as w
 It is always a good idea to initialize variables as they are declared because …#^it's initial value is indeterminate#it’s initial value is empty
 The function declaration consists of …#^function name, return type and parameter list#function body and parameter list#function name and parameter list
 Which of the following is not a type of scope?#Namespace Scope#^Declaration Scope#Class Scope#Global Scope
-Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#- the called functions' parameter will be a copy of the callers' passed argument
+Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#the called functions' parameter will be a copy of the callers' passed argument
 Passing by value means …#parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#^the called functions' parameter will be a copy of the callers' passed argument
