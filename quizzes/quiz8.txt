@@ -1,3 +1,8 @@
 What is the difference between a function declaration and a function definition?#the declaration includes the function body, while the definition just gives the functions return and parameter types#^the declaration just gives the functions return and parameter types, while the definition includes the function body
 What are header files used for?#To head off disaster.#To put a nice header at the top of your code if you print it.#^To provide declarations needed for multiple source code files.
 Is int a; a definition or just a declaration?#^Declaration Only#Declaration as well as Definition#Definition Only
+It is always a good idea to initialize variables as they are declared because …#^it's initial value is indeterminate#it’s initial value is empty
+The function declaration consists of …#^function name, return type and parameter list#function body and parameter list#function name and parameter list
+Which of the following is not a type of scope?#Namespace Scope#^Declaration Scope#Class Scope#Global Scope
+Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#- the called functions' parameter will be a copy of the callers' passed argument
+Passing by value means …#parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#^the called functions' parameter will be a copy of the callers' passed argument
