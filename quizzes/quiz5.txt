@@ -5,3 +5,8 @@ An example of a logic error is when...y#you send the wrong type of argument to a
 One reason why throwing an exception is better than returning an error value is...#^the exception cannot be ignored.#throwing an exception makes the code that produced the error also handle it.#throwing exceptions is a more modern style.
 An example of something student programs are <b>not</b> expected to handle is:#bad input#^hardware failures#divide-by-zero errors
 Most large programs...#^will <b>always</b> contain some bugs.#can be fully de-bugged in a couple of days.#will likely be bug-free from the start.
+Which is used to handle the exceptions in c++?#^exception handler#catch handler#none of the mentioned#handler
+Which of the following does not cause a syntax error to be reported by the C++ compiler?#^Extra blank lines#Missing ; at the end of a statement#Missing */ in a comment#Mismatched {}
+Which of the following is not a syntax error?#std::cout << "Hello world! ";#std::cout << 'Hello world! ';#^std::cout << "Hello world! ";
+Run Time Errors are ..#the errors which are traced by the compiler during compilation, due to wrong grammar for the language used in the program#^the errors encountered during execution of the program, due to unexpected input or output#the errors encountered when the program does not give the desired output
+What will happen when the exception is not caught in the program?#^error#program will execute#none of the mentioned#block of that code will not execute
