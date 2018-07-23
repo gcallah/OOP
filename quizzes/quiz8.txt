@@ -6,4 +6,11 @@ The function declaration consists of …#^function name, return type and paramet
 Which of the following is not a type of scope?#Namespace Scope#^Declaration Scope#Class Scope#Global Scope
 Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#the called functions' parameter will be a copy of the callers' passed argument
 Passing by value means …#parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#^the called functions' parameter will be a copy of the callers' passed argument
-Function definition consists of …#- function name and body#- function body and return type#^function name, parameters, return value type, and body
+Function definition consists of …#function name and body#function body and return type#^function name, parameters, return value type, and body
+What is the return type here: int myMethod(int count, double value) {    return 4;	}#MyMethod#^Int#4#Double#Count
+If a variable is declared inside a function, what kind of variable is this?#global variable#^local variable#extended variable
+If we have a function int square (int n) , are we able to send it a different variable in the main program or does it have to be n.  For example, square (x)#No#^Yes
+Which of the following is a valid function call (assuming the function exists)?#^funct();#funct;#funct x, y;#int funct();
+Identify the correct statement#None of the mentioned#Namespace is used to mark the beginning of the program#A namespace is used to separate the class, objects#^Namespace is used to group class, objects and functions
+What is the use of Namespace?#^To encapsulate the data#To structure a program into logical units#None of the mentioned#Encapsulate the data & structure a program into logical units
+What is the scope of the variable declared in the user defined function?#none of the mentioned#whole program#the main function#^only inside the {} block
