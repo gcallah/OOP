@@ -14,3 +14,8 @@ Which of the following is a valid function call (assuming the function exists)?#
 Identify the correct statement#None of the mentioned#Namespace is used to mark the beginning of the program#A namespace is used to separate the class, objects#^Namespace is used to group class, objects and functions
 What is the use of Namespace?#^To encapsulate the data#To structure a program into logical units#None of the mentioned#Encapsulate the data & structure a program into logical units
 What is the scope of the variable declared in the user defined function?#none of the mentioned#whole program#the main function#^only inside the {} block
+Suppose your function does not return any value, which of the following keywords can be used as a return type?#double#int#^void#float#unsigned short
+The header of the main function in C++ is __________#Main(String[] args)#^int main()#void main(String[] args#Main(String args[])#main(String[] args)
+Arguments to functions always appear within __________#brackets#^parentheses#curly braces#quotation marks
+Which of the following functions should be defined as void?#Return a sales commission, given the sales amount and the commission rate#^Print the calendar for a month, given the month and year#Return a bool value indicating whether a number is even#Return a square root for a number
+Which of the following should be declared as a void function?#^Write a function that prints integers from 1 to 100#Write a function that checks whether current second is an integer from 1 to 100#Write a function that converts an uppercase letter to lowercase#Write a function that returns a random integer from 1 to 100
