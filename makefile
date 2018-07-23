@@ -25,7 +25,12 @@ clean:
 	touch $(PTML_DIR)/*.ptml; make local
 
 quizzes:
-	cd quizzes; make all; cd ..
+	cd $(QUIZ_DIR); make all; cd -
+
+# handcraft which files you want in the test:
+tests:
+	cd $(QUIZ_DIR); make tests; cd -
+	cat $(QUIZ_DIR)/quiz2.thtm $(QUIZ_DIR)/quiz3.thtm $(QUIZ_DIR)/quiz4.thtm $(QUIZ_DIR)/quiz5.thtm $(QUIZ_DIR)/quiz6.thtm $(QUIZ_DIR)/quiz7.thtm $(QUIZ_DIR)/quiz8.thtm > $(QUIZ_DIR)/vivek_akshay.html
 
 menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt

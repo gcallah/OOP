@@ -11,7 +11,7 @@ QUIZZES = $(shell ls quiz*.txt)
 
 all: $(QINCS)
 
-test: $(TEST)
+tests: $(TEST)
 
 clean:
 	touch *.txt
