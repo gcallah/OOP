@@ -2,3 +2,5 @@ Why did we introduce a const name like 'number' into our program?#to make the pr
 When should you start to test your program?#only when done coding#testing isn't really necessary#^almost as soon as you've started coding
 When should you retest?#Only after major changes.#^After every change, no matter how small.#One round of testing is enough.
 What is wrong with commenting x = a + b; with // add a and b and put value in x#It does not describe the code  correctly.#Variable names should never occur in comments.#It will confuse the compiler.#^It only says what the code already clearly says.
+What is the purpose of commenting in a program?#It is necessary for the compilation of the code#None of the above#It is something not to be bothered about#^To make the program more readable and easy to understand
+What is the use of symbolic constant?#Nothing much useful in it#^The code is less error prone, easier to change and understand#None of the above#Symbolic constants help the code to run faster
