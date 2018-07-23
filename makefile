@@ -24,6 +24,9 @@ local: $(HTMLFILES)
 clean:
 	touch $(PTML_DIR)/*.ptml; make local
 
+quizzes:
+	cd quizzes; make all; cd ..
+
 menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt
 

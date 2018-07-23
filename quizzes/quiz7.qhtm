@@ -75,12 +75,54 @@
                 It only says what the code already clearly says.
                 </li>
             </ol>
+            <li>
+                What is the purpose of commenting in a program?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                It is necessary for the compilation of the code
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                None of the above
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                It is something not to be bothered about
+                </li>
+                <li>
+                <input type="radio" name="q5" value="d">
+                To make the program more readable and easy to understand
+                </li>
+            </ol>
+            <li>
+                What is the use of symbolic constant?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                Nothing much useful in it
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                The code is less error prone, easier to change and understand
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                None of the above
+                </li>
+                <li>
+                <input type="radio" name="q6" value="d">
+                Symbolic constants help the code to run faster
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. c; 2. c; 3. b; 4. d; 
+                1. c; 2. c; 3. b; 4. d; 5. d; 6. b; 
             </p>
         </details>

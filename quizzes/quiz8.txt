@@ -1,4 +1,18 @@
-What is the difference between a function declaration and a function definition?#the declaration includes the function body, while the definition just gives the functions return and parameter types#^the declaration just gives the functions return and parameter types, while the definition includes the function body
-What are header files used for?#To heaad off disaster.#To put a nice header at the top of your code if you print it.#^To provide declarations needed for multiple source code files.
+What is the difference between a function declaration and a function definition?#the declaration includes the function body, while the definition just gives the function's return and parameter types#^the declaration just gives the function's return and parameter types, while the definition includes the function body
+What are header files used for?#To head off disaster.#To put a nice header at the top of your code if you print it.#^To provide declarations needed for multiple source code files.
 How does indentation help in a C++ program?#it helps the compiler do code optimizations#^it makes the structure of the code clearer to a human reader#it is necessary to compile the code correctly, just as in Python
 If we need to alter the original of a variable we are passing to a function, we should...#pass by constant reference#^pass by reference#pass by value
+The function declaration consists of …#^function name, return type and parameter list#function body and parameter list#function name and parameter list
+Which of the following is not a type of scope?#Namespace Scope#^Declaration Scope#Class Scope#Global Scope
+Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#the called function's parameter will be a copy of the callers' passed argument
+Passing by value means …#parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#^the called function's parameter will be a copy of the callers' passed argument
+Function definition consists of …#function name and body#function body and return type#^function name, parameters, return value type, and body
+What is the return type here: int myMethod(int count, double value) {    return 4;	}#MyMethod#^int#4#double#count
+If a variable is declared inside a function, what kind of variable is this?#global variable#^local variable#class variable
+If we have a function int square (int n) , are we able to send it a different variable in the main program or does it have to be n.  For example, square (x)#No#^Yes
+Which of the following is a valid function call (assuming the function exists)?#^f();#f;#f x, y;#int f();
+Identify the correct statement#None of the mentioned#A namespace is used to mark the beginning of the program#A namespace is used to separate a class from objects#^A namespace is used to group classes, objects and functions
+What is the scope of the variable declared in a user defined function?#none of the mentioned#whole program#the main function#^only inside the {} block in which it is declared
+If your function does not return any value, which of the following keywords should be used as a return type?#double#int#^void#float#unsigned short
+Which of the following functions should be defined as void?#Return a sales commission, given the sales amount and the commission rate#^Print the calendar for a month, given the month and year#Return a bool value indicating whether a number is even#Return a square root for a number
+Which of the following should be declared as a void function?#^a function that prints integers from 1 to 100#a function that checks whether current second is an integer from 1 to 100#a function that converts an uppercase letter to lowercase#a function that returns a random integer from 1 to 100

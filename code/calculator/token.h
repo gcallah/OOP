@@ -4,6 +4,8 @@ const char name = 'a';
 const char number = '8';
 const char quit = 'q';
 const char print = ';';
+const char power = '^';
+const char mod = '%';
 
 class Token {
 public:
@@ -20,9 +22,9 @@ class Token_stream {
     public:
         Token get();
         void putback(Token t);
+        Token popback();
         void ignore(char c);
     private:
-        bool full{false};
-        Token buffer{invalid};
+        vector<Token> buffer;
 };
 
