@@ -123,12 +123,168 @@
                 the called functions' parameter will be a copy of the callers' passed argument
                 </li>
             </ol>
+            <li>
+                Function definition consists of …
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q9" value="a">
+                function name and body
+                </li>
+                <li>
+                <input type="radio" name="q9" value="b">
+                function body and return type
+                </li>
+                <li>
+                <input type="radio" name="q9" value="c">
+                function name, parameters, return value type, and body
+                </li>
+            </ol>
+            <li>
+                What is the return type here: int myMethod(int count, double value) {    return 4;	}
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q10" value="a">
+                MyMethod
+                </li>
+                <li>
+                <input type="radio" name="q10" value="b">
+                Int
+                </li>
+                <li>
+                <input type="radio" name="q10" value="c">
+                4
+                </li>
+                <li>
+                <input type="radio" name="q10" value="d">
+                Double
+                </li>
+                <li>
+                <input type="radio" name="q10" value="e">
+                Count
+                </li>
+            </ol>
+            <li>
+                If a variable is declared inside a function, what kind of variable is this?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q11" value="a">
+                global variable
+                </li>
+                <li>
+                <input type="radio" name="q11" value="b">
+                local variable
+                </li>
+                <li>
+                <input type="radio" name="q11" value="c">
+                extended variable
+                </li>
+            </ol>
+            <li>
+                If we have a function int square (int n) , are we able to send it a different variable in the main program or does it have to be n.  For example, square (x)
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q12" value="a">
+                No
+                </li>
+                <li>
+                <input type="radio" name="q12" value="b">
+                Yes
+                </li>
+            </ol>
+            <li>
+                Which of the following is a valid function call (assuming the function exists)?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q13" value="a">
+                funct();
+                </li>
+                <li>
+                <input type="radio" name="q13" value="b">
+                funct;
+                </li>
+                <li>
+                <input type="radio" name="q13" value="c">
+                funct x, y;
+                </li>
+                <li>
+                <input type="radio" name="q13" value="d">
+                int funct();
+                </li>
+            </ol>
+            <li>
+                Identify the correct statement
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q14" value="a">
+                None of the mentioned
+                </li>
+                <li>
+                <input type="radio" name="q14" value="b">
+                Namespace is used to mark the beginning of the program
+                </li>
+                <li>
+                <input type="radio" name="q14" value="c">
+                A namespace is used to separate the class, objects
+                </li>
+                <li>
+                <input type="radio" name="q14" value="d">
+                Namespace is used to group class, objects and functions
+                </li>
+            </ol>
+            <li>
+                What is the use of Namespace?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q15" value="a">
+                To encapsulate the data
+                </li>
+                <li>
+                <input type="radio" name="q15" value="b">
+                To structure a program into logical units
+                </li>
+                <li>
+                <input type="radio" name="q15" value="c">
+                None of the mentioned
+                </li>
+                <li>
+                <input type="radio" name="q15" value="d">
+                Encapsulate the data & structure a program into logical units
+                </li>
+            </ol>
+            <li>
+                What is the scope of the variable declared in the user defined function?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q16" value="a">
+                none of the mentioned
+                </li>
+                <li>
+                <input type="radio" name="q16" value="b">
+                whole program
+                </li>
+                <li>
+                <input type="radio" name="q16" value="c">
+                the main function
+                </li>
+                <li>
+                <input type="radio" name="q16" value="d">
+                only inside the {} block
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. b; 2. c; 3. a; 4. a; 5. a; 6. b; 7. a; 8. b;
+                1. b; 2. c; 3. a; 4. a; 5. a; 6. b; 7. a; 8. b; 9. c; 10. b; 11. b; 12. b; 13. a; 14. d; 15. a; 16. d; 
             </p>
         </details>
