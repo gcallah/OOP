@@ -6,3 +6,6 @@ In the switch() in the expression function, why is the default to "put back" the
 A primary purpose of classes is to#make our program more classy#^organize our code better#make our program more object-oriented
 Classes include#header files and libraries#methods and header files#^variables and methods
 What is a "use case"?#It helps in checking the usability of the program at different situations#It is a term that describes how a user can make a program re-usable#^It is a term that describe how a user uses a system to accomplish a particular goal
+What is a token?#a variable#^Smallest element of a program meaningful to the compiler#a constant#Smallest element of a program
+Why do we want to rely on libraries of code?#It helps in improving your codeing skills#^It saves time, uses pre tested code and use modular code#We should not rely on them and should instead write our own code
+Which is not a type of access modifier in C++?#Private#Public#Protected#^Personal
