@@ -1,4 +1,4 @@
-    <ol class="nested">
+        <ol class="nested">
             <li>
                 What is the difference between a function declaration and a function definition?
             </li>
@@ -18,7 +18,7 @@
             <ol type="a" class="nested">
                 <li>
                 <input type="radio" name="q2" value="a">
-                To heaad off disaster.
+                To head off disaster.
                 </li>
                 <li>
                 <input type="radio" name="q2" value="b">
@@ -29,12 +29,29 @@
                 To provide declarations needed for multiple source code files.
                 </li>
             </ol>
+            <li>
+                Is int a; a definition or just a declaration?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                Declaration Only
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                Declaration as well as Definition
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                Definition Only
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. b; 2. c;
+                1. b; 2. c; 3. a; 
             </p>
         </details>
