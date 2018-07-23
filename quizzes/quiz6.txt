@@ -5,3 +5,4 @@ We typically break an interpreter into two phases called#expressing and optimizi
 In the switch() in the expression function, why is the default to "put back" the token?#That token will probably be a + or - and can be dealt with by the next call to expression.#^If we hit the default case, we have read one token too many.#That token will be meaningless, and we want to throw it away.
 A primary purpose of classes is to#make our program more classy#^organize our code better#make our program more object-oriented
 Classes include#header files and libraries#methods and header files#^variables and methods
+What is a "use case"?#It helps in checking the usability of the program at different situations#It is a term that describes how a user can make a program re-usable#^It is a term that describe how a user uses a system to accomplish a particular goal
