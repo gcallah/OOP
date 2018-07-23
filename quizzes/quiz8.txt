@@ -6,3 +6,4 @@ The function declaration consists of …#^function name, return type and paramet
 Which of the following is not a type of scope?#Namespace Scope#^Declaration Scope#Class Scope#Global Scope
 Passing by reference means …#^parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#the called functions' parameter will be a copy of the callers' passed argument
 Passing by value means …#parameter will be the same as the callers' passed argument (not the value, but the identity - the variable itself)#^the called functions' parameter will be a copy of the callers' passed argument
+Function definition consists of …#- function name and body#- function body and return type#^function name, parameters, return value type, and body
