@@ -201,6 +201,12 @@
             </a>
             </li>
             <li>
+            <a href="tests/midterm_key.html">
+            <i class="glyphicon glyphicon-pencil"></i>
+            Midterm
+            </a>
+            </li>
+            <li>
             <a href="http://www.stroustrup.com/programming.html">
             <i class="glyphicon glyphicon-book"></i>
             Our textbook's website
