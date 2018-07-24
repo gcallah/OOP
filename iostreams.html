@@ -299,12 +299,73 @@
                     <summary class="sum1">
                     10.2 The I/O stream model
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <code>istream</code>:
+                      <br>
+                      <ul>
+                        <li>
+                          The type <code>istream </code> deals with streams of
+                          input.
+                        </li>
+                        <li>
+                          It turns character sequences into values
+                          of various types.
+                        </li>
+                        <li>
+                          It gets those characters from somewhere
+                          (such as a console, a file, the main memory,
+                          or another computer).
+                        </li>
+                        <li>
+                          <code>istream</code> is quite
+                          visible when used from keyboard;
+                          what you type is left in the buffer until you
+                          hit Enter (return/newline),
+                          and you can use the erase (Backspace)
+                          key “to change your mind” (until you hit Enter).
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <span class='hilight'>Graphical representation of
+                        <code>istream</code>:</span>
+                        <figure>
+                            <img src="graphics/Chap10Diag2.png" width="50%">
+                        </figure>
+                    </p>
+                    <br><br>
+                    <p>
+                      <code>ostream</code>:
+                      <br>
+                      <ul>
+                        <li>
+                          The type <code>ostream</code> to deal with streams
+                          of output.
+                        </li>
+                        <li>
+                          It turns values of various types into character
+                          sequences.
+                        </li>
+                        <li>
+                          Sends those characters “somewhere”
+                          (such as to a console, a file, the main memory,
+                          or another computer).
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <span class='hilight'>Graphical representation of
+                        <code>ostream</code>:</span>
+                        <figure>
+                            <img src="graphics/Chap10Diag3.png" width="50%">
+                        </figure>
+                    </p>
+                    <br><br>
+                    <p>
+                      <i>
+                        In I/O Streams, buffering is important for dealing
+                        with large amounts of data.
+                      </i>
                     </p>
                 </details>
                 <details>
