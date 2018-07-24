@@ -373,11 +373,53 @@
                     10.3 Files
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag4.png" width="50%">
                     </figure>
                     <p>
+                      At the most basic level,
+                      a <i>file</i> is simply a sequence of bytes numbered from
+                      0 upward. A <i>file</i> has a format; i.e,
+                      it has a set of rules that determine what the bytes mean
+                      (Eg. character vs binary representation).
+                    </p>
+                    <br>
+                    <p>
+                      While <span class="hilight">reading a file</span>
+                        , we should:
+                      <ul>
+                        <li>
+                          Know its name
+                        </li>
+                        <li>
+                          Open it (for reading)
+                        </li>
+                        <li>
+                          Read in the characters
+                        </li>
+                        <li>
+                          Close it
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      While <span class="hilight">writing a file</span>
+                      , we should:
+                      <ul>
+                        <li>
+                          Name it
+                        </li>
+                        <li>
+                          Open it (for writing) or create a new file of
+                          that name
+                        </li>
+                        <li>
+                          Write out our objects
+                        </li>
+                        <li>
+                          Close it (though that is typically done implicitly)
+                        </li>
+                      </ul>
                     </p>
                 </details>
                 <details>
