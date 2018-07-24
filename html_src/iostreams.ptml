@@ -372,12 +372,49 @@
                     <summary class="sum1">
                     10.6 I/O error handling
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The possibilities for input errors are limitless!
+                      However, an istream reduces all to four possible cases,
+                      called the <i>stream state</i>:
+                      <table style="width:80%" align="center">
+                        <tr>
+                          <th colspan="2">Stream states</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            good()
+                          </td>
+                          <td>
+                            The operation succeeded
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            eof()
+                          </td>
+                          <td>
+                            We hit end of input ("end of file")
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            fail()
+                          </td>
+                          <td>
+                            Something unexpected happened (Eg. we looked for
+                            a digit and found 'x')
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            bad()
+                          </td>
+                          <td>
+                            Something unexpected and serious happened
+                            (Eg. a disk read error)
+                          </td>
+                        </tr>
+                      </table>
                     </p>
                 </details>
                 <details>
