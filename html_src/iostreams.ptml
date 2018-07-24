@@ -20,23 +20,99 @@
                     10.1 Input and output
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag1.png" width="50%">
                     </figure>
                     <p>
+                      We need to get data into our program to do
+                      interesting computations and we need to get
+                      the results out again.
+                      <br><br>
+                      In C++ Programming, I/O occurs in streams,
+                      which are sequences of bytes handled by the
+                      input/output library.
+                      <br><br>
+                      An <i>input operation</i> is when bytes flow from a
+                      device like a keyboard, a disk drive, or a
+                      network connection etc. to main memory while an
+                      <i>output operation</i> is when bytes flow
+                      from main memory to a device like a display screen,
+                      a printer, a disk drive, or a network connection, etc.
+                      <br><br>
+                      In this chapter, we’ll learn how to handle I/O
+                      consisting of streams using the C++ standard library.
                     </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     10.2 The I/O stream model
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <code>istream</code>:
+                      <br>
+                      <ul>
+                        <li>
+                          The type <code>istream </code> deals with streams of
+                          input.
+                        </li>
+                        <li>
+                          It turns character sequences into values
+                          of various types.
+                        </li>
+                        <li>
+                          It gets those characters from somewhere
+                          (such as a console, a file, the main memory,
+                          or another computer).
+                        </li>
+                        <li>
+                          <code>istream</code> is quite
+                          visible when used from keyboard;
+                          what you type is left in the buffer until you
+                          hit Enter (return/newline),
+                          and you can use the erase (Backspace)
+                          key “to change your mind” (until you hit Enter).
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <span class='hilight'>Graphical representation of
+                        <code>istream</code>:</span>
+                        <figure>
+                            <img src="graphics/Chap10Diag2.png" width="50%">
+                        </figure>
+                    </p>
+                    <br><br>
+                    <p>
+                      <code>ostream</code>:
+                      <br>
+                      <ul>
+                        <li>
+                          The type <code>ostream</code> to deal with streams
+                          of output.
+                        </li>
+                        <li>
+                          It turns values of various types into character
+                          sequences.
+                        </li>
+                        <li>
+                          Sends those characters “somewhere”
+                          (such as to a console, a file, the main memory,
+                          or another computer).
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <span class='hilight'>Graphical representation of
+                        <code>ostream</code>:</span>
+                        <figure>
+                            <img src="graphics/Chap10Diag3.png" width="50%">
+                        </figure>
+                    </p>
+                    <br><br>
+                    <p>
+                      <i>
+                        In I/O Streams, buffering is important for dealing
+                        with large amounts of data.
+                      </i>
                     </p>
                 </details>
                 <details>
@@ -44,11 +120,53 @@
                     10.3 Files
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag4.png" width="50%">
                     </figure>
                     <p>
+                      At the most basic level,
+                      a <i>file</i> is simply a sequence of bytes numbered from
+                      0 upward. A <i>file</i> has a format; i.e,
+                      it has a set of rules that determine what the bytes mean
+                      (Eg. character vs binary representation).
+                    </p>
+                    <br>
+                    <p>
+                      While <span class="hilight">reading a file</span>
+                        , we should:
+                      <ul>
+                        <li>
+                          Know its name
+                        </li>
+                        <li>
+                          Open it (for reading)
+                        </li>
+                        <li>
+                          Read in the characters
+                        </li>
+                        <li>
+                          Close it
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      While <span class="hilight">writing a file</span>
+                      , we should:
+                      <ul>
+                        <li>
+                          Name it
+                        </li>
+                        <li>
+                          Open it (for writing) or create a new file of
+                          that name
+                        </li>
+                        <li>
+                          Write out our objects
+                        </li>
+                        <li>
+                          Close it (though that is typically done implicitly)
+                        </li>
+                      </ul>
                     </p>
                 </details>
                 <details>
@@ -56,11 +174,89 @@
                     10.4 Opening a file
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag5.png" width="15%">
                     </figure>
                     <p>
+                      <ul>
+                        <li>
+                          An <code>ifstream</code> is an <code>istream</code>
+                          for reading from a file.
+                        </li>
+                        <li>
+                          An <code>ofstream</code> is an <code>ostream</code>
+                          for writing to a file.
+                        </li>
+                        <li>
+                          A <code>fstream</code> is an <code>iostream</code>
+                          that can be used for both reading and writing.
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                       Before a file stream can be used it must be
+                       attached to a file:
+                       <br>
+                       <span class="hilight">Example:</span>
+                       <PRE>
+                         <code>
+                          cout &lt;&lt; "Please enter input file name: ";
+                          string iname;
+                          cin &gt;&gt; iname;
+                          ifstream ist {iname}; <span class="comment">// ist is an input stream for the file named name</span>
+                          if (!ist) error("can't open input file ",iname);
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Defining an <code>ifstream</code> with a name string
+                      opens the file of that name for reading.
+                      The test of <code>!ist</code> checks if the
+                      file was properly opened.
+                      After that, we can read from the file
+                      exactly as we would from any other <code>istream</code>.
+                      <i>Output to files can be handled in a similar way by
+                      <code>ofstreams</code>.</i>
+                    </p>
+                    <br>
+                    <p>
+                      Explicit <code>open()</code> and <code>close()</code>
+                      operations can be performed. However, relying on scope
+                      minimizes the chances of someone trying to use a
+                      file stream before it has been attached to a stream or
+                      after it was closed:
+                      <br>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                          ifstream ifs;
+                          <span class="comment">// . . .</span>
+                          ifs &gt;&gt; foo; <span class="comment">// won’t succeed: no file opened for ifs</span>
+                          <span class="comment">// . . .</span>
+                          ifs.open(name,ios_base::in); <span class="comment">// open file named name for reading</span>
+                          <span class="comment">// . . .</span>
+                          ifs.close(); <span class="comment">// close file</span>
+                          <span class="comment">// . . .</span>
+                          ifs &gt;&gt; bar; <span class="comment">// won’t succeed: ifs’ file was closed</span>
+                          <span class="comment">// . . .</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Also, you can’t open a file stream a second
+                      time without first closing it:
+                      <br>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                        fstream fs;
+                        fs.open("foo", ios_base::in) ; <span class="comment">// open for input</span>
+                        <span class="comment">// close() missing</span>
+                        fs.open("foo", ios_base::out); <span class="comment">// won’t succeed: fs is already open</span>
+                        if (!fs) error("impossible");
+                        </code>
+                      </PRE>
                     </p>
                 </details>
                 <details>
@@ -68,23 +264,157 @@
                     10.5 Reading and writing a file
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag6.jpg" width="35%">
                     </figure>
                     <p>
+                      Consider these temperature readings from a
+                      weather station:
+                      <br>
+                        <code>
+                          0 60.7
+                          <br>
+                          1 60.6
+                          <br>
+                          2 60.3
+                          <br>
+                          3 59.22
+                          <br>
+                          . . .
+                        </code>
+                    </p>
+                    <p>
+                      The hours are numbered <code>0</code> to
+                      <code>23</code> and the temperatures are in
+                      Fahrenheit. No further formatting is assumed.
+                    </p>
+                    <br>
+                    <p>
+                      Here, represent a temperature reading by a Reading type:
+                      <PRE>
+                        <code>
+                          struct Reading { <span class="comment">// a temperature reading</span>
+                          int hour; <span class="comment">// hour after midnight [0:23]</span>
+                          double temperature; <span class="comment">// in Fahrenheit</span>
+                          };
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Given that, we could read like this:
+                      <PRE>
+                        <code>
+                          vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
+                          int hour;
+                          double temperature;
+                          while (ist &gt;&gt; hour &gt;&gt; temperature) {
+                                if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
+                                temps.push_back(Reading{hour,temperature});
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      For writing, we can use the output file stream
+                      (<code>ofstream</code>) if we might want to output
+                      the readings with each pair of values in parentheses:
+                      <PRE>
+                        <code>
+                        for (int i=0; i&lt;temps.size(); ++i)
+                              ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ',' &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The file streams automatically close their files
+                      when they go out of scope, the complete program becomes:
+                      <PRE>
+                        <code>
+                        #include "std_lib_facilities.h"
+
+                        struct Reading { <span class="comment">// a temperature reading</span>
+                            int hour; <span class="comment">// hour after midnight [0:23]</span>
+                            double temperature; <span class="comment">// in Fahrenheit</span>
+                        };
+
+                        int main()
+                        {
+                            cout &lt;&lt; "Please enter input file name: ";
+                            string iname;
+                            cin &gt;&gt; iname;
+                            ifstream ist {iname}; <span class="comment">// ist reads from the file named iname</span>
+                            if (!ist) error("can't open input file ",iname);
+
+                            string oname;
+                            cout &lt;&lt; "Please enter name of output file: ";
+                            cin &gt;&gt; oname;
+                            ofstream ost {oname}; <span class="comment">// ost writes to a file named oname</span>
+                            if (!ost) error("can't open output file ",oname);
+
+                            vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
+                            int hour;
+                            double temperature;
+                            while (ist &gt;&gt; hour &gt;&gt; temperature) {
+                                if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
+                                temps.push_back(Reading{hour,temperature});
+                            }
+                            for (int i=0; i&lt;temps.size(); ++i)
+                                ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ','
+                                      &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
+                        }
+                        </code>
+                      </PRE>
                     </p>
                 </details>
                 <details>
                     <summary class="sum1">
                     10.6 I/O error handling
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The possibilities for input errors are limitless!
+                      However, an istream reduces all to four possible cases,
+                      called the <i>stream state</i>:
+                      <table style="width:80%" align="center">
+                        <tr>
+                          <th colspan="2">Stream states</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            good()
+                          </td>
+                          <td>
+                            The operation succeeded
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            eof()
+                          </td>
+                          <td>
+                            We hit end of input ("end of file")
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            fail()
+                          </td>
+                          <td>
+                            Something unexpected happened (Eg. we looked for
+                            a digit and found 'x')
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            bad()
+                          </td>
+                          <td>
+                            Something unexpected and serious happened
+                            (Eg. a disk read error)
+                          </td>
+                        </tr>
+                      </table>
                     </p>
                 </details>
                 <details>
