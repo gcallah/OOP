@@ -174,11 +174,89 @@
                     10.4 Opening a file
                     </summary>
                     <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
+                        <img src="graphics/Chap10Diag5.png" width="15%">
                     </figure>
                     <p>
+                      <ul>
+                        <li>
+                          An <code>ifstream</code> is an <code>istream</code>
+                          for reading from a file.
+                        </li>
+                        <li>
+                          An <code>ofstream</code> is an <code>ostream</code>
+                          for writing to a file.
+                        </li>
+                        <li>
+                          A <code>fstream</code> is an <code>iostream</code>
+                          that can be used for both reading and writing.
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                       Before a file stream can be used it must be
+                       attached to a file:
+                       <br>
+                       <span class="hilight">Example:</span>
+                       <PRE>
+                         <code>
+                          cout &lt;&lt; "Please enter input file name: ";
+                          string iname;
+                          cin &gt;&gt; iname;
+                          ifstream ist {iname}; <span class="comment">// ist is an input stream for the file named name</span>
+                          if (!ist) error("can't open input file ",iname);
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Defining an <code>ifstream</code> with a name string
+                      opens the file of that name for reading.
+                      The test of <code>!ist</code> checks if the
+                      file was properly opened.
+                      After that, we can read from the file
+                      exactly as we would from any other <code>istream</code>.
+                      <i>Output to files can be handled in a similar way by
+                      <code>ofstreams</code>.</i>
+                    </p>
+                    <br>
+                    <p>
+                      Explicit <code>open()</code> and <code>close()</code>
+                      operations can be performed. However, relying on scope
+                      minimizes the chances of someone trying to use a
+                      file stream before it has been attached to a stream or
+                      after it was closed:
+                      <br>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                          ifstream ifs;
+                          <span class="comment">// . . .</span>
+                          ifs &gt;&gt; foo; <span class="comment">// won’t succeed: no file opened for ifs</span>
+                          <span class="comment">// . . .</span>
+                          ifs.open(name,ios_base::in); <span class="comment">// open file named name for reading</span>
+                          <span class="comment">// . . .</span>
+                          ifs.close(); <span class="comment">// close file</span>
+                          <span class="comment">// . . .</span>
+                          ifs &gt;&gt; bar; <span class="comment">// won’t succeed: ifs’ file was closed</span>
+                          <span class="comment">// . . .</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Also, you can’t open a file stream a second
+                      time without first closing it:
+                      <br>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+                        fstream fs;
+                        fs.open("foo", ios_base::in) ; <span class="comment">// open for input</span>
+                        <span class="comment">// close() missing</span>
+                        fs.open("foo", ios_base::out); <span class="comment">// won’t succeed: fs is already open</span>
+                        if (!fs) error("impossible");
+                        </code>
+                      </PRE>
                     </p>
                 </details>
                 <details>
