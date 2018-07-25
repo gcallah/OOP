@@ -25,6 +25,11 @@
                         </figcaption>
                     </figure>
                     <p>
+                    The iostream library which is the input/output part of the
+                    ISO C++ standard library. This Library provides a unified
+                    and extensible for I/O of text. In this chapter we will 
+                    learn number of ways in which we can tailor I/O to our
+                    needs
                     </p>
                 </details>
                 <details>
