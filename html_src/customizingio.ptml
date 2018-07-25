@@ -89,6 +89,29 @@
                             </figcaption>
                         </figure>
                         <p>
+                        By default, &gt;&gt; assumes that numbers use the decimal
+                        notation, but it can also read hexadecimal or octal 
+                        integers:
+                        </p>
+                        <code>
+                        <pre>
+                        int a;
+                        int b;
+                        int c;
+                        int d;
+                        cin &gt;&gt; a &gt;&gt; hex &gt;&gt; b &gt;&gt; oct &gt;&gt; c &gt;&gt; d;
+                        cout &lt;&lt; a &lt;&lt; '\t' &lt;&lt; b &lt;&lt; '\t' &lt;&lt; c &lt;&lt; '\t' &lt;&lt; d &lt;&lt; '\n';
+                        </pre>
+                        </code>
+                        <p>
+                        If you type in:<br/>
+                        <code>
+                        1234 4d2 2322 2322
+                        </code>
+                        this will print:<br/>
+                        <code>
+                        1234 1234 1234 1234
+                        </code>
                         </p>
                     </details>
                     <details>
