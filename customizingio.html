@@ -520,8 +520,19 @@
                         <code> ifstream</code> opens it for reading and
                         <code>ofstream</code> opens for writing. Thes take care
                         of the most common needs but there are several other 
-                        alternatives given in the book. 
+                        alternatives given in the book.A file mode is
+                        optionally specified after the name of the file. For example: 
                         </p>
+                        <code>
+                        <pre>
+                        ofstream of1 {name1};   //defaults to ios_base::out
+                        ifstream if1 {name2};   //defaults to ios_base::in
+                        
+                        ofstream ofs {name, ios_base::app}; //ofstreams by default include
+                                                            //io_base::out
+                        fstream fs {"myfile",ios_base::in|ios_base::out};//both in and out
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
@@ -533,6 +544,7 @@
                             </figcaption>
                         </figure>
                         <p>
+                        
                         </p>
                     </details>
                     <details>
@@ -558,7 +570,32 @@
                         </figcaption>
                     </figure>
                     <p>
+                    A <code>string</code> can be used as a source of an
+                    <code>istream</code> or the target for an <code>ostream</code>
+                    .An <code>istream</code> that reads from a
+                    <code>string</code> is called
+                    an <code>istringstream</code> and an <code>ostream</code> 
+                    that stores characters written to it in a
+                    <code>string</code> is called an <code>ostringstream</code>.
+                    We can use an <code>istringstream</code> is useful for extracting
+                    numeric values from a<code> string</code>:
                     </p>
+                    <code>
+                    <pre>
+                    double str_to_double(string s)
+                        // if possible, convert characters in s to floating-point value
+                    {
+                        istringstream is {s};      // make a stream so that we can read from s
+                        double d;
+                        is &gt;&gt; d;
+                        if (!is) error("double format error: ",s);
+                        return d;
+                    }
+                    double d1 = str_to_double("12.4");
+                    double d2 = str_to_double("1.34e–3");
+                    double d3 = str_to_double("twelve point three");
+                    </pre> 
+                    </code>
                 </details>
                 <details>
                     <summary class="sum1">
