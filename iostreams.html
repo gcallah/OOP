@@ -1056,12 +1056,97 @@
                     <summary class="sum1">
                     10.10 A standard input loop
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Before actually reading and writing files,
+                      we should check if we could read a file
+                      from its beginning until the end of the file.
+                      <br>
+                      <br>
+                      Assuming <code>ist</code> is an <code>istream</code>,
+                      <PRE>
+                        <code>
+                        for (My_type var; ist&gt;&gt;var; )
+                        {   <span class="comment">// read until end of file</span>
+                            <span class="comment">// maybe check that var is valid</span>
+                            <span class="comment">// do something with var</span>
+                        }
+                        <span class="comment">// we can rarely recover from bad; don’t try unless you really have to:</span>
+                        if (ist.bad())
+                            error("bad input stream");
+                        if (ist.fail())
+                        {
+                            <span class="comment">// was it an acceptable terminator?</span>
+                        }
+                        <span class="comment">// carry on: we found end of file</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Improving <code>istream</code> by
+                      letting it throw an exception of type
+                      <code>failure</code>,
+                      <PRE>
+                        <code>
+                        <span class="comment">// somewhere: make ist throw an exception if it goes bad:</span>
+                        ist.exceptions(ist.exceptions()|ios_base::badbit);
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Also, deciding to designate a character as a terminator,
+                      <PRE>
+                        <code>
+                        for (My_type var; ist&gt;&gt;var; )
+                        {   <span class="comment">// read until end of file</span>
+                            <span class="comment">// maybe check that var is valid</span>
+                            <span class="comment">// do something with var</span>
+                        }
+                        if (ist.fail())
+                        {   <span class="comment">// use '|' as terminator and/or separator</span>
+                            ist.clear();
+                            char ch;
+                            if (!(ist&gt;&gt;ch && ch=='|'))
+                                error("bad termination of input");
+                        }
+                        <span class="comment">// carry on: we found end of file or a terminator</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Making the code more simpler using function,
+                      <PRE>
+                        <code>
+                          <span class="comment">// somewhere: make ist throw if it goes bad:</span>
+                          ist.exceptions(ist.exceptions()|ios_base::badbit);
+                          void end_of_loop(istream& ist, char term, const string& message)
+                          {
+                              if (ist.fail())
+                              {   <span class="comment">// use term as terminator and/or separator</span>
+                                  ist.clear();
+                                  char ch;
+                                  if (ist&gt;&gt;ch && ch==term)
+                                      return; <span class="comment">// all is fine</span>
+                                  error(message);
+                               }
+                          }
+
+                          for (My_type var; ist&gt;&gt;var; )
+                          {   <span class="comment">// read until end of file</span>
+                              <span class="comment">// maybe check that var is valid</span>
+                              <span class="comment">// . . . do something with var . . .</span>
+                          }
+                          end_of_loop(ist,'|',"bad termination of file"); <span class="comment">// test if we can continue</span>
+                          <span class="comment">// carry on: we found end of file or a terminator</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Unless the stream is in the
+                      <code>fail()</code> state, <code>end_of_loop()</code>
+                      does nothing.
                     </p>
                 </details>
                 <details>
