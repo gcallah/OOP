@@ -894,36 +894,141 @@
                     <summary class="sum1">
                     10.11 Reading a structured file
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Assume that you have a file of temperature
+                      readings that has been structured like this:
+                      <ul>
+                        <li>
+                          A file holds years (of months of readings).
+                          <br>
+                          A year starts with { year followed by an
+                              integer giving the year, such as 1900, and
+                              ends with }.
+                        </li>
+                        <li>
+                          A year holds months (of days of readings).
+                          <br>
+                          A month starts with { month followed by a
+                          three-letter month name, such as jan,
+                          and ends with }.
+                        </li>
+                        <li>
+                          A reading holds a time and a temperature.
+                          <br>
+                          A reading starts with a ( followed by day of the
+                          month, hour of the day, and temperature
+                          and ends with a ).
+                        </li>
+
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                        <span class ="hilight">Example:</span>
+                        <br>
+                        <PRE>
+                          <code>
+                          { year 1990 }
+                          {year 1991 { month jun }}
+                          { year 1992 { month jan ( 1 0 61.5) } {month feb (1 1 64) (2 2 65.2) } }
+                          {year 2000
+                                { month feb (1 1 68 ) (2 3 66.66 ) ( 1 0 67.2)}
+                                {month dec (15 15 –9.2 ) (15 14 –8.8) (14 0 –2) }
+                          }
+                          </code>
+                        </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The above format is a little unusual.
+                      Though there is a move towards hierarchically
+                      structured files (HTML and XML files) but
+                      still we can hardly control the input structure
+                      of files that are read.
+                      <br>
+                      <br>
+                      To suit our needs, we can choose the in-memory
+                      representation of data and we can often pick output
+                      formats.
                     </p>
                     <details>
                         <summary class="sum2">
                         10.11.1 In-memory representation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The first choice to represent this
+                          data in memory will be classes:
+                          <code> Year, Month and Reading</code>
+                          <br>
+                          <br>
+                          But <code>Reading (day of month, hour of day,
+                            temperature)</code> is “odd” and makes
+                            sense only within a Month.
+                            It is also unstructured.
+                          <br>
+                          <br>
+                          Better way of representation will be as,
+                          <br>
+                          <code>Year</code> as a <code>vector</code> of 12
+                            <code>Months</code>,
+                          <br>
+                          <code>Month</code> as a <code>vector</code>
+                          of about 30 <code>Days</code>,
+                          <br>
+                          <code>Day</code> as 24 temperatures (one per hour)
+                          <br>
+                          <br>
+                          <code>Day</code>, <code>Month</code>, and
+                          <code>Year</code> are simple data
+                          structures, each with a constructor.
+                          <br>
+                          We need to have a notion of “not a reading”
+                          for an hour of a day for which we haven’t
+                          (yet) read data,
+                          <br>
+                            <code>
+                            const int not_a_reading = –7777;
+                            <span class="comment">// less than absolute zero</span>
+                            </code>
+                          <br>
+                        </p>
+                        <br>
+                        <p>
+                          For a month without data,
+                          <br>
+                          <code>
+                          const int not_a_month = –1;
+                          </code>
+                          <br>
+                          <br>
+                          The 3 classes will be,
+                          <br>
+                          <PRE>
+                            <code>
+                              struct Day
+                              {
+                                  vector&lt;double&gt; hour {vector&lt;double&gt;(24,not_a_reading)};
+                              };
+
+                              struct Month
+                              {   <span class="comment">// a month of temperature readings</span>
+                                  int month {not_a_month}; <span class="comment">// [0:11] January is 0</span>
+                                  vector&lt;Day&gt; day {32}; <span class="comment">// [1:31] one vector of readings per day</span>
+                              };
+
+                              struct Year
+                              {    <span class="comment">// a year of temperature readings, organized by month</span>
+                                  int year;  <span class="comment">// positive == A.D.</span>
+                                  vector&lt;Month&gt; month {12}; <span class="comment">// [0:11] January is 0</span>
+                              };
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
                         <summary class="sum2">
                         10.11.2 Reading structured values
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
-                        <p>
-                        </p>
                     </details>
                     <details>
                         <summary class="sum2">
