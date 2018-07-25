@@ -462,7 +462,30 @@
                             </figcaption>
                         </figure>
                         <p>
+                        Using scientific and fixed formats, a programmer can
+                        control exactly how much space a value takes up on output. 
+                        That’s clearly useful for printing tables, etc.
+                        “set field width” manipulator <code>setw()</code>
+                        can be used to specify exactly how many character 
+                        positions an integer value or string value will occupy.
+                        Example:
                         </p>
+                        <code>
+                        <pre>
+                        cout &lt;&lt; 123456
+                            &lt;&lt;'|'&lt;&lt; setw(4) &lt;&lt; 123456 &lt;&lt; '|'
+                            &lt;&lt; setw(8) &lt;&lt; 123456 &lt;&lt; '|'
+                            &lt;&lt; 123456 &lt;&lt; "|\n";
+                        </pre>
+                        </code>
+                        <p>
+                        This prints:
+                        </p>
+                        <code>
+                        <pre>
+                        123456|123456| 123456|123456|
+                        </pre>
+                        </code>
                     </details>
                 </details>
                 <details>
@@ -475,6 +498,13 @@
                         </figcaption>
                     </figure>
                     <p>
+                    A file is is an abstraction of what the operating system
+                    provides as per C++. A file is sequence of bytes numbered
+                    from 0 upwards.The question is how to access these bytes.
+                    The simplest example of this is that if we open an
+                    <code>istream</code> for a file, we can read from the 
+                    file, whereas if we open a file with an <code>ostream</code>, 
+                    we can write to it.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -486,6 +516,11 @@
                             </figcaption>
                         </figure>
                         <p>
+                        A file can be opened in several modes. By default,
+                        <code> ifstream</code> opens it for reading and
+                        <code>ofstream</code> opens for writing. Thes take care
+                        of the most common needs but there are several other 
+                        alternatives given in the book. 
                         </p>
                     </details>
                     <details>
