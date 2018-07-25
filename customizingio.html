@@ -416,7 +416,41 @@
                             </figcaption>
                         </figure>
                         <p>
+                        By default the precision for floating point numbers is
+                        six total digits using the <code>defaultfloat</code>
+                        format. The chooses the most appropriate format and the
+                        number is rounded to give the best approximation that
+                        can be printed using only six digits.
                         </p>
+                        <p>
+                        A programmer can set the precision using the
+                        manipulator setprecision(). For example:
+                        </p>
+                        <code>
+                        <pre>
+                        cout &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; fixed &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; '\n';
+                        cout &lt;&lt; defaultfloat &lt;&lt; setprecision(5)
+                            &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; fixed &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; '\n';
+                        cout &lt;&lt; defaultfloat &lt;&lt; setprecision(8)
+                            &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; fixed &lt;&lt; 1234.56789 &lt;&lt; '\t'
+                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; '\n';
+                        </pre>
+                        </code>
+                        <p>
+                        This prints (note the rounding):
+                        </p>
+                        <code>
+                        <pre>
+                        1234.57     1234.567890     1.234568e+003
+                        1234.6 1234.56789   1.23457e+003
+                        1234.5679   1234.56789000   1.23456789e+003
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
