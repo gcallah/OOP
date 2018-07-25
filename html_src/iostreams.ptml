@@ -708,12 +708,50 @@
                     <summary class="sum1">
                     10.8 User-defined output operators
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The output operator <code>&lt;&lt;</code>
+                      can be used in the following ways:
+                      <br>
+                      Simple output operator for <code>Date</code>
+                      <PRE>
+                        <code>
+                          ostream& operator&lt;&lt;(ostream& os, const Date& d)
+                          {
+                              return os &lt;&lt; '(' &lt;&lt; d.year()
+                                          &lt;&lt; ',' &lt;&lt; d.month()
+                                          &lt;&lt; ',' &lt;&lt; d.day() &lt;&lt; ')';
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      This prints August 30, 2004, as <code>(2004,8,30)</code>
+                      <br>
+                      <br>
+                      Given the definition of <code>&lt;&lt;</code>
+                      for <code>Date</code>, the meaning of:
+                      <br>
+                      <code>
+                        cout &lt;&lt; d1;
+                      </code>
+                      <br>
+                      where <code>d1</code> is a <code>Date</code> is the call
+                      <br>
+                      <br>
+                      <code>
+                        operator&lt;&lt;(cout,d1);
+                      </code>
+                      <br>
+                      Also, <code>operator&lt;&lt;()</code>
+                      takes an <code>ostream&</code> as its
+                      first argument and returns it again as its return value.
+                      We can "chain" output operations.
+                      <PRE>
+                        <code>
+                        cout &lt;&lt; d1 &lt;&lt; d2; <span class="comment">// means operator&lt;&lt;(cout,d1) &lt;&lt; d2;</span>
+                                          <span class="comment">// means operator&lt;&lt;(operator&lt;&lt;(cout,d1),d2);</span>
+                        </code>
+                      </PRE>
                     </p>
                 </details>
                 <details>
