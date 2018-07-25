@@ -239,6 +239,13 @@
                         </figcaption>
                     </figure>
                     <p>
+                    A file is is an abstraction of what the operating system
+                    provides as per C++. A file is sequence of bytes numbered
+                    from 0 upwards.The question is how to access these bytes.
+                    The simplest example of this is that if we open an
+                    <code>istream</code> for a file, we can read from the 
+                    file, whereas if we open a file with an <code>ostream</code>, 
+                    we can write to it.
                     </p>
                     <details>
                         <summary class="sum2">
