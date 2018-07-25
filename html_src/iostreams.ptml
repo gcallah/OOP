@@ -758,12 +758,39 @@
                     <summary class="sum1">
                     10.9 User-defined input operators
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The input operator <code>&gt;&gt;</code>
+                      can be used in the following ways:
+                      <br>
+                      Simple input operator for <code>Date</code>
+                      <PRE>
+                        <code>
+                          istream& operator&gt;&gt;(istream& is, Date& dd)
+                          {
+                              int y, m, d;
+                              char ch1, ch2, ch3, ch4;
+                              is &gt;&gt; ch1 &gt;&gt; y &gt;&gt; ch2 &gt;&gt; m &gt;&gt; ch3 &gt;&gt; d &gt;&gt; ch4;
+                              if (!is) return is;
+                              if (ch1!='(' || ch2!=',' || ch3!=',' || ch4!=')')
+                              {   <span class="comment">// oops: format error</span>
+                                  is.clear(ios_base::failbit);
+                                  return is;
+                              }
+                              dd = Date{y,Date::Month(m),d}; <span class="comment">// update dd</span>
+                              return is;
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      This reads items like <code>(2004,8,20)</code>
+                      and try to make a <code>Date</code> out of those
+                      3 integers.
+                      <br>
+                      If the <code>input operator&gt;&gt;()</code>
+                      reads an invalid Date, say <code>(2004,8,35)</code>,
+                      Date’s constructor will throw an exception,
+                      getting out of this <code>operator&gt;&gt;()</code>.
                     </p>
                 </details>
                 <details>
