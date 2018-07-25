@@ -42,6 +42,9 @@
                         </figcaption>
                     </figure>
                     <p>
+                    People care a lot about the minor details of output. Our
+                    aim as a programmer is to keep output as clear and close 
+                    to user's expectation as possible
                     </p>
                     <details>
                         <summary class="sum2">
@@ -53,7 +56,28 @@
                             </figcaption>
                         </figure>
                         <p>
+                        Integer values can be output as octal, decimal, and
+                        hexadecimal. Most output uses decimal. Below code
+                        represents output 1234 (decimal) to decimal,
+                        hexadecimal, and octal:
                         </p>
+                        <code>
+                        <pre>
+                        cout &lt;&lt; 1234 &lt;&lt; "\t(decimal)\n"
+                            &lt;&lt; hex &lt;&lt; 1234 &lt;&lt; "\t(hexadecimal)\n"
+                            &lt;&lt; oct &lt;&lt; 1234 &lt;&lt; "\t(octal)\n";
+                        </pre>
+                        </code>
+                        <p>
+                        Output for this is:
+                        </p>
+                        <code>
+                        <pre>
+                        1234 (decimal)
+                        4d2 (hexadecimal)
+                        2322 (octal)
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
