@@ -933,25 +933,25 @@
                           Instead we can call <code>get_int()</code> like this:
                           <PRE>
                             <code>
-              int strength = get_int(1,10, "enter strength", "Not in range, try again");
-              cout &lt;&lt; "strength: " &lt;&lt; strength &lt;&lt; '\n';
-              int altitude = get_int(0,50000,
-                                  "Please enter altitude in feet",
-                                  "Not in range, please try again");
-              cout &lt;&lt; "altitude: " &lt;&lt; altitude &lt;&lt; "f above sea level\n";
+    int strength = get_int(1,10, "enter strength", "Not in range, try again");
+    cout &lt;&lt; "strength: " &lt;&lt; strength &lt;&lt; '\n';
+    int altitude = get_int(0,50000,
+                        "Please enter altitude in feet",
+                        "Not in range, please try again");
+    cout &lt;&lt; "altitude: " &lt;&lt; altitude &lt;&lt; "f above sea level\n";
 
 
-              int get_int(int low, int high, const string& greeting, const string& sorry)
-              {
-                  cout &lt;&lt; greeting &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
-                  while (true)
-                  {
-                      int n = get_int();
-                      if (low&lt;=n && n&lt;=high)
-                          return n;
-                      cout &lt;&lt; sorry &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
-                    }
-              }
+    int get_int(int low, int high, const string& greeting, const string& sorry)
+    {
+        cout &lt;&lt; greeting &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
+        while (true)
+        {
+            int n = get_int();
+            if (low&lt;=n && n&lt;=high)
+                return n;
+            cout &lt;&lt; sorry &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
+          }
+    }
                             </code>
                           </PRE>
                         </p>
@@ -1187,13 +1187,13 @@
                         <br>
                         <PRE>
                           <code>
-                          { year 1990 }
-                          {year 1991 { month jun }}
-                          { year 1992 { month jan ( 1 0 61.5) } {month feb (1 1 64) (2 2 65.2) } }
-                          {year 2000
-                                { month feb (1 1 68 ) (2 3 66.66 ) ( 1 0 67.2)}
-                                {month dec (15 15 –9.2 ) (15 14 –8.8) (14 0 –2) }
-                          }
+      { year 1990 }
+      {year 1991 { month jun }}
+      { year 1992 { month jan ( 1 0 61.5) } {month feb (1 1 64) (2 2 65.2) } }
+      {year 2000
+            { month feb (1 1 68 ) (2 3 66.66 ) ( 1 0 67.2)}
+            {month dec (15 15 –9.2 ) (15 14 –8.8) (14 0 –2) }
+      }
                           </code>
                         </PRE>
                     </p>
@@ -1331,44 +1331,44 @@
                           The <code>Month</code> input operation,
                           <PRE>
                             <code>
-                              istream& operator&gt;&gt;(istream& is, Month& m)
-                              <span class="comment">// read a month from is into m</span>
-                              <span class="comment">// format: { month feb . . . }</span>
-                              {
-                                  char ch = 0;
-                                  if (is &gt;&gt; ch && ch!='{')
-                                  {
-                                      is.unget();
-                                      is.clear(ios_base::failbit); <span class="comment">// we failed to read a Month</span>
-                                      return is;
-                                  }
+                    istream& operator&gt;&gt;(istream& is, Month& m)
+                    <span class="comment">// read a month from is into m</span>
+                    <span class="comment">// format: { month feb . . . }</span>
+                    {
+                        char ch = 0;
+                        if (is &gt;&gt; ch && ch!='{')
+                        {
+                            is.unget();
+                            is.clear(ios_base::failbit); <span class="comment">// we failed to read a Month</span>
+                            return is;
+                        }
 
-                                  string month_marker;
-                                  string mm;
-                                  is &gt;&gt; month_marker &gt;&gt; mm;
-                                  if (!is || month_marker!="month")
-                                      error("bad start of month");
-                                  m.month = month_to_int(mm);
-                                  int duplicates = 0;
-                                  int invalids = 0;
-                                  for (Reading r; is &gt;&gt; r; )
-                                  {
-                                      if (is_valid(r))
-                                      {
-                                          if (m.day[r.day].hour[r.hour] != not_a_reading)
-                                              ++duplicates;
-                                          m.day[r.day].hour[r.hour] = r.temperature;
-                                      }
-                                      else
-                                          ++invalids;
-                                  }
-                                  if (invalids)
-                                      error("invalid readings in month",invalids);
-                                  if (duplicates)
-                                      error("duplicate readings in month", duplicates);
-                                  end_of_loop(is,'}',"bad end of month");
-                                  return is;
-                              }
+                        string month_marker;
+                        string mm;
+                        is &gt;&gt; month_marker &gt;&gt; mm;
+                        if (!is || month_marker!="month")
+                            error("bad start of month");
+                        m.month = month_to_int(mm);
+                        int duplicates = 0;
+                        int invalids = 0;
+                        for (Reading r; is &gt;&gt; r; )
+                        {
+                            if (is_valid(r))
+                            {
+                                if (m.day[r.day].hour[r.hour] != not_a_reading)
+                                    ++duplicates;
+                                m.day[r.day].hour[r.hour] = r.temperature;
+                            }
+                            else
+                                ++invalids;
+                        }
+                        if (invalids)
+                            error("invalid readings in month",invalids);
+                        if (duplicates)
+                            error("duplicate readings in month", duplicates);
+                        end_of_loop(is,'}',"bad end of month");
+                        return is;
+                    }
                             </code>
                           </PRE>
                         </p>
@@ -1457,35 +1457,35 @@
                           Try using the above,
                           <PRE>
                             <code>
-                              <span class="comment">// open an input file:</span>
-                              cout &lt;&lt; "Please enter input file name\n";
-                              string iname;
-                              cin &gt;&gt; iname;
-                              ifstream ist {iname};
-                              if (!ifs)
-                                  error("can't open input file",iname);
-                              ifs.exceptions(ifs.exceptions()|ios_base::badbit); <span class="comment">// throw for bad()</span>
+                            <span class="comment">// open an input file:</span>
+                            cout &lt;&lt; "Please enter input file name\n";
+                            string iname;
+                            cin &gt;&gt; iname;
+                            ifstream ist {iname};
+                            if (!ifs)
+                                error("can't open input file",iname);
+                            ifs.exceptions(ifs.exceptions()|ios_base::badbit); <span class="comment">// throw for bad()</span>
 
-                              <span class="comment">// open an output file:</span>
-                              cout &lt;&lt; "Please enter output file name\n";
-                              string oname;
-                              cin &gt;&gt; oname;
-                              ofstream ost {oname};
-                              if (!ofs)
-                                  error("can't open output file",oname);
+                            <span class="comment">// open an output file:</span>
+                            cout &lt;&lt; "Please enter output file name\n";
+                            string oname;
+                            cin &gt;&gt; oname;
+                            ofstream ost {oname};
+                            if (!ofs)
+                                error("can't open output file",oname);
 
-                              <span class="comment">// read an arbitrary number of years:</span>
-                              vector&lt;Year&gt; ys;
-                              while(true)
-                              {
-                                  Year y; <span class="comment">// get a freshly initialized Year each time around</span>
-                                  if (!(ifs&gt;&gt;y))
-                                      break;
-                                  ys.push_back(y);
-                              }
-                              cout &lt;&lt; "read " &lt;&lt; ys.size() &lt;&lt; " years of readings\n";
-                              for (Year& y : ys)
-                                  print_year(ofs,y);
+                            <span class="comment">// read an arbitrary number of years:</span>
+                            vector&lt;Year&gt; ys;
+                            while(true)
+                            {
+                                Year y; <span class="comment">// get a freshly initialized Year each time around</span>
+                                if (!(ifs&gt;&gt;y))
+                                    break;
+                                ys.push_back(y);
+                            }
+                            cout &lt;&lt; "read " &lt;&lt; ys.size() &lt;&lt; " years of readings\n";
+                            for (Year& y : ys)
+                                print_year(ofs,y);
                             </code>
                           </PRE>
                         </p>
@@ -1538,18 +1538,18 @@
                           to be printed,
                           <PRE>
                             <code>
-                              vector&lt;string&gt; month_print_tbl = {
-                              "January", "February", "March", "April", "May", "June", "July",
-                              "August", "September", "October", "November", "December"
-                              };
+                vector&lt;string&gt; month_print_tbl = {
+                "January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"
+                };
 
-                              string int_to_month(int i)
-                              <span class="comment">// months [0:11]</span>
-                              {
-                                  if (i&lt;0 || 12&lt;=i)
-                                      error("bad month index");
-                                  return month_print_tbl[i];
-                              }
+                string int_to_month(int i)
+                <span class="comment">// months [0:11]</span>
+                {
+                    if (i&lt;0 || 12&lt;=i)
+                        error("bad month index");
+                    return month_print_tbl[i];
+                }
                             </code>
                           </PRE>
                         </p>
