@@ -462,7 +462,30 @@
                             </figcaption>
                         </figure>
                         <p>
+                        Using scientific and fixed formats, a programmer can
+                        control exactly how much space a value takes up on output. 
+                        That’s clearly useful for printing tables, etc.
+                        “set field width” manipulator <code>setw()</code>
+                        can be used to specify exactly how many character 
+                        positions an integer value or string value will occupy.
+                        Example:
                         </p>
+                        <code>
+                        <pre>
+                        cout &lt;&lt; 123456
+                            &lt;&lt;'|'&lt;&lt; setw(4) &lt;&lt; 123456 &lt;&lt; '|'
+                            &lt;&lt; setw(8) &lt;&lt; 123456 &lt;&lt; '|'
+                            &lt;&lt; 123456 &lt;&lt; "|\n";
+                        </pre>
+                        </code>
+                        <p>
+                        This prints:
+                        </p>
+                        <code>
+                        <pre>
+                        123456|123456| 123456|123456|
+                        </pre>
+                        </code>
                     </details>
                 </details>
                 <details>
