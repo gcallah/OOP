@@ -257,6 +257,11 @@
                             </figcaption>
                         </figure>
                         <p>
+                        A file can be opened in several modes. By default,
+                        <code> ifstream</code> opens it for reading and
+                        <code>ofstream</code> opens for writing. Thes take care
+                        of the most common needs but there are several other 
+                        alternatives given in the book. 
                         </p>
                     </details>
                     <details>
