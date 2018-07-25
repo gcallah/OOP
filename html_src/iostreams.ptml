@@ -467,23 +467,200 @@
                     <summary class="sum1">
                     10.7 Reading a single value
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Lets say we are trying to read a single value
+                      from the user and we are trying to solve the simple
+                      problem of
+                      <i>“how to get an acceptable value from the user.”</i>
+                      <br>
+                      Here we deal with 3 different conditions/errors:
+                      <ul>
+                        <li>
+                          The user typing an out-of-range value
+                        </li>
+                        <li>
+                          Getting no value (end of file)
+                        </li>
+                        <li>
+                          The user typing something of the wrong type
+                          (here, not an integer)
+
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      For the above 3 errors we have 3 alternatives:
+                      <br>
+                      <ul>
+                        <li>
+                          Handle the problem in the code doing the read.
+                        </li>
+                        <li>
+                          Throw an exception to let someone else handle
+                          the problem (potentially terminating the program).
+                        </li>
+                        <li>
+                          Ignore the problem.
+                        </li>
+                      </ul>
                     </p>
                     <details>
                         <summary class="sum2">
                         10.7.1 Breaking the problem into manageable parts
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+                              cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
+                              int n = 0;
+                              while (true)
+                              {
+                                  cin &gt;&gt; n;
+                                  if (cin)
+                                  { <span class="comment">// we got an integer; now check it</span>
+                                      if (1&lt;=n && n&lt;=10)
+                                          break;
+                                      cout &lt;&lt; "Sorry "
+                                            &lt;&lt; n &lt;&lt; " is not in the [1:10] range; please try again\n";
+                                  }
+                                  else if (cin.fail())
+                                       { <span class="comment">// we found something that wasn’t an integer</span>
+                                          cin.clear(); <span class="comment">// set the state back to good();</span>
+                                                      <span class="comment">// we want to look at the characters</span>
+                                          cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+                                          for (char ch; cin&gt;&gt;ch && !isdigit(ch); ) <span class="comment">// throw away non-digits</span>
+                                              <span class="comment">/* nothing */ ;</span>
+                                              if (!cin)
+                                                  error("no input"); <span class="comment">// we didn’t find a digit: give up</span>
+                                              cin.unget(); <span class="comment">// put the digit back, so that we can read the number</span>
+                                       }
+                                       else
+                                       {
+                                              error("no input"); <span class="comment">// eof or bad: give up</span>
+                                       }
+                              }
+                              <span class="comment">// if we get here n is in [1:10]</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Few reasons that the code becomes messy are
+                          listed below:
+                          <ul>
+                            <li>
+                              Reading values
+                            </li>
+                            <li>
+                              Prompting the user for input
+                            </li>
+                            <li>
+                              Writing error messages
+                            </li>
+                            <li>
+                              Skipping past “bad” input characters
+                            </li>
+                            <li>
+                              Testing the input against a range
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <br>
+                        <p>
+                          The code can be reduced to:
+                          <PRE>
+                            <code>
+                              void skip_to_int()
+                              {
+                                  if (cin.fail())
+                                  { <span class="comment">// we found something that wasn’t an integer</span>
+                                      cin.clear(); <span class="comment">// we’d like to look at the characters</span>
+                                      for (char ch; cin&gt;&gt;ch; )
+                                      { <span class="comment">// throw away non-digits</span>
+                                          if (isdigit(ch) || ch=="-")
+                                          {
+                                              cin.unget(); <span class="comment">// put the digit back,</span>
+                                                            <span class="comment">// so that we can read the number</span>
+                                              return;
+                                          }
+                                      }
+                              }
+                              error("no input"); <span class="comment">// eof or bad: give up</span>
+                              }
+
+
+                              cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
+                              int n = 0;
+                              while (true)
+                              {
+                                  if (cin&gt;&gt;n)
+                                  { <span class="comment">// we got an integer; now check it</span>
+                                      if (1&lt;=n && n&lt;=10)
+                                          break;
+                                      cout &lt;&lt; "Sorry " &lt;&lt; n
+                                            &lt;&lt; " is not in the [1:10] range; please try again\n";
+                                  }
+                                  else
+                                  {
+                                      cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+                                      skip_to_int();
+                                  }
+                              }
+                              <span class="comment">// if we get here n is in [1:10]</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          But the above code is still long and messy.
+                          Further, we can make a function to do the above task.
+                          <PRE>
+                            <code>
+                              int get_int(); <span class="comment">// read an int from cin</span>
+                              int get_int(int low, int high); <span class="comment">// read an int in [low:high] from cin</span>
+
+                              int get_int()
+                              {
+                                  int n = 0;
+                                  while (true)
+                                  {
+                                      if (cin &gt;&gt; n)
+                                          return n;
+                                      cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+                                      skip_to_int();
+                                  }
+                              }
+
+                              int get_int(int low, int high)
+                              {
+                                  cout &lt;&lt; "Please enter an integer in the range "
+                                        &lt;&lt; low &lt;&lt; " to " &lt;&lt; high &lt;&lt; " (inclusive):\n";
+                                  while (true)
+                                  {
+                                      int n = get_int();
+                                      if (low&lt;=n && n&lt;=high)
+                                          return n;
+                                      cout &lt;&lt; "Sorry "
+                                            &lt;&lt; n &lt;&lt; " is not in the [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high
+                                            &lt;&lt; "] range; please try again\n";
+                                  }
+                              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Now we can read integers reliably as follows:
+                          <PRE>
+                            <code>
+                              int n = get_int(1,10);
+                              cout &lt;&lt; "n: " &lt;&lt; n &lt;&lt; '\n';
+                              int m = get_int(2,300);
+                              cout &lt;&lt; "m: " &lt;&lt; m &lt;&lt; '\n';
+                            </code>
+                          </PRE>
                         </p>
                     </details>
                     <details>
