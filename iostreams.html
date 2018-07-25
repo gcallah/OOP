@@ -675,6 +675,52 @@
                         </tr>
                       </table>
                     </p>
+                    <br>
+                    <p>
+                      <span class="hilight">Example:</span> Consider how to read
+                       a sequence of integers that may be terminated by the
+                       character * or an “end of file” into a
+                       <code>vector</code>.
+                      <br>
+                      <code>1 2 3 4 5 *</code>
+                      <br>
+                      This could be done using a function like this:
+                      <br>
+                      <PRE>
+                        <code>
+                          void fill_vector(istream& ist, vector&lt;int&gt;& v, char terminator)
+                          <span class="comment">// read integers from ist into v until we reach eof() or terminator</span>
+                          {
+                              for (int I; ist &gt;&gt; I; )
+                                  v.push_back(i);
+                              if (ist.eof())
+                                  return; <span class="comment">// fine: we found the end of file</span>
+
+                              <span class="comment">// not good() and not bad() and not eof(), ist must be fail()</span>
+                              ist.clear(); <span class="comment">// clear stream state</span>
+
+                              char c;
+                              ist&gt;&gt;c; <span class="comment">// read a character, hopefully terminator</span>
+
+                              if (c != terminator) { <span class="comment">// ouch: not the terminator, so we must fail</span>
+                                  ist.unget(); <span class="comment">// maybe my caller can use that character</span>
+                                  ist.clear(ios_base::failbit); <span class="comment">// set the state to fail()</span>
+                              }
+                          }
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Since we cleared the state to be able to
+                      examine the character, we have to set the stream
+                      state back to <code>fail()</code>.
+                      We do that with <code>ist.clear(ios_base::failbit)</code>.
+                      <br>
+                      The <code>ios_base</code> that appears here and there is
+                      the part of an <code>iostream</code> that holds
+                      constants such as <code>badbit</code>, exceptions such as
+                      <code>failure</code>.
+                    </p>
                 </details>
                 <details>
                     <summary class="sum1">
