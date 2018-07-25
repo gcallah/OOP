@@ -926,12 +926,40 @@
                         <summary class="sum2">
                         10.7.2 Separating dialog from function
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          In the above example, the <code>get_int()</code>
+                          functions still mix up reading with writing
+                          messages to user.
+                          Instead we can call <code>get_int()</code> like this:
+                          <PRE>
+                            <code>
+              int strength = get_int(1,10, "enter strength", "Not in range, try again");
+              cout &lt;&lt; "strength: " &lt;&lt; strength &lt;&lt; '\n';
+              int altitude = get_int(0,50000,
+                                  "Please enter altitude in feet",
+                                  "Not in range, please try again");
+              cout &lt;&lt; "altitude: " &lt;&lt; altitude &lt;&lt; "f above sea level\n";
+
+
+              int get_int(int low, int high, const string& greeting, const string& sorry)
+              {
+                  cout &lt;&lt; greeting &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
+                  while (true)
+                  {
+                      int n = get_int();
+                      if (low&lt;=n && n&lt;=high)
+                          return n;
+                      cout &lt;&lt; sorry &lt;&lt; ": [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high &lt;&lt; "]\n";
+                    }
+              }
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The point here is that “utility functions”
+                          used in many parts of a program shouldn’t
+                          have messages “hardwired” into them.
                         </p>
                     </details>
                 </details>
