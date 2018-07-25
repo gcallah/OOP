@@ -365,7 +365,7 @@
                         <p>
                         If you type in:<br/>
                         <code>
-                        1234 4d2 2322 2322
+                        1234 4d2 2322 2322<br/>
                         </code>
                         this will print:<br/>
                         <code>
@@ -383,7 +383,28 @@
                             </figcaption>
                         </figure>
                         <p>
+                        This is very important in case you are dealing with
+                        scientific computation. These are handled using
+                        <code>iostream</code> manipulator in a manner very
+                        similar to that of integer values:
                         </p>
+                        <code>
+                        <pre> 
+                        cout &lt;&lt; 1234.56789 &lt;&lt; "\t\t(defaultfloat)\n"   // \t\t to line up columns
+                            &lt;&lt; fixed &lt;&lt; 1234.56789 &lt;&lt; "\t(fixed)\n"
+                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; "\t(scientific)\n"; 
+                        </pre>
+                        </code>
+                        <p>
+                        This prints:
+                        </p>
+                        <code>
+                        <pre>
+                        1234.57         (general)
+                        1234.567890     (fixed)
+                        1.234568e+003   (scientific)
+                        </pre>
+                        </code>
                     </details>
                     <details>
                         <summary class="sum2">
