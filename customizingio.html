@@ -571,13 +571,15 @@
                     </figure>
                     <p>
                     A <code>string</code> can be used as a source of an
-                    <code>istream</code> or the target for an <code>ostream</code>
+                    <code>istream</code> or the target for an 
+                    <code>ostream</code>
                     .An <code>istream</code> that reads from a
                     <code>string</code> is called
                     an <code>istringstream</code> and an <code>ostream</code> 
                     that stores characters written to it in a
                     <code>string</code> is called an <code>ostringstream</code>.
-                    We can use an <code>istringstream</code> is useful for extracting
+                    We can use an <code>istringstream</code> is 
+                    useful for extracting
                     numeric values from a<code> string</code>:
                     </p>
                     <code>
@@ -607,6 +609,21 @@
                         </figcaption>
                     </figure>
                     <p>
+                    If we want to read everything on a line at once and want to
+                    decide the format later. This can be done using the
+                    function <code>getline()</code>. For example:
+                    </p>
+                    <code>
+                    <pre>
+                    string name;
+                    getline(cin,name);      // input: Dennis Ritchie
+                    cout &lt;&lt; name &lt;&lt; '\n';// output: Dennis Ritchie
+                    </pre> 
+                    </code>
+                    <p>
+                    &gt;&gt; reads only until it encounters whitespace. If we
+                    use &gt;&gt; instead of <code>getline()</code> the output
+                    will be 'Dennis'.
                     </p>
                 </details>
                 <details>
