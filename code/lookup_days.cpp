@@ -12,12 +12,14 @@ int main()
         cout << "The last day of " << month_nm[i] << " is " << last_day[i]
             << '\n';
 
-    for(int i = 26; i < 34; i++) {
-        cout << "For " << month_nm[2] << " day of " << i << " is ";
-        if(i > last_day[2])
-            cout << " not valid\n";
-        else
-            cout << " valid\n";
+    for(int m = 1; m < 13; m++) {
+        for(int d = 27; d < 32; d++) {
+            cout << "For " << month_nm[m] << " day of " << d << " is ";
+            if(d > last_day[m])
+                cout << " not valid\n";
+            else
+                cout << " valid\n";
+        }
     }
 }
 
