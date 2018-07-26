@@ -66,10 +66,10 @@ double term(Token_stream& ts)
 {
 /* grammar recognized:
 Term:
-    Primary
-    Term "*" Primary
-    Term "/" Primary
-    Term "%" Primary
+    Expon
+    Term "*" Expon
+    Term "/" Expon
+    Term "%" Expon
 */
     double left = expon(ts);
     Token t = ts.get();        // get the next token from token stream
