@@ -200,11 +200,11 @@
                        <span class="hilight">Example:</span>
                        <PRE>
                          <code>
-                          cout &lt;&lt; "Please enter input file name: ";
-                          string iname;
-                          cin &gt;&gt; iname;
-                          ifstream ist {iname}; <span class="comment">// ist is an input stream for the file named name</span>
-                          if (!ist) error("can't open input file ",iname);
+      cout &lt;&lt; "Please enter input file name: ";
+      string iname;
+      cin &gt;&gt; iname;
+      ifstream ist {iname}; <span class="comment">// ist is an input stream for the file named name</span>
+      if (!ist) error("can't open input file ",iname);
                         </code>
                       </PRE>
                     </p>
@@ -259,6 +259,7 @@
                       </PRE>
                     </p>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     10.5 Reading and writing a file
@@ -292,10 +293,10 @@
                       Here, represent a temperature reading by a Reading type:
                       <PRE>
                         <code>
-                          struct Reading { <span class="comment">// a temperature reading</span>
-                          int hour; <span class="comment">// hour after midnight [0:23]</span>
-                          double temperature; <span class="comment">// in Fahrenheit</span>
-                          };
+  struct Reading { <span class="comment">// a temperature reading</span>
+  int hour; <span class="comment">// hour after midnight [0:23]</span>
+  double temperature; <span class="comment">// in Fahrenheit</span>
+  };
                         </code>
                       </PRE>
                     </p>
@@ -304,13 +305,13 @@
                       Given that, we could read like this:
                       <PRE>
                         <code>
-                          vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
-                          int hour;
-                          double temperature;
-                          while (ist &gt;&gt; hour &gt;&gt; temperature) {
-                                if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
-                                temps.push_back(Reading{hour,temperature});
-                          }
+  vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
+  int hour;
+  double temperature;
+  while (ist &gt;&gt; hour &gt;&gt; temperature) {
+        if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
+        temps.push_back(Reading{hour,temperature});
+  }
                         </code>
                       </PRE>
                     </p>
@@ -321,8 +322,8 @@
                       the readings with each pair of values in parentheses:
                       <PRE>
                         <code>
-                        for (int i=0; i&lt;temps.size(); ++i)
-                              ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ',' &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
+for (int i=0; i&lt;temps.size(); ++i)
+      ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ',' &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
                         </code>
                       </PRE>
                     </p>
@@ -332,42 +333,60 @@
                       when they go out of scope, the complete program becomes:
                       <PRE>
                         <code>
-                        #include "std_lib_facilities.h"
+#include "std_lib_facilities.h"
 
-                        struct Reading { <span class="comment">// a temperature reading</span>
-                            int hour; <span class="comment">// hour after midnight [0:23]</span>
-                            double temperature; <span class="comment">// in Fahrenheit</span>
-                        };
+struct Reading { <span class="comment">// a temperature reading</span>
+    int hour; <span class="comment">// hour after midnight [0:23]</span>
+    double temperature; <span class="comment">// in Fahrenheit</span>
+};
 
-                        int main()
-                        {
-                            cout &lt;&lt; "Please enter input file name: ";
-                            string iname;
-                            cin &gt;&gt; iname;
-                            ifstream ist {iname}; <span class="comment">// ist reads from the file named iname</span>
-                            if (!ist) error("can't open input file ",iname);
+int main()
+{
+    cout &lt;&lt; "Please enter input file name: ";
+    string iname;
+    cin &gt;&gt; iname;
+    ifstream ist {iname}; <span class="comment">// ist reads from the file named iname</span>
+    if (!ist) error("can't open input file ",iname);
 
-                            string oname;
-                            cout &lt;&lt; "Please enter name of output file: ";
-                            cin &gt;&gt; oname;
-                            ofstream ost {oname}; <span class="comment">// ost writes to a file named oname</span>
-                            if (!ost) error("can't open output file ",oname);
+    string oname;
+    cout &lt;&lt; "Please enter name of output file: ";
+    cin &gt;&gt; oname;
+    ofstream ost {oname}; <span class="comment">// ost writes to a file named oname</span>
+    if (!ost) error("can't open output file ",oname);
 
-                            vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
-                            int hour;
-                            double temperature;
-                            while (ist &gt;&gt; hour &gt;&gt; temperature) {
-                                if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
-                                temps.push_back(Reading{hour,temperature});
-                            }
-                            for (int i=0; i&lt;temps.size(); ++i)
-                                ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ','
-                                      &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
-                        }
+    vector&lt;Reading&gt; temps; <span class="comment">// store the readings here</span>
+    int hour;
+    double temperature;
+    while (ist &gt;&gt; hour &gt;&gt; temperature) {
+        if (hour &lt; 0 || 23 &lt; hour) error("hour out of range");
+        temps.push_back(Reading{hour,temperature});
+    }
+    for (int i=0; i&lt;temps.size(); ++i)
+        ost &lt;&lt; '(' &lt;&lt; temps[i].hour &lt;&lt; ','
+              &lt;&lt; temps[i].temperature &lt;&lt; ")\n";
+}
                         </code>
                       </PRE>
                     </p>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                     We want to convert a delimited file. Let's assume
+                     the delimiter in the existing file is a comma,
+                     and we want to convert it to a tab. Write a small
+                     program that accepts "file.comma" as input,
+                     and writes to "file.tab" as output.
+                    </p>
+
+
+                </details>
+
+
                 <details>
                     <summary class="sum1">
                     10.6 I/O error handling
@@ -429,25 +448,25 @@
                       <br>
                       <PRE>
                         <code>
-                          void fill_vector(istream& ist, vector&lt;int&gt;& v, char terminator)
-                          <span class="comment">// read integers from ist into v until we reach eof() or terminator</span>
-                          {
-                              for (int I; ist &gt;&gt; I; )
-                                  v.push_back(i);
-                              if (ist.eof())
-                                  return; <span class="comment">// fine: we found the end of file</span>
+  void fill_vector(istream& ist, vector&lt;int&gt;& v, char terminator)
+  <span class="comment">// read integers from ist into v until we reach eof() or terminator</span>
+  {
+      for (int i; ist &gt;&gt; i; )
+          v.push_back(i);
+      if (ist.eof())
+          return; <span class="comment">// fine: we found the end of file</span>
 
-                              <span class="comment">// not good() and not bad() and not eof(), ist must be fail()</span>
-                              ist.clear(); <span class="comment">// clear stream state</span>
+      <span class="comment">// not good() and not bad() and not eof(), ist must be fail()</span>
+      ist.clear(); <span class="comment">// clear stream state</span>
 
-                              char c;
-                              ist&gt;&gt;c; <span class="comment">// read a character, hopefully terminator</span>
+      char c;
+      ist&gt;&gt;c; <span class="comment">// read a character, hopefully terminator</span>
 
-                              if (c != terminator) { <span class="comment">// ouch: not the terminator, so we must fail</span>
-                                  ist.unget(); <span class="comment">// maybe my caller can use that character</span>
-                                  ist.clear(ios_base::failbit); <span class="comment">// set the state to fail()</span>
-                              }
-                          }
+      if (c != terminator) { <span class="comment">// ouch: not the terminator, so we must fail</span>
+          ist.unget(); <span class="comment">// maybe my caller can use that character</span>
+          ist.clear(ios_base::failbit); <span class="comment">// set the state to fail()</span>
+      }
+  }
                         </code>
                       </PRE>
                     </p>
@@ -511,36 +530,36 @@
                         </summary>
                         <p>
                           <PRE>
-                            <code>
-                              cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
-                              int n = 0;
-                              while (true)
-                              {
-                                  cin &gt;&gt; n;
-                                  if (cin)
-                                  { <span class="comment">// we got an integer; now check it</span>
-                                      if (1&lt;=n && n&lt;=10)
-                                          break;
-                                      cout &lt;&lt; "Sorry "
-                                            &lt;&lt; n &lt;&lt; " is not in the [1:10] range; please try again\n";
-                                  }
-                                  else if (cin.fail())
-                                       { <span class="comment">// we found something that wasn’t an integer</span>
-                                          cin.clear(); <span class="comment">// set the state back to good();</span>
-                                                      <span class="comment">// we want to look at the characters</span>
-                                          cout &lt;&lt; "Sorry, that was not a number; please try again\n";
-                                          for (char ch; cin&gt;&gt;ch && !isdigit(ch); ) <span class="comment">// throw away non-digits</span>
-                                              <span class="comment">/* nothing */ ;</span>
-                                              if (!cin)
-                                                  error("no input"); <span class="comment">// we didn’t find a digit: give up</span>
-                                              cin.unget(); <span class="comment">// put the digit back, so that we can read the number</span>
-                                       }
-                                       else
-                                       {
-                                              error("no input"); <span class="comment">// eof or bad: give up</span>
-                                       }
-                              }
-                              <span class="comment">// if we get here n is in [1:10]</span>
+    <code>
+      cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
+      int n = 0;
+      while (true)
+      {
+          cin &gt;&gt; n;
+          if (cin)
+          { <span class="comment">// we got an integer; now check it</span>
+              if (1&lt;=n && n&lt;=10)
+                  break;
+              cout &lt;&lt; "Sorry "
+                    &lt;&lt; n &lt;&lt; " is not in the [1:10] range; please try again\n";
+          }
+          else if (cin.fail())
+               { <span class="comment">// we found something that wasn’t an integer</span>
+                  cin.clear(); <span class="comment">// set the state back to good();</span>
+                              <span class="comment">// we want to look at the characters</span>
+                  cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+                  for (char ch; cin&gt;&gt;ch && !isdigit(ch); ) <span class="comment">// throw away non-digits</span>
+                      <span class="comment">/* nothing */ ;</span>
+                      if (!cin)
+                          error("no input"); <span class="comment">// we didn’t find a digit: give up</span>
+                      cin.unget(); <span class="comment">// put the digit back, so that we can read the number</span>
+               }
+               else
+               {
+                      error("no input"); <span class="comment">// eof or bad: give up</span>
+               }
+      }
+      <span class="comment">// if we get here n is in [1:10]</span>
                             </code>
                           </PRE>
                         </p>
@@ -572,43 +591,43 @@
                           The code can be reduced to:
                           <PRE>
                             <code>
-                              void skip_to_int()
-                              {
-                                  if (cin.fail())
-                                  { <span class="comment">// we found something that wasn’t an integer</span>
-                                      cin.clear(); <span class="comment">// we’d like to look at the characters</span>
-                                      for (char ch; cin&gt;&gt;ch; )
-                                      { <span class="comment">// throw away non-digits</span>
-                                          if (isdigit(ch) || ch=="-")
-                                          {
-                                              cin.unget(); <span class="comment">// put the digit back,</span>
-                                                            <span class="comment">// so that we can read the number</span>
-                                              return;
-                                          }
-                                      }
-                              }
-                              error("no input"); <span class="comment">// eof or bad: give up</span>
-                              }
+      void skip_to_int()
+      {
+          if (cin.fail())
+          { <span class="comment">// we found something that wasn’t an integer</span>
+              cin.clear(); <span class="comment">// we’d like to look at the characters</span>
+              for (char ch; cin&gt;&gt;ch; )
+              { <span class="comment">// throw away non-digits</span>
+                  if (isdigit(ch) || ch=="-")
+                  {
+                      cin.unget(); <span class="comment">// put the digit back,</span>
+                                    <span class="comment">// so that we can read the number</span>
+                      return;
+                  }
+              }
+      }
+      error("no input"); <span class="comment">// eof or bad: give up</span>
+      }
 
 
-                              cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
-                              int n = 0;
-                              while (true)
-                              {
-                                  if (cin&gt;&gt;n)
-                                  { <span class="comment">// we got an integer; now check it</span>
-                                      if (1&lt;=n && n&lt;=10)
-                                          break;
-                                      cout &lt;&lt; "Sorry " &lt;&lt; n
-                                            &lt;&lt; " is not in the [1:10] range; please try again\n";
-                                  }
-                                  else
-                                  {
-                                      cout &lt;&lt; "Sorry, that was not a number; please try again\n";
-                                      skip_to_int();
-                                  }
-                              }
-                              <span class="comment">// if we get here n is in [1:10]</span>
+      cout &lt;&lt; "Please enter an integer in the range 1 to 10 (inclusive):\n";
+      int n = 0;
+      while (true)
+      {
+          if (cin&gt;&gt;n)
+          { <span class="comment">// we got an integer; now check it</span>
+              if (1&lt;=n && n&lt;=10)
+                  break;
+              cout &lt;&lt; "Sorry " &lt;&lt; n
+                    &lt;&lt; " is not in the [1:10] range; please try again\n";
+          }
+          else
+          {
+              cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+              skip_to_int();
+          }
+      }
+      <span class="comment">// if we get here n is in [1:10]</span>
                             </code>
                           </PRE>
                         </p>
@@ -618,35 +637,35 @@
                           Further, we can make a function to do the above task.
                           <PRE>
                             <code>
-                              int get_int(); <span class="comment">// read an int from cin</span>
-                              int get_int(int low, int high); <span class="comment">// read an int in [low:high] from cin</span>
+      int get_int(); <span class="comment">// read an int from cin</span>
+      int get_int(int low, int high); <span class="comment">// read an int in [low:high] from cin</span>
 
-                              int get_int()
-                              {
-                                  int n = 0;
-                                  while (true)
-                                  {
-                                      if (cin &gt;&gt; n)
-                                          return n;
-                                      cout &lt;&lt; "Sorry, that was not a number; please try again\n";
-                                      skip_to_int();
-                                  }
-                              }
+      int get_int()
+      {
+          int n = 0;
+          while (true)
+          {
+              if (cin &gt;&gt; n)
+                  return n;
+              cout &lt;&lt; "Sorry, that was not a number; please try again\n";
+              skip_to_int();
+          }
+      }
 
-                              int get_int(int low, int high)
-                              {
-                                  cout &lt;&lt; "Please enter an integer in the range "
-                                        &lt;&lt; low &lt;&lt; " to " &lt;&lt; high &lt;&lt; " (inclusive):\n";
-                                  while (true)
-                                  {
-                                      int n = get_int();
-                                      if (low&lt;=n && n&lt;=high)
-                                          return n;
-                                      cout &lt;&lt; "Sorry "
-                                            &lt;&lt; n &lt;&lt; " is not in the [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high
-                                            &lt;&lt; "] range; please try again\n";
-                                  }
-                              }
+      int get_int(int low, int high)
+      {
+          cout &lt;&lt; "Please enter an integer in the range "
+                &lt;&lt; low &lt;&lt; " to " &lt;&lt; high &lt;&lt; " (inclusive):\n";
+          while (true)
+          {
+              int n = get_int();
+              if (low&lt;=n && n&lt;=high)
+                  return n;
+              cout &lt;&lt; "Sorry "
+                    &lt;&lt; n &lt;&lt; " is not in the [" &lt;&lt; low &lt;&lt; ':' &lt;&lt; high
+                    &lt;&lt; "] range; please try again\n";
+          }
+      }
                             </code>
                           </PRE>
                         </p>
@@ -655,10 +674,10 @@
                           Now we can read integers reliably as follows:
                           <PRE>
                             <code>
-                              int n = get_int(1,10);
-                              cout &lt;&lt; "n: " &lt;&lt; n &lt;&lt; '\n';
-                              int m = get_int(2,300);
-                              cout &lt;&lt; "m: " &lt;&lt; m &lt;&lt; '\n';
+      int n = get_int(1,10);
+      cout &lt;&lt; "n: " &lt;&lt; n &lt;&lt; '\n';
+      int m = get_int(2,300);
+      cout &lt;&lt; "m: " &lt;&lt; m &lt;&lt; '\n';
                             </code>
                           </PRE>
                         </p>
@@ -715,12 +734,12 @@
                       Simple output operator for <code>Date</code>
                       <PRE>
                         <code>
-                          ostream& operator&lt;&lt;(ostream& os, const Date& d)
-                          {
-                              return os &lt;&lt; '(' &lt;&lt; d.year()
-                                          &lt;&lt; ',' &lt;&lt; d.month()
-                                          &lt;&lt; ',' &lt;&lt; d.day() &lt;&lt; ')';
-                          }
+  ostream& operator&lt;&lt;(ostream& os, const Date& d)
+  {
+      return os &lt;&lt; '(' &lt;&lt; d.year()
+                  &lt;&lt; ',' &lt;&lt; d.month()
+                  &lt;&lt; ',' &lt;&lt; d.day() &lt;&lt; ')';
+  }
                         </code>
                       </PRE>
                     </p>
@@ -748,8 +767,8 @@
                       We can "chain" output operations.
                       <PRE>
                         <code>
-                        cout &lt;&lt; d1 &lt;&lt; d2; <span class="comment">// means operator&lt;&lt;(cout,d1) &lt;&lt; d2;</span>
-                                          <span class="comment">// means operator&lt;&lt;(operator&lt;&lt;(cout,d1),d2);</span>
+cout &lt;&lt; d1 &lt;&lt; d2; <span class="comment">// means operator&lt;&lt;(cout,d1) &lt;&lt; d2;</span>
+                  <span class="comment">// means operator&lt;&lt;(operator&lt;&lt;(cout,d1),d2);</span>
                         </code>
                       </PRE>
                     </p>
@@ -765,20 +784,20 @@
                       Simple input operator for <code>Date</code>
                       <PRE>
                         <code>
-                          istream& operator&gt;&gt;(istream& is, Date& dd)
-                          {
-                              int y, m, d;
-                              char ch1, ch2, ch3, ch4;
-                              is &gt;&gt; ch1 &gt;&gt; y &gt;&gt; ch2 &gt;&gt; m &gt;&gt; ch3 &gt;&gt; d &gt;&gt; ch4;
-                              if (!is) return is;
-                              if (ch1!='(' || ch2!=',' || ch3!=',' || ch4!=')')
-                              {   <span class="comment">// oops: format error</span>
-                                  is.clear(ios_base::failbit);
-                                  return is;
-                              }
-                              dd = Date{y,Date::Month(m),d}; <span class="comment">// update dd</span>
-                              return is;
-                          }
+  istream&amp; operator&gt;&gt;(istream&amp; is, Date&amp; dd)
+  {
+      int y, m, d;
+      char ch1, ch2, ch3, ch4;
+      is &gt;&gt; ch1 &gt;&gt; y &gt;&gt; ch2 &gt;&gt; m &gt;&gt; ch3 &gt;&gt; d &gt;&gt; ch4;
+      if (!is) return is;
+      if (ch1!='(' || ch2!=',' || ch3!=',' || ch4!=')')
+      {   <span class="comment">// oops: format error</span>
+          is.clear(ios_base::failbit);
+          return is;
+      }
+      dd = Date{y,Date::Month(m),d}; <span class="comment">// update dd</span>
+      return is;
+  }
                         </code>
                       </PRE>
                     </p>
@@ -798,27 +817,26 @@
                     10.10 A standard input loop
                     </summary>
                     <p>
-                      Before actually reading and writing files,
-                      we should check if we could read a file
-                      from its beginning until the end of the file.
+                      Here is how we can check our input file reads as we go
+                      along:
                       <br>
                       <br>
                       Assuming <code>ist</code> is an <code>istream</code>,
                       <PRE>
                         <code>
-                        for (My_type var; ist&gt;&gt;var; )
-                        {   <span class="comment">// read until end of file</span>
-                            <span class="comment">// maybe check that var is valid</span>
-                            <span class="comment">// do something with var</span>
-                        }
-                        <span class="comment">// we can rarely recover from bad; don’t try unless you really have to:</span>
-                        if (ist.bad())
-                            error("bad input stream");
-                        if (ist.fail())
-                        {
-                            <span class="comment">// was it an acceptable terminator?</span>
-                        }
-                        <span class="comment">// carry on: we found end of file</span>
+for (My_type var; ist&gt;&gt;var; )
+{   <span class="comment">// read until end of file</span>
+    <span class="comment">// maybe check that var is valid</span>
+    <span class="comment">// do something with var</span>
+}
+<span class="comment">// we can rarely recover from bad; don’t try unless you really have to:</span>
+if (ist.bad())
+    error("bad input stream");
+if (ist.fail())
+{
+    <span class="comment">// was it an acceptable terminator?</span>
+}
+<span class="comment">// carry on: we found end of file</span>
                         </code>
                       </PRE>
                     </p>
@@ -828,9 +846,9 @@
                       letting it throw an exception of type
                       <code>failure</code>,
                       <PRE>
-                        <code>
-                        <span class="comment">// somewhere: make ist throw an exception if it goes bad:</span>
-                        ist.exceptions(ist.exceptions()|ios_base::badbit);
+<code>
+<span class="comment">// somewhere: make ist throw an exception if it goes bad:</span>
+ist.exceptions(ist.exceptions()|ios_base::badbit);
                         </code>
                       </PRE>
                     </p>
@@ -839,48 +857,48 @@
                       Also, deciding to designate a character as a terminator,
                       <PRE>
                         <code>
-                        for (My_type var; ist&gt;&gt;var; )
-                        {   <span class="comment">// read until end of file</span>
-                            <span class="comment">// maybe check that var is valid</span>
-                            <span class="comment">// do something with var</span>
-                        }
-                        if (ist.fail())
-                        {   <span class="comment">// use '|' as terminator and/or separator</span>
-                            ist.clear();
-                            char ch;
-                            if (!(ist&gt;&gt;ch && ch=='|'))
-                                error("bad termination of input");
-                        }
-                        <span class="comment">// carry on: we found end of file or a terminator</span>
+for (My_type var; ist&gt;&gt;var; )
+{   <span class="comment">// read until end of file</span>
+    <span class="comment">// maybe check that var is valid</span>
+    <span class="comment">// do something with var</span>
+}
+if (ist.fail())
+{   <span class="comment">// use '|' as terminator and/or separator</span>
+    ist.clear();
+    char ch;
+    if (!(ist&gt;&gt;ch && ch=='|'))
+        error("bad termination of input");
+}
+<span class="comment">// carry on: we found end of file or a terminator</span>
                         </code>
                       </PRE>
                     </p>
                     <br>
                     <p>
-                      Making the code more simpler using function,
+                      Making the code simpler using a function:
                       <PRE>
                         <code>
-                          <span class="comment">// somewhere: make ist throw if it goes bad:</span>
-                          ist.exceptions(ist.exceptions()|ios_base::badbit);
-                          void end_of_loop(istream& ist, char term, const string& message)
-                          {
-                              if (ist.fail())
-                              {   <span class="comment">// use term as terminator and/or separator</span>
-                                  ist.clear();
-                                  char ch;
-                                  if (ist&gt;&gt;ch && ch==term)
-                                      return; <span class="comment">// all is fine</span>
-                                  error(message);
-                               }
-                          }
+  <span class="comment">// somewhere: make ist throw if it goes bad:</span>
+  ist.exceptions(ist.exceptions()|ios_base::badbit);
+  void end_of_loop(istream& ist, char term, const string& message)
+  {
+      if (ist.fail())
+      {   <span class="comment">// use term as terminator and/or separator</span>
+          ist.clear();
+          char ch;
+          if (ist&gt;&gt;ch && ch==term)
+              return; <span class="comment">// all is fine</span>
+          error(message);
+       }
+  }
 
-                          for (My_type var; ist&gt;&gt;var; )
-                          {   <span class="comment">// read until end of file</span>
-                              <span class="comment">// maybe check that var is valid</span>
-                              <span class="comment">// . . . do something with var . . .</span>
-                          }
-                          end_of_loop(ist,'|',"bad termination of file"); <span class="comment">// test if we can continue</span>
-                          <span class="comment">// carry on: we found end of file or a terminator</span>
+  for (My_type var; ist&gt;&gt;var; )
+  {   <span class="comment">// read until end of file</span>
+      <span class="comment">// maybe check that var is valid</span>
+      <span class="comment">// . . . do something with var . . .</span>
+  }
+  end_of_loop(ist,'|',"bad termination of file"); <span class="comment">// test if we can continue</span>
+  <span class="comment">// carry on: we found end of file or a terminator</span>
                         </code>
                       </PRE>
                     </p>
