@@ -26,11 +26,20 @@
                     </figure>
                     <p>
                     The iostream library which is the input/output part of the
-                    ISO C++ standard library. This Library provides a unified
-                    and extensible for I/O of text. In this chapter we will 
-                    learn number of ways in which we can tailor I/O to our
-                    needs
+                    ISO C++ standard library. This library provides a unified
+                    and extensible framework for I/O of text.  In this chapter
+                    we will learn number of ways in which we can tailor I/O to
+                    our needs
                     </p>
+
+                    <p>
+                        As programmers we naturally prefer regularity: handle
+                        everything in a uniform fashion! It is simpler and
+                        pleases our engineering sense. But our users often have
+                        strong preferences for very irregular arrangements
+                        of their data. We have to balance these two factors.
+                    </p>
+
                 </details>
                 <details>
                     <summary class="sum1">
@@ -44,7 +53,7 @@
                     <p>
                     People care a lot about the minor details of output. Our
                     aim as a programmer is to keep output as clear and close 
-                    to user's expectation as possible
+                    to user's expectation as possible.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -229,6 +238,20 @@
                         </code>
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        We'd probably like our calculator to give high
+                        precision answers: use set precision to up the number
+                        of output digits.
+                    </p>
+
+                </details>
+
                 <details>
                     <summary class="sum1">
                     11.3 File opening and positioning
@@ -239,9 +262,9 @@
                         </figcaption>
                     </figure>
                     <p>
-                    A file is is an abstraction of what the operating system
-                    provides as per C++. A file is sequence of bytes numbered
-                    from 0 upwards.The question is how to access these bytes.
+                    In C++, a file is is an abstraction of what the operating system
+                    provides. A file is sequence of bytes numbered
+                    from 0 upwards. The question is how to access these bytes.
                     The simplest example of this is that if we open an
                     <code>istream</code> for a file, we can read from the 
                     file, whereas if we open a file with an <code>ostream</code>, 
@@ -259,19 +282,18 @@
                         <p>
                         A file can be opened in several modes. By default,
                         <code> ifstream</code> opens it for reading and
-                        <code>ofstream</code> opens for writing. Thes take care
+                        <code>ofstream</code> opens for writing. These take care
                         of the most common needs but there are several other 
-                        alternatives given in the book.A file mode is
+                        alternatives given in the book. A file mode is
                         optionally specified after the name of the file. For example: 
                         </p>
                         <code>
                         <pre>
-                        ofstream of1 {name1};   //defaults to ios_base::out
-                        ifstream if1 {name2};   //defaults to ios_base::in
-                        
-                        ofstream ofs {name, ios_base::app}; //ofstreams by default include
-                                                            //io_base::out
-                        fstream fs {"myfile",ios_base::in|ios_base::out};//both in and out
+ofstream of1 {name1};   //defaults to ios_base::out
+ifstream if1 {name2};   //defaults to ios_base::in
+
+ofstream ofs {name, ios_base::app}; // app means "append"
+fstream fs {"myfile",ios_base::in|ios_base::out};//both in and out
                         </pre>
                         </code>
                     </details>
@@ -285,7 +307,10 @@
                             </figcaption>
                         </figure>
                         <p>
-                        
+                            We can tell our IO streams to output binary data,
+                            i.e., represent an int not as a sequence of chars
+                            but as 0100100 etc. by using
+                            <code>ios_base::binary</code>.
                         </p>
                     </details>
                     <details>
@@ -298,6 +323,11 @@
                             </figcaption>
                         </figure>
                         <p>
+                            We can also go to a specific position in a
+                            file for I/O. Advanced stuff we won't do, but it is
+                            good to know we can! (We might use this if we were
+                            writing a new database, for instance, or editing a
+                            movie.)
                         </p>
                     </details>
                 </details>
@@ -313,30 +343,30 @@
                     <p>
                     A <code>string</code> can be used as a source of an
                     <code>istream</code> or the target for an 
-                    <code>ostream</code>
-                    .An <code>istream</code> that reads from a
+                    <code>ostream</code>.
+                    An <code>istream</code> that reads from a
                     <code>string</code> is called
                     an <code>istringstream</code> and an <code>ostream</code> 
                     that stores characters written to it in a
                     <code>string</code> is called an <code>ostringstream</code>.
-                    We can use an <code>istringstream</code> is 
-                    useful for extracting
+                    We can use an <code>istringstream</code> 
+                    for extracting
                     numeric values from a<code> string</code>:
                     </p>
                     <code>
                     <pre>
-                    double str_to_double(string s)
-                        // if possible, convert characters in s to floating-point value
-                    {
-                        istringstream is {s};      // make a stream so that we can read from s
-                        double d;
-                        is &gt;&gt; d;
-                        if (!is) error("double format error: ",s);
-                        return d;
-                    }
-                    double d1 = str_to_double("12.4");
-                    double d2 = str_to_double("1.34e–3");
-                    double d3 = str_to_double("twelve point three");
+double str_to_double(string s)
+    // if possible, convert characters in s to floating-point value
+{
+    istringstream is {s};      // make a stream so that we can read from s
+    double d;
+    is &gt;&gt; d;
+    if (!is) error("double format error: ",s);
+    return d;
+}
+double d1 = str_to_double("12.4");
+double d2 = str_to_double("1.34e–3");
+double d3 = str_to_double("twelve point three");
                     </pre> 
                     </code>
                 </details>
@@ -356,17 +386,20 @@
                     </p>
                     <code>
                     <pre>
-                    string name;
-                    getline(cin,name);      // input: Dennis Ritchie
-                    cout &lt;&lt; name &lt;&lt; '\n';// output: Dennis Ritchie
+string name;
+getline(cin,name);      // input: Dennis Ritchie
+cout &lt;&lt; name &lt;&lt; '\n';    // output: Dennis Ritchie
                     </pre> 
                     </code>
                     <p>
-                    &gt;&gt; reads only until it encounters whitespace. If we
-                    use &gt;&gt; instead of <code>getline()</code> the output
+                    <code>&gt;&gt;</code>
+                    reads only until it encounters whitespace. If we
+                    use <code>&gt;&gt;</code>
+                    instead of <code>getline()</code> the output
                     will be 'Dennis'.
                     </p>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     11.6 Character classification
@@ -380,16 +413,16 @@
                     Sometimes we go down to a level of abstraction and read
                     individual characters. This is certainly more work but when
                     we do this, we have a full control over what we are
-                    doing.Consider tokenizing this expression:
+                    doing. Consider tokenizing this expression:
                     <code>1+4*x&lt;=y/z*5</code> to be separated 
                     into the eleven tokens.
                     </p>
                     <p>
-                    We could use <code>&gt;&gt;</code> to read numbers. but trying to read
-                    identifiers as strings would cause <code>x&lt;=y</code> to
-                    to be read as one string. Similarly it will read
-                    <code>z*</code> as one string.So, instead we can write
-                    something like this:
+                    We could use <code>&gt;&gt;</code> to read numbers. but
+                    trying to read identifiers as strings would cause
+                    <code>x&lt;=y</code> to to be read as one string. Similarly
+                    it will read <code>z*</code> as one string. So, instead we
+                    can write something like this:
                     </p>
                     <code>
                     <pre> 
@@ -419,9 +452,20 @@ for (char ch; cin.get(ch); ) {
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        We <i>can</i> define our own stream type to recognize 
+                        different separators than the default, e.g., to
+                        recognize something other than whitespace as separating
+                        strings. (Think of trying to extract words from a
+                        stream of text: we don't want "To be or not to be, that
+                        is the question" to return "be," as a word!)
+                        This is difficult programming, and beyond what we can
+                        tackle in this course, but the example from the book is
+                        worth studying.)
                     </p>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     11.8 And there is so much more
