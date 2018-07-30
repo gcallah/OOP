@@ -535,12 +535,47 @@ int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memo
                         <summary class="sum2">
                         17.3.1 The size of operator
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <code>sizeof</code> gives the size of an
+                          object of the type.
+                          <br>
+                          <br>
+                          For an expression it gives the size of the type
+                          of the result.
+                          The result of sizeof is a positive integer.
+                          <br>
+                          It's unit is <code>sizeof(char)</code> defined to be
+                          <code>1</code>.
+                          <code>sizeof(int)</code> is typically <code>4</code>.
+                          <PRE>
+                            <code>
+void sizes(char ch, int i, int* p)
+{
+cout &lt;&lt; "the size of char is " &lt;&lt; sizeof(char) &lt;&lt; ' ' &lt;&lt; sizeof (ch) &lt;&lt; '\n';
+cout &lt;&lt; "the size of int is " &lt;&lt; sizeof(int) &lt;&lt; ' ' &lt;&lt; sizeof (i) &lt;&lt; '\n';
+cout &lt;&lt; "the size of int* is " &lt;&lt; sizeof(int*) &lt;&lt; ' ' &lt;&lt; sizeof (p) &lt;&lt; '\n';
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Memory used by a <code>vector</code>:
+                          <PRE>
+                            <code>
+vector&lt;int&gt; v(1000);  <span class="comment">// vector with 1000 elements of type int</span>
+cout &lt;&lt; "the size of vector&lt;int&gt;(1000) is " &lt;&lt; sizeof (v) &lt;&lt; '\n';
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Output:</span>
+                          <PRE>
+                            <code>
+the size of vector&lt;int&gt;(1000) is 20
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
