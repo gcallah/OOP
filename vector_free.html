@@ -1422,8 +1422,89 @@ r = &y2; <span class="comment">// error: you can’t change the value of a refer
                         <summary class="sum2">
                         17.9.1 Pointer and reference parameters
                         </summary>
+                        <p>
+                          To change the value of a variable to a value computed
+                          by a function we have following choices,
+                          <PRE>
+                            <code>
+int incr_v(int x) { return x+1; } <span class="comment">// compute a new value and return it</span>
+void incr_p(int* p) { ++*p; } <span class="comment">// pass a pointer</span>
+<span class="comment">// (dereference it and increment the result)</span>
+void incr_r(int& r) { ++r; } <span class="comment">// pass a reference</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Returning the value often leads to the most obvious code,
+                          <PRE>
+                            <code>
+int x = 2;
+x = incr_v(x); <span class="comment">// copy x to incr_v(); then copy the result out and assign it</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Using a pointer argument alerts the programmer
+                          that something might be changed,
+                          <PRE>
+                            <code>
+int x = 7;
+incr_p(&x) <span class="comment">// the & is needed</span>
+incr_r(x);
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The need to use <code>&</code> in <code>incr_p(&x)</code>
+                          alerts the user that x might be changed.
+                          <code>incr_r(x)</code> “looks innocent.”
+                          <br>
+                          The function has to beware of null pointer,
+                          <PRE>
+                            <code>
+incr_p(nullptr); <span class="comment">// crash: incr_p() will try to dereference the null pointer</span>
+int* p = nullptr;
+incr_p(p); <span class="comment">// crash: incr_p() will try to dereference the null pointer</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <code>incr_p()</code> protects against,
+                          <PRE>
+                            <code>
+void incr_p(int* p)
+{
+    if (p==nullptr)
+        error("null pointer argument to incr_p()");
+    ++*p; <span class="comment">// dereference the pointer and increment the object pointed to</span>
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          At the end we can say that the choice depends on
+                          the nature of function,
+                          <ul>
+                            <li>
+                              For tiny objects prefer pass-by-value.
+                            </li>
+                            <li>
+                              For functions where “no object”
+                              (represented by <code>nullptr</code>) is a valid
+                              argument use a pointer parameter (and remember to
+                              test for <code>nullptr</code>).
+                            </li>
+                            <li>
+                              Otherwise, use a reference parameter.
+                            </li>
+                          </ul>
+                        </p>
                     </details>
-
                     <details>
                         <summary class="sum2">
                         17.9.2 Pointers, references, and inheritance
