@@ -879,12 +879,24 @@ Y* py4 = new Y[17] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
                         <summary class="sum2">
                         17.4.5 The null pointer
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The value zero is called the
+                          <i>null pointer</i> when assigned to a pointer.
+                          <PRE>
+                            <code>
+if (p0 != nullptr) <span class="comment">// consider p0 valid</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          An <code>if</code>-statement really checks
+                          whether its condition is <code>nullptr</code>.
+                          <PRE>
+                            <code>
+if (p0) <span class="comment">// consider p0 valid; equivalent to p0!=nullptr</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
