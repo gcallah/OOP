@@ -876,12 +876,32 @@ void f()
                     <summary class="sum1">
                     17.6 Access to elements
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      We use <code>get()</code> and <code>set()</code>
+                      to make <code>vector</code> read and write elements.
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles</span>
+class vector {
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// a pointer to the elements</span>
+public:
+    vector(int s) :sz{s}, elem{new double[s]} { /* . . . */ } <span class="comment">// constructor</span>
+    ~vector() { delete[] elem; } <span class="comment">// destructor</span>
+
+    int size() const { return sz; } <span class="comment">// the current size</span>
+
+    double get(int n) const { return elem[n]; } <span class="comment">// access: read</span>
+    void set(int n, double v) { elem[n]=v; } <span class="comment">// access: write</span>
+};
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Both <code>get()</code> and <code>set()</code>
+                      access the elements using the <code>[ ]</code>
+                      operator on the <code>elem</code> pointer:
+                      <code>elem[n]</code>.
                     </p>
                 </details>
 
