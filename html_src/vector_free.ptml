@@ -1281,12 +1281,96 @@ rotate(c,75);
                         <summary class="sum2">
                         17.9.3 An example: lists
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A short list of Norse gods
+                          <figure>
+                              <img src="graphics/Chap17Diag12.png" width="30%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                          A list like this is called a <i>doubly-linked list</i>
+                           where we can find both the predecessor and the
+                           successor.
+                          <br>
+                          A list where we find only the successor is
+                          called a <i>singly-linked list</i>.
+                        </p>
+                        <br>
+                        <p>
+                          Define links,
+                          <PRE>
+                            <code>
+struct Link {
+    string value;
+    Link* prev;
+    Link* succ;
+    Link(const string& v, Link* p = nullptr, Link* s = nullptr)
+          : value{v}, prev{p}, succ{s} { }
+};
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Build list of Norse gods,
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link{"Thor",nullptr,nullptr};
+norse_gods = new Link{"Odin",nullptr,norse_gods};
+norse_gods–&gt;succ–&gt;prev = norse_gods;
+norse_gods = new Link{"Freia",nullptr,norse_gods};
+norse_gods–&gt;succ–&gt;prev = norse_gods;
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Insert operation,
+                          <PRE>
+                            <code>
+Link* insert(Link* p, Link* n) <span class="comment">// insert n before p (incomplete)</span>
+{
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    p–&gt;prev–&gt;succ = n; <span class="comment">// n comes after what used to be p’s predecessor</span>
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Improving insert operation,
+                          <PRE>
+                            <code>
+Link* insert(Link* p, Link* n) <span class="comment">// insert n before p; return n</span>
+{
+    if (n==nullptr)
+        return p;
+    if (p==nullptr)
+        return n;
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = n;
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Now we can write,
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link{"Thor"};
+norse_gods = insert(norse_gods,new Link{"Odin"});
+norse_gods = insert(norse_gods,new Link{"Freia"});
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
