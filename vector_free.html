@@ -808,12 +808,70 @@ double d = q[700]; <span class="comment">// out-of-range access!</span>
                         <summary class="sum2">
                         17.4.4 Initialization
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+double* p0; <span class="comment">// uninitialized: likely trouble</span>
+double* p1 = new double; <span class="comment">// get (allocate) an uninitialized double</span>
+double* p2 = new double{5.5}; <span class="comment">// get a double initialized to 5.5</span>
+double* p3 = new double[5]; <span class="comment">// get (allocate) 5 uninitialized doubles</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          It is good to ensure that pointers are initialized
+                          and the object they point to are also intialized.
+                          <br>
+                          <br>
+                          Declaring <code>p0</code> without initializing is
+                          trouble.
+                          <PRE>
+                            <code>
+*p0 = 7.0;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Here <code>7.0</code> is assigned to some
+                          location in memory.
+                        </p>
+                        <br>
+                        <p>
+                          Memory allocated by new is not initialized
+                          for built-in types.
+                          <br>
+                          An initializer list can be specified
+                          for an array of objects allocated by <code>new</code>.
+                          <PRE>
+                            <code>
+double* p4 = new double[5] {0,1,2,3,4};
+double* p5 = new double[] {0,1,2,3,4};
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Also, a program with uninitialized
+                          variables can run differently.
+                          If a type <code>X</code> has a default constructor,
+                          <PRE>
+                            <code>
+X* px1 = new X; <span class="comment">// one default-initialized X</span>
+X* px2 = new X[17]; <span class="comment">// 17 default-initialized Xs</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Explicitly initialize if <code>Y</code> has a constructor but not a default constructor
+                          <PRE>
+                            <code>
+Y* py1 = new Y; <span class="comment">// error: no default constructor</span>
+Y* py2 = new Y{13}; <span class="comment">// OK: initialized to Y{13}</span>
+Y* py3 = new Y[17]; <span class="comment">// error: no default constructor</span>
+Y* py4 = new Y[17] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
