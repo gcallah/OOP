@@ -498,12 +498,50 @@ double y = p[0]; <span class="comment">// p[0] is the same as *p</span>
                         <summary class="sum2">
                         17.4.3 Ranges
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The pointer doesn't know how many elements it
+                          points to.
+                          <PRE>
+                            <code>
+double* pd = new double[3];
+pd[2] = 2.2;
+pd[4] = 4.4;
+pd[–3] = –3.3;
+                            </code>
+                          </PRE>
+                          <br>
+                          <figure>
+                            <img src="graphics/Chap17Diag9.png" width="40%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                            Using <code>vector</code> rather than using
+                            memory allocated by <code>new</code> is that a
+                            <code>vector</code> knows its size so that
+                            out-of-range access can be prevented.
+                            <br>
+                            Also, we can assign one <code>double*</code> to
+                            another <code>double*</code> independently of
+                            how many objects each points to.
+                            <PRE>
+                              <code>
+double* p = new double; <span class="comment">// allocate a double</span>
+double* q = new double[1000]; <span class="comment">// allocate 1000 doubles</span>
+q[700] = 7.7; <span class="comment">// fine</span>
+q = p; <span class="comment">// let q point to the same as p</span>
+double d = q[700]; <span class="comment">// out-of-range access!</span>
+                              </code>
+                            </PRE>
+                            <br>
+                            <figure>
+                              <img src="graphics/Chap17Diag10.png" width="40%">
+                            </figure>
+                        </p>
+                        <p>
+                            Here, <code>q[700]</code> refers to two different
+                            memory locations and the last use is an
+                            out-of-range access.
                         </p>
                     </details>
 
