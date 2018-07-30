@@ -1541,12 +1541,66 @@ cout&lt;&lt;"\n";
                     <summary class="sum1">
                     17.10 The this pointer
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Implementing <code>Link::insert()</code> by copying
+                      our previous global insert()
+                      <PRE>
+                        <code>
+Link* Link::insert(Link* n) <span class="comment">// insert n before p; return n</span>
+{
+    Link* p = this; <span class="comment">// pointer to this object</span>
+    if (n==nullptr)
+        return p; <span class="comment">// nothing to insert</span>
+    if (p==nullptr)
+        return n; <span class="comment">// nothing to insert into</span>
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = n;
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Alternatively, we could simply use <code>this</code>
+                      instead of <code>p</code>:
+                      <PRE>
+                        <code>
+Link* Link::insert(Link* n) <span class="comment">// insert n before this object; return n</span>
+{
+    if (n==nullptr)
+        return this;
+    if (this==nullptr)
+        return n;
+    n–&gt;succ = this; <span class="comment">// this object comes after n</span>
+    if (prev)
+        prev–&gt;succ = n;
+    n–&gt;prev = prev; <span class="comment">// this object’s predecessor becomes n’s predecessor</span>
+    prev = n; <span class="comment">// n becomes this object’s predecessor</span>
+    return n;
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The compiler ensures that we do not change
+                      the value of <code>this</code> in a member function.
+                      <PRE>
+                        <code>
+struct S {
+  <span class="comment">// . . .</span>
+  void mutate(S* p)
+  {
+      this = p; <span class="comment">// error: this is immutable</span>
+      <span class="comment">// . . .</span>
+  }
+};
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
