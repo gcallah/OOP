@@ -999,12 +999,41 @@ delete p; <span class="comment">// also fine (still no action needed)</span>
                     <summary class="sum1">
                     17.5 Destructors
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Just as the way a constructor is called when an object
+                      class is created, a <code>destructor</code> is called
+                      when an object goes out of scope.
+                      <br>
+                      It makes sure that an object is properly
+                      cleaned up before it is destroyed.
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles</span>
+class vector {
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// a pointer to the elements</span>
+public:
+    vector(int s) <span class="comment">// constructor</span>
+          :sz{s},
+          elem{new double[s]} <span class="comment">// allocate memory</span>
+          {
+              for (int i=0; i&lt;s; ++i)
+                  elem[i]=0; <span class="comment">// initialize elements</span>
+          }
+          ~vector() <span class="comment">// destructor</span>
+              { delete[] elem; } <span class="comment">// free memory</span>
+          <span class="comment">// . . .</span>
+};
+
+void f3(int n)
+{
+    double* p = new double[n]; <span class="comment">// allocate n doubles</span>
+    vector v(n); <span class="comment">// the vector allocates n doubles</span>
+    <span class="comment">// . . . use p and v . . .</span>
+    delete[ ] p; <span class="comment">// deallocate p’s doubles</span>
+} <span class="comment">// vector automatically cleans up after v</span>
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
