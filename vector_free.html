@@ -585,23 +585,117 @@ the size of vector&lt;int&gt;(1000) is 20
                     <summary class="sum1">
                     17.4 Free store and pointers
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The compiler sets aside memory for
+                      <ul>
+                        <li>
+                          code (code storage or text storage)
+                        </li>
+                        <li>
+                          global variables (static storage)
+                        </li>
+                        <li>
+                          function calls for arguments and local variables
+                          (stack storage or automatic storage)
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <figure>
+                          <img src="graphics/Chap17Diag5.png" width="25%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      The C++ language makes this “free store”
+                      (also called the heap) available
+                      through an operator called <code>new</code>.
+                      <PRE>
+                        <code>
+double* p = new double[4]; <span class="comment">// allocate 4 doubles on the free store</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      <figure>
+                          <img src="graphics/Chap17Diag6.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+                        <code>
+char* q = new double[4]; <span class="comment">// error: double* assigned to char*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      The <code>new</code> returns a pointer to a
+                      <code>double</code> but a <code>double</code> isn't a
+                      <code>char</code>.
+                      <br>
+                      It should not be assigned to the pointer to
+                      <code>char</code> variable <code>q</code>.
                     </p>
                     <details>
                         <summary class="sum2">
                         17.4.1 Free-store allocation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          We request memory to be allocated on the free
+                          store by the new operator:
+                          <ul>
+                            <li>
+                              The new operator returns a pointer to the
+                              allocated memory.
+                            </li>
+                            <li>
+                              A pointer value is the address of the first
+                              byte of the memory.
+                            </li>
+                            <li>
+                              A pointer points to an object of a specified
+                              type.
+                            </li>
+                            <li>
+                              A pointer does not know how many elements it
+                              points to.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+int* pi = new int; <span class="comment">// allocate one int</span>
+int* qi = new int[4]; <span class="comment">// allocate 4 ints (an array of 4 ints)</span>
+double* pd = new double; <span class="comment">// allocate one double</span>
+double* qd = new double[n]; <span class="comment">// allocate n doubles (an array of n doubles)</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <figure>
+                              <img src="graphics/Chap17Diag7.png" width="40%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                          Pointers to objects of different types are different
+                          types.
+                          <PRE>
+                            <code>
+pi = pd; <span class="comment">// error: can’t assign a double* to an int*</span>
+pd = pi; <span class="comment">// error: can’t assign an int* to a double*</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Allowing assignment of pointers to different
+                          types would allow type errors.
                         </p>
                     </details>
 
