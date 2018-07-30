@@ -909,12 +909,84 @@ public:
                     <summary class="sum1">
                     17.7 Pointers to class objects
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The notion of “pointer” is general.
+                      The use of pointers to <code>vectors</code>
+                      exactly as we use pointers to <code>char</code>s.
+                      <PRE>
+                        <code>
+vector* f(int s)
+{
+    vector* p = new vector(s); <span class="comment">// allocate a vector on free store</span>
+    <span class="comment">// fill *p</span>
+    return p;
+}
+
+void ff()
+{
+    vector* q = f(4);
+    <span class="comment">// use *q</span>
+    delete q; <span class="comment">// free vector on free store</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      When we <code>delete</code> a <code>vector</code>,
+                      its destructor is called.
+                      <PRE>
+                        <code>
+vector* p = new vector(s); <span class="comment">// allocate a vector on free store</span>
+delete p; <span class="comment">// deallocate</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      When the <code>vector</code> on free store is created
+                      the <code>new</code> operator first allocated memory
+                      then invokes the <code>vector's</code> constructor.
+                      <br>
+                      When the <code>vector</code> is deleted
+                      the <code>delete</code> operator first invokes
+                      the <code>vector's</code> destructor then deallocates
+                      the memory used for the <code>vector</code>.
+                      <PRE>
+                        <code>
+vector&lt;vector&lt;double&gt;&gt;* p = new vector&lt;vector&lt;double&gt;&gt;(10);
+delete p;
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      <code>delete p</code> invokes the destructor
+                      for <code>vector&lt;vector&lt;double&gt;&gt; </code>.
+                      This destructor in turn invokes the destructor for its
+                      <code>vector&lt;double&gt;</code> cleaning everything.
+                      <br>
+                      <br>
+                      All classes support the operator <code>. (dot) </code>
+                       for accessing members given the name of an object:
+                      <PRE>
+                        <code>
+vector v(4);
+int x = v.size();
+double d = v.get(3);
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      All classes support the operator –&gt; (arrow) for
+                      accessing members, given a pointer to an object:
+                      <PRE>
+                        <code>
+vector* p = new vector(4);
+int x = p–&gt;size();
+double d = p–&gt;get(3);
+                        </code>
+                      </PRE>
                     </p>
                 </details>
 
