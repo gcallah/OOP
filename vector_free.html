@@ -1344,18 +1344,84 @@ void f(const Buffer* p)
                     17.9 Pointers and references
                     </summary>
                     <p>
+                      A <i>reference</i> is an automatically dereferenced
+                      immutable pointer or as an alternative name for an
+                      object.
+                      <br>
+                      Pointers and references differ in these ways:
+                      <ul>
+                        <li>
+                          Assignment to a pointer changes the pointer’s
+                          value (not the pointed-to value).
+                        </li>
+                        <li>
+                          To get a pointer you generally need to use
+                          <code>new</code> or <code>&</code>.
+                        </li>
+                        <li>
+                          To access an object pointed to by a pointer
+                          you use <code>*</code> or <code>[ ]</code>.
+                        </li>
+                        <li>
+                          Assignment to a reference changes the value of
+                          the object referred to
+                          (not the reference itself).
+                        </li>
+                        <li>
+                          You cannot make a reference refer to a
+                          different object after initialization.
+                        </li>
+                        <li>
+                          Assignment of references does deep
+                          copy (assigns to the referred-to object);
+                          assignment of pointers does not (assigns to the
+                          pointer object itself).
+                        </li>
+                        <li>
+                          Beware of null pointers.
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+int x = 10;
+int* p = &x; <span class="comment">// you need & to get a pointer</span>
+*p = 7; <span class="comment">// use * to assign to x through p</span>
+int x2 = *p; <span class="comment">// read x through p</span>
+int* p2 = &x2; <span class="comment">// get a pointer to another int</span>
+p2 = p; <span class="comment">// p2 and p both point to x</span>
+p = &x2; <span class="comment">// make p point to another object</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The corresponding example for references is
+                      <PRE>
+                        <code>
+int y = 10;
+int& r = y; <span class="comment">// the & is in the type, not in the initializer</span>
+r = 7; <span class="comment">// assign to y through r (no * needed)</span>
+int y2 = r; <span class="comment">// read y through r (no * needed)</span>
+int& r2 = y2; <span class="comment">// get a reference to another int</span>
+r2 = r; <span class="comment">// the value of y is assigned to y2</span>
+r = &y2; <span class="comment">// error: you can’t change the value of a reference</span>
+        <span class="comment">// (no assignment of an int* to an int&)</span>
+                          </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      A reference and a pointer are both implemented
+                      by using a memory address.
                     </p>
                     <details>
                         <summary class="sum2">
                         17.9.1 Pointer and reference parameters
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
-                        <p>
-                        </p>
                     </details>
 
                     <details>
