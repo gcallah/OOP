@@ -341,8 +341,8 @@ age[3]=54.2;
                       <PRE>
                         <code>
 class vector {
-int size, age0, age1, age2, age3;
-// . . .
+    int size, age0, age1, age2, age3;
+    // . . .
 };
                         </code>
                       </PRE>
@@ -368,12 +368,12 @@ int size, age0, age1, age2, age3;
                         <code>
 <span class="comment">// a very simplified vector of doubles (like vector&lt;double&gt;)</span>
 class vector {
-int sz; <span class="comment">// the size</span>
-double* elem; <span class="comment">// pointer to the first element (of type double)</span>
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// pointer to the first element (of type double)</span>
 public:
-vector(int s); <span class="comment">// constructor: allocate s doubles,</span>
-<span class="comment">// let elem point to them</span>
-<span class="comment">// store s in sz</span>
+    vector(int s); <span class="comment">// constructor: allocate s doubles,</span>
+                  <span class="comment">// let elem point to them</span>
+                  <span class="comment">// store s in sz</span>
 int size() const { return sz; } <span class="comment">// the current size</span>
 };
                         </code>
@@ -509,8 +509,8 @@ char ch2 = 'b';
 char ch3 = 'c';
 char ch4 = 'd';
 int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memory</span>
-<span class="comment">// error: we cannot assign a char* to an int*</span>
-<span class="comment">// but let’s pretend we could</span>
+                <span class="comment">// error: we cannot assign a char* to an int*</span>
+                <span class="comment">// but let’s pretend we could</span>
 *pi = 12345; <span class="comment">// write to an int-size piece of memory</span>
 *pi = 67890;
                         </code>
@@ -551,9 +551,9 @@ int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memo
                             <code>
 void sizes(char ch, int i, int* p)
 {
-cout &lt;&lt; "the size of char is " &lt;&lt; sizeof(char) &lt;&lt; ' ' &lt;&lt; sizeof (ch) &lt;&lt; '\n';
-cout &lt;&lt; "the size of int is " &lt;&lt; sizeof(int) &lt;&lt; ' ' &lt;&lt; sizeof (i) &lt;&lt; '\n';
-cout &lt;&lt; "the size of int* is " &lt;&lt; sizeof(int*) &lt;&lt; ' ' &lt;&lt; sizeof (p) &lt;&lt; '\n';
+    cout &lt;&lt; "the size of char is " &lt;&lt; sizeof(char) &lt;&lt; ' ' &lt;&lt; sizeof (ch) &lt;&lt; '\n';
+    cout &lt;&lt; "the size of int is " &lt;&lt; sizeof(int) &lt;&lt; ' ' &lt;&lt; sizeof (i) &lt;&lt; '\n';
+    cout &lt;&lt; "the size of int* is " &lt;&lt; sizeof(int*) &lt;&lt; ' ' &lt;&lt; sizeof (p) &lt;&lt; '\n';
 }
                             </code>
                           </PRE>
@@ -904,12 +904,92 @@ if (p0) <span class="comment">// consider p0 valid; equivalent to p0!=nullptr</s
                         <summary class="sum2">
                         17.4.6 Free-store deallocation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          It is always a good idea to return memory to
+                          the free store once it's use is finished.
+                          <PRE>
+                            <code>
+double* calc(int res_size, int max) <span class="comment">// leaks memory</span>
+{
+    double* p = new double[max];
+    double* res = new double[res_size];
+    <span class="comment">// use p to calculate results to be put in res</span>
+    return res;
+}
+
+double* r = calc(100,1000);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The call <code>calc(100,1000)</code> will render
+                          the space needed for <code>1000 doubles</code>
+                          unusable for the rest of the program.
+                          <br>
+                          <br>
+                          The operator <code>delete</code> returns memory
+                          to the free store.
+                          <PRE>
+                            <code>
+double* calc(int res_size, int max)
+<span class="comment">// the caller is responsible for the memory allocated for res</span>
+{
+    double* p = new double[max];
+    double* res = new double[res_size];
+    <span class="comment">// use p to calculate results to be put in res</span>
+    delete[] p; <span class="comment">// we don’t need that memory anymore: free it</span>
+    return res;
+}
+
+double* r = calc(100,1000);
+<span class="comment">// use r</span>
+delete[] r; <span class="comment">// we don’t need that memory anymore: free it</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The 2 forms of <code>delete</code> are:
+                          <ul>
+                            <li>
+                              <code>delete p</code> frees the memory
+                              for an individual object allocated by
+                              <code>new</code>.
+                            </li>
+                            <li>
+                              <code>delete[ ] p</code> frees the memory for
+                              an array of objects allocated by
+                              <code>new</code>.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          Deleting an object twice is a bad mistake.
+                          <PRE>
+                            <code>
+int* p = new int{5};
+delete p; <span class="comment">// fine: p points to an object created by new</span>
+<span class="comment">// . . . no use of p here . . .</span>
+delete p; <span class="comment">// error: p points to memory owned by the free-store manager</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The problem here is that the programmer doesn't
+                          own the object anymore to delete it and it might be
+                          possible that the free-store manager already
+                          assigned the pointer to some another object
+                          which can be mistakenly deleted.
+                          <br>
+                          <br>
+                          Deleting null pointer is harmless.
+                          <PRE>
+                            <code>
+int* p = nullptr;
+delete p; <span class="comment">// fine: no action needed</span>
+delete p; <span class="comment">// also fine (still no action needed)</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
