@@ -322,12 +322,68 @@
                     <summary class="sum1">
                     17.2 vector basics
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <PRE>
+                        <code>
+vector&lt;double&gt; age(4); <span class="comment">// a vector with 4 elements of type double</span>
+age[0]=0.33;
+age[1]=22.0;
+age[2]=27.2;
+age[3]=54.2;
+                        </code>
+                      </PRE>
+                      <br>
+                      <figure>
+                          <img src="graphics/Chap17Diag1.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Elements of <code>age</code> are numbered
+                      <code>0</code> to <code>age.size()-1</code>.
+                      <br>
+                      Defining a fixed-size data structure,
+                      <br>
+                      <PRE>
+                        <code>
+class vector {
+    int size, age0, age1, age2, age3;
+    // . . .
+};
+                        </code>
+                      </PRE>
+                      <br>
+                      <figure>
+                          <img src="graphics/Chap17Diag2.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Adding an element with <code>push_back()</code> becomes
+                      difficult as defined <code>vector</code> has fixed
+                      number of elements.
+                      <br>
+                      We need a data member that points to the set of elements
+                      so that it points to different set of elements
+                      when more space is needed.
+                      <br>
+                      A <code>pointer</code> holds an address and is
+                      distinguished by the suffix <code>*</code>
+                      meaning "pointer to <code>double</code>".
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles (like vector&lt;double&gt;)</span>
+class vector {
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// pointer to the first element (of type double)</span>
+public:
+    vector(int s); <span class="comment">// constructor: allocate s doubles,</span>
+                  <span class="comment">// let elem point to them</span>
+                  <span class="comment">// store s in sz</span>
+int size() const { return sz; } <span class="comment">// the current size</span>
+};
+                        </code>
+                      </PRE>
                     </p>
                 </details>
 
@@ -335,23 +391,197 @@
                     <summary class="sum1">
                     17.3 Memory, addresses, and pointers
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      An <code>address</code> is a "number that
+                      indicates a location in memory".
+                      <br>
+                      <br>
+                      A megabyte of memory can be visualized as following,
+                      <figure>
+                          <img src="graphics/Chap17Diag3.png" width="40%">
+                      </figure>
+                      <br>
+                      <br>
+                      <PRE>
+                          <code>
+int var = 17;
+                          </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Here, an "int-size" piece of memory for
+                      var is set aside and value 17 is put in memory.
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+<code>
+int* ptr = &var; <span class="comment">// ptr holds the address of var</span>
+</code>
+                      </PRE>
+                    </p>
+
+                    <p>
+                      The type needed to hold the address of an
+                      <code>int</code> is “pointer to int” or
+                      an “int pointer” and the notation is <code>int*</code>.
+                      <br>
+                      <br>
+                      The “address of” operator, unary <code>&</code>,
+                      is used to get the address of an object.
+                      So, if <code>var</code> happens to start at address
+                      <code>4096</code>, <code>ptr</code> will hold
+                      the value <code>4096</code>:
+                      <figure>
+                          <img src="graphics/Chap17Diag4.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Each type has a corresponding pointer type.
+                      <PRE>
+                        <code>
+int x = 17;
+int* pi = &x; <span class="comment">// pointer to int</span>
+double e = 2.71828;
+double* pd = &e; <span class="comment">// pointer to double</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      To see value of the object pointed to,
+                      <PRE>
+                        <code>
+cout &lt;&lt; "pi==" &lt;&lt; pi &lt;&lt; "; contents of pi==" &lt;&lt; *pi &lt;&lt; "\n";
+cout &lt;&lt; "pd==" &lt;&lt; pd &lt;&lt; "; contents of pd==" &lt;&lt; *pd &lt;&lt; "\n";
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      The output for <code>*pi</code> will be the integer
+                      <code>17</code> and the output for <code>*pd</code>
+                      will be the double <code>2.71828</code>.
+                      <br>
+                      The output for pi and pd will vary depending on
+                      where the compiler allocated our variables x and e in
+                      memory.
+                    </p>
+                    <br>
+                    <p>
+                      The contents of operator can also be used on the
+                      left-hand side of an assignment:
+                      <PRE>
+                        <code>
+*pi = 27; <span class="comment">// OK: you can assign 27 to the int pointed to by pi</span>
+*pd = 3.14159; <span class="comment">// OK: you can assign 3.14159 to the double pointed to by pd</span>
+*pd = *pi; <span class="comment">// OK: you can assign an int (*pi) to a double (*pd)</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      <code>int</code> provides the
+                      operations suitable for integers.
+                      <br>
+                      A pointer type provides the operations suitable
+                      for addresses.
+                      <PRE>
+                        <code>
+int i = pi; <span class="comment">// error: can’t assign an int* to an int</span>
+pi = 7; <span class="comment">// error: can’t assign an int to an int*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Also, a pointer to <code>char</code>
+                      a <code>char*</code>) is not a pointer
+                      to <code>int</code> (an <code>int*</code>):
+                      <PRE>
+                        <code>
+char* pc = pi; <span class="comment">// error: can’t assign an int* to a char*</span>
+pi = pc; <span class="comment">// error: can’t assign a char* to an int*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Why is it an error?
+                      <PRE>
+                        <code>
+char ch1 = 'a';
+char ch2 = 'b';
+char ch3 = 'c';
+char ch4 = 'd';
+int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memory</span>
+                <span class="comment">// error: we cannot assign a char* to an int*</span>
+                <span class="comment">// but let’s pretend we could</span>
+*pi = 12345; <span class="comment">// write to an int-size piece of memory</span>
+*pi = 67890;
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      If the compiler would have allowed the code,
+                      <code>12345</code> would be written to the memory
+                      starting at <code>&ch3</code>.
+                      <br>
+                      Then the next assignment <code>*pi=67890</code> would
+                      place <code>67890</code> in some completely
+                      different part of memory.
+                      <br>
+                      <br>
+                      <i>
+                        Thats why our aim is always to work at
+                        highest level of abstraction.
+                      </i>
                     </p>
                     <details>
                         <summary class="sum2">
                         17.3.1 The size of operator
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <code>sizeof</code> gives the size of an
+                          object of the type.
+                          <br>
+                          <br>
+                          For an expression it gives the size of the type
+                          of the result.
+                          The result of sizeof is a positive integer.
+                          <br>
+                          It's unit is <code>sizeof(char)</code> defined to be
+                          <code>1</code>.
+                          <code>sizeof(int)</code> is typically <code>4</code>.
+                          <PRE>
+                            <code>
+void sizes(char ch, int i, int* p)
+{
+    cout &lt;&lt; "the size of char is " &lt;&lt; sizeof(char) &lt;&lt; ' ' &lt;&lt; sizeof (ch) &lt;&lt; '\n';
+    cout &lt;&lt; "the size of int is " &lt;&lt; sizeof(int) &lt;&lt; ' ' &lt;&lt; sizeof (i) &lt;&lt; '\n';
+    cout &lt;&lt; "the size of int* is " &lt;&lt; sizeof(int*) &lt;&lt; ' ' &lt;&lt; sizeof (p) &lt;&lt; '\n';
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Memory used by a <code>vector</code>:
+                          <PRE>
+                            <code>
+vector&lt;int&gt; v(1000);  <span class="comment">// vector with 1000 elements of type int</span>
+cout &lt;&lt; "the size of vector&lt;int&gt;(1000) is " &lt;&lt; sizeof (v) &lt;&lt; '\n';
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Output:</span>
+                          <PRE>
+                            <code>
+the size of vector&lt;int&gt;(1000) is 20
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -361,23 +591,117 @@
                     <summary class="sum1">
                     17.4 Free store and pointers
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The compiler sets aside memory for
+                      <ul>
+                        <li>
+                          code (code storage or text storage)
+                        </li>
+                        <li>
+                          global variables (static storage)
+                        </li>
+                        <li>
+                          function calls for arguments and local variables
+                          (stack storage or automatic storage)
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      <figure>
+                          <img src="graphics/Chap17Diag5.png" width="25%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      The C++ language makes this “free store”
+                      (also called the heap) available
+                      through an operator called <code>new</code>.
+                      <PRE>
+                        <code>
+double* p = new double[4]; <span class="comment">// allocate 4 doubles on the free store</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      <figure>
+                          <img src="graphics/Chap17Diag6.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+                        <code>
+char* q = new double[4]; <span class="comment">// error: double* assigned to char*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      The <code>new</code> returns a pointer to a
+                      <code>double</code> but a <code>double</code> isn't a
+                      <code>char</code>.
+                      <br>
+                      It should not be assigned to the pointer to
+                      <code>char</code> variable <code>q</code>.
                     </p>
                     <details>
                         <summary class="sum2">
                         17.4.1 Free-store allocation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          We request memory to be allocated on the free
+                          store by the new operator:
+                          <ul>
+                            <li>
+                              The new operator returns a pointer to the
+                              allocated memory.
+                            </li>
+                            <li>
+                              A pointer value is the address of the first
+                              byte of the memory.
+                            </li>
+                            <li>
+                              A pointer points to an object of a specified
+                              type.
+                            </li>
+                            <li>
+                              A pointer does not know how many elements it
+                              points to.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+int* pi = new int; <span class="comment">// allocate one int</span>
+int* qi = new int[4]; <span class="comment">// allocate 4 ints (an array of 4 ints)</span>
+double* pd = new double; <span class="comment">// allocate one double</span>
+double* qd = new double[n]; <span class="comment">// allocate n doubles (an array of n doubles)</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <figure>
+                              <img src="graphics/Chap17Diag7.png" width="40%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                          Pointers to objects of different types are different
+                          types.
+                          <PRE>
+                            <code>
+pi = pd; <span class="comment">// error: can’t assign a double* to an int*</span>
+pd = pi; <span class="comment">// error: can’t assign an int* to a double*</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Allowing assignment of pointers to different
+                          types would allow type errors.
                         </p>
                     </details>
 
@@ -385,25 +709,104 @@
                         <summary class="sum2">
                         17.4.2 Access through pointers
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The subscript operator <code>[ ]</code> can also
+                          be used.
+                          <PRE>
+                            <code>
+double* p = new double[4]; <span class="comment">// allocate 4 doubles on the free store</span>
+double x = *p; <span class="comment">// read the (first) object pointed to by p</span>
+double y = p[2]; <span class="comment">// read the 3rd object pointed to by p</span>
+                            </code>
+                          </PRE>
                         </p>
+                        <br>
+                        <p>
+                          The <code>[ ]</code> and <code>*</code> operators can also be used for writing
+                          <PRE>
+                            <code>
+*p = 7.7; <span class="comment">// write to the (first) object pointed to by p</span>
+p[2] = 9.9; <span class="comment">// write to the 3rd object pointed to by p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The “contents of” operator allows to read and
+                          write the object pointed to by a pointer <code>p</code>:
+                          <PRE>
+                            <code>
+double x = *p; <span class="comment">// read the object pointed to by p</span>
+*p = 8.8; <span class="comment">// write to the object pointed to by p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The [ ] operator treats memory as a sequence of
+                          objects with the first one pointed to by a
+                          pointer <code>p</code>:
+                          <PRE>
+                            <code>
+double x = p[3]; <span class="comment">// read the 4th object pointed to by p</span>
+p[3] = 4.4; <span class="comment">// write to the 4th object pointed to by p</span>
+double y = p[0]; <span class="comment">// p[0] is the same as *p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <figure>
+                            <img src="graphics/Chap17Diag8.png" width="40%">
+                        </figure>
                     </details>
 
                     <details>
                         <summary class="sum2">
                         17.4.3 Ranges
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The pointer doesn't know how many elements it
+                          points to.
+                          <PRE>
+                            <code>
+double* pd = new double[3];
+pd[2] = 2.2;
+pd[4] = 4.4;
+pd[–3] = –3.3;
+                            </code>
+                          </PRE>
+                          <br>
+                          <figure>
+                            <img src="graphics/Chap17Diag9.png" width="40%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                            Using <code>vector</code> rather than using
+                            memory allocated by <code>new</code> is that a
+                            <code>vector</code> knows its size so that
+                            out-of-range access can be prevented.
+                            <br>
+                            Also, we can assign one <code>double*</code> to
+                            another <code>double*</code> independently of
+                            how many objects each points to.
+                            <PRE>
+                              <code>
+double* p = new double; <span class="comment">// allocate a double</span>
+double* q = new double[1000]; <span class="comment">// allocate 1000 doubles</span>
+q[700] = 7.7; <span class="comment">// fine</span>
+q = p; <span class="comment">// let q point to the same as p</span>
+double d = q[700]; <span class="comment">// out-of-range access!</span>
+                              </code>
+                            </PRE>
+                            <br>
+                            <figure>
+                              <img src="graphics/Chap17Diag10.png" width="40%">
+                            </figure>
+                        </p>
+                        <p>
+                            Here, <code>q[700]</code> refers to two different
+                            memory locations and the last use is an
+                            out-of-range access.
                         </p>
                     </details>
 
@@ -411,12 +814,70 @@
                         <summary class="sum2">
                         17.4.4 Initialization
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <PRE>
+                            <code>
+double* p0; <span class="comment">// uninitialized: likely trouble</span>
+double* p1 = new double; <span class="comment">// get (allocate) an uninitialized double</span>
+double* p2 = new double{5.5}; <span class="comment">// get a double initialized to 5.5</span>
+double* p3 = new double[5]; <span class="comment">// get (allocate) 5 uninitialized doubles</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          It is good to ensure that pointers are initialized
+                          and the object they point to are also intialized.
+                          <br>
+                          <br>
+                          Declaring <code>p0</code> without initializing is
+                          trouble.
+                          <PRE>
+                            <code>
+*p0 = 7.0;
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Here <code>7.0</code> is assigned to some
+                          location in memory.
+                        </p>
+                        <br>
+                        <p>
+                          Memory allocated by new is not initialized
+                          for built-in types.
+                          <br>
+                          An initializer list can be specified
+                          for an array of objects allocated by <code>new</code>.
+                          <PRE>
+                            <code>
+double* p4 = new double[5] {0,1,2,3,4};
+double* p5 = new double[] {0,1,2,3,4};
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Also, a program with uninitialized
+                          variables can run differently.
+                          If a type <code>X</code> has a default constructor,
+                          <PRE>
+                            <code>
+X* px1 = new X; <span class="comment">// one default-initialized X</span>
+X* px2 = new X[17]; <span class="comment">// 17 default-initialized Xs</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Explicitly initialize if <code>Y</code> has a constructor but not a default constructor
+                          <PRE>
+                            <code>
+Y* py1 = new Y; <span class="comment">// error: no default constructor</span>
+Y* py2 = new Y{13}; <span class="comment">// OK: initialized to Y{13}</span>
+Y* py3 = new Y[17]; <span class="comment">// error: no default constructor</span>
+Y* py4 = new Y[17] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -424,12 +885,24 @@
                         <summary class="sum2">
                         17.4.5 The null pointer
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The value zero is called the
+                          <i>null pointer</i> when assigned to a pointer.
+                          <PRE>
+                            <code>
+if (p0 != nullptr) <span class="comment">// consider p0 valid</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          An <code>if</code>-statement really checks
+                          whether its condition is <code>nullptr</code>.
+                          <PRE>
+                            <code>
+if (p0) <span class="comment">// consider p0 valid; equivalent to p0!=nullptr</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -437,12 +910,92 @@
                         <summary class="sum2">
                         17.4.6 Free-store deallocation
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          It is always a good idea to return memory to
+                          the free store once it's use is finished.
+                          <PRE>
+                            <code>
+double* calc(int res_size, int max) <span class="comment">// leaks memory</span>
+{
+    double* p = new double[max];
+    double* res = new double[res_size];
+    <span class="comment">// use p to calculate results to be put in res</span>
+    return res;
+}
+
+double* r = calc(100,1000);
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The call <code>calc(100,1000)</code> will render
+                          the space needed for <code>1000 doubles</code>
+                          unusable for the rest of the program.
+                          <br>
+                          <br>
+                          The operator <code>delete</code> returns memory
+                          to the free store.
+                          <PRE>
+                            <code>
+double* calc(int res_size, int max)
+<span class="comment">// the caller is responsible for the memory allocated for res</span>
+{
+    double* p = new double[max];
+    double* res = new double[res_size];
+    <span class="comment">// use p to calculate results to be put in res</span>
+    delete[] p; <span class="comment">// we don’t need that memory anymore: free it</span>
+    return res;
+}
+
+double* r = calc(100,1000);
+<span class="comment">// use r</span>
+delete[] r; <span class="comment">// we don’t need that memory anymore: free it</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The 2 forms of <code>delete</code> are:
+                          <ul>
+                            <li>
+                              <code>delete p</code> frees the memory
+                              for an individual object allocated by
+                              <code>new</code>.
+                            </li>
+                            <li>
+                              <code>delete[ ] p</code> frees the memory for
+                              an array of objects allocated by
+                              <code>new</code>.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          Deleting an object twice is a bad mistake.
+                          <PRE>
+                            <code>
+int* p = new int{5};
+delete p; <span class="comment">// fine: p points to an object created by new</span>
+<span class="comment">// . . . no use of p here . . .</span>
+delete p; <span class="comment">// error: p points to memory owned by the free-store manager</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          The problem here is that the programmer doesn't
+                          own the object anymore to delete it and it might be
+                          possible that the free-store manager already
+                          assigned the pointer to some another object
+                          which can be mistakenly deleted.
+                          <br>
+                          <br>
+                          Deleting null pointer is harmless.
+                          <PRE>
+                            <code>
+int* p = nullptr;
+delete p; <span class="comment">// fine: no action needed</span>
+delete p; <span class="comment">// also fine (still no action needed)</span>
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -452,23 +1005,64 @@
                     <summary class="sum1">
                     17.5 Destructors
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Just as the way a constructor is called when an object
+                      class is created, a <code>destructor</code> is called
+                      when an object goes out of scope.
+                      <br>
+                      It makes sure that an object is properly
+                      cleaned up before it is destroyed.
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles</span>
+class vector {
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// a pointer to the elements</span>
+public:
+    vector(int s) <span class="comment">// constructor</span>
+          :sz{s},
+          elem{new double[s]} <span class="comment">// allocate memory</span>
+          {
+              for (int i=0; i&lt;s; ++i)
+                  elem[i]=0; <span class="comment">// initialize elements</span>
+          }
+          ~vector() <span class="comment">// destructor</span>
+              { delete[] elem; } <span class="comment">// free memory</span>
+          <span class="comment">// . . .</span>
+};
+
+void f3(int n)
+{
+    double* p = new double[n]; <span class="comment">// allocate n doubles</span>
+    vector v(n); <span class="comment">// the vector allocates n doubles</span>
+    <span class="comment">// . . . use p and v . . .</span>
+    delete[ ] p; <span class="comment">// deallocate p’s doubles</span>
+} <span class="comment">// vector automatically cleans up after v</span>
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         17.5.1 Generated destructors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Destructors are called when the object is destroyed.
+                          <PRE>
+                            <code>
+struct Customer {
+    string name;
+    vector&lt;string&gt; addresses;
+    <span class="comment">// . . .</span>
+};
+
+void some_fct()
+{
+    Customer fred;
+    <span class="comment">// initialize fred</span>
+    <span class="comment">// use fred</span>
+}
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -476,12 +1070,68 @@
                         <summary class="sum2">
                         17.5.2 Destructors and free store
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <ul>
+                            <li>
+                              Whatever resources a class object needs to
+                              function, it acquires in a constructor.
+                            </li>
+                            <li>
+                              During the object’s lifetime it may release
+                              resources and acquire new ones.
+                            </li>
+                            <li>
+                              At the end of the object’s lifetime, the
+                              destructor releases all resources
+                              still owned by the object.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+Shape* fct()
+{
+    Text tt {Point{200,200},"Annemarie"};
+    <span class="comment">// . . .</span>
+    Shape* p = new Text{Point{100,100},"Nicholas"};
+    return p;
+}
+
+void f()
+{
+    Shape* q = fct();
+    <span class="comment">// . . .</span>
+    delete q;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          If there is a class with a virtual function,
+                          it needs a virtual destructor.
+                          <br>
+                          <ul>
+                            <li>
+                              If a class has a virtual function it is
+                              likely to be used as a base class, and
+                            </li>
+                            <li>
+                              If it is a base class its derived class is
+                              likely to be allocated using new, and
+                            </li>
+                            <li>
+                              If a derived class object is allocated
+                              using new and manipulated through a pointer
+                              to its base, then
+                            </li>
+                            <li>
+                              It is likely to be deleted through a
+                              pointer to its base.
+                            </li>
+                          </ul>
                         </p>
                     </details>
 
@@ -491,12 +1141,32 @@
                     <summary class="sum1">
                     17.6 Access to elements
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      We use <code>get()</code> and <code>set()</code>
+                      to make <code>vector</code> read and write elements.
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles</span>
+class vector {
+    int sz; <span class="comment">// the size</span>
+    double* elem; <span class="comment">// a pointer to the elements</span>
+public:
+    vector(int s) :sz{s}, elem{new double[s]} { /* . . . */ } <span class="comment">// constructor</span>
+    ~vector() { delete[] elem; } <span class="comment">// destructor</span>
+
+    int size() const { return sz; } <span class="comment">// the current size</span>
+
+    double get(int n) const { return elem[n]; } <span class="comment">// access: read</span>
+    void set(int n, double v) { elem[n]=v; } <span class="comment">// access: write</span>
+};
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Both <code>get()</code> and <code>set()</code>
+                      access the elements using the <code>[ ]</code>
+                      operator on the <code>elem</code> pointer:
+                      <code>elem[n]</code>.
                     </p>
                 </details>
 
@@ -504,12 +1174,84 @@
                     <summary class="sum1">
                     17.7 Pointers to class objects
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The notion of “pointer” is general.
+                      The use of pointers to <code>vectors</code>
+                      exactly as we use pointers to <code>char</code>s.
+                      <PRE>
+                        <code>
+vector* f(int s)
+{
+    vector* p = new vector(s); <span class="comment">// allocate a vector on free store</span>
+    <span class="comment">// fill *p</span>
+    return p;
+}
+
+void ff()
+{
+    vector* q = f(4);
+    <span class="comment">// use *q</span>
+    delete q; <span class="comment">// free vector on free store</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      When we <code>delete</code> a <code>vector</code>,
+                      its destructor is called.
+                      <PRE>
+                        <code>
+vector* p = new vector(s); <span class="comment">// allocate a vector on free store</span>
+delete p; <span class="comment">// deallocate</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      When the <code>vector</code> on free store is created
+                      the <code>new</code> operator first allocated memory
+                      then invokes the <code>vector's</code> constructor.
+                      <br>
+                      When the <code>vector</code> is deleted
+                      the <code>delete</code> operator first invokes
+                      the <code>vector's</code> destructor then deallocates
+                      the memory used for the <code>vector</code>.
+                      <PRE>
+                        <code>
+vector&lt;vector&lt;double&gt;&gt;* p = new vector&lt;vector&lt;double&gt;&gt;(10);
+delete p;
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      <code>delete p</code> invokes the destructor
+                      for <code>vector&lt;vector&lt;double&gt;&gt; </code>.
+                      This destructor in turn invokes the destructor for its
+                      <code>vector&lt;double&gt;</code> cleaning everything.
+                      <br>
+                      <br>
+                      All classes support the operator <code>. (dot) </code>
+                       for accessing members given the name of an object:
+                      <PRE>
+                        <code>
+vector v(4);
+int x = v.size();
+double d = v.get(3);
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      All classes support the operator –&gt; (arrow) for
+                      accessing members, given a pointer to an object:
+                      <PRE>
+                        <code>
+vector* p = new vector(4);
+int x = p–&gt;size();
+double d = p–&gt;get(3);
+                        </code>
+                      </PRE>
                     </p>
                 </details>
 
@@ -517,49 +1259,286 @@
                     <summary class="sum1">
                     17.8 Messing with types: void* and casts
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The type <code>void*</code> means “pointer to some memory
+                      that the compiler doesn’t know the type of.”
+                      <br>
+                      There are no objects of type <code>void</code> and
+                      we use it to mean "no value returned".
+                      <PRE>
+                        <code>
+void v; <span class="comment">// error: there are no objects of type void</span>
+void f(); <span class="comment">// f() returns nothing — f() does not return an object of type void</span>
+                        </code>
+                      </PRE>
                     </p>
+                    <br>
+                    <p>
+                      A pointer to any object type can be assigned to a
+                      <code>void*</code>,
+                      <PRE>
+                        <code>
+void* pv1 = new int; <span class="comment">// OK: int* converts to void*</span>
+void* pv2 = new double[10]; <span class="comment">// OK: double* converts to void*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Since the compiler doesn’t know what a <code>void*</code>
+                      points to, we must tell it:
+                      <PRE>
+                        <code>
+void f(void* pv)
+{
+    void* pv2 = pv; <span class="comment">// copying is OK (copying is what void*s are for)</span>
+    double* pd = pv; <span class="comment">// error: cannot convert void* to double*</span>
+    *pv = 7; <span class="comment">// error: cannot dereference a void*</span>
+    <span class="comment">// (we don’t know what type of object it points to)</span>
+    pv[2] = 9; <span class="comment">// error: cannot subscript a void*</span>
+    int* pi = static_cast&lt;int*&gt;(pv); <span class="comment">// OK: explicit conversion</span>
+    <span class="comment">// . . .</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      A <code>static_cast</code> can be used to explicitly
+                      convert between related pointer types, such as
+                      <code>void*</code> and <code>double*</code>.
+                      <br>
+                      An operation such as <code>static_cast</code> is
+                      called an <i>explicit type conversion</i> or
+                      colloquially a <i>cast</i>.
+                      <br>
+                      Two casts that are potentially even nastier
+                      than <code>static_cast</code>:
+                      <ul>
+                        <li>
+                          <code>reinterpret_cast</code> can cast between
+                          unrelated types, such as <code>int</code> and
+                          <code>double*</code>.
+                        </li>
+                        <li>
+                          <code>const_cast</code> can “cast away
+                          <code>const</code>.”
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+                        <code>
+Register* in = reinterpret_cast&lt;Register*&gt;(0xff);
+void f(const Buffer* p)
+{
+    Buffer* b = const_cast&lt;Buffer*&gt;(p);
+    <span class="comment">// . . .</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <figure>
+                        <img src="graphics/Chap17Diag11.png" width="20%">
+                    </figure>
                 </details>
 
                 <details>
                     <summary class="sum1">
                     17.9 Pointers and references
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      A <i>reference</i> is an automatically dereferenced
+                      immutable pointer or as an alternative name for an
+                      object.
+                      <br>
+                      Pointers and references differ in these ways:
+                      <ul>
+                        <li>
+                          Assignment to a pointer changes the pointer’s
+                          value (not the pointed-to value).
+                        </li>
+                        <li>
+                          To get a pointer you generally need to use
+                          <code>new</code> or <code>&</code>.
+                        </li>
+                        <li>
+                          To access an object pointed to by a pointer
+                          you use <code>*</code> or <code>[ ]</code>.
+                        </li>
+                        <li>
+                          Assignment to a reference changes the value of
+                          the object referred to
+                          (not the reference itself).
+                        </li>
+                        <li>
+                          You cannot make a reference refer to a
+                          different object after initialization.
+                        </li>
+                        <li>
+                          Assignment of references does deep
+                          copy (assigns to the referred-to object);
+                          assignment of pointers does not (assigns to the
+                          pointer object itself).
+                        </li>
+                        <li>
+                          Beware of null pointers.
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      <span class="hilight">Example:</span>
+                      <PRE>
+                        <code>
+int x = 10;
+int* p = &x; <span class="comment">// you need & to get a pointer</span>
+*p = 7; <span class="comment">// use * to assign to x through p</span>
+int x2 = *p; <span class="comment">// read x through p</span>
+int* p2 = &x2; <span class="comment">// get a pointer to another int</span>
+p2 = p; <span class="comment">// p2 and p both point to x</span>
+p = &x2; <span class="comment">// make p point to another object</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The corresponding example for references is
+                      <PRE>
+                        <code>
+int y = 10;
+int& r = y; <span class="comment">// the & is in the type, not in the initializer</span>
+r = 7; <span class="comment">// assign to y through r (no * needed)</span>
+int y2 = r; <span class="comment">// read y through r (no * needed)</span>
+int& r2 = y2; <span class="comment">// get a reference to another int</span>
+r2 = r; <span class="comment">// the value of y is assigned to y2</span>
+r = &y2; <span class="comment">// error: you can’t change the value of a reference</span>
+        <span class="comment">// (no assignment of an int* to an int&)</span>
+                          </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      A reference and a pointer are both implemented
+                      by using a memory address.
                     </p>
                     <details>
                         <summary class="sum2">
                         17.9.1 Pointer and reference parameters
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          To change the value of a variable to a value computed
+                          by a function we have following choices,
+                          <PRE>
+                            <code>
+int incr_v(int x) { return x+1; } <span class="comment">// compute a new value and return it</span>
+void incr_p(int* p) { ++*p; } <span class="comment">// pass a pointer</span>
+<span class="comment">// (dereference it and increment the result)</span>
+void incr_r(int& r) { ++r; } <span class="comment">// pass a reference</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Returning the value often leads to the most obvious code,
+                          <PRE>
+                            <code>
+int x = 2;
+x = incr_v(x); <span class="comment">// copy x to incr_v(); then copy the result out and assign it</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Using a pointer argument alerts the programmer
+                          that something might be changed,
+                          <PRE>
+                            <code>
+int x = 7;
+incr_p(&x) <span class="comment">// the & is needed</span>
+incr_r(x);
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The need to use <code>&</code> in <code>incr_p(&x)</code>
+                          alerts the user that x might be changed.
+                          <code>incr_r(x)</code> “looks innocent.”
+                          <br>
+                          The function has to beware of null pointer,
+                          <PRE>
+                            <code>
+incr_p(nullptr); <span class="comment">// crash: incr_p() will try to dereference the null pointer</span>
+int* p = nullptr;
+incr_p(p); <span class="comment">// crash: incr_p() will try to dereference the null pointer</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          <code>incr_p()</code> protects against,
+                          <PRE>
+                            <code>
+void incr_p(int* p)
+{
+    if (p==nullptr)
+        error("null pointer argument to incr_p()");
+    ++*p; <span class="comment">// dereference the pointer and increment the object pointed to</span>
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          At the end we can say that the choice depends on
+                          the nature of function,
+                          <ul>
+                            <li>
+                              For tiny objects prefer pass-by-value.
+                            </li>
+                            <li>
+                              For functions where “no object”
+                              (represented by <code>nullptr</code>) is a valid
+                              argument use a pointer parameter (and remember to
+                              test for <code>nullptr</code>).
+                            </li>
+                            <li>
+                              Otherwise, use a reference parameter.
+                            </li>
+                          </ul>
                         </p>
                     </details>
-
                     <details>
                         <summary class="sum2">
                         17.9.2 Pointers, references, and inheritance
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Example in terms of pointers or references:
+                          <PRE>
+                            <code>
+void rotate(Shape* s, int n); <span class="comment">// rotate *s n degrees</span>
+Shape* p = new Circle{Point{100,100},40};
+Circle c {Point{200,200},50};
+rotate(p,35);
+rotate(&c,45);
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          For references,
+                          <PRE>
+                            <code>
+void rotate(Shape& s, int n); <span class="comment">// rotate s n degrees</span>
+Shape& r = c;
+rotate(r,55);
+rotate(*p,65);
+rotate(c,75);
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -567,12 +1546,96 @@
                         <summary class="sum2">
                         17.9.3 An example: lists
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          A short list of Norse gods
+                          <figure>
+                              <img src="graphics/Chap17Diag12.png" width="30%">
+                          </figure>
+                        </p>
+                        <br>
+                        <p>
+                          A list like this is called a <i>doubly-linked list</i>
+                           where we can find both the predecessor and the
+                           successor.
+                          <br>
+                          A list where we find only the successor is
+                          called a <i>singly-linked list</i>.
+                        </p>
+                        <br>
+                        <p>
+                          Define links,
+                          <PRE>
+                            <code>
+struct Link {
+    string value;
+    Link* prev;
+    Link* succ;
+    Link(const string& v, Link* p = nullptr, Link* s = nullptr)
+          : value{v}, prev{p}, succ{s} { }
+};
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Build list of Norse gods,
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link{"Thor",nullptr,nullptr};
+norse_gods = new Link{"Odin",nullptr,norse_gods};
+norse_gods–&gt;succ–&gt;prev = norse_gods;
+norse_gods = new Link{"Freia",nullptr,norse_gods};
+norse_gods–&gt;succ–&gt;prev = norse_gods;
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Insert operation,
+                          <PRE>
+                            <code>
+Link* insert(Link* p, Link* n) <span class="comment">// insert n before p (incomplete)</span>
+{
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    p–&gt;prev–&gt;succ = n; <span class="comment">// n comes after what used to be p’s predecessor</span>
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Improving insert operation,
+                          <PRE>
+                            <code>
+Link* insert(Link* p, Link* n) <span class="comment">// insert n before p; return n</span>
+{
+    if (n==nullptr)
+        return p;
+    if (p==nullptr)
+        return n;
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = n;
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Now we can write,
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link{"Thor"};
+norse_gods = insert(norse_gods,new Link{"Odin"});
+norse_gods = insert(norse_gods,new Link{"Freia"});
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -580,12 +1643,84 @@
                         <summary class="sum2">
                         17.9.4 List operations
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Operations:
+                          <ul>
+                            <li>
+                              The constructor
+                            </li>
+                            <li>
+                              <code>insert</code>: insert before an element
+                            </li>
+                            <li>
+                              <code>add</code>: insert after an element
+                            </li>
+                            <li>
+                              <code>erase</code>: remove an element
+                            </li>
+                            <li>
+                              <code>find</code>: find a <code>Link</code> with a given value
+                            </li>
+                            <li>
+                              <code>advance</code>: get the nth successor
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+Link* add(Link* p, Link* n) <span class="comment">// insert n after p; return n</span>
+{
+    <span class="comment">// much like insert (see exercise 11)</span>
+}
+
+Link* erase(Link* p) <span class="comment">// remove *p from list; return p’s successor</span>
+{
+    if (p==nullptr)
+        return nullptr;
+    if (p–&gt;succ)
+        p–&gt;succ–&gt;prev = p–&gt;prev;
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = p–&gt;succ;
+    return p–&gt;succ;
+}
+
+Link* find(Link* p, const string& s) <span class="comment">// find s in list;</span>
+<span class="comment">// return nullptr for “not found”</span>
+{
+    while (p) {
+        if (p–&gt;value == s)
+            return p;
+        p = p–&gt;succ;
+    }
+    return nullptr;
+}
+
+Link* advance(Link* p, int n) <span class="comment">// move n positions in list</span>
+<span class="comment">// return nullptr for “not found”</span>
+<span class="comment">// positive n moves forward, negative backward</span>
+{
+    if (p==nullptr)
+        return nullptr;
+    if (0&lt;n) {
+        while (n––) {
+            if (p–&gt;succ == nullptr)
+                return nullptr;
+            p = p–&gt;succ;
+        }
+    }
+    else if (n&lt;0) {
+            while (n++) {
+                if (p–&gt;prev == nullptr)
+                    return nullptr;
+                p = p–&gt;prev;
+            }
+          }
+    return p;
+}
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -593,12 +1728,75 @@
                         <summary class="sum2">
                         17.9.5 List use
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link("Thor");
+norse_gods = insert(norse_gods,new Link{"Odin"});
+norse_gods = insert(norse_gods,new Link{"Zeus"});
+norse_gods = insert(norse_gods,new Link{"Freia"});
+Link* greek_gods = new Link("Hera");
+greek_gods = insert(greek_gods,new Link{"Athena"});
+greek_gods = insert(greek_gods,new Link{"Mars"});
+greek_gods = insert(greek_gods,new Link{"Poseidon"});
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Here, Zeus is a Greek god, rather than a Norse god.
+                          Also, the Greek god of war is Ares, not Mars.
+                          <br>
+                          <br>
+                          Fixing,
+                          <PRE>
+                            <code>
+Link* p = find(greek_gods, "Mars");
+if (p)
+    p–&gt;value = "Ares";
+
+
+Link* p = find(norse_gods, "Zeus");
+if (p) {
+    if (p==norse_gods)
+        norse_gods = p–&gt;succ;
+    erase(p);
+    greek_gods = insert(greek_gods,p);
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Printing lists,
+                          <PRE>
+                            <code>
+void print_all(Link* p)
+{
+    cout &lt;&lt; "{ ";
+    while (p) {
+        cout &lt;&lt; p–&gt;value;
+        if (p=p–&gt;succ) cout &lt;&lt; ", ";
+    }
+    cout &lt;&lt; " }";
+}
+print_all(norse_gods);
+cout&lt;&lt;"\n";
+
+print_all(greek_gods);
+cout&lt;&lt;"\n";
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The code gives,
+                          <PRE>
+                            <code>
+{ Freia, Odin, Thor }
+{ Zeus, Poseidon, Ares, Athena, Hera }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
@@ -608,23 +1806,129 @@
                     <summary class="sum1">
                     17.10 The this pointer
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      Implementing <code>Link::insert()</code> by copying
+                      our previous global insert()
+                      <PRE>
+                        <code>
+Link* Link::insert(Link* n) <span class="comment">// insert n before p; return n</span>
+{
+    Link* p = this; <span class="comment">// pointer to this object</span>
+    if (n==nullptr)
+        return p; <span class="comment">// nothing to insert</span>
+    if (p==nullptr)
+        return n; <span class="comment">// nothing to insert into</span>
+    n–&gt;succ = p; <span class="comment">// p comes after n</span>
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = n;
+    n–&gt;prev = p–&gt;prev; <span class="comment">// p’s predecessor becomes n’s predecessor</span>
+    p–&gt;prev = n; <span class="comment">// n becomes p’s predecessor</span>
+    return n;
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Alternatively, we could simply use <code>this</code>
+                      instead of <code>p</code>:
+                      <PRE>
+                        <code>
+Link* Link::insert(Link* n) <span class="comment">// insert n before this object; return n</span>
+{
+    if (n==nullptr)
+        return this;
+    if (this==nullptr)
+        return n;
+    n–&gt;succ = this; <span class="comment">// this object comes after n</span>
+    if (prev)
+        prev–&gt;succ = n;
+    n–&gt;prev = prev; <span class="comment">// this object’s predecessor becomes n’s predecessor</span>
+    prev = n; <span class="comment">// n becomes this object’s predecessor</span>
+    return n;
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      The compiler ensures that we do not change
+                      the value of <code>this</code> in a member function.
+                      <PRE>
+                        <code>
+struct S {
+  <span class="comment">// . . .</span>
+  void mutate(S* p)
+  {
+      this = p; <span class="comment">// error: this is immutable</span>
+      <span class="comment">// . . .</span>
+  }
+};
+                        </code>
+                      </PRE>
                     </p>
                     <details>
                         <summary class="sum2">
                         17.10.1 More link use
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Continuing example of Norse gods,
+                          we correct the mistakes,
+                          <PRE>
+                            <code>
+Link* p = greek_gods–&gt;find("Mars");
+if (p)
+    p–&gt;value = "Ares";
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Moving Zeus into correct Pantheon,
+                          <PRE>
+                            <code>
+Link* p2 = norse_gods–&gt;find("Zeus");
+if (p2) {
+    if (p2==norse_gods)
+        norse_gods = p2–&gt;next();
+    p2–&gt;erase();
+    greek_gods = greek_gods–&gt;insert(p2);
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Printing the lists,
+                          <PRE>
+                            <code>
+void print_all(Link* p)
+{
+    cout &lt;&lt; "{ ";
+    while (p) {
+        cout &lt;&lt; p–&gt;value;
+        if (p=p–&gt;next())
+            cout &lt;&lt; ", ";
+    }
+    cout &lt;&lt; " }";
+}
+print_all(norse_gods);
+cout&lt;&lt;"\n";
+
+print_all(greek_gods);
+cout&lt;&lt;"\n";
+                              </code>
+                            </PRE>
+                          </p>
+                          <br>
+                          <p>
+                            The above code gives,
+                            <PRE>
+                              <code>
+{ Freia, Odin, Thor }
+{ Zeus, Poseidon, Ares, Athena, Hera }
+                              </code>
+                            </PRE>
                         </p>
                     </details>
 
