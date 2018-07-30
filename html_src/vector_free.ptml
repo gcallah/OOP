@@ -57,12 +57,68 @@
                     <summary class="sum1">
                     17.2 vector basics
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      <PRE>
+                        <code>
+vector&lt;double&gt; age(4); <span class="comment">// a vector with 4 elements of type double</span>
+age[0]=0.33;
+age[1]=22.0;
+age[2]=27.2;
+age[3]=54.2;
+                        </code>
+                      </PRE>
+                      <br>
+                      <figure>
+                          <img src="graphics/Chap17Diag1.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Elements of <code>age</code> are numbered
+                      <code>0</code> to <code>age.size()-1</code>.
+                      <br>
+                      Defining a fixed-size data structure,
+                      <br>
+                      <PRE>
+                        <code>
+class vector {
+int size, age0, age1, age2, age3;
+// . . .
+};
+                        </code>
+                      </PRE>
+                      <br>
+                      <figure>
+                          <img src="graphics/Chap17Diag2.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Adding an element with <code>push_back()</code> becomes
+                      difficult as defined <code>vector</code> has fixed
+                      number of elements.
+                      <br>
+                      We need a data member that points to the set of elements
+                      so that it points to different set of elements
+                      when more space is needed.
+                      <br>
+                      A <code>pointer</code> holds an address and is
+                      distinguished by the suffix <code>*</code>
+                      meaning "pointer to <code>double</code>".
+                      <PRE>
+                        <code>
+<span class="comment">// a very simplified vector of doubles (like vector&lt;double&gt;)</span>
+class vector {
+int sz; <span class="comment">// the size</span>
+double* elem; <span class="comment">// pointer to the first element (of type double)</span>
+public:
+vector(int s); <span class="comment">// constructor: allocate s doubles,</span>
+<span class="comment">// let elem point to them</span>
+<span class="comment">// store s in sz</span>
+int size() const { return sz; } <span class="comment">// the current size</span>
+};
+                        </code>
+                      </PRE>
                     </p>
                 </details>
 
