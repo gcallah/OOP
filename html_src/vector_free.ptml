@@ -444,13 +444,54 @@ pd = pi; <span class="comment">// error: can’t assign an int* to a double*</sp
                         <summary class="sum2">
                         17.4.2 Access through pointers
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          The subscript operator <code>[ ]</code> can also
+                          be used.
+                          <PRE>
+                            <code>
+double* p = new double[4]; <span class="comment">// allocate 4 doubles on the free store</span>
+double x = *p; <span class="comment">// read the (first) object pointed to by p</span>
+double y = p[2]; <span class="comment">// read the 3rd object pointed to by p</span>
+                            </code>
+                          </PRE>
                         </p>
+                        <br>
+                        <p>
+                          The <code>[ ]</code> and <code>*</code> operators can also be used for writing
+                          <PRE>
+                            <code>
+*p = 7.7; <span class="comment">// write to the (first) object pointed to by p</span>
+p[2] = 9.9; <span class="comment">// write to the 3rd object pointed to by p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The “contents of” operator allows to read and
+                          write the object pointed to by a pointer <code>p</code>:
+                          <PRE>
+                            <code>
+double x = *p; <span class="comment">// read the object pointed to by p</span>
+*p = 8.8; <span class="comment">// write to the object pointed to by p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The [ ] operator treats memory as a sequence of
+                          objects with the first one pointed to by a
+                          pointer <code>p</code>:
+                          <PRE>
+                            <code>
+double x = p[3]; <span class="comment">// read the 4th object pointed to by p</span>
+p[3] = 4.4; <span class="comment">// write to the 4th object pointed to by p</span>
+double y = p[0]; <span class="comment">// p[0] is the same as *p</span>
+                            </code>
+                          </PRE>
+                        </p>
+                        <figure>
+                            <img src="graphics/Chap17Diag8.png" width="40%">
+                        </figure>
                     </details>
 
                     <details>
