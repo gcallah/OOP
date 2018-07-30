@@ -1606,12 +1606,64 @@ struct S {
                         <summary class="sum2">
                         17.10.1 More link use
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Continuing example of Norse gods,
+                          we correct the mistakes,
+                          <PRE>
+                            <code>
+Link* p = greek_gods–&gt;find("Mars");
+if (p)
+    p–&gt;value = "Ares";
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Moving Zeus into correct Pantheon,
+                          <PRE>
+                            <code>
+Link* p2 = norse_gods–&gt;find("Zeus");
+if (p2) {
+    if (p2==norse_gods)
+        norse_gods = p2–&gt;next();
+    p2–&gt;erase();
+    greek_gods = greek_gods–&gt;insert(p2);
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Printing the lists,
+                          <PRE>
+                            <code>
+void print_all(Link* p)
+{
+    cout &lt;&lt; "{ ";
+    while (p) {
+        cout &lt;&lt; p–&gt;value;
+        if (p=p–&gt;next())
+            cout &lt;&lt; ", ";
+    }
+    cout &lt;&lt; " }";
+}
+print_all(norse_gods);
+cout&lt;&lt;"\n";
+
+print_all(greek_gods);
+cout&lt;&lt;"\n";
+                              </code>
+                            </PRE>
+                          </p>
+                          <br>
+                          <p>
+                            The above code gives,
+                            <PRE>
+                              <code>
+{ Freia, Odin, Thor }
+{ Zeus, Poseidon, Ares, Athena, Hera }
+                              </code>
+                            </PRE>
                         </p>
                     </details>
 
