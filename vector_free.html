@@ -1637,12 +1637,84 @@ norse_gods = insert(norse_gods,new Link{"Freia"});
                         <summary class="sum2">
                         17.9.4 List operations
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Operations:
+                          <ul>
+                            <li>
+                              The constructor
+                            </li>
+                            <li>
+                              <code>insert</code>: insert before an element
+                            </li>
+                            <li>
+                              <code>add</code>: insert after an element
+                            </li>
+                            <li>
+                              <code>erase</code>: remove an element
+                            </li>
+                            <li>
+                              <code>find</code>: find a <code>Link</code> with a given value
+                            </li>
+                            <li>
+                              <code>advance</code>: get the nth successor
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+Link* add(Link* p, Link* n) <span class="comment">// insert n after p; return n</span>
+{
+    <span class="comment">// much like insert (see exercise 11)</span>
+}
+
+Link* erase(Link* p) <span class="comment">// remove *p from list; return p’s successor</span>
+{
+    if (p==nullptr)
+        return nullptr;
+    if (p–&gt;succ)
+        p–&gt;succ–&gt;prev = p–&gt;prev;
+    if (p–&gt;prev)
+        p–&gt;prev–&gt;succ = p–&gt;succ;
+    return p–&gt;succ;
+}
+
+Link* find(Link* p, const string& s) <span class="comment">// find s in list;</span>
+<span class="comment">// return nullptr for “not found”</span>
+{
+    while (p) {
+        if (p–&gt;value == s)
+            return p;
+        p = p–&gt;succ;
+    }
+    return nullptr;
+}
+
+Link* advance(Link* p, int n) <span class="comment">// move n positions in list</span>
+<span class="comment">// return nullptr for “not found”</span>
+<span class="comment">// positive n moves forward, negative backward</span>
+{
+    if (p==nullptr)
+        return nullptr;
+    if (0&lt;n) {
+        while (n––) {
+            if (p–&gt;succ == nullptr)
+                return nullptr;
+            p = p–&gt;succ;
+        }
+    }
+    else if (n&lt;0) {
+            while (n++) {
+                if (p–&gt;prev == nullptr)
+                    return nullptr;
+                p = p–&gt;prev;
+            }
+          }
+    return p;
+}
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
