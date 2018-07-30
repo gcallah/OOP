@@ -1039,12 +1039,24 @@ void f3(int n)
                         <summary class="sum2">
                         17.5.1 Generated destructors
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          Destructors are called when the object is destroyed.
+                          <PRE>
+                            <code>
+struct Customer {
+    string name;
+    vector&lt;string&gt; addresses;
+    <span class="comment">// . . .</span>
+};
+
+void some_fct()
+{
+    Customer fred;
+    <span class="comment">// initialize fred</span>
+    <span class="comment">// use fred</span>
+}
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
