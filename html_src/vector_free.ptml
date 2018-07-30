@@ -126,12 +126,151 @@ int size() const { return sz; } <span class="comment">// the current size</span>
                     <summary class="sum1">
                     17.3 Memory, addresses, and pointers
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      An <code>address</code> is a "number that
+                      indicates a location in memory".
+                      <br>
+                      <br>
+                      A megabyte of memory can be visualized as following,
+                      <figure>
+                          <img src="graphics/Chap17Diag3.png" width="40%">
+                      </figure>
+                      <br>
+                      <br>
+                      <PRE>
+                          <code>
+int var = 17;
+                          </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      Here, an "int-size" piece of memory for
+                      var is set aside and value 17 is put in memory.
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+<code>
+int* ptr = &var; <span class="comment">// ptr holds the address of var</span>
+</code>
+                      </PRE>
+                    </p>
+
+                    <p>
+                      The type needed to hold the address of an
+                      <code>int</code> is “pointer to int” or
+                      an “int pointer” and the notation is <code>int*</code>.
+                      <br>
+                      <br>
+                      The “address of” operator, unary <code>&</code>,
+                      is used to get the address of an object.
+                      So, if <code>var</code> happens to start at address
+                      <code>4096</code>, <code>ptr</code> will hold
+                      the value <code>4096</code>:
+                      <figure>
+                          <img src="graphics/Chap17Diag4.png" width="40%">
+                      </figure>
+                    </p>
+                    <br>
+                    <p>
+                      Each type has a corresponding pointer type.
+                      <PRE>
+                        <code>
+int x = 17;
+int* pi = &x; <span class="comment">// pointer to int</span>
+double e = 2.71828;
+double* pd = &e; <span class="comment">// pointer to double</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      To see value of the object pointed to,
+                      <PRE>
+                        <code>
+cout &lt;&lt; "pi==" &lt;&lt; pi &lt;&lt; "; contents of pi==" &lt;&lt; *pi &lt;&lt; "\n";
+cout &lt;&lt; "pd==" &lt;&lt; pd &lt;&lt; "; contents of pd==" &lt;&lt; *pd &lt;&lt; "\n";
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      The output for <code>*pi</code> will be the integer
+                      <code>17</code> and the output for <code>*pd</code>
+                      will be the double <code>2.71828</code>.
+                      <br>
+                      The output for pi and pd will vary depending on
+                      where the compiler allocated our variables x and e in
+                      memory.
+                    </p>
+                    <br>
+                    <p>
+                      The contents of operator can also be used on the
+                      left-hand side of an assignment:
+                      <PRE>
+                        <code>
+*pi = 27; <span class="comment">// OK: you can assign 27 to the int pointed to by pi</span>
+*pd = 3.14159; <span class="comment">// OK: you can assign 3.14159 to the double pointed to by pd</span>
+*pd = *pi; <span class="comment">// OK: you can assign an int (*pi) to a double (*pd)</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      <code>int</code> provides the
+                      operations suitable for integers.
+                      <br>
+                      A pointer type provides the operations suitable
+                      for addresses.
+                      <PRE>
+                        <code>
+int i = pi; <span class="comment">// error: can’t assign an int* to an int</span>
+pi = 7; <span class="comment">// error: can’t assign an int to an int*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Also, a pointer to <code>char</code>
+                      a <code>char*</code>) is not a pointer
+                      to <code>int</code> (an <code>int*</code>):
+                      <PRE>
+                        <code>
+char* pc = pi; <span class="comment">// error: can’t assign an int* to a char*</span>
+pi = pc; <span class="comment">// error: can’t assign a char* to an int*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Why is it an error?
+                      <PRE>
+                        <code>
+char ch1 = 'a';
+char ch2 = 'b';
+char ch3 = 'c';
+char ch4 = 'd';
+int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memory</span>
+<span class="comment">// error: we cannot assign a char* to an int*</span>
+<span class="comment">// but let’s pretend we could</span>
+*pi = 12345; <span class="comment">// write to an int-size piece of memory</span>
+*pi = 67890;
+                        </code>
+                      </PRE>
+                    </p>
+                    <p>
+                      If the compiler would have allowed the code,
+                      <code>12345</code> would be written to the memory
+                      starting at <code>&ch3</code>.
+                      <br>
+                      Then the next assignment <code>*pi=67890</code> would
+                      place <code>67890</code> in some completely
+                      different part of memory.
+                      <br>
+                      <br>
+                      <i>
+                        Thats why our aim is always to work at
+                        highest level of abstraction.
+                      </i>
                     </p>
                     <details>
                         <summary class="sum2">
