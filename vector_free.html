@@ -1064,12 +1064,68 @@ void some_fct()
                         <summary class="sum2">
                         17.5.2 Destructors and free store
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <ul>
+                            <li>
+                              Whatever resources a class object needs to
+                              function, it acquires in a constructor.
+                            </li>
+                            <li>
+                              During the object’s lifetime it may release
+                              resources and acquire new ones.
+                            </li>
+                            <li>
+                              At the end of the object’s lifetime, the
+                              destructor releases all resources
+                              still owned by the object.
+                            </li>
+                          </ul>
+                        </p>
+                        <br>
+                        <p>
+                          <PRE>
+                            <code>
+Shape* fct()
+{
+    Text tt {Point{200,200},"Annemarie"};
+    <span class="comment">// . . .</span>
+    Shape* p = new Text{Point{100,100},"Nicholas"};
+    return p;
+}
+
+void f()
+{
+    Shape* q = fct();
+    <span class="comment">// . . .</span>
+    delete q;
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          If there is a class with a virtual function,
+                          it needs a virtual destructor.
+                          <br>
+                          <ul>
+                            <li>
+                              If a class has a virtual function it is
+                              likely to be used as a base class, and
+                            </li>
+                            <li>
+                              If it is a base class its derived class is
+                              likely to be allocated using new, and
+                            </li>
+                            <li>
+                              If a derived class object is allocated
+                              using new and manipulated through a pointer
+                              to its base, then
+                            </li>
+                            <li>
+                              It is likely to be deleted through a
+                              pointer to its base.
+                            </li>
+                          </ul>
                         </p>
                     </details>
 
