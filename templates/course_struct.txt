@@ -569,6 +569,7 @@
 
 2	Midterm	tests/midterm_key.html		glyphicon-pencil
 2	Our textbook's website	http://www.stroustrup.com/programming.html		glyphicon-book
+2	C++ Tips	C++tips.html		glyphicon-hand-right
 2	Guide to UNIX	https://gcallah.github.io/utils/unix_guide.html		glyphicon-hand-right
 
 1	About	about.html		glyphicon-info-sign
