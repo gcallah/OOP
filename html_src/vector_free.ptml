@@ -994,24 +994,96 @@ double d = p–&gt;get(3);
                     <summary class="sum1">
                     17.8 Messing with types: void* and casts
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
+                      The type <code>void*</code> means “pointer to some memory
+                      that the compiler doesn’t know the type of.”
+                      <br>
+                      There are no objects of type <code>void</code> and
+                      we use it to mean "no value returned".
+                      <PRE>
+                        <code>
+void v; <span class="comment">// error: there are no objects of type void</span>
+void f(); <span class="comment">// f() returns nothing — f() does not return an object of type void</span>
+                        </code>
+                      </PRE>
                     </p>
+                    <br>
+                    <p>
+                      A pointer to any object type can be assigned to a
+                      <code>void*</code>,
+                      <PRE>
+                        <code>
+void* pv1 = new int; <span class="comment">// OK: int* converts to void*</span>
+void* pv2 = new double[10]; <span class="comment">// OK: double* converts to void*</span>
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      Since the compiler doesn’t know what a <code>void*</code>
+                      points to, we must tell it:
+                      <PRE>
+                        <code>
+void f(void* pv)
+{
+    void* pv2 = pv; <span class="comment">// copying is OK (copying is what void*s are for)</span>
+    double* pd = pv; <span class="comment">// error: cannot convert void* to double*</span>
+    *pv = 7; <span class="comment">// error: cannot dereference a void*</span>
+    <span class="comment">// (we don’t know what type of object it points to)</span>
+    pv[2] = 9; <span class="comment">// error: cannot subscript a void*</span>
+    int* pi = static_cast&lt;int*&gt;(pv); <span class="comment">// OK: explicit conversion</span>
+    <span class="comment">// . . .</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <p>
+                      A <code>static_cast</code> can be used to explicitly
+                      convert between related pointer types, such as
+                      <code>void*</code> and <code>double*</code>.
+                      <br>
+                      An operation such as <code>static_cast</code> is
+                      called an <i>explicit type conversion</i> or
+                      colloquially a <i>cast</i>.
+                      <br>
+                      Two casts that are potentially even nastier
+                      than <code>static_cast</code>:
+                      <ul>
+                        <li>
+                          <code>reinterpret_cast</code> can cast between
+                          unrelated types, such as <code>int</code> and
+                          <code>double*</code>.
+                        </li>
+                        <li>
+                          <code>const_cast</code> can “cast away
+                          <code>const</code>.”
+                        </li>
+                      </ul>
+                    </p>
+                    <br>
+                    <p>
+                      <PRE>
+                        <code>
+Register* in = reinterpret_cast&lt;Register*&gt;(0xff);
+void f(const Buffer* p)
+{
+    Buffer* b = const_cast&lt;Buffer*&gt;(p);
+    <span class="comment">// . . .</span>
+}
+                        </code>
+                      </PRE>
+                    </p>
+                    <br>
+                    <figure>
+                        <img src="graphics/Chap17Diag11.png" width="20%">
+                    </figure>
                 </details>
 
                 <details>
                     <summary class="sum1">
                     17.9 Pointers and references
                     </summary>
-                    <figure>
-                        <img src="" width="40%">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
                     <p>
                     </p>
                     <details>
