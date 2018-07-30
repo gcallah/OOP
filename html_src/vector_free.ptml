@@ -1463,12 +1463,75 @@ Link* advance(Link* p, int n) <span class="comment">// move n positions in list<
                         <summary class="sum2">
                         17.9.5 List use
                         </summary>
-                        <figure>
-                            <img src="" width="40%">
-                            <figcaption>
-                            </figcaption>
-                        </figure>
                         <p>
+                          <span class="hilight">Example:</span>
+                          <PRE>
+                            <code>
+Link* norse_gods = new Link("Thor");
+norse_gods = insert(norse_gods,new Link{"Odin"});
+norse_gods = insert(norse_gods,new Link{"Zeus"});
+norse_gods = insert(norse_gods,new Link{"Freia"});
+Link* greek_gods = new Link("Hera");
+greek_gods = insert(greek_gods,new Link{"Athena"});
+greek_gods = insert(greek_gods,new Link{"Mars"});
+greek_gods = insert(greek_gods,new Link{"Poseidon"});
+                            </code>
+                          </PRE>
+                        </p>
+                        <p>
+                          Here, Zeus is a Greek god, rather than a Norse god.
+                          Also, the Greek god of war is Ares, not Mars.
+                          <br>
+                          <br>
+                          Fixing,
+                          <PRE>
+                            <code>
+Link* p = find(greek_gods, "Mars");
+if (p)
+    p–&gt;value = "Ares";
+
+
+Link* p = find(norse_gods, "Zeus");
+if (p) {
+    if (p==norse_gods)
+        norse_gods = p–&gt;succ;
+    erase(p);
+    greek_gods = insert(greek_gods,p);
+}
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          Printing lists,
+                          <PRE>
+                            <code>
+void print_all(Link* p)
+{
+    cout &lt;&lt; "{ ";
+    while (p) {
+        cout &lt;&lt; p–&gt;value;
+        if (p=p–&gt;succ) cout &lt;&lt; ", ";
+    }
+    cout &lt;&lt; " }";
+}
+print_all(norse_gods);
+cout&lt;&lt;"\n";
+
+print_all(greek_gods);
+cout&lt;&lt;"\n";
+                            </code>
+                          </PRE>
+                        </p>
+                        <br>
+                        <p>
+                          The code gives,
+                          <PRE>
+                            <code>
+{ Freia, Odin, Thor }
+{ Zeus, Poseidon, Ares, Athena, Hera }
+                            </code>
+                          </PRE>
                         </p>
                     </details>
 
