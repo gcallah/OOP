@@ -152,9 +152,9 @@ Primary:
             Token next_t = ts.get();
             if(next_t.kind == '(') {
                 double d = expression(ts);
+                next_t = ts.get();
+                if (next_t.kind != ')') error("')' expected");
                 d = exec_func(t.name, d);
-                t = ts.get();
-                if (t.kind != ')') error("')' expected");
                 return d;
             }
             else {
