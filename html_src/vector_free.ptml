@@ -231,7 +231,7 @@ pi = 7; <span class="comment">// error: can’t assign an int to an int*</span>
                     <br>
                     <p>
                       Also, a pointer to <code>char</code>
-                      a <code>char*</code>) is not a pointer
+                      (a <code>char*</code>) is not a pointer
                       to <code>int</code> (an <code>int*</code>):
                       <PRE>
                         <code>
@@ -324,6 +324,27 @@ the size of vector&lt;int&gt;(1000) is 20
 
                 <details>
                     <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Create <code>pointer_test.cpp</code>.
+                        Include the usual header file.
+                        Create pointers to <code>char</code>,
+                        <code>int</code>, and <code>double</code>
+                        variables.
+                        Then assign them to the address 
+                        (<code>&amp;</code>) of variables of the right type.  
+                        Print out both the pointer and de-reference
+                        it and print the value.
+                        Then use <code>sizeof(x)</code> to print the size of
+                        the pointers and the variables.
+                    </p>
+
+                </details>
+
+                <details>
+                    <summary class="sum1">
                     17.4 Free store and pointers
                     </summary>
                     <p>
@@ -339,6 +360,10 @@ the size of vector&lt;int&gt;(1000) is 20
                           function calls for arguments and local variables
                           (stack storage or automatic storage)
                         </li>
+                        <li>
+                            free (unallocated) storage
+                        </li>
+
                       </ul>
                     </p>
                     <p>
@@ -516,7 +541,8 @@ pd[–3] = –3.3;
                         </p>
                         <br>
                         <p>
-                            Using <code>vector</code> rather than using
+                            The advantage of 
+                            using <code>vector</code> rather than using
                             memory allocated by <code>new</code> is that a
                             <code>vector</code> knows its size so that
                             out-of-range access can be prevented.
@@ -574,7 +600,9 @@ double* p3 = new double[5]; <span class="comment">// get (allocate) 5 uninitiali
                         </p>
                         <p>
                           Here <code>7.0</code> is assigned to some
-                          location in memory.
+                          location in memory. We have no idea where.
+                          Uninitialized pointers are a major source of 
+                          C++ bugs!
                         </p>
                         <br>
                         <p>
