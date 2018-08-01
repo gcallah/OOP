@@ -1,0 +1,2 @@
+A reference could be considered:#to be like de-referencing a pointer#^a safer version of a pointer#a less safe version of a pointer#to hold the value of an object directly
+If a class you write owns resources, it needs a#vector#^destructor#stack#virtual member function
