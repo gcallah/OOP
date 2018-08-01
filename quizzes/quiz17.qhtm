@@ -1,0 +1,52 @@
+        <ol class="nested">
+            <li>
+                A reference could be considered:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                to be like de-referencing a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                a safer version of a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                a less safe version of a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="d">
+                to hold the value of an object directly
+                </li>
+            </ol>
+            <li>
+                If a class you write owns resources, it needs a
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                vector
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                destructor
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                stack
+                </li>
+                <li>
+                <input type="radio" name="q2" value="d">
+                virtual member function
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. b; 2. b; 
+            </p>
+        </details>

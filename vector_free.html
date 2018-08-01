@@ -526,8 +526,9 @@ int* pi = &ch3; <span class="comment">// point to ch3, a char-size piece of memo
                       If the compiler would have allowed the code,
                       <code>12345</code> would be written to the memory
                       starting at <code>&ch3</code>.
-                      <br>
-                      Then the next assignment <code>*pi=67890</code> would
+                      If that write happened to overwrite the pointer
+                      itself, 
+                      then the next assignment <code>*pi=67890</code> would
                       place <code>67890</code> in some completely
                       different part of memory.
                       <br>
@@ -1031,6 +1032,39 @@ delete p; <span class="comment">// also fine (still no action needed)</span>
 
                 <details>
                     <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Write two programs:
+                    </p>
+
+                    <ol>
+                        <li>
+                            A C++ program that loops allocating 
+                            <code>new double[10000]</code>
+                            and prints how many times it has gone through the
+                            loop.
+                            How long did it run? How much memory were
+                            you able to allocate?
+                            Is this different on PythonAnywhere
+                            than on your laptop?
+                            (If you only run on PA, that is OK.)
+                        </li>
+
+                        <li>
+                            A Python program that recursively
+                            increments and prints a variable.
+                            How many times could you make a recursive call?
+                        </li>
+
+                    </ol>
+
+                </details>
+
+
+                <details>
+                    <summary class="sum1">
                     17.5 Destructors
                     </summary>
                     <p>
@@ -1047,15 +1081,16 @@ class vector {
     int sz; <span class="comment">// the size</span>
     double* elem; <span class="comment">// a pointer to the elements</span>
 public:
-    vector(int s) <span class="comment">// constructor</span>
+     vector(int s) <span class="comment">// constructor</span>
           :sz{s},
           elem{new double[s]} <span class="comment">// allocate memory</span>
           {
               for (int i=0; i&lt;s; ++i)
                   elem[i]=0; <span class="comment">// initialize elements</span>
           }
-          ~vector() <span class="comment">// destructor</span>
-              { delete[] elem; } <span class="comment">// free memory</span>
+
+     ~vector() <span class="comment">// destructor</span>
+          { delete[] elem; } <span class="comment">// free memory</span>
           <span class="comment">// . . .</span>
 };
 
@@ -1069,6 +1104,12 @@ void f3(int n)
                         </code>
                       </PRE>
                     </p>
+
+                    <p>
+                        Every class the "owns" resources needs a destructor!
+                        (Resources: files, buffers, threads, locks, etc.)
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         17.5.1 Generated destructors
@@ -1092,6 +1133,13 @@ void some_fct()
                             </code>
                           </PRE>
                         </p>
+
+                        <p>
+                            When <code>some_fct</code> exits,
+                            <code>fred</code> will go out of scope
+                            and be destroyed.
+                        </p>
+
                     </details>
 
                     <details>
@@ -1205,7 +1253,8 @@ public:
                     <p>
                       The notion of “pointer” is general.
                       The use of pointers to <code>vectors</code>
-                      exactly as we use pointers to <code>char</code>s.
+                      is the same as that
+                      of pointers to <code>char</code>s.
                       <PRE>
                         <code>
 vector* f(int s)
@@ -1253,14 +1302,19 @@ delete p;
                       </PRE>
                     </p>
                     <p>
+                      This works for 2D vectors as well.
                       <code>delete p</code> invokes the destructor
-                      for <code>vector&lt;vector&lt;double&gt;&gt; </code>.
+                      for <code>vector&lt;vector&lt;double&gt;&gt;</code>.
                       This destructor in turn invokes the destructor for its
                       <code>vector&lt;double&gt;</code> cleaning everything.
-                      <br>
-                      <br>
-                      All classes support the operator <code>. (dot) </code>
+                      </p>
+                      
+                      <p>
+                      All classes support the operator <code>.</code> (dot)
                        for accessing members given the name of an object:
+                      </p>
+                      
+                      <p>
                       <PRE>
                         <code>
 vector v(4);
@@ -1271,8 +1325,9 @@ double d = v.get(3);
                     </p>
                     <br>
                     <p>
-                      All classes support the operator –&gt; (arrow) for
-                      accessing members, given a pointer to an object:
+                    All classes support the operator <code>–&gt;</code>
+                    (arrow) for accessing members, given a pointer to an
+                    object:
                       <PRE>
                         <code>
 vector* p = new vector(4);
@@ -1379,10 +1434,9 @@ void f(const Buffer* p)
                     </summary>
                     <p>
                       A <i>reference</i> is an automatically dereferenced
-                      immutable pointer or as an alternative name for an
-                      object.
-                      <br>
+                      immutable pointer.
                       Pointers and references differ in these ways:
+                    </p>
                       <ul>
                         <li>
                           Assignment to a pointer changes the pointer’s
@@ -1415,8 +1469,7 @@ void f(const Buffer* p)
                           Beware of null pointers.
                         </li>
                       </ul>
-                    </p>
-                    <br>
+
                     <p>
                       <span class="hilight">Example:</span>
                       <PRE>
@@ -1973,7 +2026,58 @@ cout&lt;&lt;"\n";
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+        <ol class="nested">
+            <li>
+                A reference could be considered:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                to be like de-referencing a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                a safer version of a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                a less safe version of a pointer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="d">
+                to hold the value of an object directly
+                </li>
+            </ol>
+            <li>
+                If a class you write owns resources, it needs a
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                vector
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                destructor
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                stack
+                </li>
+                <li>
+                <input type="radio" name="q2" value="d">
+                virtual member function
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. b; 2. b; 
+            </p>
+        </details>
                 </details>
 
 
