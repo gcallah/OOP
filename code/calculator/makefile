@@ -11,6 +11,8 @@ vars_test: vars.o vars_test.o
 
 funcs_test: funcs.o funcs_test.o
 
+retval_test: retval.o retval_test.o 
+
 repo:
 	git commit -a -m "New calculator version."
 	git push origin master
