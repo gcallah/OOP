@@ -5,7 +5,7 @@
 #include "retval.h"
 #include "parser.h"
 
-Retval statement(Token_stream& ts)
+RetVal statement(Token_stream& ts)
 {
 /* grammar recognized:
  Statement:
@@ -21,11 +21,11 @@ Retval statement(Token_stream& ts)
         if(t.kind == '=') {  // an assignment
             double d = expression(ts).get_dval();
             set_value(var.name, d);
-            return DoubleRet(d);
+            return RetVal(d);
         }
         else if(t.kind == print) {
             ts.putback(t);
-            return DoubleRet(get_value(var.name));
+            return RetVal(get_value(var.name));
         }
         ts.putback(t);
         ts.putback(var);
@@ -35,7 +35,7 @@ Retval statement(Token_stream& ts)
     return expression(ts);
 }
 
-Retval expression(Token_stream& ts)
+RetVal expression(Token_stream& ts)
 {
 /* grammar recognized:
  Expression:
@@ -58,12 +58,12 @@ Retval expression(Token_stream& ts)
             break;
         default: 
             ts.putback(t);     // put t back into the token stream
-            return DoubleRet(left);  // finally: no more + or -: return the answer
+            return RetVal(left);  // finally: no more + or -: return the answer
         }
     }
 }
 
-Retval term(Token_stream& ts)
+RetVal term(Token_stream& ts)
 {
 /* grammar recognized:
 Term:
@@ -99,13 +99,13 @@ Term:
             }
         default: 
             ts.putback(t);     // put t back into the token stream
-            return DoubleRet(left);
+            return RetVal(left);
         }
     }
 
 }
 
-Retval expon(Token_stream& ts)
+RetVal expon(Token_stream& ts)
 {
 /* grammar recognized:
 Exp:
@@ -116,15 +116,15 @@ Exp:
     Token t = ts.get();
     if(t.kind == power) {
         double d = primary(ts).get_dval();
-        return DoubleRet(pow(left, d));
+        return RetVal(pow(left, d));
     }
     else {
         ts.putback(t);     // put t back into the token stream
-        return DoubleRet(left);
+        return RetVal(left);
     }
 }
 
-Retval primary(Token_stream& ts)
+RetVal primary(Token_stream& ts)
 {
 /* grammar recognized:
 Primary:
@@ -144,10 +144,10 @@ Primary:
             double d = expression(ts).get_dval();
             t = ts.get();
             if (t.kind != ')') error("')' expected");
-            return DoubleRet(d);
+            return RetVal(d);
         }
     case number:
-        return DoubleRet(t.value);  // return the number's value
+        return RetVal(t.value);  // return the number's value
     case name:
         {
             Token next_t = ts.get();
@@ -156,20 +156,20 @@ Primary:
                 next_t = ts.get();
                 if (next_t.kind != ')') error("')' expected");
                 d = exec_func(t.name, d);
-                return DoubleRet(d);
+                return RetVal(d);
             }
             else {
                 ts.putback(next_t);
-                return DoubleRet(get_value(t.name));
+                return RetVal(get_value(t.name));
             }
         }
     case '-':
-        return DoubleRet(-(primary(ts).get_dval()));
+        return RetVal(-(primary(ts).get_dval()));
     case '+':
         return primary(ts);
     default:
         error("primary expected");
     }
-    return DoubleRet(0.0);
+    return RetVal(0.0);
 }
 

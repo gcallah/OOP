@@ -24,7 +24,7 @@ void calculate(Token_stream& ts)
             while(t.kind == print) t = ts.get();  // eat multiple prints!
             if(t.kind == quit) return;
             ts.putback(t);
-            cout << result << statement(ts) << '\n';
+            cout << setprecision(12) << result << statement(ts) << '\n';
         }
         catch(exception& e) {
             cerr << e.what() << '\n';

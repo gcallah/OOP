@@ -1,28 +1,22 @@
 
-class Retval {
+enum RetType { dbl, vec, mat, undef };
+
+class RetVal {
     public:
-        class WrongRetval {};
+        class WrongRetVal {};
+        RetVal(double d) { dval = d; rtype = dbl; }
+        RetVal(vector<double> v) { vval = v; rtype = vec; }
         virtual double get_dval() const { return dval; }
         virtual vector<double> get_vval() const { return vval; }
-        ~Retval() {}
+        ~RetVal() {}
+        bool isdbl() const { return rtype == dbl; }
+        bool isvec() const { return rtype == vec; }
+        bool ismat() const { return rtype == mat; }
     protected:
-        Retval() {}
+        RetVal() {}
         double dval = 0.0;
         vector<double> vval;
+        RetType rtype = undef; 
 };
 
-class DoubleRet : public Retval {
-    public:
-        DoubleRet(double d) { dval = d; }
-        virtual vector<double> get_vval() const { throw WrongRetval(); }
-};
-
-class VectorRet : public Retval {
-    public:
-        VectorRet(vector<double> v) { vval = v; }
-        virtual double get_dval() const { throw WrongRetval(); }
-};
-
-ostream& operator<<(ostream &os, const Retval &r);
-ostream& operator<<(ostream &os, const DoubleRet &d);
-ostream& operator<<(ostream &os, const VectorRet &v);
+ostream& operator<<(ostream &os, const RetVal &v);
