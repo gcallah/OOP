@@ -1,22 +1,27 @@
 
 class Retval {
     public:
-        double get_dval() { return 0.0; }
+        class WrongRetval {};
+        virtual double get_dval() const { return dval; }
+        virtual vector<double> get_vval() const { return vval; }
+        ~Retval() {}
+    protected:
+        Retval() {}
+        double dval = 0.0;
+        vector<double> vval;
 };
 
-class DoubleRet : Retval {
+class DoubleRet : public Retval {
     public:
-        DoubleRet(double d) { val = d; }
-        double get_dval() { return val; }
-        double val = 0.0;
+        DoubleRet(double d) { dval = d; }
+        virtual vector<double> get_vval() const { throw WrongRetval(); }
 };
 
-class VectorRet : Retval {
+class VectorRet : public Retval {
     public:
-        VectorRet(vector<double> v) { val = v; }
-        vector<double> val;
+        VectorRet(vector<double> v) { vval = v; }
+        virtual double get_dval() const { throw WrongRetval(); }
 };
-
 
 ostream& operator<<(ostream &os, const Retval &r);
 ostream& operator<<(ostream &os, const DoubleRet &d);

@@ -19,7 +19,7 @@ Retval statement(Token_stream& ts)
 //        cout << "Got a var with name " << var.name << endl;
         t = ts.get();
         if(t.kind == '=') {  // an assignment
-            double d = expression(ts);
+            double d = expression(ts).get_dval();
             set_value(var.name, d);
             return DoubleRet(d);
         }
@@ -29,10 +29,10 @@ Retval statement(Token_stream& ts)
         }
         ts.putback(t);
         ts.putback(var);
-        return DoubleRet(expression(ts));
+        return expression(ts);
     }
     ts.putback(t);
-    return DoubleRet(expression(ts));
+    return expression(ts);
 }
 
 Retval expression(Token_stream& ts)
@@ -43,8 +43,8 @@ Retval expression(Token_stream& ts)
     Expression "+" Term
     Expression "-" Term
  */
-    double left = term(ts);      // read and evaluate a Term
-    Token t = ts.get();        // get the next token from token stream
+    double left = term(ts).get_dval();  // read and evaluate a Term
+    Token t = ts.get();         // get the next token from token stream
 
     while(true) {    
         switch(t.kind) {
@@ -53,7 +53,7 @@ Retval expression(Token_stream& ts)
             t = ts.get();
             break;
         case '-':
-            left -= term(ts);    // evaluate Term and subtract
+            left -= term(ts).get_dval();    // evaluate Term and subtract
             t = ts.get();
             break;
         default: 
@@ -72,18 +72,18 @@ Term:
     Term "/" Expon
     Term "%" Expon
 */
-    double left = expon(ts);
+    double left = expon(ts).get_dval();
     Token t = ts.get();        // get the next token from token stream
 
     while(true) {
         switch (t.kind) {
         case '*':
-            left *= expon(ts);
+            left *= expon(ts).get_dval();
             t = ts.get();
             break;
         case '/':
             {    
-                double d = expon(ts);
+                double d = expon(ts).get_dval();
                 if (d == 0) error("divide by zero");
                 left /= d; 
                 t = ts.get();
@@ -91,7 +91,7 @@ Term:
             }
         case '%':
             {
-                double d = expon(ts);
+                double d = expon(ts).get_dval();
                 if (d == 0) error("divide by zero");
                 left = fmod(left, d);
                 t = ts.get();
@@ -112,10 +112,10 @@ Exp:
     Primary
     Primary "^" Primary
 */
-    double left = primary(ts);
+    double left = primary(ts).get_dval();
     Token t = ts.get();
     if(t.kind == power) {
-        double d = primary(ts);
+        double d = primary(ts).get_dval();
         return DoubleRet(pow(left, d));
     }
     else {
@@ -141,7 +141,7 @@ Primary:
     switch (t.kind) {
     case '(':    // handle '(' expression ')'
         {    
-            double d = expression(ts);
+            double d = expression(ts).get_dval();
             t = ts.get();
             if (t.kind != ')') error("')' expected");
             return DoubleRet(d);
@@ -152,7 +152,7 @@ Primary:
         {
             Token next_t = ts.get();
             if(next_t.kind == '(') {
-                double d = expression(ts);
+                double d = expression(ts).get_dval();
                 next_t = ts.get();
                 if (next_t.kind != ')') error("')' expected");
                 d = exec_func(t.name, d);
@@ -166,7 +166,7 @@ Primary:
     case '-':
         return DoubleRet(-(primary(ts).get_dval()));
     case '+':
-        return DoubleRet(primary(ts));
+        return primary(ts);
     default:
         error("primary expected");
     }

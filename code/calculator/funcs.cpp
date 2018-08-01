@@ -29,4 +29,5 @@ double exec_func(string fname, double arg)
     catch(exception) {
         cout << "Error: undefined function " << fname << '\n';
     }
+    return 0.0;   // stop compiler warning!
 }
