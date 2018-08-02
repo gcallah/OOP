@@ -1,0 +1,4 @@
+An <code>istream</code> fundamentally...#hides all user input from the programmer#^hides the details of input devices from the programmer#hides what data types are being input from the programmer
+A file is fundamentally...#an icon inside a folder#a list of records#^a sequence of bytes stored on some media
+Why is input usually harder than output?#<code>istream</code> is a trickier class than <code>ostream</code>#input devices require more assembly language code than output devices#^The user might input almost anything!
+What are the four steps for reading a file?#delete the file, read from stdin, write the results there, and close stdin#^know its name, open it, read in the contents, and close it#generate the file, write out its contents, close it, and verify a good result
