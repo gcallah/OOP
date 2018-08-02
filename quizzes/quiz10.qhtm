@@ -1,0 +1,78 @@
+        <ol class="nested">
+            <li>
+                An <code>istream</code> fundamentally...
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                hides all user input from the programmer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                hides the details of input devices from the programmer
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                hides what data types are being input from the programmer
+                </li>
+            </ol>
+            <li>
+                A file is fundamentally...
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                an icon inside a folder
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                a list of records
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                a sequence of bytes stored on some media
+                </li>
+            </ol>
+            <li>
+                Why is input usually harder than output?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                <code>istream</code> is a trickier class than <code>ostream</code>
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                input devices require more assembly language code than output devices
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                The user might input almost anything!
+                </li>
+            </ol>
+            <li>
+                What are the four steps for reading a file?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                delete the file, read from stdin, write the results there, and close stdin
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                know its name, open it, read in the contents, and close it
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                generate the file, write out its contents, close it, and verify a good result
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. b; 2. c; 3. c; 4. b; 
+            </p>
+        </details>
