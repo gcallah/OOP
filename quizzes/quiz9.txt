@@ -1,0 +1,4 @@
+What are the two parts of a class?#variants and constants#^interface and implementation#local and global#interference and instantiation
+Which of the following is a class invariant for D<code>Date</code>?#^we must always have a month less than 13#month should be defined as an <code>int</code>#printed dates should never take up more than one column in a spreadsheet#the year cannot be a leap year
+When should the body of a function (its definition) be put in the class definition?#when the function returns a built-in type#^when the function is only a line or two#when the function is a very important part of the class#when the function returns a user-defined type
+What would be a reasonable way to overload the plus (+) operator?#to perform a hash function on some input string#to access a website and add all of its pages to your site#^two add two complex numbers
