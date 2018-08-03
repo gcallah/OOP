@@ -159,11 +159,11 @@ void f(int n)
                         <p>
                         <code>
                             <pre>
-vector::vector(const vector& arg)
+vector::vector(const vector&amp; arg)
 // allocate space, then initialize via copy
     :sz{arg.sz}, elem{new double[arg.sz]}
 {
-    copy(arg.elem, arg.elem.sz, elem);  // from std lib
+    copy(arg.elem, arg.elem+arg.sz, elem);  // from std lib
 }
                             </pre>
                         </code>
@@ -194,7 +194,7 @@ vector&amp; vector::operator=(const vector&amp; a)
 // make this vector a copy of a
 {
     double* p = new double[a.sz];
-    copy(a.elem, a.elem.sz, p);
+    copy(a.elem, a.elem+a.sz, p);
     delete[] elem;
     elem = p;
     sz = a.sz;
