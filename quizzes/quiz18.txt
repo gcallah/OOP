@@ -1,0 +1,2 @@
+A good use of shallow copying would be when#^we have a very large object to copy#we just need to scoop out the top few values from an object#we don't really care if all the field values are the same
+A good use of deep copying would be when#we need to make sure the values in one object change when values in the other do#^we need to make sure each objects uses separate memory#we need to save memory
