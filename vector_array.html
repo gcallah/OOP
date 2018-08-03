@@ -319,8 +319,34 @@
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        We usually should initialize our variables rather than
+                        accepting the default value. Initializer lists are in
+                        curly braces: <code>{}</code>.
+                        We can write:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+vector v = {1, 2, 3];
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                     Or:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+vector v = {1, 2, 3];
+                        </pre>
+                    </code>
+                    </p>
+
                 </details>
 
                 <details>
@@ -328,12 +354,55 @@
                     18.3 Copying
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Fuji_Xerox_Document_Centre_505_and_Taiwan_Xerox_Walk-In_120D_at_ROC_National_Central_Library_20101211.jpg/440px-Fuji_Xerox_Document_Centre_505_and_Taiwan_Xerox_Walk-In_120D_at_ROC_National_Central_Library_20101211.jpg"
+                        width="20%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        Consider an implementation of <code>vector</code>
+                        like the following:
                     </p>
+
+                    <p>
+                    <code>
+                        <pre>
+class vector {
+    int sz;
+    double* elem;
+public:
+    vector(int s)
+        :sz{s}, elem{new double s[]}  { /*  */ }
+    ~vector()
+        { delete elem; }
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Then what happens in the following code?
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+void f(int n)
+{
+    vector v(3);
+    v[2] = 2.2;
+    vector v2 = v;
+    v[1] =  9.9;
+    v2[0] = 8.8;
+    cout &lt;&lt; v[0] &lt;&lt; ' ' &lt;&lt; v2[1];
+}
+                        </pre>
+                    </code>
+                    </p>
+
+                    <p>
+                        Disaster!
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         18.3.1 Copy constructors
@@ -343,8 +412,26 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            What to do? Create a <span class="hilight">copy
+                            constructor</span>.
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+vector::vector(const vector& arg)
+// allocate space, then initialize via copy
+    :sz{arg.sz}, elem{new double[arg.sz]}
+{
+    copy(arg.elem, arg.elem.sz, elem);  // from std lib
+}
+                            </pre>
+                        </code>
+                        </p>
+
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -355,8 +442,30 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We get the same problem as above, <i>plus</i>
+                            a memory leak, on default assignments.
+                            Here's what we need to do:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+vector&amp; vector::operator=(const vector&amp; a)
+// make this vector a copy of a
+{
+    double* p = new double[a.sz];
+    copy(a.elem, a.elem.sz, p);
+    delete[] elem;
+    elem = p;
+    sz = a.sz;
+    return *this;  // return self-ref
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -367,33 +476,131 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Let's look at 
+                            <span class="hilight">shallow copies</span>
+                            versus
+                            <span class="hilight">deep copies</span>.
                         </p>
+
+                        <p>
+                            In a <span class="hilight">shallow copy</span>
+                            both variables point to the same memory.
+                        </p>
+
+                        <p>
+                            In a <span class="hilight">deep copy</span>
+                            each variable points to different memory.
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
                         18.3.4 Moving
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/The_Movings_by_Louis-Léopold_Boilly.jpg/500px-The_Movings_by_Louis-Léopold_Boilly.jpg"
+                            width="24%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can write a <i>move</i> assignment operator
+                            when we want to explicitly re-use the storage
+                            for one object in another.
+                            It looks like this:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+vector&amp; vector::operator=(vector&amp;&amp; a)
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            The compiler will call this automatically when
+                            it sees an assigned element is going out of scope.
+                        </p>
+
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        <code>vec1.cpp:</code>
+                        <br>
+                        Write a vector class with the default
+                        copy constructor and assignment operator.
+                        write a main with a function like
+                        <code>f()</code> above. Loop calling it and see
+                        what happens.
+                    </p>
+
+                    <p>
+                        <code>vec2.cpp:</code>
+                        <br>
+                        Copy that code and add proper copy constructor and 
+                        assignment operator. Run your loop again.
+                        Things should work now.
+                    </p>
+
+                </details>
+
+
                 <details>
                     <summary class="sum1">
                     18.4 Essential operations
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/B_vitamin_supplement_tablets.jpg/560px-B_vitamin_supplement_tablets.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
                     <p>
+                        The C++ FDA recomments the following "7 essential
+                        operations" for a class:
                     </p>
+
+                    <ul>
+                        <li>
+                            Constructor with args
+                        </li>
+
+                        <li>
+                            Default constructor
+                        </li>
+
+                        <li>
+                            Copy constructor
+                        </li>
+
+                        <li>
+                            Copy assignment
+                        </li>
+
+                        <li>
+                            Move constructor
+                        </li>
+
+                        <li>
+                            Move assignment
+                        </li>
+
+                        <li>
+                            Destructor
+                        </li>
+
+                    </ul>
+
                     <details>
                         <summary class="sum2">
                         18.4.1 Explicit constructors
@@ -403,22 +610,85 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            The keyword <code>explicit</code> prevents
+                            default type conversions for objects when
+                            we don't want them. Good example:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+class complex {
+    public:
+        complex(double); // construct a complex # from a double
+};
+
+complex z = 3.14;  // OK!
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            Bad example:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+vector v = 10;
+v = 20;  // this would assign a new vector of 20 doubles to v!
+                            </pre>
+                        </code>
+                        </p>
+
+
                     </details>
                     <details>
                         <summary class="sum2">
                         18.4.2 Debugging constructors and destructors
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Insect_collage.png/440px-Insect_collage.png"
+                            width="20%">
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            These are not called just where you see them!
+                            Rule:
                         </p>
+
+                        <ul>
+                            <li>
+                                Whenever an object of type <code>X</code> 
+                                is created, one of <code>X</code>'s
+                                constructors is invoked.
+                            </li>
+
+                            <li>
+                                Whenever an object of type <code>X</code> 
+                                is destroyed, <code>X</code>'s
+                                destructor is invoked.
+                            </li>
+                        </ul>
+
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Do the exercise on pages 644-645 of the textbook.
+                    </p>
+
+                </details>
+
                 <details>
                     <summary class="sum1">
                     18.5 Access to vector elements
@@ -428,8 +698,6 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-                    <p>
-                    </p>
                     <details>
                         <summary class="sum2">
                         18.5.1 Overloading on const
@@ -562,7 +830,88 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+        <ol class="nested">
+            <li>
+                A good use of shallow copying would be when
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                we have a very large object to copy
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                we just need to scoop out the top few values from an object
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                we don't really care if all the field values are the same
+                </li>
+            </ol>
+            <li>
+                A good use of deep copying would be when
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                we need to make sure the values in one object change when values in the other do
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                we need to make sure each objects uses separate memory
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                we need to save memory
+                </li>
+            </ol>
+            <li>
+                We want a default constructor when
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                we can establish meaningful invariants using default values
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                we really don't know what should initialize a class
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                we want to eliminate the faults (defaults) from our classes
+                </li>
+            </ol>
+            <li>
+                We need a destructor when our class
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                has many members
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                has default values
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                has no copy constructor
+                </li>
+                <li>
+                <input type="radio" name="q4" value="d">
+                acquires resources
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. a; 2. b; 3. a; 4. d; 
+            </p>
+        </details>
                 </details>
 
                 <details>
