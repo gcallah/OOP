@@ -188,11 +188,12 @@ Primary:
             }
         }
     case '-':
-        return RetVal(-(primary(ts).get_dval()));
+        return -(primary(ts));
     case '+':
         return primary(ts);
     default:
-        error("primary expected");
+        string s(1, t.kind);
+        error("primary expected; got: " + s);
     }
     return RetVal(0.0);
 }

@@ -1,19 +1,25 @@
+using namespace std;
 
 enum RetType { dbl, vec, mat, undef };
 
 class RetVal {
     public:
         class WrongRetVal {};
+        RetVal() { rtype = undef; }
         RetVal(double d) { dval = d; rtype = dbl; }
         RetVal(vector<double> v) { vval = v; rtype = vec; }
-        virtual double get_dval() const { return dval; }
-        virtual vector<double> get_vval() const { return vval; }
+        double get_dval() const { return dval; }
+        void set_dval(double d) { dval = d; }
+        vector<double> get_vval() const { return vval; }
+        void set_vval(vector<double> v) { vval = v; }
         ~RetVal() {}
         bool isdbl() const { return rtype == dbl; }
         bool isvec() const { return rtype == vec; }
         bool ismat() const { return rtype == mat; }
+        int length() const { return rtype == dbl ? 1 : vval.size(); }
+        RetVal operator-() const;
+        RetVal operator+(const RetVal& r2);
     protected:
-        RetVal() {}
         double dval = 0.0;
         vector<double> vval;
         RetType rtype = undef; 
