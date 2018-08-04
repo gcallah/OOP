@@ -31,6 +31,8 @@ Token Token_stream::get() {
         case quit:
         case '(':
         case ')':
+        case '[':
+        case ']':
         case '+':
         case '-':
         case '/':

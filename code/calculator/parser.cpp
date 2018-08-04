@@ -43,7 +43,11 @@ RetVal expression(Token_stream& ts)
     Expression "+" Term
     Expression "-" Term
  */
-    double left = term(ts).get_dval();  // read and evaluate a Term
+    double left;
+    RetVal r = term(ts);
+    if(r.isvec()) return r;    // for now!
+
+    left = r.get_dval();  // read and evaluate a Term
     Token t = ts.get();         // get the next token from token stream
 
     while(true) {    
@@ -72,37 +76,42 @@ Term:
     Term "/" Expon
     Term "%" Expon
 */
-    double left = expon(ts).get_dval();
-    Token t = ts.get();        // get the next token from token stream
-
-    while(true) {
-        switch (t.kind) {
-        case '*':
-            left *= expon(ts).get_dval();
-            t = ts.get();
-            break;
-        case '/':
-            {    
-                double d = expon(ts).get_dval();
-                if (d == 0) error("divide by zero");
-                left /= d; 
+    RetVal r = expon(ts);
+    if(r.isvec()) {
+        return r;    // for now!
+    }
+    else {
+        double left = r.get_dval();
+        Token t = ts.get();        // get the next token from token stream
+    
+        while(true) {
+            switch (t.kind) {
+            case '*':
+                left *= expon(ts).get_dval();
                 t = ts.get();
                 break;
+            case '/':
+                {    
+                    double d = expon(ts).get_dval();
+                    if (d == 0) error("divide by zero");
+                    left /= d; 
+                    t = ts.get();
+                    break;
+                }
+            case '%':
+                {
+                    double d = expon(ts).get_dval();
+                    if (d == 0) error("divide by zero");
+                    left = fmod(left, d);
+                    t = ts.get();
+                    break;
+                }
+            default: 
+                ts.putback(t);     // put t back into the token stream
+                return RetVal(left);
             }
-        case '%':
-            {
-                double d = expon(ts).get_dval();
-                if (d == 0) error("divide by zero");
-                left = fmod(left, d);
-                t = ts.get();
-                break;
-            }
-        default: 
-            ts.putback(t);     // put t back into the token stream
-            return RetVal(left);
         }
     }
-
 }
 
 RetVal expon(Token_stream& ts)
@@ -112,7 +121,11 @@ Exp:
     Primary
     Primary "^" Primary
 */
-    double left = primary(ts).get_dval();
+    double left;
+    RetVal r = primary(ts);
+    if(r.isvec()) return r;    // for now!
+
+    left = r.get_dval();
     Token t = ts.get();
     if(t.kind == power) {
         double d = primary(ts).get_dval();
@@ -130,6 +143,7 @@ RetVal primary(Token_stream& ts)
 Primary:
     Number
     "(" Expression ")"
+    "[" Vector "]"
     +Number
     -Number
     Variable
@@ -145,6 +159,16 @@ Primary:
             t = ts.get();
             if (t.kind != ')') error("')' expected");
             return RetVal(d);
+        }
+    case '[':    // handle '[' vector ']'
+        {
+            vector<double> v;
+            for(Token next_t = ts.get(); next_t.kind != ']'; next_t = ts.get()) {
+                ts.putback(next_t);
+                RetVal r = primary(ts).get_dval();
+                v.push_back(r.get_dval());
+            }
+            return RetVal{v};
         }
     case number:
         return RetVal(t.value);  // return the number's value
