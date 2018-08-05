@@ -2,9 +2,9 @@
 class Variable {
     public:
         string name;
-        double value;
+        RetVal value;
 };
 
-double get_value(string s);
-void set_value(string s, double d);
+RetVal get_value(string s);
+void set_value(string s, RetVal r);
 void print_vars();
