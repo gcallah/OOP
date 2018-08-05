@@ -1,8 +1,8 @@
 #include "std_lib_facilities.h"
 #include "token.h"
+#include "retval.h"
 #include "vars.h"
 #include "funcs.h"
-#include "retval.h"
 #include "parser.h"
 
 RetVal statement(Token_stream& ts)
@@ -43,26 +43,22 @@ RetVal expression(Token_stream& ts)
     Expression "+" Term
     Expression "-" Term
  */
-    double left;
     RetVal r = term(ts);
-    if(r.isvec()) return r;    // for now!
-
-    left = r.get_dval();  // read and evaluate a Term
     Token t = ts.get();         // get the next token from token stream
 
     while(true) {    
         switch(t.kind) {
         case '+':
-            left += term(ts).get_dval();    // evaluate Term and add
+            r += term(ts);    // evaluate Term and add
             t = ts.get();
             break;
         case '-':
-            left -= term(ts).get_dval();    // evaluate Term and subtract
+            r -= term(ts);    // evaluate Term and subtract
             t = ts.get();
             break;
         default: 
             ts.putback(t);     // put t back into the token stream
-            return RetVal(left);  // finally: no more + or -: return the answer
+            return r;  // finally: no more + or -: return the answer
         }
     }
 }
@@ -74,42 +70,34 @@ Term:
     Expon
     Term "*" Expon
     Term "/" Expon
-    Term "%" Expon
+    Term mod Expon
 */
     RetVal r = expon(ts);
-    if(r.isvec()) {
-        return r;    // for now!
-    }
-    else {
-        double left = r.get_dval();
-        Token t = ts.get();        // get the next token from token stream
-    
-        while(true) {
-            switch (t.kind) {
-            case '*':
-                left *= expon(ts).get_dval();
+    Token t = ts.get();        // get the next token from token stream
+
+    while(true) {
+        switch (t.kind) {
+        case '*':
+            r *= expon(ts);
+            t = ts.get();
+            break;
+        case '/':
+            r /= expon(ts); 
+            t = ts.get();
+            break;
+        case mod:
+            {
+                RetVal rhs = expon(ts);
+                if(rhs.isvec()) error("can't mod by a vector");
+                double m = rhs.get_dval();
+                if(m == 0) error("divide by zero");
+                r = r.mod(m);
                 t = ts.get();
                 break;
-            case '/':
-                {    
-                    double d = expon(ts).get_dval();
-                    if (d == 0) error("divide by zero");
-                    left /= d; 
-                    t = ts.get();
-                    break;
-                }
-            case '%':
-                {
-                    double d = expon(ts).get_dval();
-                    if (d == 0) error("divide by zero");
-                    left = fmod(left, d);
-                    t = ts.get();
-                    break;
-                }
-            default: 
-                ts.putback(t);     // put t back into the token stream
-                return RetVal(left);
             }
+        default: 
+            ts.putback(t);     // put t back into the token stream
+            return r;
         }
     }
 }
@@ -119,21 +107,19 @@ RetVal expon(Token_stream& ts)
 /* grammar recognized:
 Exp:
     Primary
-    Primary "^" Primary
+    Primary power Primary
 */
     double left;
     RetVal r = primary(ts);
-    if(r.isvec()) return r;    // for now!
 
-    left = r.get_dval();
     Token t = ts.get();
     if(t.kind == power) {
-        double d = primary(ts).get_dval();
-        return RetVal(pow(left, d));
+        double x = primary(ts).get_dval();
+        return r.exp(x);
     }
     else {
         ts.putback(t);     // put t back into the token stream
-        return RetVal(left);
+        return r;
     }
 }
 
