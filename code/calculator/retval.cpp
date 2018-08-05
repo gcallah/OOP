@@ -58,6 +58,22 @@ RetVal RetVal::mod(double m) const
      return r;
 }
 
+RetVal RetVal::cross(const RetVal& rhs) const
+{
+     if(!(isvec() && rhs.isvec()))
+        throw runtime_error("cross product requires two vectors");
+     if((length() != 3) || (rhs.length() != 3))
+        throw runtime_error("cross product only defined for 3D vectors");
+     RetVal r;
+     r.rtype = vec;
+     vector<double> u = vval;
+     vector<double> v = rhs.vval;
+     r.vval.push_back(u[1]*v[2] - u[2]*v[1]);
+     r.vval.push_back(u[2]*v[0] - u[0]*v[2]);
+     r.vval.push_back(u[0]*v[1] - u[1]*v[0]);
+     return r;
+}
+
 RetVal RetVal::operator-() const
 {
      RetVal r;

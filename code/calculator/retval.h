@@ -19,6 +19,7 @@ class RetVal {
         int length() const { return rtype == dbl ? 1 : vval.size(); }
         RetVal exp(double x) const;
         RetVal mod(double m) const;
+        RetVal cross(const RetVal& rhs) const;
         RetVal operator-() const;
         RetVal operator+=(const RetVal& rhs);
         RetVal operator-=(const RetVal& rhs);

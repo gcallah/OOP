@@ -1,11 +1,13 @@
+using namespace std;
 
+const char cross = 'X';
 const char invalid = 'i';
+const char mod = '%';
 const char name = 'a';
 const char number = '8';
 const char quit = 'q';
 const char print = ';';
 const char power = '^';
-const char mod = '%';
 
 class Token {
 public:

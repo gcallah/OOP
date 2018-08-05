@@ -27,6 +27,6 @@ void set_value(string s, RetVal r)
 void print_vars()
 {
     for(Variable var : var_table)
-        cout << "Var " << var.name; // we want val here at some point
+        cout << "Var " << var.name << " = " << var.value << endl;
 }
 

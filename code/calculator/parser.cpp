@@ -1,4 +1,7 @@
-#include "std_lib_facilities.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
 #include "token.h"
 #include "retval.h"
 #include "vars.h"
@@ -16,16 +19,15 @@ RetVal statement(Token_stream& ts)
     Token t = ts.get();
     if(t.kind == name) {
         Token var = t;
-//        cout << "Got a var with name " << var.name << endl;
         t = ts.get();
         if(t.kind == '=') {  // an assignment
-            double d = expression(ts).get_dval();
-            set_value(var.name, d);
-            return RetVal(d);
+            RetVal r = expression(ts);
+            set_value(var.name, r);
+            return r;
         }
         else if(t.kind == print) {
             ts.putback(t);
-            return RetVal(get_value(var.name));
+            return get_value(var.name);
         }
         ts.putback(t);
         ts.putback(var);
@@ -71,6 +73,7 @@ Term:
     Term "*" Expon
     Term "/" Expon
     Term mod Expon
+    Term cross Expon
 */
     RetVal r = expon(ts);
     Token t = ts.get();        // get the next token from token stream
@@ -88,12 +91,17 @@ Term:
         case mod:
             {
                 RetVal rhs = expon(ts);
-                if(rhs.isvec()) error("can't mod by a vector");
+                if(rhs.isvec()) throw runtime_error("can't mod by a vector");
                 double m = rhs.get_dval();
-                if(m == 0) error("divide by zero");
+                if(m == 0) throw runtime_error("divide by zero");
                 r = r.mod(m);
                 t = ts.get();
                 break;
+            }
+        case cross:
+            {
+                RetVal rhs = expon(ts);
+                return r.cross(rhs);
             }
         default: 
             ts.putback(t);     // put t back into the token stream
@@ -143,7 +151,7 @@ Primary:
         {    
             double d = expression(ts).get_dval();
             t = ts.get();
-            if (t.kind != ')') error("')' expected");
+            if (t.kind != ')') throw runtime_error("')' expected");
             return RetVal(d);
         }
     case '[':    // handle '[' vector ']'
@@ -164,7 +172,7 @@ Primary:
             if(next_t.kind == '(') {
                 double d = expression(ts).get_dval();
                 next_t = ts.get();
-                if (next_t.kind != ')') error("')' expected");
+                if (next_t.kind != ')') throw runtime_error("')' expected");
                 d = exec_func(t.name, d);
                 return RetVal(d);
             }
@@ -179,7 +187,7 @@ Primary:
         return primary(ts);
     default:
         string s(1, t.kind);
-        error("primary expected; got: " + s);
+        throw runtime_error("primary expected; got: " + s);
     }
     return RetVal(0.0);
 }
