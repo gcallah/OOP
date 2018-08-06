@@ -436,6 +436,26 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                         <figcaption>
                         </figcaption>
                     </figure>
+
+                    <p>
+                        We have used <code>get()</code> and
+                        <code>set()</code> methods to access
+                        elements of our vector so far. We can
+                        instead use the array access operator if we
+                        overload it as follows:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+class vect {
+    // .. our other code!
+    double&amp; operator[](int n) { return elem[n]; }
+};
+                        </pre>
+                    </code>
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         18.5.1 Overloading on const
@@ -445,10 +465,44 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            The above won't allow something
+                            like <code>x = v[7]</code> if
+                            <code>v</code> is a const in that context
+                            because it can't tell we aren't going to change
+                            <code>v</code>. We can write a second
+                            version that provides access to elements
+                            in a read-only fashion:
                         </p>
+
+                    <p>
+                    <code>
+                        <pre>
+class vect {
+    // .. our other code!
+    double operator[](int n) const { return elem[n]; }
+};
+                        </pre>
+                    </code>
+                    </p>
+
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Overload the [] operator for your
+                        <code>vect</code> class.
+                    </p>
+
+                </details>
+
+
                 <details>
                     <summary class="sum1">
                     18.6 Arrays
@@ -458,8 +512,18 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        Short version of section: you should use 
+                        <code>vector</code>, not arrays! But we need to 
+                        understand arrays to read old code, C code,
+                        and so on. Let's say we are having trouble
+                        with Python lists, and we need to look at
+                        <a
+                                    href="https://github.com/python/cpython/blob/master/Objects/listobject.c">the
+                        source code</a>: we'd better understand arrays!
                     </p>
+
                     <details>
                         <summary class="sum2">
                         18.6.1 Pointers to array elements
