@@ -15,18 +15,63 @@
                 <h1>
                     19. Vector, Templates, and Exceptions
                 </h1>
+
+                <p class="leadquote">
+                    "Success is never final." -- Winston Churchill
+                </p>
+
                 <details>
                     <summary class="sum1">
                     19.1 The problems
                     </summary>
                     <figure>
-                        <img src="" width="40%">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ProgressiveDieToyota-strip-scrap.jpg/700px-ProgressiveDieToyota-strip-scrap.jpg"
+                            width="30%">
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        We want to be able to:
                     </p>
+
+                    <ul>
+                        <li>
+                            Change the size of vectors on the fly.
+                        </li>
+
+                        <li>
+                            Make vectors that can store any type we wish.
+                        </li>
+
+                        <li>
+                            Catch out-of-range errors.
+                        </li>
+                    </ul>
+
+                    <p>
+                        We want these features to so can worry about
+                        our users' needs and not about low-level language
+                        details.
+                    </p>
+
+                    <p>
+                        Why don't we want fixed-size vectors? We often <i>don't
+                        know</i> how much data is coming!
+                    </p>
+
+                    <p>
+                        Why don't we use <code>vector</code> for all of
+                        our collection needs? Wel, consider searching a
+                        million-record <code>vector</code> for a customer
+                        record, versus searching a binary search tree.
+                        Or think of lookups in a hash table.
+                        Different data structures fit different uses!
+                        Example: the day's sales records at our shop.
+                    </p>
+
                 </details>
+
                 <details>
                     <summary class="sum1">
                     19.2 Changing size
@@ -36,8 +81,6 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-                    <p>
-                    </p>
                     <details>
                         <summary class="sum2">
                         19.2.1 Representation
@@ -47,9 +90,31 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We <i>could</i> just allocate a new array
+                            every single time someone calls
+                            <code>push_back()</code>: but that is not very
+                            efficient! Better to allocate <i>some</i> extra memory
+                            for every chunk we use, like this:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+class vector {
+    int sz;
+    double* elem;
+    int space;  <span class="comment">// number of elems + free space</span>
+public:
+    <span class="comment">// ...</span>
+};
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.2.2 reserve and capacity
@@ -62,6 +127,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.2.3 resize
@@ -74,6 +140,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.2.4 push_back
@@ -83,9 +150,16 @@
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            What do we do when we run out of space?
+                            Interestingly, most implementations
+                            of <code>vector</code> ask for double
+                            the amount of space the vector is already
+                            using. (The Lindy effect!)
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.2.5 Assignment
@@ -98,6 +172,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.2.6 Our vector so far
@@ -111,6 +186,7 @@
                         </p>
                     </details>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     19.3 Templates
@@ -134,6 +210,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.2 Generic programming
@@ -146,6 +223,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.3 Concepts
@@ -158,6 +236,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.4 Containers and inheritance
@@ -170,6 +249,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.5 Integers as template parameters
@@ -182,6 +262,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.6 Template argument deduction
@@ -194,6 +275,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.3.7 Generalizing vector
@@ -207,6 +289,7 @@
                         </p>
                     </details>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     19.4 Range checking and exceptions
@@ -230,6 +313,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.4.2 A confession: macros
@@ -243,6 +327,7 @@
                         </p>
                     </details>
                 </details>
+
                 <details>
                     <summary class="sum1">
                     19.5 Resources and exceptions
@@ -266,6 +351,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.5.2 Resource acquisition is initialization
@@ -278,6 +364,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.5.3 Guarantees
@@ -290,6 +377,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.5.4 unique_ptr
@@ -302,6 +390,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.5.5 Return by moving
@@ -314,6 +403,7 @@
                         <p>
                         </p>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         19.5.6 RAII for vector
@@ -338,7 +428,7 @@
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+<!--include quiz19.qhtm -->
                 </details>
 
                 <details>
