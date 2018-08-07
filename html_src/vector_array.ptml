@@ -436,6 +436,26 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                         <figcaption>
                         </figcaption>
                     </figure>
+
+                    <p>
+                        We have used <code>get()</code> and
+                        <code>set()</code> methods to access
+                        elements of our vector so far. We can
+                        instead use the array access operator if we
+                        overload it as follows:
+                    </p>
+
+                    <p>
+                    <code>
+                        <pre>
+class vect {
+    // .. our other code!
+    double&amp; operator[](int n) { return elem[n]; }
+};
+                        </pre>
+                    </code>
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         18.5.1 Overloading on const
@@ -445,10 +465,44 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            The above won't allow something
+                            like <code>x = v[7]</code> if
+                            <code>v</code> is a const in that context
+                            because it can't tell we aren't going to change
+                            <code>v</code>. We can write a second
+                            version that provides access to elements
+                            in a read-only fashion:
                         </p>
+
+                    <p>
+                    <code>
+                        <pre>
+class vect {
+    // .. our other code!
+    double operator[](int n) const { return elem[n]; }
+};
+                        </pre>
+                    </code>
+                    </p>
+
                     </details>
                 </details>
+
+                <details>
+                    <summary class="sum1">
+                        Drill
+                    </summary>
+
+                    <p>
+                        Overload the [] operator for your
+                        <code>vect</code> class.
+                    </p>
+
+                </details>
+
+
                 <details>
                     <summary class="sum1">
                     18.6 Arrays
@@ -458,8 +512,18 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                         <figcaption>
                         </figcaption>
                     </figure>
+
                     <p>
+                        Short version of section: you should use 
+                        <code>vector</code>, not arrays! But we need to 
+                        understand arrays to read old code, C code,
+                        and so on. Let's say we are having trouble
+                        with Python lists, and we need to look at
+                        <a
+                                    href="https://github.com/python/cpython/blob/master/Objects/listobject.c">the
+                        source code</a>: we'd better understand arrays!
                     </p>
+
                     <details>
                         <summary class="sum2">
                         18.6.1 Pointers to array elements
@@ -469,9 +533,22 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can point into the middle of an array:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+double ad[10];
+double* p = &amp;ad[10];
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
+
                     <details>
                         <summary class="sum2">
                         18.6.2 Pointers and arrays
@@ -482,7 +559,24 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                             </figcaption>
                         </figure>
                         <p>
+                            An array can "turn into" a pointer:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+char ch[100];
+char* p = ch;
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            <code>sizeof(ch)</code> is 100.
+                            But <code>sizeof(p)</code> is 4 (on 32-bit systems)
+                            or 8 (64-bit).
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -493,20 +587,68 @@ v = 20;  // this would assign a new vector of 20 doubles to v!
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can initialize character arrays with a string,
+                            like this:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+char ac[] = "Beorn";
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            This will create a <i>six</i> byte array:
+                        </p>
+
+                        <figure>
+                            <img src="">
+                            <figcaption>
+                                Graphic drawn on whiteboard for now!
+                            </figcaption>
+                        </figure>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         18.6.4 Pointer problems
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dangling_Pointer.pdf/page1-440px-Dangling_Pointer.pdf.jpg"
+                            width="25%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            A quick summary of some pointer problems:
                         </p>
+
+                        <ul>
+                            <li>
+                                Acces through the null pointer
+                            </li>
+
+                            <li>
+                                Access through an unitialized pointer
+                            </li>
+
+                            <li>
+                                Access off the end of an array
+                            </li>
+
+                            <li>
+                                Access to a deallocated object
+                            </li>
+
+                            <li>
+                                Access to an object that has gone out of scope
+                            </li>
+                        </ul>
+
                     </details>
                 </details>
                 <details>

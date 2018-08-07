@@ -66,8 +66,8 @@ RetVal RetVal::cross(const RetVal& rhs) const
         throw runtime_error("cross product only defined for 3D vectors");
      RetVal r;
      r.rtype = vec;
-     vector<double> u = vval;
-     vector<double> v = rhs.vval;
+     const vector<double>& u = vval;
+     const vector<double>& v = rhs.vval;
      r.vval.push_back(u[1]*v[2] - u[2]*v[1]);
      r.vval.push_back(u[2]*v[0] - u[0]*v[2]);
      r.vval.push_back(u[0]*v[1] - u[1]*v[0]);
