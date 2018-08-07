@@ -533,9 +533,22 @@ class vect {
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can point into the middle of an array:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+double ad[10];
+double* p = &amp;ad[10];
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
+
                     <details>
                         <summary class="sum2">
                         18.6.2 Pointers and arrays
@@ -546,7 +559,24 @@ class vect {
                             </figcaption>
                         </figure>
                         <p>
+                            An array can "turn into" a pointer:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+char ch[100];
+char* p = ch;
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            <code>sizeof(ch)</code> is 100.
+                            But <code>sizeof(p)</code> is 4 (on 32-bit systems)
+                            or 8 (64-bit).
+                        </p>
+
                     </details>
                     <details>
                         <summary class="sum2">
@@ -557,20 +587,68 @@ class vect {
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We can initialize character arrays with a string,
+                            like this:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+char ac[] = "Beorn";
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            This will create a <i>six</i> byte array:
+                        </p>
+
+                        <figure>
+                            <img src="">
+                            <figcaption>
+                                Graphic drawn on whiteboard for now!
+                            </figcaption>
+                        </figure>
                     </details>
+
                     <details>
                         <summary class="sum2">
                         18.6.4 Pointer problems
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dangling_Pointer.pdf/page1-440px-Dangling_Pointer.pdf.jpg"
+                            width="25%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            A quick summary of some pointer problems:
                         </p>
+
+                        <ul>
+                            <li>
+                                Acces through the null pointer
+                            </li>
+
+                            <li>
+                                Access through an unitialized pointer
+                            </li>
+
+                            <li>
+                                Access off the end of an array
+                            </li>
+
+                            <li>
+                                Access to a deallocated object
+                            </li>
+
+                            <li>
+                                Access to an object that has gone out of scope
+                            </li>
+                        </ul>
+
                     </details>
                 </details>
                 <details>

@@ -71,12 +71,113 @@
                 acquires resources
                 </li>
             </ol>
+            <li>
+                If we write <code>char prof = "Callahan";</code> that will create a string of ___ bytes:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                12
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                depends on the compiler
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                8
+                </li>
+                <li>
+                <input type="radio" name="q5" value="d">
+                9
+                </li>
+            </ol>
+            <li>
+                Among common pointer problems are:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                access off the end of an array
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                access through the null pointer
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                all answers are correct
+                </li>
+                <li>
+                <input type="radio" name="q6" value="d">
+                access to a deallocated object
+                </li>
+            </ol>
+            <li>
+                In C++, we can give our own classes array-style access by:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q7" value="a">
+                overloading the [] operator
+                </li>
+                <li>
+                <input type="radio" name="q7" value="b">
+                all answers are correct
+                </li>
+                <li>
+                <input type="radio" name="q7" value="c">
+                writing <code>get()</code> and <code>set()</code> functions
+                </li>
+                <li>
+                <input type="radio" name="q7" value="d">
+                using pointers to pointers
+                </li>
+            </ol>
+            <li>
+                If we write <code>char ch[100]</code> then <code>sizeof(ch)</code> will be:
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q8" value="a">
+                8
+                </li>
+                <li>
+                <input type="radio" name="q8" value="b">
+                4
+                </li>
+                <li>
+                <input type="radio" name="q8" value="c">
+                200
+                </li>
+                <li>
+                <input type="radio" name="q8" value="d">
+                100
+                </li>
+            </ol>
+            <li>
+                If we have a pointer in 32-bit Windows, its size most likely is
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q9" value="a">
+                the size of whatever it points to
+                </li>
+                <li>
+                <input type="radio" name="q9" value="b">
+                8
+                </li>
+                <li>
+                <input type="radio" name="q9" value="c">
+                4
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. a; 2. b; 3. a; 4. d; 
+                1. a; 2. b; 3. a; 4. d; 5. d; 6. c; 7. a; 8. d; 9. c; 
             </p>
         </details>
