@@ -5,3 +5,5 @@ We need a destructor when our class#has many members#has default values#has no c
 If we write <code>char prof = "Callahan";</code> that will create a string of ___ bytes:#12#depends on the compiler#8#^9
 Among common pointer problems are:#access off the end of an array#access through the null pointer#^all answers are correct#access to a deallocated object
 In C++, we can give our own classes array-style access by:#^overloading the [] operator#all answers are correct#writing <code>get()</code> and <code>set()</code> functions#using pointers to pointers
+If we write <code>char ch[100]</code> then <code>sizeof(ch)</code> will be:#8#4#200#^100
+If we have a pointer in 32-bit Windows, its size most likely is#the size of whatever it points to#8#^4
