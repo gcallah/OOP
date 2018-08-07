@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -7,6 +8,7 @@
 #include "vars.h"
 #include "funcs.h"
 #include "parser.h"
+
 
 RetVal statement(Token_stream& ts)
 {
