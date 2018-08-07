@@ -2,3 +2,6 @@ A good use of shallow copying would be when#^we have a very large object to copy
 A good use of deep copying would be when#we need to make sure the values in one object change when values in the other do#^we need to make sure each objects uses separate memory#we need to save memory
 We want a default constructor when#^we can establish meaningful invariants using default values#we really don't know what should initialize a class#we want to eliminate the faults (defaults) from our classes
 We need a destructor when our class#has many members#has default values#has no copy constructor#^acquires resources
+If we write <code>char prof = "Callahan";</code> that will create a string of ___ bytes:#12#depends on the compiler#8#^9
+Among common pointer problems are:#access off the end of an array#access through the null pointer#^all answers are correct#access to a deallocated object
+In C++, we can give our own classes array-style access by:#^overloading the [] operator#all answers are correct#writing <code>get()</code> and <code>set()</code> functions#using pointers to pointers
