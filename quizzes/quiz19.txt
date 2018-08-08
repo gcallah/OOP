@@ -3,3 +3,4 @@ Why don't we add new memory to our vector's storage on every call to <code>push_
 Generic programming means#programming according to generic standards.#^writing code that works with a variety of types presented as arguments.#writing just standard variety code with nothing outstanding about it.
 Programming using templates is called#object-disoriented programming#object-oriented programming#^generic programming
 Programming using class hierarchies is called#^object-oriented programming#object-disoriented programming#generic programming
+Resolving what type's method will be called at run-time is characteristic of#object-disoriented programming#generic programming#^object-oriented programming
