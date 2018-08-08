@@ -27,10 +27,25 @@ clean:
 quizzes:
 	cd $(QUIZ_DIR); make all; cd -
 
+# build a test from quiz files.
 # handcraft which files you want in the test:
+INC_TESTS = $(QUIZ_DIR)/quiz2.thtm \
+			$(QUIZ_DIR)/quiz3.thtm \
+			$(QUIZ_DIR)/quiz4.thtm \
+			$(QUIZ_DIR)/quiz5.thtm \
+			$(QUIZ_DIR)/quiz6.thtm \
+			$(QUIZ_DIR)/quiz7.thtm \
+			$(QUIZ_DIR)/quiz8.thtm \
+			$(QUIZ_DIR)/quiz9.thtm \
+			$(QUIZ_DIR)/quiz10.thtm \
+			$(QUIZ_DIR)/quiz11.thtm \
+			$(QUIZ_DIR)/quiz17.thtm \
+			$(QUIZ_DIR)/quiz18.thtm \
+			$(QUIZ_DIR)/quiz19.thtm
+			
 test:
 	cd $(QUIZ_DIR); make tests; cd -
-	cat $(QUIZ_DIR)/quiz2.thtm $(QUIZ_DIR)/quiz3.thtm $(QUIZ_DIR)/quiz4.thtm $(QUIZ_DIR)/quiz5.thtm $(QUIZ_DIR)/quiz6.thtm $(QUIZ_DIR)/quiz7.thtm $(QUIZ_DIR)/quiz8.thtm > $(QUIZ_DIR)/vivek_akshay.html
+	cat $(INC_TESTS) > $(QUIZ_DIR)/new_test.html
 
 menu:
 	$(UTILS_DIR)/create_menu.py $(TEMPLATE_DIR)/course_struct.txt $(TEMPLATE_DIR)/navbar.txt
