@@ -1,0 +1,2 @@
+Which of the following is an integer output manipulator?#^all mentioned#showbase#hex#noshowbase
+Which of the following is not a basic floating-point output manipulator?#defaultfloat#^showbase#scientific#fixed
