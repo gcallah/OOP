@@ -14,16 +14,50 @@
         </h1>
         <ol>
         <li>
+                In C++, _____ implement generic programming, while
+                _____ implement object-oriented programming.
+                <ol type="a" class="nested">
+                        <li>
+                        templates, classes *
+                        </li>
+                        <li>
+                        include files, .cpp files
+                        </li>
+                        <li>
+                        classes, templates
+                        </li>
+                        <li>
+                        .cpp files, include files
+                        </li>
+                </ol>
+        </li>
+        <li>
                 Name the four parts of a function.
                 <ol type="a" class="nested">
                         <li>
+                        pre-process, include, link, compile
+                        </li>
+                        <li>
+                        cout, cin, vector, template
+                        </li>
+                        <li>
                         return type, name, parameter list, function body *
                         </li>
+                </ol>
+        </li>
+        <li>
+                The goal of generic programming is
+                <ol type="a" class="nested">
                         <li>
-                        main, include, link, compile
+                        to make programs as "plain vanilla" as possible.
                         </li>
                         <li>
-                        cout, std_lib, class, comment
+                        to allow programmers to write an algorithm once that
+                        can then handle all appropriate types. *
+                        </li>
+                        <li>
+                        deal with the generic sort of problems typical users
+                        complain about.
                         </li>
                 </ol>
         </li>
@@ -69,7 +103,8 @@
                         It is a hard-coded file with lots of constants.
                         </li>
                         <li>
-                        It is a healthy file that it would be good to incorporate into your program.
+                        It is a healthy file that it would be good to
+                        incorporate into your program.
                         </li>
                         <li>
                         It is a header file containing various definitions. *
@@ -122,6 +157,48 @@
                         </li>
                         <li>
                         becomes a nexus for further output
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Generic programming in C++ uses
+                <ol type="a" class="nested">
+                        <li>
+                        classes
+                        </li>
+                        <li>
+                        structures
+                        </li>
+                        <li>
+                        templates *
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Programming using class hierarchies is called
+                <ol type="a" class="nested">
+                        <li>
+                        procedural programming
+                        </li>
+                        <li>
+                        generic programming
+                        </li>
+                        <li>
+                        object-oriented programming *
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Resolving what type's method will be called at run-time is characteristic of
+                <ol type="a" class="nested">
+                        <li>
+                        functional programming
+                        </li>
+                        <li>
+                        generic programming
+                        </li>
+                        <li>
+                        object-oriented programming *
                         </li>
                 </ol>
         </li>
@@ -224,7 +301,7 @@
                         rval
                         </li>
                         <li>
-                        all of the other answers 
+                        all of the above answers 
                         </li>
                 </ol>
         </li>
@@ -290,10 +367,10 @@
                 Which of the following operators requires an lvalue?
                 <ol type="a" class="nested">
                         <li>
-                        *
+                        []
                         </li>
                         <li>
-                        +
+                            -&gt;
                         </li>
                         <li>
                         /
@@ -318,16 +395,16 @@
                 </ol>
         </li>
         <li>
-                The first part of the header of a for loop...
+                The first part of the for loop statement...
                 <ol type="a" class="nested">
-                        <li>
-                        is done each time around the loop.
-                        </li>
                         <li>
                         initializes the loop variable. *
                         </li>
                         <li>
                         determines when the loop terminates.
+                        </li>
+                        <li>
+                        is done each time around the loop.
                         </li>
                 </ol>
         </li>
@@ -346,16 +423,46 @@
                 </ol>
         </li>
         <li>
-                What is the index of the third element of a vector?
+                When writing an assignment operator overload, why do we return *this?
+                <ol type="a" class="nested">
+                        <li>
+                        Because in C++, assignment returns a value. *
+                        </li>
+                        <li>
+                        Because we want to draw attention to the object that was assigned to.
+                        </li>
+                        <li>
+                        Because we need to tell the compiler what object we are assigning to.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Why don't we add new memory to our vector's storage on every
+                call to <code>push_back()</code>?
+                <ol type="a" class="nested">
+                        <li>
+                        Because the system won't let us make that many calls to <code>malloc</code>.
+                        </li>
+                        <li>
+                        Because it costs a lot of CPU cycles to do that. *
+                        </li>
+                        <li>
+                        Because we are lazy, and don't want to write that much code.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                If we have a vector named v, then v[2] will access the ___th
+                element of that vector?
                 <ol type="a" class="nested">
                         <li>
                         4
                         </li>
                         <li>
-                        2 *
+                        3 *
                         </li>
                         <li>
-                        3
+                        2
                         </li>
                         <li>
                         can't say
@@ -363,16 +470,22 @@
                 </ol>
         </li>
         <li>
-                If a function is declared as int f(double x); that means...
+                If a function is declared as double f(char* c); that means...
                 <ol type="a" class="nested">
                         <li>
-                        it doubles the value of its argument x and then converts it to an int.
+                        it doubles the value of its argument c and then
+                        converts it to a char.
                         </li>
                         <li>
-                        the name of the function is int and it applies the operator f to a double.
+                        the name of the function is double and it applies the
+                        operator f to a character.
                         </li>
                         <li>
-                        it returns an int and accepts a double as an argument. *
+                        it returns a double and accepts a pointer to a
+                        character as an argument. *
+                        </li>
+                        <li>
+                        it returns a double and accepts a character as an argument.
                         </li>
                 </ol>
         </li>
@@ -394,13 +507,13 @@
                 A linker error would occur when...
                 <ol type="a" class="nested">
                         <li>
-                        A function used in your source code can't be found in any linked file or library. *
-                        </li>
-                        <li>
-                        A variable should be linked by assignment to another variable but it is not.
+                        A linked list is specified incorrectly.
                         </li>
                         <li>
                         A link between one class and another is missing.
+                        </li>
+                        <li>
+                        No main() is found for your executable. *
                         </li>
                 </ol>
         </li>
@@ -408,13 +521,35 @@
                 An example of a run-time error is when...
                 <ol type="a" class="nested">
                         <li>
+                        you use a template to call a function not in the
+                        template.
+                        </li>
+                        <li>
+                        you left off the semi-colon at the end of a line of
+                        code.
+                        </li>
+                        <li>
+                        you meant to add tax to the sales price but you
+                        subtracted it instead.
+                        </li>
+                        <li>
+                        your program deallocates memory twice. *
+                        </li>
+                </ol>
+        </li>
+        <li>
+                An example of a logic error is when...
+                <ol type="a" class="nested">
+                        <li>
+                        you use a type for a template that does not support the
+                        semantics of the template. *
+                        </li>
+                        <li>
                         you send the wrong type of argument to a function.
                         </li>
                         <li>
-                        you meant to add tax to the sales price but you subtracted it instead.
-                        </li>
-                        <li>
-                        your program tries to divide by zero. *
+                        your program accesses memory that is outside its
+                        allotted area.
                         </li>
                         <li>
                         you forget the semi-colon at the end of a line of code.
@@ -422,33 +557,22 @@
                 </ol>
         </li>
         <li>
-                An example of a logic error is when...y
+                One reason why throwing an exception is better than returning
+                an error value is...
                 <ol type="a" class="nested">
+                    <li>
+                        throwing an exception has no run-time cost.
+                    </li>
+
                         <li>
-                        you send the wrong type of argument to a function.
-                        </li>
-                        <li>
-                        you meant to add tax to the sales price but you subtracted it instead. *
-                        </li>
-                        <li>
-                        your program tries to divide by zero.
-                        </li>
-                        <li>
-                        you forget the semi-colon at the end of a line of code.
-                        </li>
-                </ol>
-        </li>
-        <li>
-                One reason why throwing an exception is better than returning an error value is...
-                <ol type="a" class="nested">
-                        <li>
-                        the exception cannot be ignored. *
-                        </li>
-                        <li>
-                        throwing an exception makes the code that produced the error also handle it.
+                        throwing an exception makes the code that produced the
+                        error also handle it.
                         </li>
                         <li>
                         throwing exceptions is a more modern style.
+                        </li>
+                        <li>
+                        the exception cannot be ignored. *
                         </li>
                 </ol>
         </li>
@@ -481,28 +605,9 @@
                 </ol>
         </li>
         <li>
-                Which is used to handle the exceptions in c++?
+                Which of the following does not cause a syntax error to be
+                reported by the C++ compiler?
                 <ol type="a" class="nested">
-                        <li>
-                        exception handler *
-                        </li>
-                        <li>
-                        catch handler
-                        </li>
-                        <li>
-                        none of the mentioned
-                        </li>
-                        <li>
-                        handler
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following does not cause a syntax error to be reported by the C++ compiler?
-                <ol type="a" class="nested">
-                        <li>
-                        Extra blank lines *
-                        </li>
                         <li>
                         Missing ; at the end of a statement
                         </li>
@@ -510,7 +615,10 @@
                         Missing */ in a comment
                         </li>
                         <li>
-                        Mismatched {}
+                        Mismatched []
+                        </li>
+                        <li>
+                        Bad indentation *
                         </li>
                 </ol>
         </li>
@@ -518,7 +626,7 @@
                 Which of the following is not a syntax error?
                 <ol type="a" class="nested">
                         <li>
-                        std::cout << "Hello world! ";
+                        std::cout << "Hello world! ';
                         </li>
                         <li>
                         std::cout << 'Hello world! ';
@@ -529,16 +637,20 @@
                 </ol>
         </li>
         <li>
-                Run Time Errors are ..
+                Run-time errors are ..
                 <ol type="a" class="nested">
                         <li>
-                        the errors which are traced by the compiler during compilation, due to wrong grammar for the language used in the program
+                        the errors which are traced by the compiler during
+                        compilation, due to wrong grammar for the language used
+                        in the program
                         </li>
                         <li>
-                        the errors encountered during execution of the program, due to unexpected input or output *
+                        the errors encountered during execution of the program,
+                        due to unexpected input or output *
                         </li>
                         <li>
-                        the errors encountered when the program does not give the desired output
+                        the errors encountered when the program does not give
+                        the desired output
                         </li>
                 </ol>
         </li>
@@ -1759,86 +1871,18 @@
                 </ol>
         </li>
         <li>
-                When writing an assignment operator overload, why do we return *this?
-                <ol type="a" class="nested">
-                        <li>
-                        Because in C++, assignment returns a value. *
-                        </li>
-                        <li>
-                        Because we want to draw attention to the object that was assigned to.
-                        </li>
-                        <li>
-                        Because we need to tell the compiler what object we are assigning to.
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Why don't we add new memory to our vector's storage on every call to <code>push_back()</code>?
-                <ol type="a" class="nested">
-                        <li>
-                        Because the system won't let us make that many calls to <code>malloc</code>.
-                        </li>
-                        <li>
-                        Because it costs a lot of CPU cycles to do that. *
-                        </li>
-                        <li>
-                        Because we are lazy, and don't want to write that much code.
-                        </li>
-                </ol>
-        </li>
-        <li>
                 Generic programming means
                 <ol type="a" class="nested">
                         <li>
                         programming according to generic standards.
                         </li>
                         <li>
-                        writing code that works with a variety of types presented as arguments. *
+                        writing code that works with a variety of types
+                        presented as arguments. *
                         </li>
                         <li>
-                        writing just standard variety code with nothing outstanding about it.
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Programming using templates is called
-                <ol type="a" class="nested">
-                        <li>
-                        object-disoriented programming
-                        </li>
-                        <li>
-                        object-oriented programming
-                        </li>
-                        <li>
-                        generic programming *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Programming using class hierarchies is called
-                <ol type="a" class="nested">
-                        <li>
-                        object-oriented programming *
-                        </li>
-                        <li>
-                        object-disoriented programming
-                        </li>
-                        <li>
-                        generic programming
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Resolving what type's method will be called at run-time is characteristic of
-                <ol type="a" class="nested">
-                        <li>
-                        object-disoriented programming
-                        </li>
-                        <li>
-                        generic programming
-                        </li>
-                        <li>
-                        object-oriented programming *
+                        writing just standard variety code with nothing
+                        outstanding about it.
                         </li>
                 </ol>
         </li>
