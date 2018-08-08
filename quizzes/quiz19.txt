@@ -1,2 +1,3 @@
 When writing an assignment operator overload, why do we return *this?#^Because in C++, assignment returns a value.#Because we want to draw attention to the object that was assigned to.#Because we need to tell the compiler what object we are assigning to.
 Why don't we add new memory to our vector's storage on every call to <code>push_back()</code>?#Because the system won't let us make that many calls to <code>malloc</code>.#^Because it costs a lot of CPU cycles to do that.#Because we are lazy, and don't want to write that much code.
+Generic programming means#programming according to generic standards.#^writing code that works with a variety of types presented as arguments.#writing just standard variety code with nothing outstanding about it.
