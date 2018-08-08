@@ -13,3 +13,4 @@ Member function of a class can ..#Access subclass members#^Access all the member
 Which of the following is not necessary for constructors?#^It must contain a definition body#Its name must be same as that of class#It must not have any return type#It can contains arguments
 Which of the following operators cannot be overloaded?#^All mentioned#. (Dot operator)#?: (Ternary Operator)#:: (Scope resolution operator)
 Special data types defined by users is called#Conditional type#Compound type#none specified#^Enumeration type
+In C++, const qualifier can be applied to : 1. Member functions of a class; 2. Function arguments; 3. to a class data member which is declared as static; 4. Reference variables#^all#only 1, 3 and 4#only 1, 2 and 3#only 1,2 and 4
