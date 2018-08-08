@@ -640,6 +640,34 @@ template&lt;class T&gt; class vector {
                             bytes.
                         </p>
 
+                        <p>
+                            For member functions, the compiler generates code
+                            to handle the appropriate type. So if our template
+                            has:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+void push_back(const T&amp; d);
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            Then for our <code>Token vector</code> in
+                            <code>Token_stream</code> we get:
+                        </p>
+
+
+                        <p>
+                        <code>
+                            <pre>
+void push_back(const Token&amp; d);
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
 
                     <details>
@@ -653,7 +681,27 @@ template&lt;class T&gt; class vector {
                         </figure>
 
                         <p>
+                            "<span class="hilight">Generic programming:</span>
+                            Writing code that works on a variety of types
+                            presented as arguments, as long as those argument
+                            types meet spcific syntatctic and semantic
+                            requirements." (p. 682)
                         </p>
+
+                        <p>
+                        <span class="hilight">Polymorphism</span> means the
+                        "programmer presents many versions of a concept using a
+                        single interface." (p. 682) Generic programming relies
+                        on types offered at compile time, while 
+                        <span class="hilight">object-oriented
+                        programming</span> relies on class hierarchies and
+                        virtual functions.
+                        Templates resolve the concrete method to call at
+                        compile time (making them faster), while
+                        object-oriented programming resolves the concrete
+                        method to use at run-time, making it more flexible.
+                        </p>
+
                     </details>
 
                     <details>
@@ -667,7 +715,44 @@ template&lt;class T&gt; class vector {
                         </figure>
 
                         <p>
+                            C++ 14 supports <span
+                            class="hilight">concepts</span>, which can be used
+                            to characterize what types can fill in the 
+                            <code>T</code> slot in a template.
+                            A few examples:
                         </p>
+
+
+                        <ul>
+                            <li>
+                                <code>Element</code> 
+                                can be an element in a container.
+                            </li>
+
+                            <li>
+                                <code>Container</code> 
+                                can hold elements.
+                            </li>
+
+                            <li>
+                                <code>Forward_iterator</code> 
+                                supports traversing a sequence, such as
+                                a linked list, a vector, or an array.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Thus we can write:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+template&lt;Element T&gt; class vector { /* */ };
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
 
                     <details>
@@ -680,6 +765,9 @@ template&lt;class T&gt; class vector {
                             </figcaption>
                         </figure>
                         <p>
+                            Templates do not support putting a subclass
+                            of a type <code>T</code> in a container
+                            expecting the parent type.
                         </p>
                     </details>
 
@@ -693,6 +781,7 @@ template&lt;class T&gt; class vector {
                             </figcaption>
                         </figure>
                         <p>
+                            Interesting but beyond what we can cover.
                         </p>
                     </details>
 
@@ -706,6 +795,7 @@ template&lt;class T&gt; class vector {
                             </figcaption>
                         </figure>
                         <p>
+                            Interesting but beyond what we can cover.
                         </p>
                     </details>
 
@@ -719,6 +809,7 @@ template&lt;class T&gt; class vector {
                             </figcaption>
                         </figure>
                         <p>
+                            Interesting but beyond what we can cover.
                         </p>
                     </details>
                 </details>
@@ -733,6 +824,8 @@ template&lt;class T&gt; class vector {
                         </figcaption>
                     </figure>
                     <p>
+                        A discussion of the trade-offs in range-checking 
+                        every <code>vector</code> access or not.
                     </p>
                     <details>
                         <summary class="sum2">
@@ -771,7 +864,15 @@ template&lt;class T&gt; class vector {
                         </figcaption>
                     </figure>
                     <p>
+                        The basic idea here is that when we use
+                        <code>new</code> and <code>delete</code> 
+                        things can happen between them that prevents the
+                        <code>delete</code> from ever being called.
+                        It is better to use constructor/destructor pairs
+                        to manage resources, and keep your objects within a
+                        single scope where possible.
                     </p>
+
                     <details>
                         <summary class="sum2">
                         19.5.1 Potential resource management problems
@@ -896,13 +997,81 @@ template&lt;class T&gt; class vector {
                 Because we are lazy, and don't want to write that much code.
                 </li>
             </ol>
+            <li>
+                Generic programming means
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                programming according to generic standards.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                writing code that works with a variety of types presented as arguments.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                writing just standard variety code with nothing outstanding about it.
+                </li>
+            </ol>
+            <li>
+                Programming using templates is called
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                object-oriented programming
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                generic programming
+                </li>
+            </ol>
+            <li>
+                Programming using class hierarchies is called
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                object-oriented programming
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                generic programming
+                </li>
+            </ol>
+            <li>
+                Resolving what type's method will be called at run-time is characteristic of
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                generic programming
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                object-oriented programming
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. a; 2. b; 
+                1. a; 2. b; 3. b; 4. c; 5. a; 6. c; 
             </p>
         </details>
                 </details>

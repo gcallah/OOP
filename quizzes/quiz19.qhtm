@@ -33,12 +33,80 @@
                 Because we are lazy, and don't want to write that much code.
                 </li>
             </ol>
+            <li>
+                Generic programming means
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                programming according to generic standards.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                writing code that works with a variety of types presented as arguments.
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                writing just standard variety code with nothing outstanding about it.
+                </li>
+            </ol>
+            <li>
+                Programming using templates is called
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q4" value="a">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q4" value="b">
+                object-oriented programming
+                </li>
+                <li>
+                <input type="radio" name="q4" value="c">
+                generic programming
+                </li>
+            </ol>
+            <li>
+                Programming using class hierarchies is called
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                object-oriented programming
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                generic programming
+                </li>
+            </ol>
+            <li>
+                Resolving what type's method will be called at run-time is characteristic of
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                object-disoriented programming
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                generic programming
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                object-oriented programming
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. a; 2. b; 
+                1. a; 2. b; 3. b; 4. c; 5. a; 6. c; 
             </p>
         </details>
