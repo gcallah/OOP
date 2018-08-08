@@ -4,7 +4,7 @@ When should the body of a function (its definition) be put in the class definiti
 What would be a reasonable way to overload the plus (+) operator?#to perform a hash function on some input string#to access a website and add all of its pages to your site#^to add two complex numbers
 What does adding <code>const</code> to a member function do?#^promises that the function will not change the object#says the function is a constructor#asserts that the function will constantly return the same value for the same input
 A class can hold the following#data#functions#^both data & functions#none of the mentioned
-What defines the member of the class externally?###^::#none of the mentioned#:
+What defines the member of the class externally?#~#^::#none of the mentioned#:
 Which of the following is an access specifier?#^All specified#protected#private#public
 Which of the following access specifiers can be used for an interface?#^public#All specified#private#protected
 Constructors are used to#^initialize the objects#construct the data members#both initialize the objects & construct the data members#none of the mentioned

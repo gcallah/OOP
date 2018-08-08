@@ -122,12 +122,8 @@
             </li>
             <ol type="a" class="nested">
                 <li>
-                <input type="radio" name="q7" value="a">
-                
-                </li>
-                <li>
                 <input type="radio" name="q7" value="b">
-                
+                ~
                 </li>
                 <li>
                 <input type="radio" name="q7" value="c">
@@ -337,6 +333,6 @@
                 Answers
             </summary>
             <p>
-                1. b; 2. a; 3. b; 4. c; 5. a; 6. c; 7. c; 8. a; 9. a; 10. a; 11. d; 12. b; 13. a; 14. a; 15. d; 16. a; 
+                1. b; 2. a; 3. b; 4. c; 5. a; 6. c; 7. b; 8. a; 9. a; 10. a; 11. d; 12. b; 13. a; 14. a; 15. d; 16. a;
             </p>
         </details>
