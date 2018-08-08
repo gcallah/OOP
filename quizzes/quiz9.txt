@@ -6,3 +6,9 @@ What does adding <code>const</code> to a member function do?#^promises that the 
 A class can hold the following#data#functions#^both data & functions#none of the mentioned
 What defines the member of the class externally?###^::#none of the mentioned#:
 Which of the following is an access specifier?#^All specified#protected#private#public
+Which of the following access specifiers can be used for an interface?#^public#All specified#private#protected
+Constructors are used to#^initialize the objects#construct the data members#both initialize the objects & construct the data members#none of the mentioned
+Which of the following is the correct way of implementing an interface A by Class B?#class B extends A{}#class B imports A{}#all specified#^class B implements A{}
+Member function of a class can ..#Access subclass members#^Access all the members of the class#Access only the private members of the class#Access only Public members of the class
+Which of the following is not necessary for constructors?#^It must contain a definition body#Its name must be same as that of class#It must not have any return type#It can contains arguments
+Which of the following operators cannot be overloaded?#^All mentioned#. (Dot operator)#?: (Ternary Operator)#:: (Scope resolution operator)
