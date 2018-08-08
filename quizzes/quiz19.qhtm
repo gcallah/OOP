@@ -1,0 +1,44 @@
+        <ol class="nested">
+            <li>
+                When writing an assignment operator overload, why do we return *this?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                Because in C++, assignment returns a value.
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                Because we want to draw attention to the object that was assigned to.
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                Because we need to tell the compiler what object we are assigning to.
+                </li>
+            </ol>
+            <li>
+                Why don't we add new memory to our vector's storage on every call to <code>push_back()</code>?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                Because the system won't let us make that many calls to <code>malloc</code>.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                Because it costs a lot of CPU cycles to do that.
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                Because we are lazy, and don't want to write that much code.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. a; 2. b; 
+            </p>
+        </details>

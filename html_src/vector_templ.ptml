@@ -117,15 +117,36 @@ public:
 
                     <details>
                         <summary class="sum2">
-                        19.2.2 reserve and capacity
+                            19.2.2 <code>reserve</code> and
+                            <code>capacity</code>
                         </summary>
                         <figure>
-                            <img src="" width="40%">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Gold_Bars.jpg/440px-Gold_Bars.jpg"
+                                width="28%">
                             <figcaption>
                             </figcaption>
                         </figure>
                         <p>
+                            Here's what our key method, <code>reserve</code>,
+                            looks like:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+void vector::reserve(int newalloc)
+{
+    if(newalloc &lt;= space) return;
+    double* p = new double[newalloc];
+    for(int i = 0; i &lt; sz; ++i) p[i] = elem[i];  <span class="comment">// copy elements</span>
+    delete[] elem;  <span class="comment">// deallocate old space</span>
+    elem = p;
+    space = newalloc;
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
 
                     <details>
@@ -137,13 +158,59 @@ public:
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We need to handle the following cases:
                         </p>
+
+                        <ul>
+                            <li>
+                                The new size is larger than the old allocation.
+                            </li>
+
+                            <li>
+                                The new size is larger than the old size,
+                                but smaller than or equal to the old
+                                allocation.
+                            </li>
+
+                            <li>
+                                The new size is equal to the old size.
+                            </li>
+
+                            <li>
+                                The new size is smaller than the old size.
+                            </li>
+                        </ul>
+
+                        <p>
+                            <code>resize() </code> is actually very simple,
+                            given we've written <code>reserve()</code>:
+                        </p>
+
+                        <p>
+                        <code>
+                            <pre>
+void vector::resize(int newsize)
+{
+    reserve(newsize);
+    for(int i = sz; i &lt; newsize; ++i) elem[i] = 0;
+    sz = newsize;
+}
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            Can you verify we handle all of these cases
+                            correctly?
+                        </p>
+
                     </details>
 
                     <details>
                         <summary class="sum2">
-                        19.2.4 push_back
+                            19.2.4 <code>push_back</code>
                         </summary>
                         <figure>
                             <img src="" width="40%">
@@ -156,8 +223,25 @@ public:
                             Interestingly, most implementations
                             of <code>vector</code> ask for double
                             the amount of space the vector is already
-                            using. (The Lindy effect!)
+                            using. (The Lindy effect!) Here is the code for
+                            <code>push_back()</code>:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+void vector::push_back(double d)
+    <span class="comment">// increase vector size by one and initialize with d</span> 
+{
+    if(space == 0) reserve(8);
+    else if(sz == space) reserve(2*space);
+    elem[sz] = d;  <span class="comment">// put d at the end</span> 
+    ++sz;  <span class="comment">// increase the size</span> 
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
 
                     <details>
@@ -169,8 +253,31 @@ public:
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            Assignment copies the elements to the new
+                            vector, but does not worry about the extra space:
+                            maybe the new vector won't need it! The code:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+vector&amp; vector::operator=(const vector&amp; a)
+{
+    if(this == &amp;a) return *this;  <span class="comment">// self-assignment!</span> 
+
+    if(a.sz &lt;= space) { <span class="comment">// enough space! </span>
+<span class="comment">// so just copy </span> 
+        for(int i = 0; i &lt; a.sz; ++i) p[i] = a.elem[i];
+        sz = a.sz;
+        return *this;
+    }
+}
+                            </pre>
+                        </code>
+                        </p>
+
                     </details>
 
                     <details>
@@ -183,6 +290,7 @@ public:
                             </figcaption>
                         </figure>
                         <p>
+                            See our textbook for source code here.
                         </p>
                     </details>
                 </details>
@@ -197,7 +305,42 @@ public:
                         </figcaption>
                     </figure>
                     <p>
+                        We have been coding things like 
+                        <code>vector&lt;double &gt;</code> 
+                        without really asking what that is doing.
+                        We want to freely specify the element type for our
+                        vectors. For example:
                     </p>
+
+                    <ul>
+                        <li>
+                            vector&lt;double&gt;
+                        </li>
+
+                        <li>
+                            vector&lt;int&gt;
+                        </li>
+
+                        <li>
+                            vector&lt;Month&gt;
+                        </li>
+
+                        <li>
+                            vector&lt;char&gt;
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        "Basically, a <i>template</i> is a mechanism that allows
+                        the programmer to use types as parameters for a class
+                        or function." (Stroustrup)
+                        The compiler will generate code suitable to the
+                        specific class we pass.
+                        Importantly, not only does the C++ standard library use
+                        templates, but we can create our own!
+                    </p>
+
                     <details>
                         <summary class="sum2">
                         19.3.1 Types as template parameters
@@ -207,8 +350,31 @@ public:
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
+                            We achieve that goal like this:
                         </p>
+
+                        <p>
+                        <code>
+                            <pre>
+template&lt;class T&gt; class vector {
+<span class="comment">// implementation of vectors follows here</span>
+}
+                            </pre>
+                        </code>
+                        </p>
+
+                        <p>
+                            One way to think of this is that the compiler uses
+                            the template and the type we give it to generate 
+                            the proper code for that type, so that each element
+                            of a <code>vector</code> of <code>char</code> takes
+                            up 1 byte, and each element of a
+                            <code>vector</code> of <code>int</code> takes up 4
+                            bytes.
+                        </p>
+
                     </details>
 
                     <details>
@@ -220,6 +386,7 @@ public:
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
                         </p>
                     </details>
@@ -233,6 +400,7 @@ public:
                             <figcaption>
                             </figcaption>
                         </figure>
+
                         <p>
                         </p>
                     </details>
