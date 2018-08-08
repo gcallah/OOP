@@ -18,7 +18,7 @@
 
                 <p class="leadquote">
                     "Keep it simple: as simple as possible,
-                    but no simpler." -- 
+                    but no simpler." --
                     Albert Einstein
                 </p>
 
@@ -60,7 +60,7 @@
                     </figure>
                     <p>
                     People care a lot about the minor details of output. Our
-                    aim as a programmer is to keep output as clear and close 
+                    aim as a programmer is to keep output as clear and close
                     to user's expectation as possible.
                     </p>
                     <details>
@@ -107,7 +107,7 @@
                         </figure>
                         <p>
                         By default, &gt;&gt; assumes that numbers use the decimal
-                        notation, but it can also read hexadecimal or octal 
+                        notation, but it can also read hexadecimal or octal
                         integers:
                         </p>
                         <code>
@@ -147,10 +147,10 @@
                         similar to that of integer values:
                         </p>
                         <code>
-                        <pre> 
+                        <pre>
                         cout &lt;&lt; 1234.56789 &lt;&lt; "\t\t(defaultfloat)\n"   // \t\t to line up columns
                             &lt;&lt; fixed &lt;&lt; 1234.56789 &lt;&lt; "\t(fixed)\n"
-                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; "\t(scientific)\n"; 
+                            &lt;&lt; scientific &lt;&lt; 1234.56789 &lt;&lt; "\t(scientific)\n";
                         </pre>
                         </code>
                         <p>
@@ -221,10 +221,10 @@
                         </figure>
                         <p>
                         Using scientific and fixed formats, a programmer can
-                        control exactly how much space a value takes up on output. 
+                        control exactly how much space a value takes up on output.
                         That’s clearly useful for printing tables, etc.
                         “set field width” manipulator <code>setw()</code>
-                        can be used to specify exactly how many character 
+                        can be used to specify exactly how many character
                         positions an integer value or string value will occupy.
                         Example:
                         </p>
@@ -274,8 +274,8 @@
                     provides. A file is sequence of bytes numbered
                     from 0 upwards. The question is how to access these bytes.
                     The simplest example of this is that if we open an
-                    <code>istream</code> for a file, we can read from the 
-                    file, whereas if we open a file with an <code>ostream</code>, 
+                    <code>istream</code> for a file, we can read from the
+                    file, whereas if we open a file with an <code>ostream</code>,
                     we can write to it.
                     </p>
                     <details>
@@ -291,9 +291,9 @@
                         A file can be opened in several modes. By default,
                         <code> ifstream</code> opens it for reading and
                         <code>ofstream</code> opens for writing. These take care
-                        of the most common needs but there are several other 
+                        of the most common needs but there are several other
                         alternatives given in the book. A file mode is
-                        optionally specified after the name of the file. For example: 
+                        optionally specified after the name of the file. For example:
                         </p>
                         <code>
                         <pre>
@@ -350,14 +350,14 @@ fstream fs {"myfile",ios_base::in|ios_base::out};//both in and out
                     </figure>
                     <p>
                     A <code>string</code> can be used as a source of an
-                    <code>istream</code> or the target for an 
+                    <code>istream</code> or the target for an
                     <code>ostream</code>.
                     An <code>istream</code> that reads from a
                     <code>string</code> is called
-                    an <code>istringstream</code> and an <code>ostream</code> 
+                    an <code>istringstream</code> and an <code>ostream</code>
                     that stores characters written to it in a
                     <code>string</code> is called an <code>ostringstream</code>.
-                    We can use an <code>istringstream</code> 
+                    We can use an <code>istringstream</code>
                     for extracting
                     numeric values from a<code> string</code>:
                     </p>
@@ -375,7 +375,7 @@ double str_to_double(string s)
 double d1 = str_to_double("12.4");
 double d2 = str_to_double("1.34e–3");
 double d3 = str_to_double("twelve point three");
-                    </pre> 
+                    </pre>
                     </code>
                 </details>
                 <details>
@@ -397,7 +397,7 @@ double d3 = str_to_double("twelve point three");
 string name;
 getline(cin,name);      // input: Dennis Ritchie
 cout &lt;&lt; name &lt;&lt; '\n';    // output: Dennis Ritchie
-                    </pre> 
+                    </pre>
                     </code>
                     <p>
                     <code>&gt;&gt;</code>
@@ -422,7 +422,7 @@ cout &lt;&lt; name &lt;&lt; '\n';    // output: Dennis Ritchie
                     individual characters. This is certainly more work but when
                     we do this, we have a full control over what we are
                     doing. Consider tokenizing this expression:
-                    <code>1+4*x&lt;=y/z*5</code> to be separated 
+                    <code>1+4*x&lt;=y/z*5</code> to be separated
                     into the eleven tokens.
                     </p>
                     <p>
@@ -433,7 +433,7 @@ cout &lt;&lt; name &lt;&lt; '\n';    // output: Dennis Ritchie
                     can write something like this:
                     </p>
                     <code>
-                    <pre> 
+                    <pre>
 for (char ch; cin.get(ch); ) {
     if (isspace(ch)) {  // if ch is whitespace
         // do nothing (i.e., skip whitespace)
@@ -447,7 +447,7 @@ for (char ch; cin.get(ch); ) {
     else {
         // deal with operators
     }
-}  
+}
                     </pre>
                     </code>
                 </details>
@@ -462,7 +462,7 @@ for (char ch; cin.get(ch); ) {
                     </figure>
 
                     <p>
-                        We <i>can</i> define our own stream type to recognize 
+                        We <i>can</i> define our own stream type to recognize
                         different separators than the default, e.g., to
                         recognize something other than whitespace as separating
                         strings. (Think of trying to extract words from a
@@ -500,7 +500,7 @@ for (char ch; cin.get(ch); ) {
                         <figcaption>
                         </figcaption>
                     </figure>
-<!-- Include the test material here! -->
+<!--include quiz11.qhtm -->
                 </details>
 
                 <details>

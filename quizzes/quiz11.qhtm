@@ -1,0 +1,73 @@
+        <ol class="nested">
+            <li>
+                Which of the following is an integer output manipulator?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q1" value="a">
+                all mentioned
+                </li>
+                <li>
+                <input type="radio" name="q1" value="b">
+                showbase
+                </li>
+                <li>
+                <input type="radio" name="q1" value="c">
+                hex
+                </li>
+                <li>
+                <input type="radio" name="q1" value="d">
+                noshowbase
+                </li>
+            </ol>
+            <li>
+                Which of the following is not a basic floating-point output manipulator?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q2" value="a">
+                defaultfloat
+                </li>
+                <li>
+                <input type="radio" name="q2" value="b">
+                showbase
+                </li>
+                <li>
+                <input type="radio" name="q2" value="c">
+                scientific
+                </li>
+                <li>
+                <input type="radio" name="q2" value="d">
+                fixed
+                </li>
+            </ol>
+            <li>
+                What does isalnum(c) do?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q3" value="a">
+                is c a letter or a decimal digit?
+                </li>
+                <li>
+                <input type="radio" name="q3" value="b">
+                is c printable?
+                </li>
+                <li>
+                <input type="radio" name="q3" value="c">
+                is c a decimal digit?
+                </li>
+                <li>
+                <input type="radio" name="q3" value="d">
+                is c whitespace?
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum3">
+                Answers
+            </summary>
+            <p>
+                1. a; 2. b; 3. a; 
+            </p>
+        </details>
