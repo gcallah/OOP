@@ -67,12 +67,121 @@
                 generate the file, write out its contents, close it, and verify a good result
                 </li>
             </ol>
+            <li>
+                The ______ objects have values that can be tested for various conditions.
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q5" value="a">
+                ofstream
+                </li>
+                <li>
+                <input type="radio" name="q5" value="b">
+                ifstream
+                </li>
+                <li>
+                <input type="radio" name="q5" value="c">
+                stream
+                </li>
+                <li>
+                <input type="radio" name="q5" value="d">
+                osstream
+                </li>
+            </ol>
+            <li>
+                Where does a cin stops that extraction of data?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q6" value="a">
+                by seeing >>
+                </li>
+                <li>
+                <input type="radio" name="q6" value="b">
+                none of the above
+                </li>
+                <li>
+                <input type="radio" name="q6" value="c">
+                both a and b
+                </li>
+                <li>
+                <input type="radio" name="q6" value="d">
+                by seeing a blankspace
+                </li>
+            </ol>
+            <li>
+                Which of the following is not a stream state (istream)?
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q7" value="a">
+                bad()
+                </li>
+                <li>
+                <input type="radio" name="q7" value="b">
+                eof()
+                </li>
+                <li>
+                <input type="radio" name="q7" value="c">
+                success()
+                </li>
+                <li>
+                <input type="radio" name="q7" value="d">
+                good()
+                </li>
+                <li>
+                <input type="radio" name="q7" value="e">
+                fail()
+                </li>
+            </ol>
+            <li>
+                Unformatted input functions are handled by
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q8" value="a">
+                instream
+                </li>
+                <li>
+                <input type="radio" name="q8" value="b">
+                bufstream
+                </li>
+                <li>
+                <input type="radio" name="q8" value="c">
+                ostream
+                </li>
+                <li>
+                <input type="radio" name="q8" value="d">
+                istream
+                </li>
+            </ol>
+            <li>
+                A class that defines cout, cerr and clog objects and stream insertion operator is
+            </li>
+            <ol type="a" class="nested">
+                <li>
+                <input type="radio" name="q9" value="a">
+                istream
+                </li>
+                <li>
+                <input type="radio" name="q9" value="b">
+                fstream
+                </li>
+                <li>
+                <input type="radio" name="q9" value="c">
+                ostream
+                </li>
+                <li>
+                <input type="radio" name="q9" value="d">
+                kstream
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum3">
                 Answers
             </summary>
             <p>
-                1. b; 2. c; 3. c; 4. b; 
+                1. b; 2. c; 3. c; 4. b; 5. b; 6. d; 7. c; 8. d; 9. c; 
             </p>
         </details>
