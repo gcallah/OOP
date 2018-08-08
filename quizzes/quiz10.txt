@@ -2,3 +2,8 @@ An <code>istream</code> fundamentally...#hides all user input from the programme
 A file is fundamentally...#an icon inside a folder#a list of records#^a sequence of bytes stored on some media
 Why is input usually harder than output?#<code>istream</code> is a trickier class than <code>ostream</code>#input devices require more assembly language code than output devices#^The user might input almost anything!
 What are the four steps for reading a file?#delete the file, read from stdin, write the results there, and close stdin#^know its name, open it, read in the contents, and close it#generate the file, write out its contents, close it, and verify a good result
+The ______ objects have values that can be tested for various conditions.#ofstream#^ifstream#stream#osstream
+Where does a cin stops that extraction of data?#by seeing >>#none of the above#both a and b#^by seeing a blankspace
+Which of the following is not a stream state (istream)?#bad()#eof()#^success()#good()#fail()
+Unformatted input functions are handled by#instream#bufstream#ostream#^istream
+A class that defines cout, cerr and clog objects and stream insertion operator is#istream#fstream#^ostream#kstream
