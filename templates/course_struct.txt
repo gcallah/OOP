@@ -567,7 +567,7 @@
 2	Course Syllabus	syllabi/SyllabusSu2018.html		glyphicon-tasks
 2	Source Code	https://github.com/gcallah/OOP/tree/03c8d77c5ee5faae253d8a8e989aa347af0c3c45/code		glyphicon-list-alt
 
-2	Midterm	tests/midterm_key.html		glyphicon-pencil
+2	Tests	tests/index.html		glyphicon-pencil
 2	Our textbook's website	http://www.stroustrup.com/programming.html		glyphicon-book
 2	C++ Tips	C++tips.html		glyphicon-hand-right
 2	Guide to UNIX	https://gcallah.github.io/utils/unix_guide.html		glyphicon-hand-right

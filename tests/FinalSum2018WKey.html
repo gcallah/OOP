@@ -2,16 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
         <title>
-            Object-Oriented Programming, Summer 2018
+            Object-Oriented Programming, Summer 2018 Final
         </title>
     </head>
 
     <body>
         <h1>
-            Object-Oriented Programming, Summer 2018
+            Object-Oriented Programming, Summer 2018 Final
         </h1>
+
+        <p>
+        Name: _______________________________
+        </p>
+
+        <p>
+        NetID: ______________________________
+        </p>
+
         <ol>
         <li>
                 In C++, _____ implement generic programming, while
@@ -71,7 +80,8 @@
                         Pulls in all of your include files. *
                         </li>
                         <li>
-                        Joins separate object files and libraries into a single executable. 
+                        Joins separate object files and libraries into a single
+                        executable. 
                         </li>
                         <li>
                         Ensures there is a main() function in your program.
@@ -93,11 +103,66 @@
                         </li>
                 </ol>
         </li>
+
+        <li>
+                If we write <code>char ch[16]</code> then
+                <code>sizeof(ch)</code> on a 64-bit machine will be:
+                <ol type="a" class="nested">
+                        <li>
+                        8 
+                        </li>
+                        <li>
+                        16 *
+                        </li>
+                        <li>
+                        32
+                        </li>
+                        <li>
+                        100
+                        </li>
+                </ol>
+        </li>
+
+        <li>
+                If we write <code>char ch[8]; char* p = ch;</code> then
+                <code>sizeof(p)</code> on a 64-bit machine will be:
+                <ol type="a" class="nested">
+                        <li>
+                        8 *
+                        </li>
+                        <li>
+                        16
+                        </li>
+                        <li>
+                        32
+                        </li>
+                        <li>
+                        100
+                        </li>
+                </ol>
+        </li>
+
+        <li>
+                If we have a pointer in 64-bit Windows, its sizeof()
+                most likely is... ?
+                <ol type="a" class="nested">
+                        <li>
+                        the size of whatever it points to
+                        </li>
+                        <li>
+                        8 *
+                        </li>
+                        <li>
+                        4 
+                        </li>
+                </ol>
+        </li>
         <li>
                 What does an .h suffix at the end of a file signify in C++?
                 <ol type="a" class="nested">
                         <li>
-                        It is a heavy file that will take up lots of hard disk space.
+                        It is a heavy file that will take up lots of hard disk
+                        space.
                         </li>
                         <li>
                         It is a hard-coded file with lots of constants.
@@ -242,14 +307,14 @@
                 What is the difference between 'a' and "a" in C++?
                 <ol type="a" class="nested">
                         <li>
-                        The first tests is a character literal, the second is a
+                        The first is a character literal, the second is a
                         string literal.
                         </li>
                         <li>
                         They are the same: you can use the interchangeably.
                         </li>
                         <li>
-                        The first tests is a string literal, the second is a
+                        The first is a string literal, the second is a
                         character literal.
                         </li>
                 </ol>
@@ -287,6 +352,126 @@
                         </li>
                 </ol>
         </li>
+        
+        <li>
+                A member function of a class can ..
+                <ol type="a" class="nested">
+                        <li>
+                        Access subclass members
+                        </li>
+                        <li>
+                        Access all the members of the class *
+                        </li>
+                        <li>
+                        Access only the private members of the class
+                        </li>
+                        <li>
+                        Access only public members of the class
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Which of the following is not necessary for constructors?
+                <ol type="a" class="nested">
+                        <li>
+                        It must contain a definition body *
+                        </li>
+                        <li>
+                        Its name must be same as that of class
+                        </li>
+                        <li>
+                        It must not have any return type
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Which of the following operators cannot be overloaded?
+                <ol type="a" class="nested">
+                        <li>
+                        . (Dot operator)
+                        </li>
+                        <li>
+                        ?: (Ternary Operator)
+                        </li>
+                        <li>
+                        :: (Scope resolution operator)
+                        </li>
+                        <li>
+                        All of the above *
+                        </li>
+                </ol>
+        </li>
+
+        <li>
+                For a small set of constant values for something like
+                "boroughs of New York City," a good construct  to use would be
+                a(n)
+                <ol type="a" class="nested">
+                        <li>
+                        conditional type
+                        </li>
+                        <li>
+                        compound type
+                        </li>
+                        <li>
+                        template
+                        </li>
+                        <li>
+                        enumeration *
+                        </li>
+                </ol>
+        </li>
+
+        <li>
+                In C++, const qualifier can be applied to : 1. Member functions
+                of a class; 2. Function arguments; 3. to a class data member
+                which is declared as static; 4. Reference variables
+                <ol type="a" class="nested">
+                        <li>
+                        only 1, 3 and 4
+                        </li>
+                        <li>
+                        only 1, 2 and 3
+                        </li>
+                        <li>
+                        only 1,2 and 4
+                        </li>
+                        <li>
+                        all *
+                        </li>
+                </ol>
+        </li>
+        <li>
+                An <code>istream</code> fundamentally...
+                <ol type="a" class="nested">
+                        <li>
+                        hides all user input from the programmer
+                        </li>
+                        <li>
+                        hides the details of input devices from the programmer
+                        *
+                        </li>
+                        <li>
+                        hides what data types are being input from the
+                        programmer
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A file is fundamentally...
+                <ol type="a" class="nested">
+                        <li>
+                        an icon inside a folder
+                        </li>
+                        <li>
+                        a list of records
+                        </li>
+                        <li>
+                        a sequence of bytes stored on some media *
+                        </li>
+                </ol>
+        </li>
+
         <li>
                 Which of the following is a legal variable name that,
                 nevertheless, you should not use?
@@ -359,7 +544,7 @@
                         -
                         </li>
                         <li>
-                        *
+                        *=
                         </li>
                 </ol>
         </li>
@@ -395,13 +580,13 @@
                 </ol>
         </li>
         <li>
-                The first part of the for loop statement...
+                The middle part of the for loop statement...
                 <ol type="a" class="nested">
                         <li>
-                        initializes the loop variable. *
+                        initializes the loop variable.
                         </li>
                         <li>
-                        determines when the loop terminates.
+                        determines when the loop terminates. *
                         </li>
                         <li>
                         is done each time around the loop.
@@ -510,10 +695,11 @@
                         A linked list is specified incorrectly.
                         </li>
                         <li>
-                        A link between one class and another is missing.
+                        A function with the same signature is found to be
+                        defined twice. *
                         </li>
                         <li>
-                        No main() is found for your executable. *
+                        A link between one class and another is missing.
                         </li>
                 </ol>
         </li>
@@ -561,8 +747,12 @@
                 an error value is...
                 <ol type="a" class="nested">
                     <li>
-                        throwing an exception has no run-time cost.
+                        throwing an exception is more up-to-date.
                     </li>
+                        <li>
+                        an exception can be caught at various places in the
+                        program. *
+                        </li>
 
                         <li>
                         throwing an exception makes the code that produced the
@@ -571,36 +761,20 @@
                         <li>
                         throwing exceptions is a more modern style.
                         </li>
-                        <li>
-                        the exception cannot be ignored. *
-                        </li>
                 </ol>
         </li>
-        <li>
-                An example of something student programs are <b>not</b> expected to handle is:
-                <ol type="a" class="nested">
-                        <li>
-                        bad input
-                        </li>
-                        <li>
-                        hardware failures *
-                        </li>
-                        <li>
-                        divide-by-zero errors
-                        </li>
-                </ol>
-        </li>
+        
         <li>
                 Most large programs...
                 <ol type="a" class="nested">
-                        <li>
-                        will <b>always</b> contain some bugs. *
-                        </li>
                         <li>
                         can be fully de-bugged in a couple of days.
                         </li>
                         <li>
                         will likely be bug-free from the start.
+                        </li>
+                        <li>
+                        are read more often than re-written. *
                         </li>
                 </ol>
         </li>
@@ -618,7 +792,24 @@
                         Mismatched []
                         </li>
                         <li>
-                        Bad indentation *
+                        Using a pointer to access unallocated memory *
+                        </li>
+                </ol>
+        </li>
+        <li>
+            If we want a safer version of a pointer we can use... ?
+                <ol type="a" class="nested">
+                        <li>
+                        de-referencing a pointer
+                        </li>
+                        <li>
+                            a reference *
+                        </li>
+                        <li>
+                        a pointer to a pointer
+                        </li>
+                        <li>
+                        all of the above
                         </li>
                 </ol>
         </li>
@@ -626,13 +817,13 @@
                 Which of the following is not a syntax error?
                 <ol type="a" class="nested">
                         <li>
-                        std::cout << "Hello world! ';
+                        std::cout &lt;&lt; "Hello world! ';
                         </li>
                         <li>
-                        std::cout << 'Hello world! ';
+                        std::cout &lt;&lt; 'Hello world! ';
                         </li>
                         <li>
-                        std::cout << "Hello world! "; *
+                        std::cout &lt;&lt; "Hello world! "; *
                         </li>
                 </ol>
         </li>
@@ -655,39 +846,25 @@
                 </ol>
         </li>
         <li>
-                What will happen when the exception is not caught in the program?
+                A downside of range checking the indexes used on a vector 
+                is that 
                 <ol type="a" class="nested">
                         <li>
-                        error *
+                        it will take some time and slow the code *
                         </li>
                         <li>
-                        program will execute
+                        sometimes an index will be out of range and produce an
+                        error
                         </li>
                         <li>
-                        none of the mentioned
+                        it stifles programmer creativity
                         </li>
                         <li>
-                        block of that code will not execute
+                        none of the above
                         </li>
                 </ol>
         </li>
-        <li>
-                List some ways to break a program into smaller, more manageable parts?
-                <ol type="a" class="nested">
-                        <li>
-                        classes and functions *
-                        </li>
-                        <li>
-                        classes and control structures
-                        </li>
-                        <li>
-                        if and while statements
-                        </li>
-                        <li>
-                        variables and functions
-                        </li>
-                </ol>
-        </li>
+ 
         <li>
                 What are the three main phases of software development?
                 <ol type="a" class="nested">
@@ -702,23 +879,7 @@
                         </li>
                 </ol>
         </li>
-        <li>
-                If we input (3+7)/(8-2) to the calculator, then (3+7) is a
-                <ol type="a" class="nested">
-                        <li>
-                        expression
-                        </li>
-                        <li>
-                        term
-                        </li>
-                        <li>
-                        primary *
-                        </li>
-                        <li>
-                        number
-                        </li>
-                </ol>
-        </li>
+ 
         <li>
                 We typically break an interpreter into two phases called
                 <ol type="a" class="nested">
@@ -737,16 +898,20 @@
                 </ol>
         </li>
         <li>
-                In the switch() in the expression function, why is the default to "put back" the token?
+                In the switch() in the expression function, why is the default
+                to "put back" the token?
                 <ol type="a" class="nested">
                         <li>
-                        That token will probably be a + or - and can be dealt with by the next call to expression.
+                        That token will probably be a + or - and can be dealt
+                        with by the next call to expression.
                         </li>
                         <li>
-                        If we hit the default case, we have read one token too many. *
+                        That token will be meaningless, and we want to throw it
+                        away.
                         </li>
                         <li>
-                        That token will be meaningless, and we want to throw it away.
+                        If we hit the default case, we have read one token too
+                        many. *
                         </li>
                 </ol>
         </li>
@@ -778,17 +943,23 @@
                         </li>
                 </ol>
         </li>
+
         <li>
-                What is a "use case"?
+                If we have a constructor that takes a single argument of
+                another type, like:
+                <br />
+                Complex::Complex(double d);
+                <br />
+                that can be used for:
                 <ol type="a" class="nested">
                         <li>
-                        It helps in checking the usability of the program at different situations
+                        enumerating a new type
                         </li>
                         <li>
-                        It is a term that describes how a user can make a program re-usable
+                        creating a template
                         </li>
                         <li>
-                        It is a term that describe how a user uses a system to accomplish a particular goal *
+                        implicit type conversions between the types *
                         </li>
                 </ol>
         </li>
@@ -809,84 +980,46 @@
                         </li>
                 </ol>
         </li>
+        
         <li>
-                Why do we want to rely on libraries of code?
+                Why did we introduce a const name like 'number' into our
+                program?
                 <ol type="a" class="nested">
                         <li>
-                        It helps in improving your codeing skills
+                        to make the program more maintainable *
                         </li>
                         <li>
-                        It saves time, uses pre tested code and use modular code *
+                        it saves storage since the const takes up less space
+                        than the char
                         </li>
                         <li>
-                        We should not rely on them and should instead write our own code
+                        the compiler demands this or it will produce an error
+                        </li>
+                        <li>
+                        all of the above
                         </li>
                 </ol>
         </li>
+
         <li>
-                Which is not a type of access modifier in C++?
+            When we want to verify a class we wrote works before using it in
+            a larger program, we write a... ?
                 <ol type="a" class="nested">
                         <li>
-                        Private
+                        sub-class
                         </li>
                         <li>
-                        Public
+                        template
                         </li>
                         <li>
-                        Protected
-                        </li>
-                        <li>
-                        Personal *
+                        test harness *
                         </li>
                 </ol>
         </li>
+
         <li>
-                Why did we introduce a const name like 'number' into our program?
-                <ol type="a" class="nested">
-                        <li>
-                        to make the program more maintainable
-                        </li>
-                        <li>
-                        to make it easier to change the char for a number
-                        </li>
-                        <li>
-                        all answers are correct *
-                        </li>
-                        <li>
-                        to make the program more readable
-                        </li>
-                </ol>
-        </li>
-        <li>
-                When should you start to test your program?
-                <ol type="a" class="nested">
-                        <li>
-                        only when done coding
-                        </li>
-                        <li>
-                        testing isn't really necessary
-                        </li>
-                        <li>
-                        almost as soon as you've started coding *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                When should you retest?
-                <ol type="a" class="nested">
-                        <li>
-                        Only after major changes.
-                        </li>
-                        <li>
-                        After every change, no matter how small. *
-                        </li>
-                        <li>
-                        One round of testing is enough.
-                        </li>
-                </ol>
-        </li>
-        <li>
-                What is wrong with commenting x = a + b; with // add a and b and put value in x
+                What is wrong with commenting x = a + b; with // add a and b
+                and put value in x
                 <ol type="a" class="nested">
                         <li>
                         It does not describe the code  correctly.
@@ -909,13 +1042,14 @@
                         It is necessary for the compilation of the code
                         </li>
                         <li>
-                        None of the above
-                        </li>
-                        <li>
                         It is something not to be bothered about
                         </li>
                         <li>
-                        To make the program more readable and easy to understand *
+                        To make the program more readable and easy to
+                        understand *
+                        </li>
+                        <li>
+                        None of the above
                         </li>
                 </ol>
         </li>
@@ -926,24 +1060,30 @@
                         Nothing much useful in it
                         </li>
                         <li>
-                        The code is less error prone, easier to change and understand *
-                        </li>
-                        <li>
-                        None of the above
+                        The code is less error prone, easier to change and
+                        understand *
                         </li>
                         <li>
                         Symbolic constants help the code to run faster
                         </li>
+                        <li>
+                        None of the above
+                        </li>
                 </ol>
         </li>
         <li>
-                What is the difference between a function declaration and a function definition?
+                What is the difference between a function declaration and a
+                function definition?
                 <ol type="a" class="nested">
                         <li>
-                        the declaration includes the function body, while the definition just gives the function's return and parameter types
+                        the declaration includes the function body, while the
+                        definition just gives the function's return and
+                        parameter types
                         </li>
                         <li>
-                        the declaration just gives the function's return and parameter types, while the definition includes the function body *
+                        the declaration just gives the function's return and
+                        parameter types, while the definition includes the
+                        function body *
                         </li>
                 </ol>
         </li>
@@ -954,69 +1094,86 @@
                         To head off disaster.
                         </li>
                         <li>
-                        To put a nice header at the top of your code if you print it.
+                        To put a nice header at the top of your code if you
+                        print it.
                         </li>
                         <li>
-                        To provide declarations needed for multiple source code files. *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                How does indentation help in a C++ program?
-                <ol type="a" class="nested">
-                        <li>
-                        it helps the compiler do code optimizations
-                        </li>
-                        <li>
-                        it makes the structure of the code clearer to a human reader *
-                        </li>
-                        <li>
-                        it is necessary to compile the code correctly, just as in Python
+                        To provide declarations needed for multiple source code
+                        files. *
                         </li>
                 </ol>
         </li>
         <li>
-                If we need to alter the original of a variable we are passing to a function, we should...
+                We should use "pass by constant reference" when... ?
                 <ol type="a" class="nested">
                         <li>
-                        pass by constant reference
+                        the object being passed is too large to pass by value,
+                        but we don't want to change its value inside our
+                        function *
                         </li>
                         <li>
-                        pass by reference *
+                        it makes the structure of the code clearer to a human
+                        reader 
                         </li>
                         <li>
-                        pass by value
+                        we want to refer to the object constantly, in many
+                        lines of our code
                         </li>
                 </ol>
         </li>
         <li>
-                The function declaration consists of …
+                We should use "pass by reference" when... ?
                 <ol type="a" class="nested">
                         <li>
-                        function name, return type and parameter list *
+                        the type we are passing is very small
                         </li>
                         <li>
-                        function body and parameter list
+                        we only want to refer to an argument to our function,
+                        not change it
                         </li>
                         <li>
-                        function name and parameter list
+                        we need to change the value of an argument to our
+                        function *
                         </li>
                 </ol>
         </li>
         <li>
-                Which of the following is not a type of scope?
+                We use a move assignment when we
                 <ol type="a" class="nested">
                         <li>
-                        Namespace Scope
+                        do not wish to copy all storage from
+                        the object assigned from and the object assigned to *
                         </li>
                         <li>
-                        Declaration Scope *
+                        we wish to move values from one object to another
                         </li>
                         <li>
-                        Class Scope
+                        the values being copied are highly mobile
                         </li>
                         <li>
-                        Global Scope
+                            all of the above
+                        </li>
+
+                </ol>
+        </li>
+        <li>
+                If we write 
+                <br>
+                char* cptr = &amp;c[10];
+                <br />
+                we get:
+                <ol type="a" class="nested">
+                        <li>
+                        a pointer to the 11th element of the array c *
+                        </li>
+                        <li>
+                        a pointer to the 10th element of the array c 
+                        </li>
+                        <li>
+                        a pointer to an array of 10 elements
+                        </li>
+                        <li>
+                        a pointer to an array of 11 elements
                         </li>
                 </ol>
         </li>
@@ -1077,135 +1234,59 @@
                 </ol>
         </li>
         <li>
-                If a variable is declared inside a function, what kind of variable is this?
+            A local variable is one that is... ?
                 <ol type="a" class="nested">
                         <li>
-                        global variable
+                        declared to be part of a class
                         </li>
                         <li>
-                        local variable *
+                        declared in a header file
                         </li>
                         <li>
-                        class variable
+                        declared in a function *
                         </li>
                 </ol>
         </li>
+
         <li>
-                If we have a function int square (int n) , are we able to send it a different variable in the main program or does it have to be n.  For example, square (x)
+                What is the scope of a variable declared in a user-defined
+                function?
                 <ol type="a" class="nested">
                         <li>
-                        No
-                        </li>
-                        <li>
-                        Yes *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following is a valid function call (assuming the function exists)?
-                <ol type="a" class="nested">
-                        <li>
-                        f(); *
-                        </li>
-                        <li>
-                        f;
-                        </li>
-                        <li>
-                        f x, y;
-                        </li>
-                        <li>
-                        int f();
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Identify the correct statement
-                <ol type="a" class="nested">
-                        <li>
-                        None of the mentioned
-                        </li>
-                        <li>
-                        A namespace is used to mark the beginning of the program
-                        </li>
-                        <li>
-                        A namespace is used to separate a class from objects
-                        </li>
-                        <li>
-                        A namespace is used to group classes, objects and functions *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                What is the scope of the variable declared in a user defined function?
-                <ol type="a" class="nested">
-                        <li>
-                        none of the mentioned
-                        </li>
-                        <li>
-                        whole program
+                        the whole program
                         </li>
                         <li>
                         the main function
                         </li>
                         <li>
-                        only inside the {} block in which it is declared *
+                        always and only the entire function
+                        </li>
+                        <li>
+                        none of the above *
                         </li>
                 </ol>
         </li>
+
         <li>
-                If your function does not return any value, which of the following keywords should be used as a return type?
+            A copy constructor is use... ?
                 <ol type="a" class="nested">
                         <li>
-                        double
+                            to copy the code of another constructor
                         </li>
                         <li>
-                        int
+                            to convert between basic C++ types
                         </li>
                         <li>
-                        void *
+                            to construct an object of type A given
+                            another object of type A *
                         </li>
                         <li>
-                        float
-                        </li>
-                        <li>
-                        unsigned short
+                            to construct an object of type A given
+                            an object of type B
                         </li>
                 </ol>
         </li>
-        <li>
-                Which of the following functions should be defined as void?
-                <ol type="a" class="nested">
-                        <li>
-                        Return a sales commission, given the sales amount and the commission rate
-                        </li>
-                        <li>
-                        Print the calendar for a month, given the month and year *
-                        </li>
-                        <li>
-                        Return a bool value indicating whether a number is even
-                        </li>
-                        <li>
-                        Return a square root for a number
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following should be declared as a void function?
-                <ol type="a" class="nested">
-                        <li>
-                        a function that prints integers from 1 to 100 *
-                        </li>
-                        <li>
-                        a function that checks whether current second is an integer from 1 to 100
-                        </li>
-                        <li>
-                        a function that converts an uppercase letter to lowercase
-                        </li>
-                        <li>
-                        a function that returns a random integer from 1 to 100
-                        </li>
-                </ol>
-        </li>
+
         <li>
                 What are the two parts of a class?
                 <ol type="a" class="nested">
@@ -1224,33 +1305,36 @@
                 </ol>
         </li>
         <li>
-                Which of the following is a class invariant for <code>Date</code>?
+                Which of the following is a class invariant for
+                <code>Date</code>?
                 <ol type="a" class="nested">
-                        <li>
-                        we must always have a month less than 13 *
-                        </li>
                         <li>
                         month should be defined as an <code>int</code>
                         </li>
                         <li>
-                        printed dates should never take up more than one column in a spreadsheet
+                        printed dates should never take up more than one column
+                        in a spreadsheet
                         </li>
                         <li>
                         the year cannot be a leap year
                         </li>
+                        <li>
+                        we must always have a day less than 31 *
+                        </li>
                 </ol>
         </li>
         <li>
-                When should the body of a function (its definition) be put in the class definition?
+                When should the body of a function (its definition) be put in
+                the class definition?
                 <ol type="a" class="nested">
+                        <li>
+                        when we want the compiler to inline the function *
+                        </li>
                         <li>
                         when the function returns a built-in type
                         </li>
                         <li>
-                        when the function is only a line or two *
-                        </li>
-                        <li>
-                        when the function is a very important part of the class
+                        when the function is over 10 lines long
                         </li>
                         <li>
                         when the function returns a user-defined type
@@ -1258,16 +1342,18 @@
                 </ol>
         </li>
         <li>
-                What would be a reasonable way to overload the plus (+) operator?
+                What would be a reasonable way to overload the *
+                operator?
                 <ol type="a" class="nested">
                         <li>
-                        to perform a hash function on some input string
+                        to multiply two matrices *
                         </li>
                         <li>
-                        to access a website and add all of its pages to your site
+                        to sort a list of strings
                         </li>
                         <li>
-                        to add two complex numbers *
+                        to access a website and add all of its pages to your
+                        site
                         </li>
                 </ol>
         </li>
@@ -1295,7 +1381,7 @@
                         functions
                         </li>
                         <li>
-                        both data & functions *
+                        both data &amp; functions *
                         </li>
                         <li>
                         none of the mentioned
@@ -1303,28 +1389,26 @@
                 </ol>
         </li>
         <li>
-                What defines the member of the class externally?
+                How do we specify a method of a class when we are defining it
+                externally?
                 <ol type="a" class="nested">
                         <li>
-                        ~
+                        ClassName~method()
                         </li>
                         <li>
-                        :: *
+                        ClassName::method() *
                         </li>
                         <li>
-                        none of the mentioned
+                            ClassName-&gt;method() *
                         </li>
                         <li>
-                        :
+                        none of the above
                         </li>
                 </ol>
         </li>
         <li>
                 Which of the following is an access specifier?
                 <ol type="a" class="nested">
-                        <li>
-                        All specified *
-                        </li>
                         <li>
                         protected
                         </li>
@@ -1334,180 +1418,22 @@
                         <li>
                         public
                         </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following access specifiers can be used for an interface?
-                <ol type="a" class="nested">
                         <li>
-                        public *
-                        </li>
-                        <li>
-                        All specified
-                        </li>
-                        <li>
-                        private
-                        </li>
-                        <li>
-                        protected
+                        all of the above *
                         </li>
                 </ol>
         </li>
-        <li>
-                Constructors are used to
-                <ol type="a" class="nested">
-                        <li>
-                        initialize the objects *
-                        </li>
-                        <li>
-                        construct the data members
-                        </li>
-                        <li>
-                        both initialize the objects & construct the data members
-                        </li>
-                        <li>
-                        none of the mentioned
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following is the correct way of implementing an interface A by Class B?
-                <ol type="a" class="nested">
-                        <li>
-                        class B extends A{}
-                        </li>
-                        <li>
-                        class B imports A{}
-                        </li>
-                        <li>
-                        all specified
-                        </li>
-                        <li>
-                        class B implements A{} *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Member function of a class can ..
-                <ol type="a" class="nested">
-                        <li>
-                        Access subclass members
-                        </li>
-                        <li>
-                        Access all the members of the class *
-                        </li>
-                        <li>
-                        Access only the private members of the class
-                        </li>
-                        <li>
-                        Access only Public members of the class
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following is not necessary for constructors?
-                <ol type="a" class="nested">
-                        <li>
-                        It must contain a definition body *
-                        </li>
-                        <li>
-                        Its name must be same as that of class
-                        </li>
-                        <li>
-                        It must not have any return type
-                        </li>
-                        <li>
-                        It can contains arguments
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following operators cannot be overloaded?
-                <ol type="a" class="nested">
-                        <li>
-                        All mentioned *
-                        </li>
-                        <li>
-                        . (Dot operator)
-                        </li>
-                        <li>
-                        ?: (Ternary Operator)
-                        </li>
-                        <li>
-                        :: (Scope resolution operator)
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Special data types defined by users is called
-                <ol type="a" class="nested">
-                        <li>
-                        Conditional type
-                        </li>
-                        <li>
-                        Compound type
-                        </li>
-                        <li>
-                        none specified
-                        </li>
-                        <li>
-                        Enumeration type *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                In C++, const qualifier can be applied to : 1. Member functions of a class; 2. Function arguments; 3. to a class data member which is declared as static; 4. Reference variables
-                <ol type="a" class="nested">
-                        <li>
-                        all *
-                        </li>
-                        <li>
-                        only 1, 3 and 4
-                        </li>
-                        <li>
-                        only 1, 2 and 3
-                        </li>
-                        <li>
-                        only 1,2 and 4
-                        </li>
-                </ol>
-        </li>
-        <li>
-                An <code>istream</code> fundamentally...
-                <ol type="a" class="nested">
-                        <li>
-                        hides all user input from the programmer
-                        </li>
-                        <li>
-                        hides the details of input devices from the programmer *
-                        </li>
-                        <li>
-                        hides what data types are being input from the programmer
-                        </li>
-                </ol>
-        </li>
-        <li>
-                A file is fundamentally...
-                <ol type="a" class="nested">
-                        <li>
-                        an icon inside a folder
-                        </li>
-                        <li>
-                        a list of records
-                        </li>
-                        <li>
-                        a sequence of bytes stored on some media *
-                        </li>
-                </ol>
-        </li>
+
         <li>
                 Why is input usually harder than output?
                 <ol type="a" class="nested">
                         <li>
-                        <code>istream</code> is a trickier class than <code>ostream</code>
+                        <code>istream</code> is a trickier class than
+                        <code>ostream</code>
                         </li>
                         <li>
-                        input devices require more assembly language code than output devices
+                        input devices require more assembly language code than
+                        output devices
                         </li>
                         <li>
                         The user might input almost anything! *
@@ -1518,70 +1444,20 @@
                 What are the four steps for reading a file?
                 <ol type="a" class="nested">
                         <li>
-                        delete the file, read from stdin, write the results there, and close stdin
+                        delete the file, read from stdin, write the results
+                        there, and close stdin
                         </li>
                         <li>
-                        know its name, open it, read in the contents, and close it *
+                        know its name, open it, read in the contents, and close
+                        it *
                         </li>
                         <li>
-                        generate the file, write out its contents, close it, and verify a good result
+                        generate the file, write out its contents, close it,
+                        and verify a good result
                         </li>
                 </ol>
         </li>
-        <li>
-                The ______ objects have values that can be tested for various conditions.
-                <ol type="a" class="nested">
-                        <li>
-                        ofstream
-                        </li>
-                        <li>
-                        ifstream *
-                        </li>
-                        <li>
-                        stream
-                        </li>
-                        <li>
-                        osstream
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Where does a cin stops that extraction of data?
-                <ol type="a" class="nested">
-                        <li>
-                        by seeing >>
-                        </li>
-                        <li>
-                        none of the above
-                        </li>
-                        <li>
-                        both a and b
-                        </li>
-                        <li>
-                        by seeing a blankspace *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following is not a stream state (istream)?
-                <ol type="a" class="nested">
-                        <li>
-                        bad()
-                        </li>
-                        <li>
-                        eof()
-                        </li>
-                        <li>
-                        success() *
-                        </li>
-                        <li>
-                        good()
-                        </li>
-                        <li>
-                        fail()
-                        </li>
-                </ol>
-        </li>
+  
         <li>
                 Unformatted input functions are handled by
                 <ol type="a" class="nested">
@@ -1599,6 +1475,7 @@
                         </li>
                 </ol>
         </li>
+
         <li>
                 A class that defines cout, cerr and clog objects and stream insertion operator is
                 <ol type="a" class="nested">
@@ -1616,31 +1493,16 @@
                         </li>
                 </ol>
         </li>
+       
         <li>
-                Which of the following is an integer output manipulator?
+                Which of the following is not a basic floating-point output
+                manipulator?
                 <ol type="a" class="nested">
                         <li>
-                        all mentioned *
+                        setprecision
                         </li>
                         <li>
-                        showbase
-                        </li>
-                        <li>
-                        hex
-                        </li>
-                        <li>
-                        noshowbase
-                        </li>
-                </ol>
-        </li>
-        <li>
-                Which of the following is not a basic floating-point output manipulator?
-                <ol type="a" class="nested">
-                        <li>
-                        defaultfloat
-                        </li>
-                        <li>
-                        showbase *
+                        explicit *
                         </li>
                         <li>
                         scientific
@@ -1651,67 +1513,51 @@
                 </ol>
         </li>
         <li>
-                What does isalnum(c) do?
+                What does isalpha(c) return?
                 <ol type="a" class="nested">
                         <li>
-                        is c a letter or a decimal digit? *
+                        true if is c a letter; false otherwise *
                         </li>
                         <li>
-                        is c printable?
+                        the character equivalent of some ASCII code
                         </li>
                         <li>
-                        is c a decimal digit?
+                        is c printable; false otherwise
                         </li>
                         <li>
-                        is c whitespace?
+                        the ASCII code for a character
                         </li>
                 </ol>
         </li>
         <li>
-                A reference could be considered:
+                Your class needs a destructor if...
                 <ol type="a" class="nested">
                         <li>
-                        to be like de-referencing a pointer
+                        it contains a vector
                         </li>
                         <li>
-                        a safer version of a pointer *
+                        it acquires resources while in use *
                         </li>
                         <li>
-                        a less safe version of a pointer
+                        it is a type of stack
                         </li>
                         <li>
-                        to hold the value of an object directly
+                        it has a virtual member function
                         </li>
                 </ol>
         </li>
         <li>
-                If a class you write owns resources, it needs a
+            A pointer that is immutable and automatically de-referenced 
+            is a 
                 <ol type="a" class="nested">
                         <li>
-                        vector
+                        a pointer to a pointer
                         </li>
                         <li>
-                        destructor *
+                        a reference *
                         </li>
                         <li>
-                        stack
-                        </li>
-                        <li>
-                        virtual member function
-                        </li>
-                </ol>
-        </li>
-        <li>
-                A reference can be considered
-                <ol type="a" class="nested">
-                        <li>
-                        a mention of some coder in the press
-                        </li>
-                        <li>
-                        a pointer that is immutable and automatically de-referenced *
-                        </li>
-                        <li>
-                        an array that is automatically indexed
+                        an array 
                         </li>
                 </ol>
         </li>
@@ -1788,11 +1634,13 @@
                         </li>
                 </ol>
         </li>
+
         <li>
-                If we write <code>char prof = "Callahan";</code> that will create a string of ___ bytes:
+                If we write <code>char* student = "Daniel";</code> that will
+                create a character array of ___ bytes:
                 <ol type="a" class="nested">
                         <li>
-                        12
+                        6
                         </li>
                         <li>
                         depends on the compiler
@@ -1801,10 +1649,11 @@
                         8
                         </li>
                         <li>
-                        9 *
+                        7 *
                         </li>
                 </ol>
         </li>
+
         <li>
                 Among common pointer problems are:
                 <ol type="a" class="nested">
@@ -1815,13 +1664,14 @@
                         access through the null pointer
                         </li>
                         <li>
-                        all answers are correct *
+                        access to a deallocated object
                         </li>
                         <li>
-                        access to a deallocated object
+                        all of the above *
                         </li>
                 </ol>
         </li>
+
         <li>
                 In C++, we can give our own classes array-style access by:
                 <ol type="a" class="nested">
@@ -1836,37 +1686,6 @@
                         </li>
                         <li>
                         using pointers to pointers
-                        </li>
-                </ol>
-        </li>
-        <li>
-                If we write <code>char ch[100]</code> then <code>sizeof(ch)</code> will be:
-                <ol type="a" class="nested">
-                        <li>
-                        8
-                        </li>
-                        <li>
-                        4
-                        </li>
-                        <li>
-                        200
-                        </li>
-                        <li>
-                        100 *
-                        </li>
-                </ol>
-        </li>
-        <li>
-                If we have a pointer in 32-bit Windows, its size most likely is
-                <ol type="a" class="nested">
-                        <li>
-                        the size of whatever it points to
-                        </li>
-                        <li>
-                        8
-                        </li>
-                        <li>
-                        4 *
                         </li>
                 </ol>
         </li>
@@ -1887,5 +1706,73 @@
                 </ol>
         </li>
         </ol>
+
+        <h3>
+            Problem
+        </h3>
+
+        <p>
+        8 points
+        <br>
+        Consider the following code, part of a vector class
+        where sz holds the number of slots used in the vector's storage, and
+        space records the vectors current maximum number of items that can be
+        stored:
+        </p>
+        
+        <p>
+        <code>
+            <pre>
+
+        void vector::reserve(int newalloc)
+        {
+            if(newalloc &lt;= space) return;
+            double* p = new double[newalloc];
+            for(int i = 0; i &lt; sz; ++i) p[i] = elem[i];  // copy elements
+            delete[] elem;  // deallocate old space
+            elem = p;
+            space = newalloc;
+        }
+
+        void vector::resize(int newsize)
+        {
+            reserve(newsize);
+            for(int i = sz; i &lt; newsize; ++i) elem[i] = 0;
+            sz = newsize;
+        }
+            </pre>
+        </code>
+        </p>
+
+        <p>
+        <code>resize()</code> needs to handle four possibilities:
+        </p>
+
+        <ul>
+            <li>
+                The new size is larger than the old allocation.
+            </li>
+
+            <li>
+                The new size is larger than the old size,
+                but smaller than or equal to the old
+                allocation.
+            </li>
+
+            <li>
+                The new size is equal to the old size.
+            </li>
+
+            <li>
+                The new size is smaller than the old size.
+            </li>
+        </ul>
+
+        <p>
+            Please reason about the construction of reserve() and resize()
+            to argue that resize() will (or won't!) handle these four 
+            possibilities correctly.
+        </p>
+
     </body>
 </html>
