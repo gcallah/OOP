@@ -27,5 +27,6 @@ funcs_test: funcs.o funcs_test.o
 funcs.o: funcs.cpp funcs.h
 
 repo:
-	git commit -a -m "New calculator version."
+	./all_tests.sh
+	-git commit -a -m "New calculator version."
 	git push origin master
