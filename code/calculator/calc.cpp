@@ -1,4 +1,5 @@
 #include "std_lib_facilities.h"
+#include "const.h"
 #include "token.h"
 #include "retval.h"
 #include "parser.h"
@@ -40,8 +41,8 @@ int main()
     Token_stream ts;
 
     // add some important constant to our variable table:
-    set_value("pi", 3.1415926535);
-    set_value("e", 2.7182818284);
+    set_value("pi", pi);
+    set_value("e", e);
 
     try {
         calculate(ts);
