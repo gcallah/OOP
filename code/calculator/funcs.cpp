@@ -15,7 +15,7 @@ std::map<const string, std::function<double(double)> > dispTable {
     {"atan",  [](double a) { return atan(a); }},
     {"cos",   [](double a) { return cos(a); }},
     {"cosh",  [](double a) { return cosh(a); }},
-    {"gamma", [](double a) { return gamma(a); }},
+    {"gamma", [](double a) { return tgamma(a); }},
     {"log",   [](double a) { return log(a); }},
     {"log2",  [](double a) { return log2(a); }},
     {"log10", [](double a) { return log10(a); }},

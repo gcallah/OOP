@@ -41,6 +41,7 @@ Token Token_stream::get() {
         case '=':
         case mod:
         case power:
+        case fact:
         case cross:
             return Token{ch};
         case '.':

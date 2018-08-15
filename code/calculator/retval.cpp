@@ -43,6 +43,21 @@ RetVal RetVal::exp(double x) const
      return r;
 }
 
+RetVal RetVal::fact() const
+{
+     RetVal r;
+     if(isdbl()) {
+         r.rtype = dbl;
+         r.dval = tgamma(dval + 1);
+     }
+     else if(isvec()) {
+         r.rtype = vec;
+         for(double d : vval)
+             r.vval.push_back(tgamma(dval + 1));
+     }
+     return r;
+}
+
 RetVal RetVal::mod(double m) const
 {
      RetVal r;

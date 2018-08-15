@@ -77,22 +77,22 @@ Term:
     Term mod Expon
     Term cross Expon
 */
-    RetVal r = expon(ts);
+    RetVal r = exp_fact(ts);
     Token t = ts.get();        // get the next token from token stream
 
     while(true) {
         switch (t.kind) {
         case '*':
-            r *= expon(ts);
+            r *= exp_fact(ts);
             t = ts.get();
             break;
         case '/':
-            r /= expon(ts); 
+            r /= exp_fact(ts); 
             t = ts.get();
             break;
         case mod:
             {
-                RetVal rhs = expon(ts);
+                RetVal rhs = exp_fact(ts);
                 if(rhs.isvec()) throw runtime_error("can't mod by a vector");
                 double m = rhs.get_dval();
                 if(m == 0) throw runtime_error("divide by zero");
@@ -102,7 +102,7 @@ Term:
             }
         case cross:
             {
-                RetVal rhs = expon(ts);
+                RetVal rhs = exp_fact(ts);
                 return r.cross(rhs);
             }
         default: 
@@ -112,12 +112,13 @@ Term:
     }
 }
 
-RetVal expon(Token_stream& ts)
+RetVal exp_fact(Token_stream& ts)
 {
 /* grammar recognized:
 Exp:
     Primary
     Primary power Primary
+    Primary fact
 */
     double left;
     RetVal r = primary(ts);
@@ -126,6 +127,9 @@ Exp:
     if(t.kind == power) {
         double x = primary(ts).get_dval();
         return r.exp(x);
+    }
+    else if(t.kind == fact) {
+        return r.fact();
     }
     else {
         ts.putback(t);     // put t back into the token stream

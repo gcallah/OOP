@@ -8,6 +8,7 @@ const char number = '8';
 const char quit = 'q';
 const char print = ';';
 const char power = '^';
+const char fact = '!';
 
 class Token {
 public:
