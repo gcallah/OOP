@@ -152,7 +152,6 @@ Primary:
     Function "(" Expression ")"
 */
     Token t = ts.get();
-    cout << t << '\n';
     switch (t.kind) {
     case '(':    // handle '(' expression ')'
         {    
