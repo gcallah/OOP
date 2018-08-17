@@ -1,10 +1,21 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include "token.h"
 
 
-std::ostream &operator<<(std::ostream &os, Token const &t) { 
-    return os << t.kind;
+std::ostream &operator<<(std::ostream &os, const Token &t) { 
+    os << "Token of kind: ";
+    os << t.kind;
+    switch(t.kind) {
+        case number:
+            cout << " with a value of " << t.value;
+            break;
+        case name:
+            cout << " with name " << t.name;
+            break;
+    }
+    return os;
 }
 
 
@@ -39,6 +50,7 @@ Token Token_stream::get() {
         case '/':
         case '*':
         case '=':
+        case ',':
         case mod:
         case power:
         case fact:

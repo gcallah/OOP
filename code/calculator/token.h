@@ -10,6 +10,7 @@ const char print = ';';
 const char power = '^';
 const char fact = '!';
 
+
 class Token {
 public:
     char kind;
@@ -20,6 +21,7 @@ public:
     Token(char ch, string n) :kind{ch}, name{n} {}
 };
 
+ostream& operator<<(ostream& os, const Token& t);
 
 class Token_stream {
     public:

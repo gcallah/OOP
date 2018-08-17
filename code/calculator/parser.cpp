@@ -152,6 +152,7 @@ Primary:
     Function "(" Expression ")"
 */
     Token t = ts.get();
+    cout << t << '\n';
     switch (t.kind) {
     case '(':    // handle '(' expression ')'
         {    
@@ -176,11 +177,20 @@ Primary:
         {
             Token next_t = ts.get();
             if(next_t.kind == '(') {
-                double d = expression(ts).get_dval();
+                double ret;
+                double arg1 = expression(ts).get_dval();
                 next_t = ts.get();
+                // multi-arg func (2 for now!)
+                if (next_t.kind == ',') {
+                    double arg2 = expression(ts).get_dval();
+                    ret = exec_func(t.name, arg1, arg2);
+                    next_t = ts.get();
+                }
+                // single arg func:
+                else ret = exec_func(t.name, arg1);
+
                 if (next_t.kind != ')') throw runtime_error("')' expected");
-                d = exec_func(t.name, d);
-                return RetVal(d);
+                return RetVal(ret);
             }
             else {
                 ts.putback(next_t);
