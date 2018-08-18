@@ -23,13 +23,15 @@ public:
 
 ostream& operator<<(ostream& os, const Token& t);
 
-class Token_stream {
+class TokenStream {
     public:
+        TokenStream(istream& is) { inp = &is; }
         Token get();
         void putback(Token t);
         Token popback();
         void ignore(char c);
     private:
         vector<Token> buffer;
+        istream* inp;
 };
 

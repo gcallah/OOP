@@ -19,25 +19,25 @@ std::ostream &operator<<(std::ostream &os, const Token &t) {
 }
 
 
-void Token_stream::putback(Token t)
+void TokenStream::putback(Token t)
 {
     buffer.push_back(t);
 }
 
-Token Token_stream::popback()
+Token TokenStream::popback()
 {
     Token t = buffer.back();
     buffer.pop_back();
     return t;
 }
 
-Token Token_stream::get() {
+Token TokenStream::get() {
     if(buffer.size() > 0) {
         Token t = popback();
         return t;
     }
     char ch;
-    cin >> ch;
+    *inp >> ch;
     switch(ch) {
         case print:
         case quit:
@@ -60,17 +60,17 @@ Token Token_stream::get() {
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
         {
-            cin.putback(ch);
+            inp->putback(ch);
             double val;
-            cin >> val;
+            *inp >> val;
             return Token{number, val};
         }
         default:
             if(isalpha(ch)) {
                 string s;
                 s += ch;
-                while(cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
-                cin.putback(ch);
+                while(inp->get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
+                inp->putback(ch);
                 return Token{name, s};
             }
             return Token{invalid, double(ch)};
@@ -78,7 +78,7 @@ Token Token_stream::get() {
     return Token{quit};
 }
 
-void Token_stream::ignore(char c)
+void TokenStream::ignore(char c)
     // c is token kind to look for
 {
     // first check buffer:
@@ -89,7 +89,7 @@ void Token_stream::ignore(char c)
 
     // now search input:
     char ch = 0;
-    while(cin>>ch)
+    while(*inp >> ch)
         if(ch == c) return;
 }
 

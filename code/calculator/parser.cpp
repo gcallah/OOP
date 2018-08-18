@@ -10,7 +10,7 @@
 #include "parser.h"
 
 
-RetVal statement(Token_stream& ts)
+RetVal statement(TokenStream& ts)
 {
 /* grammar recognized:
  Statement:
@@ -39,7 +39,7 @@ RetVal statement(Token_stream& ts)
     return expression(ts);
 }
 
-RetVal expression(Token_stream& ts)
+RetVal expression(TokenStream& ts)
 {
 /* grammar recognized:
  Expression:
@@ -67,7 +67,7 @@ RetVal expression(Token_stream& ts)
     }
 }
 
-RetVal term(Token_stream& ts)
+RetVal term(TokenStream& ts)
 {
 /* grammar recognized:
 Term:
@@ -112,7 +112,7 @@ Term:
     }
 }
 
-RetVal exp_fact(Token_stream& ts)
+RetVal exp_fact(TokenStream& ts)
 {
 /* grammar recognized:
 Exp:
@@ -137,7 +137,7 @@ Exp:
     }
 }
 
-RetVal primary(Token_stream& ts)
+RetVal primary(TokenStream& ts)
 {
 /* grammar recognized:
 Primary:

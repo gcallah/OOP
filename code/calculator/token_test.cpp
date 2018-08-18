@@ -7,7 +7,7 @@
 int main()
 {
     vector<Token> tokens;
-    Token_stream ts;
+    TokenStream ts(cin);
 
     for(Token t = ts.get(); t.kind != quit; t = ts.get()) {
         tokens.push_back(t);

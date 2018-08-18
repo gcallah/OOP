@@ -11,12 +11,12 @@
 const string prompt = "> ";
 const string result = "= ";
 
-void clean_up_mess(Token_stream& ts)   // naive version
+void clean_up_mess(TokenStream& ts)   // naive version
 {
     ts.ignore(print);
 }
 
-void calculate(Token_stream& ts)
+void calculate(TokenStream& ts)
 {
     while(cin) {
         try {
@@ -41,7 +41,7 @@ void calculate(Token_stream& ts)
 
 int main()
 {
-    Token_stream ts;
+    TokenStream ts;
 
     // add some important constant to our variable table:
     set_value("pi", pi);

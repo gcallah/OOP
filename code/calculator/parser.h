@@ -1,5 +1,5 @@
-RetVal statement(Token_stream& ts);
-RetVal expression(Token_stream& ts);
-RetVal term(Token_stream& ts);
-RetVal exp_fact(Token_stream& ts);
-RetVal primary(Token_stream& ts);
+RetVal statement(TokenStream& ts);
+RetVal expression(TokenStream& ts);
+RetVal term(TokenStream& ts);
+RetVal exp_fact(TokenStream& ts);
+RetVal primary(TokenStream& ts);
