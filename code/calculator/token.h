@@ -25,7 +25,7 @@ ostream& operator<<(ostream& os, const Token& t);
 
 class TokenStream {
     public:
-        TokenStream(istream& is) { inp = &is; }
+        TokenStream(istream* is) { inp = is; }
         Token get();
         void putback(Token t);
         Token popback();

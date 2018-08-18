@@ -39,13 +39,18 @@ void calculate(TokenStream& ts)
 
 }
 
-int main()
-{
-    TokenStream ts;
 
-    // add some important constant to our variable table:
+int main(int argc, char *argv[])
+{
+    // add some important constants to our variable table:
     set_value("pi", pi);
     set_value("e", e);
+
+    istream* inp;
+    if(argc < 2)
+        inp = &cin;
+
+    TokenStream ts(inp);
 
     try {
         calculate(ts);
