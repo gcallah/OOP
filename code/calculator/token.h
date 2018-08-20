@@ -23,6 +23,7 @@ public:
 
 ostream& operator<<(ostream& os, const Token& t);
 
+
 class TokenStream {
     public:
         TokenStream(istream* is) { inp = is; }
@@ -30,6 +31,7 @@ class TokenStream {
         void putback(Token t);
         Token popback();
         void ignore(char c);
+        istream* get_istream() { return inp; }
     private:
         vector<Token> buffer;
         istream* inp;

@@ -24,7 +24,7 @@ vars.o: vars.cpp vars.h retval.h
 
 funcs_test: funcs.o funcs_test.o
 
-funcs.o: funcs.cpp funcs.h
+funcs.o: funcs.cpp funcs.h const.h
 
 repo:
 	./all_tests.sh
