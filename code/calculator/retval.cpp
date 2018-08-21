@@ -25,6 +25,17 @@ ostream& operator<<(ostream& os, const RetVal& r)
             os << d << " ";
         return os << "]\n";
     }
+    else if(r.ismat()) {
+        os << "[ ";
+        vector<vector<double>> matx = r.get_mval();
+        for(vector<double>& v : matx) {
+            for(double d : v)
+                os << d << " ";
+            if(&v != &matx.back())
+                os << ", ";
+        }
+        return os << "]\n";
+    }
     return os << "No val: type undefined\n";
 }
 
@@ -40,6 +51,9 @@ RetVal RetVal::exp(double x) const
          for(double d : vval)
              r.vval.push_back(pow(d, x));
      }
+     else {
+        throw runtime_error("can't raise this type to a power");
+     }
      return r;
 }
 
@@ -54,6 +68,9 @@ RetVal RetVal::fact() const
          r.rtype = vec;
          for(double d : vval)
              r.vval.push_back(tgamma(dval + 1));
+     }
+     else {
+        throw runtime_error("can't perform factorial on this type");
      }
      return r;
 }

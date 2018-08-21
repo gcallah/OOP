@@ -144,7 +144,7 @@ Primary:
     Number
     "(" Expression ")"
     "[" Vector "]"
-    "{" Vector, Vector, Vector... "}"  (a matrix)
+    "[" Vector, Vector, Vector... "]"  (a matrix)
     +Number
     -Number
     Variable
@@ -163,19 +163,12 @@ Primary:
         }
     case '[':    // handle '[' vector ']'
         {
+            bool matrix = false;
+            vector<vector<double>> m;
             vector<double> v;
-            for(Token next_t = ts.get(); next_t.kind != ']'; next_t = ts.get()) {
-                ts.putback(next_t);
-                RetVal r = primary(ts).get_dval();
-                v.push_back(r.get_dval());
-            }
-            return RetVal{v};
-        }
-    case '{':    // handle matrices
-        {
-            vector<vector> m;
-            vector<double> v;
-            for(Token next_t = ts.get(); next_t.kind != '}'; next_t = ts.get()) {
+            for(Token next_t = ts.get();
+                    next_t.kind != ']';
+                    next_t = ts.get()) {
                 if(next_t.kind != ',') {
                     ts.putback(next_t);
                     RetVal r = primary(ts).get_dval();
@@ -183,11 +176,16 @@ Primary:
                 }
                 else {
                     m.push_back(v);
-                    v = new vector<double>;
+                    vector<double> newv;
+                    v = newv;
+                    matrix = true;
                 }
             }
-            m.push_back(v);
-            return RetVal{m};
+            if(matrix) {
+                m.push_back(v);  // one vector left when we are done!
+                return RetVal{m};
+            }
+            else return RetVal{v};
         }
     case number:
         return RetVal(t.value);  // return the number's value
