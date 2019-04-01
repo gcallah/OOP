@@ -36,13 +36,14 @@ class RetVal {
         RetVal operator-=(const RetVal& rhs);
         RetVal operator*=(const RetVal& rhs);
         RetVal operator/=(const RetVal& rhs);
-private:
 
-    protected:
-        double dval = 0.0;
-        vector<double> vval;
-        vector<vector<double>> mval;
+    private:
         RetType rtype = undef; 
 };
 
 ostream& operator<<(ostream &os, const RetVal &v);
+
+class DoubleRet : public RetVal
+{
+};
+
